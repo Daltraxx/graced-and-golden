@@ -3,7 +3,6 @@ import { PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 import Link from "next/link";
 import Bounded from "./Bounded";
-import Button from "./Button";
 
 export default async function Footer() {
    const client = createClient();
