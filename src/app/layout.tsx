@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${clsx(nunito.variable, nunitoSans.variable)} antialiased bg-[var(--body-background-color)]`}>
+    <html lang="en" className={`${clsx(nunito.variable, nunitoSans.variable)} antialiased`}>
       <body>
         <Header />
         {children}

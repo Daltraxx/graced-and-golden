@@ -6,7 +6,13 @@
 @theme {
   --font-body: var(--font-nunito-sans);
   --font-display: var(--font-nunito);
-  --body-background-color: #FBFBFB;
-  --site-primary-color: #E7E1E0;
-  --site-secondary-color: #F1EFEC;
+  --body-background-color: hsl(0, 0%, 98%);
+  --site-primary-color: 	hsl(9, 13%, 89%);
+  --site-secondary-color: 	hsl(36, 15%, 94%);
+  --site-background-gradient: linear-gradient(to right top, rgba(231, 224, 223, 1) 0%, rgba(250, 250, 250, 1) 50%, rgba(255, 255, 255, 1) 100%);
+}
+
+html {
+  background: hsl(0, 0%, 98%);
+  background: var(--site-background-gradient);
 }
