@@ -11,7 +11,7 @@ export default async function Header() {
 
    return (
       <Bounded as='header' className="bg-[var(--site-primary-color)] font-display">
-         <div className="flex gap-4 items-center justify-between flex-col sm:flex-row">
+         <div className="flex gap-4 items-center justify-between flex-col md:flex-row">
             <Link href='/'>
                <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
             </Link>
