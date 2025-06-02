@@ -1,5 +1,6 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Header() {
@@ -8,13 +9,13 @@ export default async function Header() {
 
    return (
       <header>
-         <div>
+         <div className="flex items-center justify-between">
             <Link href='/'>
-               {/* <Logo /> */}
+               <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
             </Link>
             <ul>
                {header.data.nav_link.map((link) => (
-                  <li>
+                  <li key={link.key}>
                      <PrismicNextLink key={link.key} field={link} />
                   </li>
                ))}

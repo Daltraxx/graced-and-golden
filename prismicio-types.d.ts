@@ -37,6 +37,17 @@ interface HeaderDocumentData {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Logo Full field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.logo_full
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo_full: prismic.ImageField<never>;
 }
 
 /**

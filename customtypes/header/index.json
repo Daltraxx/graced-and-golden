@@ -27,6 +27,14 @@
           "allowText": true,
           "repeat": false
         }
+      },
+      "logo_full": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Full",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }
