@@ -1,4 +1,5 @@
 .button {
+   display: block;
    background-color: var(--body-background-color);
    border-radius: 100px;
    padding: .6rem 1rem;
