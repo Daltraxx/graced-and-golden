@@ -10,7 +10,7 @@ export default function Button({
 
    return (
       <PrismicNextLink 
-         className={clsx(className, styles.button)}
+         className={clsx(styles.button, className)}
          {...restProps}
       />
    );
