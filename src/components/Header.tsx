@@ -14,12 +14,15 @@ export default async function Header() {
             <Link href='/'>
                <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
             </Link>
-            <ul>
+            <ul className="flex gap-7">
                {header.data.nav_link.map((link) => (
                   <li key={link.key}>
                      <PrismicNextLink key={link.key} field={link} />
                   </li>
                ))}
+               <li>
+                  
+               </li>
             </ul>
          </div>
       </Bounded>
