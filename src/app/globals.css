@@ -6,4 +6,5 @@
 @theme {
   --font-body: var(--font-nunito-sans);
   --font-display: var(--font-nunito);
+  --body-background-color: #FBFBFB;
 }
