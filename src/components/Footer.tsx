@@ -12,11 +12,11 @@ export default async function Footer() {
    return (
       <Bounded as='header' className="bg-[var(--site-primary-color)] font-display">
          <div className="flex gap-4 items-center justify-between flex-col md:flex-row">
-            <small>Graced and Golden © {new Date().getFullYear()}</small>
-            <Link href='/'>
-               <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
+            <small className="basis-1/3">Graced and Golden © {new Date().getFullYear()}</small>
+            <Link href='/' className="basis-1/3 flex justify-center">
+               <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'className=""/>
             </Link>
-            <ul className="flex flex-col sm:flex-row gap-4 place-items-center">
+            <ul className="basis-1/3 flex flex-col sm:flex-row gap-4 place-items-center justify-end">
                {header.data.nav_link.map((link) => (
                   <li key={link.key}>
                      <PrismicNextLink key={link.key} field={link} />
