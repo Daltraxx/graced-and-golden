@@ -5,7 +5,7 @@ import Bounded from "@/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
-// import styles from '@/styles/styles.module.css';
+import styles from '@/styles/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
@@ -31,7 +31,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         <PrismicNextImage field={slice.primary.image} width={3259} height={4888} className="h-96 w-auto mx-12"/>
         <div className="text-center place-items-center">
           <PrismicRichText field={slice.primary.heading} components={components}/>
-          <Button field={slice.primary.button} className="my-3"/>
+          <Button field={slice.primary.button} className={`${styles.buttonDark}`}/>
         </div>
       </div>
     </Bounded>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Bounded from "./Bounded";
 import Button from "./Button";
+import styles from '@/styles/styles.module.css';
 
 export default async function Header() {
    const client = createClient();
@@ -22,7 +23,7 @@ export default async function Header() {
                   </li>
                ))}
                <li>
-                  <Button field={header.data.booking_link} />
+                  <Button field={header.data.booking_link} className={styles.buttonLight}/>
                </li>
             </ul>
          </div>
