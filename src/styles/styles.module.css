@@ -1,3 +1,21 @@
+/* 
+****** LAYOUT
+ */
+
+
+
+
+
+
+
+
+
+
+
+/* 
+****** BUTTONS
+ */
+
 .button {
    display: block;
    border-radius: 100px;
@@ -12,6 +30,10 @@
    color: white;
    background: var(--site-primary-dark);
 }
+
+/* .buttonDarkGradient {
+
+} */
 
 /* .flexRow2Col {
    display: flex;
