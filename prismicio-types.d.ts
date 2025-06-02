@@ -288,6 +288,36 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Item in *Introduction → Default → Primary → Paragraphs Column 1*
+ */
+export interface IntroductionSliceDefaultPrimaryParagraphsColumn1Item {
+  /**
+   * Paragraph field in *Introduction → Default → Primary → Paragraphs Column 1*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.default.primary.paragraphs_column_1[].paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Item in *Introduction → Default → Primary → Paragraphs Column 2*
+ */
+export interface IntroductionSliceDefaultPrimaryParagraphsColumn2Item {
+  /**
+   * Paragraph field in *Introduction → Default → Primary → Paragraphs Column 2*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.default.primary.paragraphs_column_2[].paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
  * Primary content in *Introduction → Default → Primary*
  */
 export interface IntroductionSliceDefaultPrimary {
@@ -304,22 +334,26 @@ export interface IntroductionSliceDefaultPrimary {
   /**
    * Paragraphs Column 1 field in *Introduction → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.paragraphs_column_1
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: introduction.default.primary.paragraphs_column_1[]
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  paragraphs_column_1: prismic.RichTextField;
+  paragraphs_column_1: prismic.GroupField<
+    Simplify<IntroductionSliceDefaultPrimaryParagraphsColumn1Item>
+  >;
 
   /**
    * Paragraphs Column 2 field in *Introduction → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.paragraphs_column_2
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: introduction.default.primary.paragraphs_column_2[]
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  paragraphs_column_2: prismic.RichTextField;
+  paragraphs_column_2: prismic.GroupField<
+    Simplify<IntroductionSliceDefaultPrimaryParagraphsColumn2Item>
+  >;
 }
 
 /**
@@ -388,6 +422,8 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       IntroductionSlice,
+      IntroductionSliceDefaultPrimaryParagraphsColumn1Item,
+      IntroductionSliceDefaultPrimaryParagraphsColumn2Item,
       IntroductionSliceDefaultPrimary,
       IntroductionSliceVariation,
       IntroductionSliceDefault,

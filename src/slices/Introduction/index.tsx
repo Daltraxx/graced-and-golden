@@ -6,12 +6,12 @@ import Heading from "@/components/Heading";
 
 const components : JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" className="">
+    <Heading as="h2" size="md" className={`text-center`}>
       {children}
     </Heading>
   ),
   paragraph: ({children}) => (
-    <p>{children}</p>
+    <p className="">{children}</p>
   )
 }
 /**
@@ -24,11 +24,25 @@ export type IntroductionProps = SliceComponentProps<Content.IntroductionSlice>;
  */
 const Introduction: FC<IntroductionProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={``}>
       <PrismicRichText field={slice.primary.heading} components={components} />
-      <div>
-        <PrismicRichText field={slice.primary.paragraphs_column_1} components={components} />
-        <PrismicRichText field={slice.primary.paragraphs_column_2} components={components} />
+      <div className="flex justify-between place-items-center">
+        <div className="w-2/5 my-4">
+          {slice.primary.paragraphs_column_1.map((item, index) => (
+            <>
+              <PrismicRichText key={`paragraph-col-1-${index}`} field={item.paragraph} components={components}/>
+              <br />
+            </>
+          ))}
+        </div>
+        <div>
+          {slice.primary.paragraphs_column_2.map((item, index) => (
+            <>
+              <PrismicRichText key={`paragraph-col-1-${index}`} field={item.paragraph} components={components}/>
+              <br />
+            </>
+          ))}
+        </div>
       </div>
     </Bounded>
   );

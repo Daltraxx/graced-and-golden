@@ -14,25 +14,51 @@
 					}
 				]
 			},
-			"paragraphs_column_2": {
-				"__TYPE__": "StructuredTextContent",
+			"paragraphs_column_1": {
+				"__TYPE__": "GroupContentType",
 				"value": [
 					{
-						"type": "paragraph",
-						"content": {
-							"text": "Est in quis nostrud excepteur duis amet. Non sint sit eiusmod ex enim sunt ut duis. Laborum sunt esse occaecat tempor aliqua aliqua laboris non enim consectetur."
-						}
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"paragraph",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Et magna amet id deserunt consectetur deserunt cupidatat sit. Do enim sunt officia adipisicing magna dolore nulla pariatur dolore."
+											}
+										}
+									]
+								}
+							]
+						]
 					}
 				]
 			},
-			"paragraphs_column_1": {
-				"__TYPE__": "StructuredTextContent",
+			"paragraphs_column_2": {
+				"__TYPE__": "GroupContentType",
 				"value": [
 					{
-						"type": "paragraph",
-						"content": {
-							"text": "Commodo ad cillum incididunt id mollit magna elit amet pariatur. Occaecat aute ea sit aute ullamco ex sint nulla occaecat minim mollit."
-						}
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"paragraph",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Duis incididunt dolor cupidatat sint labore sunt ea occaecat tempor ex excepteur duis est. Ullamco officia irure nulla dolor ad sunt nisi adipisicing est cupidatat qui qui tempor non. Aute laboris eiusmod labore pariatur veniam ea est incididunt anim."
+											}
+										}
+									]
+								}
+							]
+						]
 					}
 				]
 			}

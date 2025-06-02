@@ -22,21 +22,39 @@
           }
         },
         "paragraphs_column_1": {
-          "type": "StructuredText",
+          "type": "Group",
           "config": {
             "label": "Paragraphs Column 1",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
+            "repeat": true,
+            "fields": {
+              "paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,strong,em"
+                }
+              }
+            }
           }
         },
         "paragraphs_column_2": {
-          "type": "StructuredText",
+          "type": "Group",
           "config": {
             "label": "Paragraphs Column 2",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
+            "repeat": true,
+            "fields": {
+              "paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,strong,em"
+                }
+              }
+            }
           }
         }
       },
