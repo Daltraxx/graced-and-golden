@@ -4,6 +4,7 @@ import clsx from "clsx";
 import "./globals.css";
 import { createClient } from "@/prismicio";
 import { asImageSrc } from "@prismicio/client";
+import Header from "@/components/Header";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${clsx(nunito.variable, nunitoSans.variable)} antialiased bg-[var(--body-background-color)]`}>
       <body>
+        <Header />
         {children}
       </body>
     </html>
