@@ -1,0 +1,28 @@
+{
+  "id": "introduction",
+  "type": "SharedSlice",
+  "name": "Introduction",
+  "description": "Introduction",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "paragraph": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

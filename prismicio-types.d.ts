@@ -287,6 +287,51 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *Introduction → Default → Primary*
+ */
+export interface IntroductionSliceDefaultPrimary {
+  /**
+   * Paragraph field in *Introduction → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.default.primary.paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Introduction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IntroductionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IntroductionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Introduction*
+ */
+type IntroductionSliceVariation = IntroductionSliceDefault;
+
+/**
+ * Introduction Shared Slice
+ *
+ * - **API ID**: `introduction`
+ * - **Description**: Introduction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IntroductionSlice = prismic.SharedSlice<
+  "introduction",
+  IntroductionSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -322,6 +367,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      IntroductionSlice,
+      IntroductionSliceDefaultPrimary,
+      IntroductionSliceVariation,
+      IntroductionSliceDefault,
     };
   }
 }

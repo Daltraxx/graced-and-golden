@@ -26,7 +26,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero: FC<HeroProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="bg-[var(--site-secondary-color)]">
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={styles.backgroundSecondary}>
       <div className="grid grid-cols-1 md:grid-cols-2 place-items-center w-10/12 m-auto">
         <PrismicNextImage field={slice.primary.image} width={3259} height={4888} className={`${styles.image} h-96 w-auto mx-12`}/>
         <div className="text-center place-items-center">
