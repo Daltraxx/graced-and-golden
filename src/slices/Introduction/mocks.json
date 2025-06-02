@@ -3,13 +3,35 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"paragraph": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Stream"
+						}
+					}
+				]
+			},
+			"paragraphs_column_2": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Adipisicing do velit anim. Ad laborum anim eiusmod sit aliqua amet consectetur labore est consequat anim adipisicing ex quis duis. Aliqua irure commodo culpa irure eu amet."
+							"text": "Est in quis nostrud excepteur duis amet. Non sint sit eiusmod ex enim sunt ut duis. Laborum sunt esse occaecat tempor aliqua aliqua laboris non enim consectetur."
+						}
+					}
+				]
+			},
+			"paragraphs_column_1": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo ad cillum incididunt id mollit magna elit amet pariatur. Occaecat aute ea sit aute ullamco ex sint nulla occaecat minim mollit."
 						}
 					}
 				]

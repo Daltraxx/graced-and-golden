@@ -100,7 +100,7 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice = IntroductionSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -292,14 +292,34 @@ export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
  */
 export interface IntroductionSliceDefaultPrimary {
   /**
-   * Paragraph field in *Introduction → Default → Primary*
+   * Heading field in *Introduction → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.paragraph
+   * - **API ID Path**: introduction.default.primary.heading
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  paragraph: prismic.RichTextField;
+  heading: prismic.RichTextField;
+
+  /**
+   * Paragraphs Column 1 field in *Introduction → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.default.primary.paragraphs_column_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraphs_column_1: prismic.RichTextField;
+
+  /**
+   * Paragraphs Column 2 field in *Introduction → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.default.primary.paragraphs_column_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraphs_column_2: prismic.RichTextField;
 }
 
 /**
