@@ -5,6 +5,7 @@ import "./globals.css";
 import { createClient } from "@/prismicio";
 import { asImageSrc } from "@prismicio/client";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
