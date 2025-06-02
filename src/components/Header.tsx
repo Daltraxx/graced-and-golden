@@ -2,13 +2,14 @@ import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 import Link from "next/link";
+import Bounded from "./Bounded";
 
 export default async function Header() {
    const client = createClient();
    const header = await client.getSingle('header');
 
    return (
-      <header>
+      <Bounded as='header' className="py-4 md:py-6 lg:py-8">
          <div className="flex items-center justify-between">
             <Link href='/'>
                <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
@@ -21,6 +22,6 @@ export default async function Header() {
                ))}
             </ul>
          </div>
-      </header>
+      </Bounded>
    );
 }
