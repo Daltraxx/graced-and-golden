@@ -166,6 +166,110 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Service documents
+ */
+interface ServiceDocumentData {
+  /**
+   * Image field in *Service*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Service Name field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.service_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_name: prismic.RichTextField;
+
+  /**
+   * Book Button field in *Service*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.book_button
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  book_button: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Details field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.details
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  details: prismic.RichTextField;
+
+  /**
+   * Disclaimer field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.disclaimer
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  disclaimer: prismic.KeyTextField;
+
+  /**
+   * Price field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  price: prismic.KeyTextField;
+
+  /**
+   * Duration field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.duration
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  duration: prismic.KeyTextField;
+}
+
+/**
+ * Service document from Prismic
+ *
+ * - **API ID**: `service`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServiceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ServiceDocumentData>,
+    "service",
+    Lang
+  >;
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -223,6 +327,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
   | HomepageDocument
+  | ServiceDocument
   | SettingsDocument;
 
 /**
@@ -386,6 +491,36 @@ export type IntroductionSlice = prismic.SharedSlice<
   IntroductionSliceVariation
 >;
 
+/**
+ * Default variation for Services Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Services*
+ */
+type ServicesSliceVariation = ServicesSliceDefault;
+
+/**
+ * Services Shared Slice
+ *
+ * - **API ID**: `services`
+ * - **Description**: Services
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSlice = prismic.SharedSlice<
+  "services",
+  ServicesSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -414,6 +549,8 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      ServiceDocument,
+      ServiceDocumentData,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -427,6 +564,9 @@ declare module "@prismicio/client" {
       IntroductionSliceDefaultPrimary,
       IntroductionSliceVariation,
       IntroductionSliceDefault,
+      ServicesSlice,
+      ServicesSliceVariation,
+      ServicesSliceDefault,
     };
   }
 }

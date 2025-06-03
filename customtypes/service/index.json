@@ -1,0 +1,75 @@
+{
+  "format": "custom",
+  "id": "service",
+  "label": "Service",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "service_name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Service Name",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading3"
+        }
+      },
+      "book_button": {
+        "type": "Link",
+        "config": {
+          "label": "Book Button",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "details": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Details",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "disclaimer": {
+        "type": "Text",
+        "config": {
+          "label": "Disclaimer",
+          "placeholder": ""
+        }
+      },
+      "price": {
+        "type": "Text",
+        "config": {
+          "label": "Price",
+          "placeholder": ""
+        }
+      },
+      "duration": {
+        "type": "Text",
+        "config": {
+          "label": "Duration",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
