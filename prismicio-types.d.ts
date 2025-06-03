@@ -100,7 +100,10 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = IntroductionSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | ServicesSlice
+  | IntroductionSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -492,6 +495,48 @@ export type IntroductionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Services → Default → Primary → Services*
+ */
+export interface ServicesSliceDefaultPrimaryServicesItem {
+  /**
+   * service field in *Services → Default → Primary → Services*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.default.primary.services[].service
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  service: prismic.ContentRelationshipField<"service">;
+}
+
+/**
+ * Primary content in *Services → Default → Primary*
+ */
+export interface ServicesSliceDefaultPrimary {
+  /**
+   * Heading field in *Services → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Services field in *Services → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.default.primary.services[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  services: prismic.GroupField<
+    Simplify<ServicesSliceDefaultPrimaryServicesItem>
+  >;
+}
+
+/**
  * Default variation for Services Slice
  *
  * - **API ID**: `default`
@@ -500,7 +545,7 @@ export type IntroductionSlice = prismic.SharedSlice<
  */
 export type ServicesSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ServicesSliceDefaultPrimary>,
   never
 >;
 
@@ -565,6 +610,8 @@ declare module "@prismicio/client" {
       IntroductionSliceVariation,
       IntroductionSliceDefault,
       ServicesSlice,
+      ServicesSliceDefaultPrimaryServicesItem,
+      ServicesSliceDefaultPrimary,
       ServicesSliceVariation,
       ServicesSliceDefault,
     };

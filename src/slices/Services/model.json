@@ -11,7 +11,37 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "services": {
+          "type": "Group",
+          "config": {
+            "label": "Services",
+            "repeat": true,
+            "fields": {
+              "service": {
+                "type": "Link",
+                "config": {
+                  "label": "service",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "service"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
       "items": {}
     }
   ]
