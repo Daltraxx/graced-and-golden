@@ -7,7 +7,7 @@ import styles from '@/styles/styles.module.css';
 
 const components : JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" className={`text-center ${styles.textBrown}`}>
+    <Heading as="h2" size="md" className={`text-center ${styles.textBrown} mb-4`}>
       {children}
     </Heading>
   ),
@@ -28,7 +28,7 @@ const Introduction: FC<IntroductionProps> = ({ slice }) => {
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
       <PrismicRichText field={slice.primary.heading} components={components} />
       <div className="flex flex-col sm:flex-row justify-between place-items-center">
-        <div className="w-2/5 my-4">
+        <div className="w-4/5 md:w-2/5 text-center md:text-start">
           {slice.primary.paragraphs_column_1.map((item, index) => (
             <div key={`paragraph-col-1-${index}`}>
               <PrismicRichText field={item.paragraph} components={components} />
@@ -36,7 +36,7 @@ const Introduction: FC<IntroductionProps> = ({ slice }) => {
             </div>
           ))}
         </div>
-        <div className="w-2/5">
+        <div className="w-4/5 md:w-2/5 text-center md:text-start">
           {slice.primary.paragraphs_column_2.map((item, index) => (
             <div key={`paragraph-col-2-${index}`}>
               <PrismicRichText field={item.paragraph} components={components} />
