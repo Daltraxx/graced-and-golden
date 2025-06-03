@@ -26,21 +26,21 @@ const Introduction: FC<IntroductionProps> = ({ slice }) => {
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={``}>
       <PrismicRichText field={slice.primary.heading} components={components} />
-      <div className="flex justify-between place-items-center">
+      <div className="flex flex-col sm:flex-row justify-between place-items-center">
         <div className="w-2/5 my-4">
           {slice.primary.paragraphs_column_1.map((item, index) => (
-            <>
-              <PrismicRichText key={`paragraph-col-1-${index}`} field={item.paragraph} components={components}/>
+            <div key={`paragraph-col-1-${index}`}>
+              <PrismicRichText field={item.paragraph} components={components}/>
               <br />
-            </>
+            </div>
           ))}
         </div>
-        <div>
+        <div className="w-2/5">
           {slice.primary.paragraphs_column_2.map((item, index) => (
-            <>
-              <PrismicRichText key={`paragraph-col-1-${index}`} field={item.paragraph} components={components}/>
+            <div key={`paragraph-col-2-${index}`}>
+              <PrismicRichText field={item.paragraph} components={components}/>
               <br />
-            </>
+            </div>
           ))}
         </div>
       </div>
