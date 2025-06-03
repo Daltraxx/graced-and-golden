@@ -25,7 +25,7 @@ export type IntroductionProps = SliceComponentProps<Content.IntroductionSlice>;
  */
 const Introduction: FC<IntroductionProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundMain}`}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
       <PrismicRichText field={slice.primary.heading} components={components} />
       <div className="flex flex-col sm:flex-row justify-between place-items-center">
         <div className="w-2/5 my-4">

@@ -6,14 +6,18 @@
 
 
 /* 
-****** BACKGROUNDCOLORS
+****** COLORS
  */
-.backgroundMain {
+.backgroundCream200 {
    background: var(--cream-200);
 }
 
-.backgroundSecondary {
+.backgroundCream300 {
    background: var(--cream-300);
+}
+
+.textBrown {
+   color: var(--brown-800);
 }
 
  /* 
