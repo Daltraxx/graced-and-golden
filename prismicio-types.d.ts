@@ -101,6 +101,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | BridalCtaSlice
   | ServicesSlice
   | IntroductionSlice
   | HeroSlice;
@@ -332,6 +333,97 @@ export type AllDocumentTypes =
   | HomepageDocument
   | ServiceDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *BridalCta → Default → Primary*
+ */
+export interface BridalCtaSliceDefaultPrimary {
+  /**
+   * Image Left field in *BridalCta → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.default.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *BridalCta → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *BridalCta → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Bridal Page Link field in *BridalCta → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.default.primary.bridal_page_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  bridal_page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Image Right field in *BridalCta → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.default.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for BridalCta Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BridalCtaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BridalCtaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BridalCta*
+ */
+type BridalCtaSliceVariation = BridalCtaSliceDefault;
+
+/**
+ * BridalCta Shared Slice
+ *
+ * - **API ID**: `bridal_cta`
+ * - **Description**: BridalCta
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BridalCtaSlice = prismic.SharedSlice<
+  "bridal_cta",
+  BridalCtaSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -597,6 +689,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      BridalCtaSlice,
+      BridalCtaSliceDefaultPrimary,
+      BridalCtaSliceVariation,
+      BridalCtaSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
