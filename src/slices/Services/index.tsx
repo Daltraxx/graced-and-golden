@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { JSXMapSerializer, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
@@ -29,7 +29,16 @@ export type ServicesProps = SliceComponentProps<Content.ServicesSlice>;
  * Component for "Services" Slices.
  */
 const Services: FC<ServicesProps> = async({ slice }) => {
-  console.log(slice.primary.service);
+  // console.log(slice.primary.service);
+  const client = createClient();
+  const serviceQueries = slice.primary.service.map((item) => {
+    if (isFilled.contentRelationship(item.service) && item.service.uid) {
+      return client.getByUID('service', item.service.uid);
+    }
+  });
+
+  const services = await Promise.all(serviceQueries);
+  console.log(services);
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
       <p>placeholder</p>

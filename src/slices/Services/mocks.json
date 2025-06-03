@@ -14,7 +14,7 @@
 					}
 				]
 			},
-			"services": {
+			"service": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
@@ -23,7 +23,7 @@
 							[
 								"service",
 								{
-									"key": "b67b77e4-04f4-4b68-aa29-b756c448ac7a",
+									"key": "19f018cf-6d93-49d5-8bfe-3513a3eb5aeb",
 									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "DocumentLink",
