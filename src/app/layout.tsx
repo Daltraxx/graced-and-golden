@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { nunito, nunitoSans } from "@/app/fonts";
 import clsx from "clsx";
 import "./globals.css";
-import { createClient } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
 import { asImageSrc } from "@prismicio/client";
+import { PrismicPreview } from "@prismicio/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );
