@@ -1,6 +1,9 @@
 {
   "format": "page",
   "id": "page",
+  "label": "Page",
+  "repeatable": true,
+  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -10,11 +13,21 @@
         }
       },
       "slices": {
-        "config": {
-          "choices": {}
-        },
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "introduction": {
+              "type": "SharedSlice"
+            },
+            "hero_three_image": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -44,8 +57,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Page",
-  "repeatable": true,
-  "status": true
+  }
 }

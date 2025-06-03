@@ -169,7 +169,10 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice =
+  | HeroSlice
+  | IntroductionSlice
+  | HeroThreeImageSlice;
 
 /**
  * Content for Page documents
@@ -550,6 +553,91 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *HeroThreeImage → Default → Primary*
+ */
+export interface HeroThreeImageSliceDefaultPrimary {
+  /**
+   * Heading field in *HeroThreeImage → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_three_image.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *HeroThreeImage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_three_image.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Image Left field in *HeroThreeImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_three_image.default.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Image Center field in *HeroThreeImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_three_image.default.primary.image_center
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_center: prismic.ImageField<never>;
+
+  /**
+   * Image Right field in *HeroThreeImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_three_image.default.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroThreeImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroThreeImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroThreeImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroThreeImage*
+ */
+type HeroThreeImageSliceVariation = HeroThreeImageSliceDefault;
+
+/**
+ * HeroThreeImage Shared Slice
+ *
+ * - **API ID**: `hero_three_image`
+ * - **Description**: HeroThreeImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroThreeImageSlice = prismic.SharedSlice<
+  "hero_three_image",
+  HeroThreeImageSliceVariation
+>;
+
+/**
  * Item in *Introduction → Default → Primary → Paragraphs Column 1*
  */
 export interface IntroductionSliceDefaultPrimaryParagraphsColumn1Item {
@@ -762,6 +850,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroThreeImageSlice,
+      HeroThreeImageSliceDefaultPrimary,
+      HeroThreeImageSliceVariation,
+      HeroThreeImageSliceDefault,
       IntroductionSlice,
       IntroductionSliceDefaultPrimaryParagraphsColumn1Item,
       IntroductionSliceDefaultPrimaryParagraphsColumn2Item,

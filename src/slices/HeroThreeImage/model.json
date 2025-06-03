@@ -1,0 +1,61 @@
+{
+  "id": "hero_three_image",
+  "type": "SharedSlice",
+  "name": "HeroThreeImage",
+  "description": "HeroThreeImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "image_left": {
+          "type": "Image",
+          "config": {
+            "label": "Image Left",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_center": {
+          "type": "Image",
+          "config": {
+            "label": "Image Center",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_right": {
+          "type": "Image",
+          "config": {
+            "label": "Image Right",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
