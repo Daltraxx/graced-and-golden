@@ -2,6 +2,12 @@
 ****** LAYOUT
  */
 
+.grid2Col {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 2rem;
+}
+
 
 
 
@@ -32,7 +38,7 @@
 
  .serviceImage {
    border-radius: 5px;
-   height: 24rem;
+   height: 25rem;
    width: 16rem;
  }
 
@@ -51,6 +57,11 @@
 
 .buttonLight {
    background: var(--cream-200);
+}
+
+.buttonBrown300 {
+   color: white;
+   background: var(--brown-300);
 }
 
 .buttonDark {

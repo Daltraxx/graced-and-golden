@@ -16,3 +16,7 @@
 html {
   background: var(--cream-200);
 }
+
+body {
+  font-family: var(--font-body);
+}
