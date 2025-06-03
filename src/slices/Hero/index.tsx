@@ -31,7 +31,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
         <PrismicNextImage field={slice.primary.image} width={3259} height={4888} className={`${styles.heroImage} mx-12`}/>
         <div className="text-center place-items-center">
           <PrismicRichText field={slice.primary.heading} components={components}/>
-          <Button field={slice.primary.button} className={`${styles.buttonDark} my-4`}/>
+          <Button field={slice.primary.button} className={`${styles.buttonBrown800} my-4`}/>
         </div>
       </div>
     </Bounded>

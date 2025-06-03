@@ -23,7 +23,7 @@ export default async function Header() {
                   </li>
                ))}
                <li>
-                  <Button field={header.data.booking_link} className={styles.buttonLight}/>
+                  <Button field={header.data.booking_link} className={styles.buttonCream200}/>
                </li>
             </ul>
          </div>

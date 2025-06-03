@@ -52,12 +52,14 @@ const Services: FC<ServicesProps> = async({ slice }) => {
       <div className={`${styles.grid2Col}`}>
         {services.map((item, index) => item && (
           <div key={`service-${index}`} className="bg-white rounded-2xl">
-            <PrismicNextImage field={item.data.image} className={`${styles.serviceImage} mx-auto pt-4`}/>
-            <PrismicRichText field={item.data.service_name} components={components}/>
-            <Button field={item.data.book_button} className={`${styles.buttonBrown300} w-fit mx-auto my-2.5`}/>
-            <PrismicRichText field={item.data.details} components={components} />
-            <p className="mx-auto max-w-4/5">{item.data.disclaimer}</p>
-            <p className="mx-auto max-w-4/5 mb-4">{`${item.data.price} | ${item.data.duration}`}</p>
+            <div className="mt-4">
+              <PrismicNextImage field={item.data.image} className={`${styles.serviceImage} mx-auto`}/>
+              <PrismicRichText field={item.data.service_name} components={components}/>
+              <Button field={item.data.book_button} className={`${styles.buttonBrown300} w-fit mx-auto my-2.5`}/>
+              <PrismicRichText field={item.data.details} components={components} />
+              <p className="mx-auto max-w-4/5">{item.data.disclaimer}</p>
+              <p className="mx-auto max-w-4/5 mb-4">{`${item.data.price} | ${item.data.duration}`}</p>
+            </div>
           </div>
         ))}
       </div>
