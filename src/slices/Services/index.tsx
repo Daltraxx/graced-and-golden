@@ -45,14 +45,14 @@ const Services: FC<ServicesProps> = async({ slice }) => {
 
   const services = await Promise.all(serviceQueries);
   // console.log(services);
-
+  // FIX BORDER RADIUS ON IMAGES
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream300}`}>
       <PrismicRichText field={slice.primary.heading} components={components}/>
       <div className={`${styles.grid2Col}`}>
         {services.map((item, index) => item && (
           <div key={`service-${index}`} className="bg-white rounded-2xl">
-            <PrismicNextImage field={item.data.image} className={`${styles.serviceImage} mx-auto mt-4`}/>
+            <PrismicNextImage field={item.data.image} className={`${styles.serviceImage} mx-auto pt-4`}/>
             <PrismicRichText field={item.data.service_name} components={components}/>
             <Button field={item.data.book_button} className={`${styles.buttonBrown300} w-fit mx-auto my-2.5`}/>
             <PrismicRichText field={item.data.details} components={components} />

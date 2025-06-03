@@ -2,11 +2,13 @@
 ****** LAYOUT
  */
 
-.grid2Col {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   gap: 2rem;
-}
+ @media only screen and (min-width: 775px) {
+   .grid2Col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+   }
+ }
 
 
 
@@ -38,7 +40,7 @@
 
  .serviceImage {
    border-radius: 5px;
-   height: 25rem;
+   height: 26rem;
    width: 16rem;
  }
 
