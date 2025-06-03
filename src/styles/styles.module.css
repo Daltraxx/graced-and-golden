@@ -7,12 +7,23 @@
    gap: 1rem;
  }
 
+.flexRow {
+   display: flex;
+   flex-direction: column;
+}
+
  @media only screen and (min-width: 775px) {
    .grid2Col {
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
    }
+
+   .flexRow {
+      flex-direction: row;
+      justify-content: space-between;
+   }
  }
+
 
 
 
@@ -20,6 +31,11 @@
 /* 
 ****** COLORS
  */
+
+.backgroundBrown300 {
+   background: var(--brown-300);
+}
+
 .backgroundCream200 {
    background: var(--cream-200);
 }
@@ -28,8 +44,16 @@
    background: var(--cream-300);
 }
 
+.backgroundBrown800 {
+   background: var(--brown-800);
+}
+
 .textBrown {
    color: var(--brown-800);
+}
+
+.textCream200 {
+   color: var(--cream-200);
 }
 
  /* 
@@ -63,6 +87,7 @@
 
 .buttonCream200 {
    background: var(--cream-200);
+   color: black;
 }
 
 .buttonBrown300 {
@@ -75,9 +100,41 @@
    background: var(--brown-800);
 }
 
+/* 
+****** CTA
+*/
+
+.ctaImage {
+   width: 30rem;
+   height: auto;
+}
+
+.ctaContentContainer {
+   width: 30rem;
+   margin: 0 2rem;
+}
+
+.ctaTextContentContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   max-width: 80%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+
 /* .buttonDarkGradient {
 
 } */
+
+/* 
+****** TEXT CONTENT
+ */
+
+
 
 /* .flexRow2Col {
    display: flex;
