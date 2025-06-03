@@ -3,6 +3,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
+import styles from '@/styles/styles.module.css';
 
 const components : JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -24,7 +25,7 @@ export type IntroductionProps = SliceComponentProps<Content.IntroductionSlice>;
  */
 const Introduction: FC<IntroductionProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={``}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundMain}`}>
       <PrismicRichText field={slice.primary.heading} components={components} />
       <div className="flex flex-col sm:flex-row justify-between place-items-center">
         <div className="w-2/5 my-4">

@@ -9,7 +9,7 @@ export default async function Footer() {
    const header = await client.getSingle('footer');
 
    return (
-      <Bounded as='header' className="bg-[var(--site-primary-color)] font-display">
+      <Bounded as='footer' className="bg-[var(--brown-300)] font-display">
          <div className="flex gap-4 items-center justify-between flex-col md:flex-row">
             <small className="basis-1/3">Graced and Golden © {new Date().getFullYear()}</small>
             <Link href='/' className="basis-1/3 flex justify-center">

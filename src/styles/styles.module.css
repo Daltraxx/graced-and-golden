@@ -8,9 +8,12 @@
 /* 
 ****** BACKGROUNDCOLORS
  */
+.backgroundMain {
+   background: var(--cream-200);
+}
 
 .backgroundSecondary {
-   background: var(--site-secondary-color);
+   background: var(--cream-300);
 }
 
  /* 
@@ -35,12 +38,12 @@
 }
 
 .buttonLight {
-   background: var(--body-background-color);
+   background: var(--cream-200);
 }
 
 .buttonDark {
    color: white;
-   background: var(--site-primary-dark);
+   background: var(--brown-800);
 }
 
 /* .buttonDarkGradient {
