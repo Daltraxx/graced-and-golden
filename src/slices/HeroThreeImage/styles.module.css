@@ -1,0 +1,66 @@
+.heroContentContainer {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   place-items: center;
+}
+
+.textContentContainer {
+   background-image: linear-gradient(hsla(18, 21%, 57%, .5), hsla(18, 21%, 57%, .5)), url('/bride-champagne.jpeg');
+   background-repeat: no-repeat;
+   background-position: 0 0;
+   color: white;
+   width: 80%;
+   height: 20rem;
+   display: flex;
+   flex-direction: column;
+   place-content: center;
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.heroImage {
+   width: 80%;
+   height: auto;
+}
+
+.hide {
+   visibility: hidden;
+   display: none;
+}
+
+@media only screen and (min-width: 680px) {
+   .heroContentContainer {
+      flex-direction: row;
+   }
+   .textContentContainer {
+      background: var(--gray-300);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translatex(-50%);
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      place-content: center;
+      border: 5px solid var(--brown-300);
+      width: 80%;
+   }
+
+   .heroImage {
+      width: 33%;
+      height: auto;
+   }
+
+   .hide {
+      visibility: visible;
+      display: block;
+   }
+}
+
+
+@media only screen and (min-width: 1000px) {
+   .textContentContainer {
+      width: 60%;
+   }
+}
