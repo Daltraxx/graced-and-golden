@@ -1,6 +1,9 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Bounded from "@/components/Bounded";
+import Button from "@/components/Button";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * Props for `BridalCta`.
@@ -12,40 +15,13 @@ export type BridalCtaProps = SliceComponentProps<Content.BridalCtaSlice>;
  */
 const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for bridal_cta (variation: {slice.variation})
-      slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select Claude 3.7 Sonnet (recommended for optimal output)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
-    </section>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+      <PrismicNextImage field={slice.primary.image_left} />
+      <PrismicRichText field={slice.primary.heading} />
+      <PrismicRichText field={slice.primary.body} />
+      <Button field={slice.primary.bridal_page_link} />
+      <PrismicNextImage field={slice.primary.image_right} />
+    </Bounded>
   );
 };
 
