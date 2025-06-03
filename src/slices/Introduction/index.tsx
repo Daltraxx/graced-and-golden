@@ -7,7 +7,7 @@ import styles from '@/styles/styles.module.css';
 
 const components : JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" className={`text-center`}>
+    <Heading as="h2" size="md" className={`text-center ${styles.textBrown}`}>
       {children}
     </Heading>
   ),
@@ -31,7 +31,7 @@ const Introduction: FC<IntroductionProps> = ({ slice }) => {
         <div className="w-2/5 my-4">
           {slice.primary.paragraphs_column_1.map((item, index) => (
             <div key={`paragraph-col-1-${index}`}>
-              <PrismicRichText field={item.paragraph} components={components}/>
+              <PrismicRichText field={item.paragraph} components={components} />
               <br />
             </div>
           ))}
@@ -39,7 +39,7 @@ const Introduction: FC<IntroductionProps> = ({ slice }) => {
         <div className="w-2/5">
           {slice.primary.paragraphs_column_2.map((item, index) => (
             <div key={`paragraph-col-2-${index}`}>
-              <PrismicRichText field={item.paragraph} components={components}/>
+              <PrismicRichText field={item.paragraph} components={components} />
               <br />
             </div>
           ))}
