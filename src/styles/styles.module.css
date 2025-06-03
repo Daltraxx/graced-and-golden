@@ -24,8 +24,16 @@
 ****** Images
  */
 
- .image {
+ .heroImage {
    border-radius: 5px;
+   height: 24rem;
+   width: auto;
+ }
+
+ .serviceImage {
+   border-radius: 5px;
+   height: 24rem;
+   width: 16rem;
  }
 
 
