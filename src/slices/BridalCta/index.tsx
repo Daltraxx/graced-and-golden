@@ -14,7 +14,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p>{children}components={components}</p>
+    <p>{children}</p>
   )
 }
 
