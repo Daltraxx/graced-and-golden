@@ -2,27 +2,16 @@ import { FC } from "react";
 import { Content, isFilled } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { createClient } from "@/prismicio";
-import { PrismicNextImage } from "@prismicio/next";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
-import Button from "@/components/Button";
 import styles from '@/styles/styles.module.css';
+import Service from "@/components/Service";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
     <Heading as="h2" size="md" className="text-center mb-8">
       {children}
     </Heading>
-  ),
-  heading3: ({children}) => (
-    <Heading as="h3" size="sm" className="text-center mt-2">
-      {children}
-    </Heading>
-  ),
-  paragraph: ({ children }) => (
-    <p className="max-w-4/5 my-2 mx-auto">
-      {children}
-    </p>
   )
 }
 
@@ -51,16 +40,7 @@ const Services: FC<ServicesProps> = async({ slice }) => {
       <PrismicRichText field={slice.primary.heading} components={components}/>
       <div className={`${styles.grid2Col}`}>
         {services.map((item, index) => item && (
-          <div key={`service-${index}`} className="bg-white rounded-2xl">
-            <div className="mt-4">
-              <PrismicNextImage field={item.data.image} className={`${styles.serviceImage} mx-auto`}/>
-              <PrismicRichText field={item.data.service_name} components={components}/>
-              <Button field={item.data.book_button} className={`${styles.buttonBrown300} w-fit mx-auto my-2.5`}/>
-              <PrismicRichText field={item.data.details} components={components} />
-              <p className="mx-auto max-w-4/5">{item.data.disclaimer}</p>
-              <p className="mx-auto max-w-4/5 mb-4">{`${item.data.price} | ${item.data.duration}`}</p>
-            </div>
-          </div>
+          <Service item={item} key={`service-${index}`} />
         ))}
       </div>
     </Bounded>
