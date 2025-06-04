@@ -1,6 +1,25 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Bounded from "@/components/Bounded";
+import Heading from "@/components/Heading";
+import { PrismicNextImage } from "@prismicio/next";
+
+const components: JSXMapSerializer = {
+  heading2: ({children}) => (
+    <Heading as="h2" size="md" className="italic">
+        {children}
+    </Heading>
+  ),
+  heading3: ({children}) => (
+    <Heading as="h3" size="md" className="italic">
+        {children}
+    </Heading>
+  ),
+  paragraph: ({children}) => (
+    <p className="italic">{children}</p>
+  ),
+}
 
 /**
  * Props for `Info3Col`.
@@ -12,39 +31,22 @@ export type Info3ColProps = SliceComponentProps<Content.Info3ColSlice>;
  */
 const Info3Col: FC<Info3ColProps> = ({ slice }) => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for info3_col (variation: {slice.variation}) slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select Claude 3.7 Sonnet (recommended for optimal output)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
-    </section>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
+      {slice.variation === 'default' && (
+        <div>
+          <PrismicRichText field={slice.primary.main_heading} components={components} />
+          <div>
+            <PrismicNextImage field={slice.primary.image_left} />
+            <div>
+              <PrismicRichText field={slice.primary.content_heading} components={components} />
+              <PrismicRichText field={slice.primary.text_content_body} components={components} />
+            </div>
+            <PrismicNextImage field={slice.primary.image_right} />
+          </div>
+        </div>
+      )}
+      
+    </Bounded>
   );
 };
 
