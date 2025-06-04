@@ -6,6 +6,7 @@ export const components = {
   bridal_cta: dynamic(() => import("./BridalCta")),
   hero: dynamic(() => import("./Hero")),
   hero_three_image: dynamic(() => import("./HeroThreeImage")),
+  info3_col: dynamic(() => import("./Info3Col")),
   introduction: dynamic(() => import("./Introduction")),
   services: dynamic(() => import("./Services")),
 };

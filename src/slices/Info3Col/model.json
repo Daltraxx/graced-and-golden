@@ -1,0 +1,162 @@
+{
+  "id": "info3_col",
+  "type": "SharedSlice",
+  "name": "Info3Col",
+  "description": "Info3Col",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading2,heading3"
+          }
+        },
+        "image_left": {
+          "type": "Image",
+          "config": {
+            "label": "Image Left",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "content_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "text_content_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text Content Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "image_right": {
+          "type": "Image",
+          "config": {
+            "label": "Image Right",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "noHeadingTextImageText",
+      "name": "No Heading Text/Image/Text",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text_content_heading_left": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text Content Heading Left",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "text_content_body_left": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text Content Body Left",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "image_center": {
+          "type": "Image",
+          "config": {
+            "label": "Image Center",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "text_content_heading_right": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text Content Heading Right",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "text_content_body_right": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text Content Body Right",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "noHeadingImageTextImage",
+      "name": "No Heading Image/Text/Image",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_left": {
+          "type": "Image",
+          "config": {
+            "label": "Image Left",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "content_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "text_content_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text Content Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "image_right": {
+          "type": "Image",
+          "config": {
+            "label": "Image Right",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

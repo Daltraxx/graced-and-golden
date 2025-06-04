@@ -170,6 +170,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ServicesSlice
+  | Info3ColSlice
   | HeroSlice
   | IntroductionSlice
   | HeroThreeImageSlice;
@@ -638,6 +640,220 @@ export type HeroThreeImageSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Info3Col → Default → Primary*
+ */
+export interface Info3ColSliceDefaultPrimary {
+  /**
+   * Main Heading field in *Info3Col → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.TitleField;
+
+  /**
+   * Image Left field in *Info3Col → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.default.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Content Heading field in *Info3Col → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.default.primary.content_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content_heading: prismic.TitleField;
+
+  /**
+   * Text Content Body field in *Info3Col → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.default.primary.text_content_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_content_body: prismic.RichTextField;
+
+  /**
+   * Image Right field in *Info3Col → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.default.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Info3Col Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Info3ColSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Info3ColSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Info3Col → No Heading Text/Image/Text → Primary*
+ */
+export interface Info3ColSliceNoHeadingTextImageTextPrimary {
+  /**
+   * Text Content Heading Left field in *Info3Col → No Heading Text/Image/Text → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingTextImageText.primary.text_content_heading_left
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_content_heading_left: prismic.TitleField;
+
+  /**
+   * Text Content Body Left field in *Info3Col → No Heading Text/Image/Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingTextImageText.primary.text_content_body_left
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_content_body_left: prismic.RichTextField;
+
+  /**
+   * Image Center field in *Info3Col → No Heading Text/Image/Text → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingTextImageText.primary.image_center
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_center: prismic.ImageField<never>;
+
+  /**
+   * Text Content Heading Right field in *Info3Col → No Heading Text/Image/Text → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingTextImageText.primary.text_content_heading_right
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_content_heading_right: prismic.TitleField;
+
+  /**
+   * Text Content Body Right field in *Info3Col → No Heading Text/Image/Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingTextImageText.primary.text_content_body_right
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_content_body_right: prismic.RichTextField;
+}
+
+/**
+ * No Heading Text/Image/Text variation for Info3Col Slice
+ *
+ * - **API ID**: `noHeadingTextImageText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Info3ColSliceNoHeadingTextImageText = prismic.SharedSliceVariation<
+  "noHeadingTextImageText",
+  Simplify<Info3ColSliceNoHeadingTextImageTextPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Info3Col → No Heading Image/Text/Image → Primary*
+ */
+export interface Info3ColSliceNoHeadingImageTextImagePrimary {
+  /**
+   * Image Left field in *Info3Col → No Heading Image/Text/Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingImageTextImage.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Content Heading field in *Info3Col → No Heading Image/Text/Image → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingImageTextImage.primary.content_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content_heading: prismic.TitleField;
+
+  /**
+   * Text Content Body field in *Info3Col → No Heading Image/Text/Image → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingImageTextImage.primary.text_content_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_content_body: prismic.RichTextField;
+
+  /**
+   * Image Right field in *Info3Col → No Heading Image/Text/Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info3_col.noHeadingImageTextImage.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
+}
+
+/**
+ * No Heading Image/Text/Image variation for Info3Col Slice
+ *
+ * - **API ID**: `noHeadingImageTextImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Info3ColSliceNoHeadingImageTextImage = prismic.SharedSliceVariation<
+  "noHeadingImageTextImage",
+  Simplify<Info3ColSliceNoHeadingImageTextImagePrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Info3Col*
+ */
+type Info3ColSliceVariation =
+  | Info3ColSliceDefault
+  | Info3ColSliceNoHeadingTextImageText
+  | Info3ColSliceNoHeadingImageTextImage;
+
+/**
+ * Info3Col Shared Slice
+ *
+ * - **API ID**: `info3_col`
+ * - **Description**: Info3Col
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Info3ColSlice = prismic.SharedSlice<
+  "info3_col",
+  Info3ColSliceVariation
+>;
+
+/**
  * Item in *Introduction → Default → Primary → Paragraphs Column 1*
  */
 export interface IntroductionSliceDefaultPrimaryParagraphsColumn1Item {
@@ -854,6 +1070,14 @@ declare module "@prismicio/client" {
       HeroThreeImageSliceDefaultPrimary,
       HeroThreeImageSliceVariation,
       HeroThreeImageSliceDefault,
+      Info3ColSlice,
+      Info3ColSliceDefaultPrimary,
+      Info3ColSliceNoHeadingTextImageTextPrimary,
+      Info3ColSliceNoHeadingImageTextImagePrimary,
+      Info3ColSliceVariation,
+      Info3ColSliceDefault,
+      Info3ColSliceNoHeadingTextImageText,
+      Info3ColSliceNoHeadingImageTextImage,
       IntroductionSlice,
       IntroductionSliceDefaultPrimaryParagraphsColumn1Item,
       IntroductionSliceDefaultPrimaryParagraphsColumn2Item,
