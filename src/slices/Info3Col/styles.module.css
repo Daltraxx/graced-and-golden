@@ -13,6 +13,7 @@
    flex-direction: column;
    place-content: center;
    margin: 1rem;
+   border-radius: 10px;
 }
 
 .hideImage {
