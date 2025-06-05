@@ -4,7 +4,8 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import { PrismicNextImage } from "@prismicio/next";
-import styles from '@/styles/styles.module.css'
+import styles from '@/styles/styles.module.css';
+import moduleStyles from '@/slices/Info3Col/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -13,12 +14,12 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({children}) => (
-    <Heading as="h3" size="md" className="italic">
+    <Heading as="h3" size="sm" className="text-center">
         {children}
     </Heading>
   ),
   paragraph: ({children}) => (
-    <p className="italic">{children}</p>
+    <p className="p-4">{children}</p>
   ),
 }
 
@@ -36,13 +37,13 @@ const Info3Col: FC<Info3ColProps> = ({ slice }) => {
       {slice.variation === 'default' && (
         <div>
           <PrismicRichText field={slice.primary.main_heading} components={components} />
-          <div>
-            <PrismicNextImage field={slice.primary.image_left} />
-            <div>
+          <div className={`${styles.flexRow}`}>
+            <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.image}`}/>
+            <div className={`${moduleStyles.textContentContainer}`}>
               <PrismicRichText field={slice.primary.content_heading} components={components} />
               <PrismicRichText field={slice.primary.text_content_body} components={components} />
             </div>
-            <PrismicNextImage field={slice.primary.image_right} />
+            <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.image}`}/>
           </div>
         </div>
       )}
