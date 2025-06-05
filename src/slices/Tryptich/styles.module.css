@@ -1,0 +1,38 @@
+.row {
+   display: flex;
+   justify-content: space-around;
+}
+
+.row > img {
+   width: 40rem;
+}
+
+.bodyContainer {
+   background-color: var(--gray-200);
+   width: 60rem;
+   margin: 0 1rem;
+}
+
+.bodyText {
+   padding: 1rem;
+}
+
+.bodyText h2 {
+   border-bottom: 1px solid gray;
+   margin-bottom: 1rem;
+}
+
+.bodyTextParagraph:last-of-type {
+   margin-bottom: .5rem;
+}
+
+.bodyTextLink {
+   display: block;
+   margin-bottom: .5rem;
+   text-decoration: underline;
+}
+
+.bodyTextLink:hover {
+   color: var(--gold-700);
+}
+
