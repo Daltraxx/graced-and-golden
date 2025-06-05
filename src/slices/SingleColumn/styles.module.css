@@ -1,4 +1,18 @@
 .container {
    background-size: cover;
    background-repeat: no-repeat;
+   color: var(--cream-200);
+   height: 15rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.buttonContainer {
+   display: flex;
+}
+
+.button {
+   margin: 1rem;
 }
