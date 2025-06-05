@@ -28,7 +28,7 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
  * Component for "Tryptich" Slices.
  */
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
-  console.log(slice.primary.image_left);
+  
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
       <div className={`${moduleStyles.row}`}>
