@@ -65,12 +65,12 @@ const Info3Col: FC<Info3ColProps> = ({ slice }) => {
       {slice.variation === 'noHeadingImageTextImage' && (
         <section>
           <div className={`${moduleStyles.flexRow}`}>
-            <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.image} ${moduleStyles.hideImage}`}/>
+            <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.image}`}/>
             <div className={`${moduleStyles.textContentContainer}`}>
               <PrismicRichText field={slice.primary.content_heading} components={components} />
               <PrismicRichText field={slice.primary.text_content_body} components={components} />
             </div>
-            <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.image}`}/>
+            <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.image} ${moduleStyles.hideImage}`}/>
           </div>
         </section>
       )}
