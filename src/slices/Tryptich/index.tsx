@@ -28,20 +28,21 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
  * Component for "Tryptich" Slices.
  */
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
+  console.log(slice.primary.image_left);
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
       <div className={`${moduleStyles.row}`}>
-        <PrismicNextImage field={slice.primary.image_left} />
+        <div style={{ backgroundImage: `url(${slice.primary.image_left.url})`}} className={`${moduleStyles.bgImageContainer}`}></div>
         <div className={`${moduleStyles.bodyContainer}`}>
           <section className={`${moduleStyles.bodyText}`}>
             <h3 className="mb-2">{slice.primary.small_text}</h3>
             <PrismicRichText field={slice.primary.heading} components={components} />
             <PrismicRichText field={slice.primary.body} components={components} />
             <PrismicNextLink field={slice.primary.link} className={`${moduleStyles.bodyTextLink}`}/>
-            <PrismicNextImage field={slice.primary.body_image} />
+            <PrismicNextImage field={slice.primary.body_image} width={418} height={177}/>
           </section>
         </div>
-        <PrismicNextImage field={slice.primary.image_right} />
+        <div style={{ backgroundImage: `url(${slice.primary.image_right.url})`}} className={`${moduleStyles.bgImageContainer}`}></div>
       </div>
     </Bounded>
   );
