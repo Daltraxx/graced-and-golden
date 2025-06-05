@@ -39,8 +39,8 @@
    margin-bottom: 1rem;
 }
 
-.bodyTextParagraph:last-of-type {
-   margin-bottom: .5rem;
+.bodyTextParagraph {
+   margin-bottom: .8rem;
 }
 
 .bodyTextLink {
@@ -57,6 +57,4 @@
 
 .bodyText img {
    margin: 0 auto;
-   width: 26.125rem;
-   height: 11.0625rem;
 }
