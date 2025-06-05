@@ -1,3 +1,8 @@
+.backgroundGradient {
+   background: var(--brown-500);
+   background: linear-gradient(90deg,rgba(82, 49, 36, 1) 0%, rgba(168, 136, 122, 1) 50%, rgba(82, 49, 36, 1) 100%);
+}
+
 .image {
    width: 18.5rem;
    height: 18.5rem;
