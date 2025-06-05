@@ -45,10 +45,6 @@
 ****** COLORS
  */
 
-.backgroundBrown300 {
-   background: var(--brown-300);
-}
-
 .backgroundCream200 {
    background: var(--cream-200);
 }
@@ -57,8 +53,24 @@
    background: var(--cream-300);
 }
 
+.backgroundGray200 {
+   background: var(--gray-200);
+}
+
+.backgroundGray300 {
+   background: var(--gray-300);
+}
+
+.backgroundBrown300 {
+   background: var(--brown-300);
+}
+
 .backgroundBrown800 {
    background: var(--brown-800);
+}
+
+.backgroundGold700 {
+   background: var(--brown-700);
 }
 
 .textBrown {
