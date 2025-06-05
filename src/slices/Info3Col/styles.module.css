@@ -1,20 +1,21 @@
 .image {
-   width: 20rem;
-   height: 20rem;
+   width: 18.5rem;
+   height: 18.5rem;
    margin: 1rem;
 }
 
 .textContentContainer {
    background: var(--cream-300);
    color: black;
-   width: 20rem;
-   height: 20rem;
+   width: 18.5rem;
+   height: 18.5rem;
    display: flex;
    flex-direction: column;
    place-content: center;
    margin: 1rem;
    border-radius: 10px;
 }
+
 
 .hideImage {
    display: none;
