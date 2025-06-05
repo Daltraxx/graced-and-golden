@@ -33,7 +33,7 @@ export type Info3ColProps = SliceComponentProps<Content.Info3ColSlice>;
  */
 const Info3Col: FC<Info3ColProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundBrown300} ${styles.textCream200}`} >
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalMargin={false} className={`${styles.backgroundBrown300} ${styles.textCream200}`} >
       {slice.variation === 'default' && (
         <section>
           <PrismicRichText field={slice.primary.main_heading} components={components} />
@@ -44,6 +44,21 @@ const Info3Col: FC<Info3ColProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.text_content_body} components={components} />
             </div>
             <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.image}`}/>
+          </div>
+        </section>
+      )}
+      {slice.variation === 'noHeadingTextImageText' && (
+        <section>
+          <div className={`${moduleStyles.flexRow}`}>
+            <div className={`${moduleStyles.textContentContainer}`}>
+              <PrismicRichText field={slice.primary.text_content_heading_left} components={components} />
+              <PrismicRichText field={slice.primary.text_content_body_left} components={components} />
+            </div>
+            <PrismicNextImage field={slice.primary.image_center} className={`${moduleStyles.image} ${moduleStyles.hideImage}`}/>
+            <div className={`${moduleStyles.textContentContainer}`}>
+              <PrismicRichText field={slice.primary.text_content_heading_right} components={components} />
+              <PrismicRichText field={slice.primary.text_content_body_right} components={components} />
+            </div>
           </div>
         </section>
       )}
