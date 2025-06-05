@@ -26,18 +26,20 @@ export type SingleColumnProps = SliceComponentProps<Content.SingleColumnSlice>;
  */
 const SingleColumn: FC<SingleColumnProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`} horizontalSpacing={false}>
-      <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={`${moduleStyles.container}`}>
-        <PrismicRichText field={slice.primary.heading} components={components}/>
-        <PrismicRichText field={slice.primary.body} components={components}/>
-        <ul className={`${moduleStyles.buttonContainer}`}>
-          <li>
-            <Button field={slice.primary.link_left} className={`${styles.buttonCream200} ${moduleStyles.button}`} />
-          </li>
-          <li>
-            <Button field={slice.primary.link_right} className={`${styles.buttonCream200} ${moduleStyles.button}`} />
-          </li>
-        </ul>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream300}`} horizontalSpacing={false}>
+      <div className={`${moduleStyles.container}`}>
+        <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={`${moduleStyles.contentContainer} `}>
+          <PrismicRichText field={slice.primary.heading} components={components}/>
+          <PrismicRichText field={slice.primary.body} components={components}/>
+          <ul className={`${moduleStyles.buttonContainer}`}>
+            <li>
+              <Button field={slice.primary.link_left} className={`${styles.buttonCream200} ${moduleStyles.button}`} />
+            </li>
+            <li>
+              <Button field={slice.primary.link_right} className={`${styles.buttonCream200} ${moduleStyles.button}`} />
+            </li>
+          </ul>
+        </div>
       </div>
     </Bounded>
   );

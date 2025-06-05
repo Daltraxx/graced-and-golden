@@ -1,4 +1,8 @@
 .container {
+   background-color: var(--cream-300);
+}
+
+.contentContainer {
    background-size: cover;
    background-repeat: no-repeat;
    color: var(--cream-200);

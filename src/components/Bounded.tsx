@@ -18,7 +18,7 @@ export default function Bounded({
 }: BoundedProps) {
    
    return (
-      <Comp className={clsx(horizontalSpacing && "px-4", verticalPadding && 'py-8 md:py-8', className)} {...restProps}>
+      <Comp className={clsx(horizontalSpacing && "px-4", verticalPadding && 'py-8', className)} {...restProps}>
          <div className={clsx(horizontalSpacing && "mx-auto w-full max-w-7xl")}>
             {children}
          </div>
