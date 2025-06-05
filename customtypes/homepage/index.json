@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "tryptich": {
+              "type": "SharedSlice"
+            },
             "bridal_cta": {
               "type": "SharedSlice"
             },

@@ -101,6 +101,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | TryptichSlice
   | BridalCtaSlice
   | ServicesSlice
   | IntroductionSlice
@@ -170,6 +171,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TryptichSlice
   | ServicesSlice
   | Info3ColSlice
   | HeroSlice
@@ -1079,12 +1081,12 @@ export interface TryptichSliceDefaultPrimary {
   /**
    * Body Image field in *Tryptich → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: tryptich.default.primary.body_image
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  body_image: prismic.KeyTextField;
+  body_image: prismic.ImageField<never>;
 
   /**
    * Image Right field in *Tryptich → Default → Primary*

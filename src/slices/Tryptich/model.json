@@ -57,10 +57,11 @@
           }
         },
         "body_image": {
-          "type": "Text",
+          "type": "Image",
           "config": {
             "label": "Body Image",
-            "placeholder": ""
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "image_right": {
