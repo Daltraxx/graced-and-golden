@@ -26,7 +26,7 @@ export type SingleColumnProps = SliceComponentProps<Content.SingleColumnSlice>;
  */
 const SingleColumn: FC<SingleColumnProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`} horizontalSpacing={false}>
       <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={`${moduleStyles.container}`}>
         <PrismicRichText field={slice.primary.heading} components={components}/>
         <PrismicRichText field={slice.primary.body} components={components}/>

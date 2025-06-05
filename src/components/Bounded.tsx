@@ -5,7 +5,7 @@ type BoundedProps = {
    className?: string;
    children: React.ReactNode;
    verticalPadding?: boolean;
-   horizontalMargin?: boolean;
+   horizontalSpacing?: boolean;
 }
 
 export default function Bounded({
@@ -13,13 +13,13 @@ export default function Bounded({
    className,
    children,
    verticalPadding: verticalPadding = true,
-   horizontalMargin: horizontalMargin = true,
+   horizontalSpacing: horizontalSpacing = true,
    ...restProps
 }: BoundedProps) {
    
    return (
-      <Comp className={clsx("px-4", verticalPadding && 'py-8 md:py-8', className)} {...restProps}>
-         <div className={clsx(horizontalMargin && "mx-auto w-full max-w-7xl")}>
+      <Comp className={clsx(horizontalSpacing && "px-4", verticalPadding && 'py-8 md:py-8', className)} {...restProps}>
+         <div className={clsx(horizontalSpacing && "mx-auto w-full max-w-7xl")}>
             {children}
          </div>
       </Comp>
