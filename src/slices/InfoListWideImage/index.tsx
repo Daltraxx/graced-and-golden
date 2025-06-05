@@ -9,7 +9,7 @@ import moduleStyles from '@/slices/InfoListWideImage/styles.module.css'
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="lg" className="italic text-center">
+    <Heading as="h2" size="lg" className="italic text-center p-4">
         {children}
     </Heading>
   ),

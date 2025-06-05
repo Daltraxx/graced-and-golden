@@ -1,12 +1,13 @@
 .row {
    display: flex;
-   height: 15rem
+   flex-direction: column;
 }
 
 .leftContainer {
    background-size: cover;
    background-repeat: no-repeat;
-   width: 60%;
+   width: 100%;
+   height: 10rem;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -14,13 +15,28 @@
 }
 
 .rightContainer {
-   width: 40%;
    display: flex;
    align-items: center;
 }
 
 .list {
    list-style: disc;
-   padding-left: 16%;
+   padding: 1rem 1rem 1rem 16%;
    color: var(--cream-200);
+}
+
+@media only screen and (min-width: 560px) {
+   .row {
+      flex-direction: row;
+      height: 15rem
+   }
+
+   .leftContainer {
+      height: inherit;
+      width: 60%;
+   }
+
+   .rightContainer {
+      width: 40%;
+   }
 }
