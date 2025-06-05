@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "single_column": {
+              "type": "SharedSlice"
+            },
             "bridal_cta": {
               "type": "SharedSlice"
             },

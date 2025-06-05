@@ -101,6 +101,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | SingleColumnSlice
   | HeroThreeImageSlice
   | InfoListWideImageSlice
   | Info3ColSlice
@@ -174,6 +175,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SingleColumnSlice
   | BridalCtaSlice
   | InfoListWideImageSlice
   | TryptichSlice
@@ -1127,6 +1129,103 @@ export type ServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SingleColumn → Default → Primary*
+ */
+export interface SingleColumnSliceDefaultPrimary {
+  /**
+   * Background Image field in *SingleColumn → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_column.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *SingleColumn → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_column.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *SingleColumn → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_column.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Link Left field in *SingleColumn → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_column.default.primary.link_left
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_left: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Link Right field in *SingleColumn → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_column.default.primary.link_right
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_right: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for SingleColumn Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingleColumnSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SingleColumnSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SingleColumn*
+ */
+type SingleColumnSliceVariation = SingleColumnSliceDefault;
+
+/**
+ * SingleColumn Shared Slice
+ *
+ * - **API ID**: `single_column`
+ * - **Description**: SingleColumn
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingleColumnSlice = prismic.SharedSlice<
+  "single_column",
+  SingleColumnSliceVariation
+>;
+
+/**
  * Primary content in *Tryptich → Default → Primary*
  */
 export interface TryptichSliceDefaultPrimary {
@@ -1302,6 +1401,10 @@ declare module "@prismicio/client" {
       ServicesSliceDefaultPrimary,
       ServicesSliceVariation,
       ServicesSliceDefault,
+      SingleColumnSlice,
+      SingleColumnSliceDefaultPrimary,
+      SingleColumnSliceVariation,
+      SingleColumnSliceDefault,
       TryptichSlice,
       TryptichSliceDefaultPrimary,
       TryptichSliceVariation,

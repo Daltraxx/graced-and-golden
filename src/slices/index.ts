@@ -10,5 +10,6 @@ export const components = {
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
   introduction: dynamic(() => import("./Introduction")),
   services: dynamic(() => import("./Services")),
+  single_column: dynamic(() => import("./SingleColumn")),
   tryptich: dynamic(() => import("./Tryptich")),
 };

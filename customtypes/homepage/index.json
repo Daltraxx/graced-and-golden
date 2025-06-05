@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "single_column": {
+              "type": "SharedSlice"
+            },
             "hero_three_image": {
               "type": "SharedSlice"
             },
