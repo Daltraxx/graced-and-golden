@@ -14,3 +14,33 @@
    place-content: center;
    margin: 1rem;
 }
+
+.hideImage {
+   display: none;
+   visibility: hidden;
+}
+
+.flexRow {
+   display: flex;
+   flex-direction: column;
+   place-items: center;
+}
+
+@media only screen and (min-width: 800px) {
+   .flexRow {
+      flex-direction: row;
+      justify-content: center;
+   }
+ }
+
+@media only screen and (min-width: 1075px) {
+   
+   .flexRow > * {
+      flex-basis: 30%;
+   }
+
+   .hideImage {
+      display: block;
+      visibility: visible;
+   }
+}

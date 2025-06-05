@@ -35,17 +35,17 @@ const Info3Col: FC<Info3ColProps> = ({ slice }) => {
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundBrown300} ${styles.textCream200}`} >
       {slice.variation === 'default' && (
-        <div>
+        <section>
           <PrismicRichText field={slice.primary.main_heading} components={components} />
-          <div className={`${styles.flexRow}`}>
-            <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.image}`}/>
+          <div className={`${moduleStyles.flexRow}`}>
+            <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.image} ${moduleStyles.hideImage}`}/>
             <div className={`${moduleStyles.textContentContainer}`}>
               <PrismicRichText field={slice.primary.content_heading} components={components} />
               <PrismicRichText field={slice.primary.text_content_body} components={components} />
             </div>
             <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.image}`}/>
           </div>
-        </div>
+        </section>
       )}
       
     </Bounded>
