@@ -30,6 +30,28 @@
             "multi": "paragraph,strong,em"
           }
         },
+        "button_left": {
+          "type": "Link",
+          "config": {
+            "label": "Button Left",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "button_right": {
+          "type": "Link",
+          "config": {
+            "label": "Button Right",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": true,
+            "repeat": false
+          }
+        },
         "image_left": {
           "type": "Image",
           "config": {

@@ -586,6 +586,38 @@ export interface HeroThreeImageSliceDefaultPrimary {
   body: prismic.RichTextField;
 
   /**
+   * Button Left field in *HeroThreeImage → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_three_image.default.primary.button_left
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_left: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Button Right field in *HeroThreeImage → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_three_image.default.primary.button_right
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_right: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
    * Image Left field in *HeroThreeImage → Default → Primary*
    *
    * - **Field Type**: Image

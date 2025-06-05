@@ -93,6 +93,24 @@
 						}
 					}
 				]
+			},
+			"button_left": {
+				"key": "2cce0b7f-4f3f-4dfe-b858-9a992b65da66",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "according"
+				}
+			},
+			"button_right": {
+				"__TYPE__": "LinkContent",
+				"key": "985ecfa0-d10f-470e-af58-05573ead2d70",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "traffic"
+				}
 			}
 		},
 		"items": []
