@@ -2,6 +2,7 @@
    width: 18.5rem;
    height: 18.5rem;
    margin: 1rem;
+   flex-shrink: 0;
 }
 
 .textContentContainer {
