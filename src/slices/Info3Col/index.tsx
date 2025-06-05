@@ -33,7 +33,7 @@ export type Info3ColProps = SliceComponentProps<Content.Info3ColSlice>;
  */
 const Info3Col: FC<Info3ColProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalMargin={false} className={`${moduleStyles.backgroundGradient} ${styles.textCream200}`} >
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${moduleStyles.backgroundGradient} ${styles.textCream200}`} >
       {slice.variation === 'default' && (
         <section>
           <PrismicRichText field={slice.primary.main_heading} components={components} />
