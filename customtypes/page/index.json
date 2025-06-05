@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "bridal_cta": {
+              "type": "SharedSlice"
+            },
+            "info_list_wide_image": {
+              "type": "SharedSlice"
+            },
             "tryptich": {
               "type": "SharedSlice"
             },

@@ -101,6 +101,9 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | HeroThreeImageSlice
+  | InfoListWideImageSlice
+  | Info3ColSlice
   | TryptichSlice
   | BridalCtaSlice
   | ServicesSlice
@@ -171,6 +174,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | BridalCtaSlice
+  | InfoListWideImageSlice
   | TryptichSlice
   | ServicesSlice
   | Info3ColSlice
@@ -856,6 +861,71 @@ export type Info3ColSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *InfoListWideImage → Default → Primary*
+ */
+export interface InfoListWideImageSliceDefaultPrimary {
+  /**
+   * Background Image field in *InfoListWideImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_list_wide_image.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *InfoListWideImage → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_list_wide_image.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * List field in *InfoListWideImage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_list_wide_image.default.primary.list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  list: prismic.RichTextField;
+}
+
+/**
+ * Default variation for InfoListWideImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoListWideImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InfoListWideImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InfoListWideImage*
+ */
+type InfoListWideImageSliceVariation = InfoListWideImageSliceDefault;
+
+/**
+ * InfoListWideImage Shared Slice
+ *
+ * - **API ID**: `info_list_wide_image`
+ * - **Description**: InfoListWideImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InfoListWideImageSlice = prismic.SharedSlice<
+  "info_list_wide_image",
+  InfoListWideImageSliceVariation
+>;
+
+/**
  * Item in *Introduction → Default → Primary → Paragraphs Column 1*
  */
 export interface IntroductionSliceDefaultPrimaryParagraphsColumn1Item {
@@ -1185,6 +1255,10 @@ declare module "@prismicio/client" {
       Info3ColSliceDefault,
       Info3ColSliceNoHeadingTextImageText,
       Info3ColSliceNoHeadingImageTextImage,
+      InfoListWideImageSlice,
+      InfoListWideImageSliceDefaultPrimary,
+      InfoListWideImageSliceVariation,
+      InfoListWideImageSliceDefault,
       IntroductionSlice,
       IntroductionSliceDefaultPrimaryParagraphsColumn1Item,
       IntroductionSliceDefaultPrimaryParagraphsColumn2Item,

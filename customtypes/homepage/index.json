@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero_three_image": {
+              "type": "SharedSlice"
+            },
+            "info_list_wide_image": {
+              "type": "SharedSlice"
+            },
+            "info3_col": {
+              "type": "SharedSlice"
+            },
             "tryptich": {
               "type": "SharedSlice"
             },
