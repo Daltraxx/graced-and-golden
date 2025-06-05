@@ -4,10 +4,11 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import { PrismicNextImage } from "@prismicio/next";
+import styles from '@/styles/styles.module.css'
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="md" className="italic">
+    <Heading as="h2" size="md" className="italic text-center">
         {children}
     </Heading>
   ),
@@ -31,7 +32,7 @@ export type Info3ColProps = SliceComponentProps<Content.Info3ColSlice>;
  */
 const Info3Col: FC<Info3ColProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundBrown300} ${styles.textCream200}`} >
       {slice.variation === 'default' && (
         <div>
           <PrismicRichText field={slice.primary.main_heading} components={components} />
