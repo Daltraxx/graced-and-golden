@@ -1022,6 +1022,111 @@ export type ServicesSlice = prismic.SharedSlice<
   ServicesSliceVariation
 >;
 
+/**
+ * Primary content in *Tryptich → Default → Primary*
+ */
+export interface TryptichSliceDefaultPrimary {
+  /**
+   * Image Left field in *Tryptich → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tryptich.default.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Small Text field in *Tryptich → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tryptich.default.primary.small_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_text: prismic.KeyTextField;
+
+  /**
+   * Heading field in *Tryptich → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tryptich.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *Tryptich → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tryptich.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Link field in *Tryptich → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tryptich.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Body Image field in *Tryptich → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tryptich.default.primary.body_image
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  body_image: prismic.KeyTextField;
+
+  /**
+   * Image Right field in *Tryptich → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tryptich.default.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Tryptich Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TryptichSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TryptichSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Tryptich*
+ */
+type TryptichSliceVariation = TryptichSliceDefault;
+
+/**
+ * Tryptich Shared Slice
+ *
+ * - **API ID**: `tryptich`
+ * - **Description**: Tryptich
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TryptichSlice = prismic.SharedSlice<
+  "tryptich",
+  TryptichSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1089,6 +1194,10 @@ declare module "@prismicio/client" {
       ServicesSliceDefaultPrimary,
       ServicesSliceVariation,
       ServicesSliceDefault,
+      TryptichSlice,
+      TryptichSliceDefaultPrimary,
+      TryptichSliceVariation,
+      TryptichSliceDefault,
     };
   }
 }

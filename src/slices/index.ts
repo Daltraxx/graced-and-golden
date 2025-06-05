@@ -9,4 +9,5 @@ export const components = {
   info3_col: dynamic(() => import("./Info3Col")),
   introduction: dynamic(() => import("./Introduction")),
   services: dynamic(() => import("./Services")),
+  tryptich: dynamic(() => import("./Tryptich")),
 };
