@@ -6,15 +6,16 @@ import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import styles from '@/styles/styles.module.css';
+import moduleStyles from '@/slices/BridalCta/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className={`italic text-center mb-8`}>
+    <Heading as="h3" size="sm" className={`italic text-center mb-2 lg:mb-4`}>
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="mb-4">{children}</p>
+    <p className="mb-2 lg:mb-4">{children}</p>
   )
 }
 
@@ -30,15 +31,15 @@ const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
       <div className={`${styles.flexRow}`}>
-        <PrismicNextImage field={slice.primary.image_left} className={`${styles.ctaImage}`}/>
-        <div className={`${styles.backgroundBrown300} ${styles.textCream200} ${styles.ctaContentContainer}`}>
-          <div className={`${styles.ctaTextContentContainer}`}>
+        <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.ctaImage}`}/>
+        <div className={`${styles.backgroundBrown300} ${styles.textCream200} ${moduleStyles.ctaContentContainer}`}>
+          <div className={`${moduleStyles.ctaTextContentContainer}`}>
             <PrismicRichText field={slice.primary.heading} components={components}/>
             <PrismicRichText field={slice.primary.body} components={components}/>
             <Button field={slice.primary.bridal_page_link} className={`${styles.buttonCream200}`}/>
           </div>
         </div>
-        <PrismicNextImage field={slice.primary.image_right} className={`${styles.ctaImage}`}/>
+        <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.ctaImage}`}/>
       </div>
     </Bounded>
   );

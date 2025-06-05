@@ -10,6 +10,7 @@
 .flexRow {
    display: flex;
    flex-direction: column;
+   place-items: center;
 }
 
  @media only screen and (min-width: 775px) {
@@ -17,13 +18,25 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
    }
+   
+ }
 
+ @media only screen and (min-width: 1050px) {
    .flexRow {
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
+   }
+
+   .flexRow > * {
+      flex-basis: 30%;
    }
  }
 
+  @media only screen and (min-width: 1200px) {
+   .flexRow {
+      justify-content: space-between;
+   }
+ } 
 
 
 
@@ -98,31 +111,6 @@
 .buttonBrown800 {
    color: white;
    background: var(--brown-800);
-}
-
-/* 
-****** CTA
-*/
-
-.ctaImage {
-   width: 30rem;
-   height: auto;
-}
-
-.ctaContentContainer {
-   width: 30rem;
-   margin: 0 2rem;
-}
-
-.ctaTextContentContainer {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 100%;
-   max-width: 80%;
-   margin: 0 auto;
-   text-align: center;
 }
 
 

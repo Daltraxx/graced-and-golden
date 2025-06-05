@@ -1,0 +1,45 @@
+.ctaImage {
+   width: 25rem;
+   height: 25rem;
+}
+
+.ctaContentContainer {
+   width: 25rem;
+   height: 25rem;
+   margin: 2rem 0;
+}
+
+.ctaTextContentContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   max-width: 80%;
+   margin: 0 auto;
+   text-align: center;
+}
+
+@media only screen and (min-width: 1050px) {
+   .ctaImage {
+      width: 16rem;
+      height: 16rem;
+   }
+
+   .ctaContentContainer {
+      width: 16rem;
+      height: 16rem;
+   }
+}
+
+@media only screen and (min-width: 1200px) {
+   .ctaImage {
+      width: 20rem;
+      height: 20rem;
+   }
+
+   .ctaContentContainer {
+      width: 20rem;
+      height: 20rem;
+   }
+}
