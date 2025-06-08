@@ -7,7 +7,7 @@ const useInView = (options: { threshold: number }) => {
    useEffect(() => {
       const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
          entries.forEach((entry) => {
-         setIsInView(entry.isIntersecting);
+            setIsInView(entry.isIntersecting);
          })
       }
 
