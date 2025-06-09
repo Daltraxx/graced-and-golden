@@ -34,17 +34,24 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
   
   const [elementRef, isInView] = useInView({ threshold: .4 });
 
+  const addAnimation = (element: Element) => {
+    element.classList.add('fade-in');
+  }
+
   useEffect(() => {
-    if (isInView) {
-      document.querySelector('.animated-element')?.classList.add('fade-in');
+    if (isInView && !document.querySelector('.animated-element')?.classList.contains('fade-in')) {
+      const animatedElements = Array.from(document.querySelectorAll('.animated-element'));
+      animatedElements.forEach((element, index) => {
+        setTimeout(() => addAnimation(element), index * 500)
+      })
     }
   }, [isInView])
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundGradientBrown}`}>
-      <div ref={elementRef} className={`${moduleStyles.row} animated-element`}>
-        <div style={{ backgroundImage: `url(${slice.primary.image_left.url})`}} className={`${moduleStyles.bgImageContainer}`}></div>
-        <div className={`${moduleStyles.bodyContainer}`}>
+      <div ref={elementRef} className={`${moduleStyles.row}`}>
+        <div style={{ backgroundImage: `url(${slice.primary.image_left.url})`}} className={`${moduleStyles.bgImageContainer} animated-element`}></div>
+        <div className={`${moduleStyles.bodyContainer} animated-element`}>
           <section className={`${moduleStyles.bodyText}`}>
             <h3 className="mb-2">{slice.primary.small_text}</h3>
             <PrismicRichText field={slice.primary.heading} components={components} />
@@ -53,7 +60,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
             <PrismicNextImage field={slice.primary.body_image} width={418} height={177}/>
           </section>
         </div>
-        <div style={{ backgroundImage: `url(${slice.primary.image_right.url})`}} className={`${moduleStyles.bgImageContainer}`}></div>
+        <div style={{ backgroundImage: `url(${slice.primary.image_right.url})`}} className={`${moduleStyles.bgImageContainer} animated-element`}></div>
       </div>
     </Bounded>
   );
