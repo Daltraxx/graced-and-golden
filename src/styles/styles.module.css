@@ -89,6 +89,11 @@
    color: var(--cream-200);
 }
 
+.backgroundGradientBrown {
+   background: var(--brown-800);
+   background: linear-gradient(135deg, var(--brown-800) 0%, var(--brown-300) 50%, var(--brown-800) 100%);
+}
+
  /* 
 ****** Images
  */
