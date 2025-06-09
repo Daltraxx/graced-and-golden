@@ -91,7 +91,7 @@
 
 .backgroundGradientBrown {
    background: var(--brown-800);
-   background: linear-gradient(135deg, var(--brown-800) 0%, var(--brown-300) 50%, var(--brown-800) 100%);
+   background: linear-gradient(135deg, hsl(17 39% 28.4%) 0%, var(--brown-300) 50%, var(--brown-800) 100%);
 }
 
  /* 
