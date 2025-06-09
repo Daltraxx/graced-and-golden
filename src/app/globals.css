@@ -27,6 +27,10 @@ body {
   font-family: var(--font-body);
 }
 
+.animated-element {
+  opacity: 0;
+}
+
 .fade-in {
   animation: fade-in 1s ease-in-out 100ms 1 normal forwards;
 }
