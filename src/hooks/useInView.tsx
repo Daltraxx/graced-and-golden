@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, RefObject } from 'react';
 
-const useInView = (options: { threshold: number }) => {
+const useInView = (options: { threshold: number }): [RefObject<null>, boolean] => {
    const [isInView, setIsInView] = useState(false);
    const elementRef = useRef(null);
 
