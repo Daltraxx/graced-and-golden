@@ -1,23 +1,22 @@
 import { RefObject, useEffect } from "react";
 
-const addAnimation = (containerRef: RefObject<HTMLElement | null>) => {
+const addAnimation = (containerRef: RefObject<HTMLElement | null>, options: { threshold: number }) => {
    useEffect(() => {
-       if (!containerRef.current) return;
+      if (!containerRef.current) return;
    
-       const animatedElements = Array.from(
+      const animatedElements = Array.from(
          containerRef.current.querySelectorAll('.animated-element')
-       );
+      );
    
-       const observer = new IntersectionObserver(
-         (entries) => {
-           entries.forEach((entry) => {
-             if (entry.isIntersecting) {
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+         entries.forEach((entry) => {
+            if (entry.isIntersecting) {
                entry.target.classList.add('fade-in');
-             }
-           });
-         },
-         { threshold: 0.5 }
-       );
+            }
+         });
+      }
+
+      const observer = new IntersectionObserver(observerCallback, options);
    
        animatedElements.forEach((element) => observer.observe(element));
    
