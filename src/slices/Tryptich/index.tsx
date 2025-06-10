@@ -34,7 +34,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  addAnimation(containerRef, { threshold: .5 });
+  addAnimation(containerRef, .5);
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundGradientBrown}`}>

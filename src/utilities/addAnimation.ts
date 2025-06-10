@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from "react";
 
-const addAnimation = (containerRef: RefObject<HTMLElement | null>, options: { threshold: number }) => {
+const addAnimation = (containerRef: RefObject<HTMLElement | null>, observerThreshold: number) => {
    useEffect(() => {
       if (!containerRef.current) return;
    
@@ -16,7 +16,7 @@ const addAnimation = (containerRef: RefObject<HTMLElement | null>, options: { th
          });
       }
 
-      const observer = new IntersectionObserver(observerCallback, options);
+      const observer = new IntersectionObserver(observerCallback, { threshold: observerThreshold });
    
        animatedElements.forEach((element) => observer.observe(element));
    
