@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
@@ -32,9 +32,37 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
  */
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const animatedElements = Array.from(
+      containerRef.current.querySelectorAll('.animated-element')
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    animatedElements.forEach((element) => observer.observe(element));
+
+    return () => {
+      animatedElements.forEach((element) => observer.unobserve(element));
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundGradientBrown}`}>
-      <div className={`${moduleStyles.row}`}>
+      <div ref={containerRef} className={`${moduleStyles.row}`}>
         <div style={{ backgroundImage: `url(${slice.primary.image_left.url})`}} className={`${moduleStyles.bgImageContainer} animated-element`}></div>
         <div className={`${moduleStyles.bodyContainer} animated-element`}>
           <section className={`${moduleStyles.bodyText}`}>
