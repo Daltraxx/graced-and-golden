@@ -32,32 +32,24 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
  */
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
   
-  const [elementRef, isInView] = useInView({ threshold: .4 });
 
   const addAnimation = (element: Element) => {
     element.classList.add('fade-in');
   }
 
-  useEffect(() => {
-    if (isInView && !document.querySelector('.animated-element')?.classList.contains('fade-in')) {
-      const animatedElements = Array.from(document.querySelectorAll('.animated-element'));
-      animatedElements.forEach((element, index) => {
-        setTimeout(() => addAnimation(element), index * 500)
-      })
-    }
-  }, [isInView])
+  
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundGradientBrown}`}>
-      <div ref={elementRef} className={`${moduleStyles.row}`}>
+      <div className={`${moduleStyles.row}`}>
         <div style={{ backgroundImage: `url(${slice.primary.image_left.url})`}} className={`${moduleStyles.bgImageContainer} animated-element`}></div>
         <div className={`${moduleStyles.bodyContainer} animated-element`}>
           <section className={`${moduleStyles.bodyText}`}>
-            <h3 className="mb-2">{slice.primary.small_text}</h3>
-            <PrismicRichText field={slice.primary.heading} components={components} />
-            <PrismicRichText field={slice.primary.body} components={components} />
-            <PrismicNextLink field={slice.primary.link} className={`${moduleStyles.bodyTextLink}`}/>
-            <PrismicNextImage field={slice.primary.body_image} width={418} height={177}/>
+            <h3 className="mb-2 animated-element">{slice.primary.small_text}</h3>
+            <div className='animated-element'><PrismicRichText field={slice.primary.heading} components={components} /></div>
+            <div className='animated-element'><PrismicRichText field={slice.primary.body} components={components} /></div>
+            <div className='animated-element'><PrismicNextLink field={slice.primary.link} className={`${moduleStyles.bodyTextLink}`}/></div>
+            <PrismicNextImage field={slice.primary.body_image} width={418} height={177} className='animated-element'/>
           </section>
         </div>
         <div style={{ backgroundImage: `url(${slice.primary.image_right.url})`}} className={`${moduleStyles.bgImageContainer} animated-element`}></div>
