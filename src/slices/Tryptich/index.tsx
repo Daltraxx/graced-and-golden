@@ -31,13 +31,6 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
  * Component for "Tryptich" Slices.
  */
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
-  
-
-  const addAnimation = (element: Element) => {
-    element.classList.add('fade-in');
-  }
-
-  
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundGradientBrown}`}>
