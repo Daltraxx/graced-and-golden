@@ -9,6 +9,7 @@ import styles from '@/styles/styles.module.css';
 import moduleStyles from '@/slices/Tryptich/styles.module.css';
 import Heading from "@/components/Heading";
 import addAnimation from "@/utilities/addAnimation";
+import HeartIcon from "@/components/HeartIcon";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
