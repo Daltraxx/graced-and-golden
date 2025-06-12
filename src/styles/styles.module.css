@@ -53,6 +53,10 @@
    background: var(--cream-300);
 }
 
+.backgroundCream350 {
+   background: var(--cream-350);
+}
+
 .backgroundCream400 {
    background: var(--cream-400);
 }

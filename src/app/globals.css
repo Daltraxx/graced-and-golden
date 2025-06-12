@@ -8,6 +8,7 @@
   --font-display: var(--font-nunito);
   --cream-200: hsl(0, 0%, 98%); /* #FAFAFA */
   --cream-300: hsl(36, 15%, 94%); /* #F2F0ED */
+  --cream-350: hsl(24, 47%, 90%); /* #f1e3da */
   --cream-400: hsl(24, 47%, 75%); /* #ddb8a0 */
   --gray-200: hsl(9, 13%, 89%); /* #E7E1E0 */
   --gray-300: hsl(0, 0%, 68%); /* #AEAEAE */
