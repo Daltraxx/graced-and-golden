@@ -73,6 +73,10 @@
    background: var(--brown-300);
 }
 
+.backgroundBrown400 {
+   background: var(--brown-400);
+}
+
 .backgroundBrown500 {
    background: var(--brown-500);
 }
