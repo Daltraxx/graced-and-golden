@@ -32,7 +32,6 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
-
   addAnimation(containerRef, .5);
 
   return (
