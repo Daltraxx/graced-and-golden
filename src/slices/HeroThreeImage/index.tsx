@@ -31,6 +31,7 @@ export type HeroThreeImageProps =
  * Component for "HeroThreeImage" Slices.
  */
 const HeroThreeImage: FC<HeroThreeImageProps> = ({ slice }) => {
+  
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream300}`}>
       <div className={`${sliceStyles.heroContentContainer}`}>
