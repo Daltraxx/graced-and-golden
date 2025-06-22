@@ -1,6 +1,23 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Heading from "@/components/Heading";
+
+const components: JSXMapSerializer = {
+  heading2: ({ children }) => (
+    <Heading as="h3" size="sm" className={``}>
+      {children}
+    </Heading>
+  ),
+  heading3: ({ children }) => (
+    <Heading as="h3" size="sm" className={``}>
+      {children}
+    </Heading>
+  ),
+  paragraph: ({ children }) => (
+    <p className="">{children}</p>
+  )
+}
 
 /**
  * Props for `Contact`.
@@ -12,38 +29,42 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
  */
 const Contact: FC<ContactProps> = ({ slice }) => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for contact (variation: {slice.variation}) slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select Claude 3.7 Sonnet (recommended for optimal output)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
+    <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
+      <section>
+        <PrismicRichText field={slice.primary.form_heading} />
+        <form action="">
+          <label htmlFor="name-field">{slice.primary.name_prompt}</label>
+          <input type="text" name="name" id="name-field" />
+
+          <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt}</label>
+          <input type="text" name="phone-number" id="phone-number-field" />
+
+          <label htmlFor="email-field">{slice.primary.email_prompt}</label>
+          <input type="text" name="email" id="email-field" />
+
+          <label htmlFor="birthday-field">{slice.primary.birthday_prompt}</label>
+          <input type="text" name="birthday" id="birthday-field" />
+
+          <label htmlFor="instagram-field">{slice.primary.instagram_prompt}</label>
+          <input type="text" name="instagram" id="instagram-field" />
+
+          <label htmlFor="occasion-field">{slice.primary.occasion_prompt}</label>
+          <input type="text" name="occasion" id="occasion-field" />
+
+          <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt}</label>
+          <input type="text" name="how-found" id="how-found-field" />
+
+          <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt}</label>
+          <input type="text" name="tan-history" id="tan-history-field" />
+
+          <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt}</label>
+          <input type="text" name="desired-results" id="desired-results-field" />
+
+          <label htmlFor="questions-concerns-field">{slice.primary.questions_and_concerns_prompt}</label>
+          <input type="text" name="questions-concerns" id="questions-concerns-field" />
+
+        </form>
+      </section>
     </section>
   );
 };

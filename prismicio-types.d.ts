@@ -503,21 +503,6 @@ export type BridalCtaSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Contact → Default → Primary → Form Fields*
- */
-export interface ContactSliceDefaultPrimaryFormFieldsItem {
-  /**
-   * Field Prompt field in *Contact → Default → Primary → Form Fields*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.form_fields[].field_prompt
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  field_prompt: prismic.KeyTextField;
-}
-
-/**
  * Primary content in *Contact → Default → Primary*
  */
 export interface ContactSliceDefaultPrimary {
@@ -532,16 +517,104 @@ export interface ContactSliceDefaultPrimary {
   form_heading: prismic.TitleField;
 
   /**
-   * Form Fields field in *Contact → Default → Primary*
+   * Name prompt field in *Contact → Default → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.form_fields[]
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **API ID Path**: contact.default.primary.name_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  form_fields: prismic.GroupField<
-    Simplify<ContactSliceDefaultPrimaryFormFieldsItem>
-  >;
+  name_prompt: prismic.KeyTextField;
+
+  /**
+   * Phone Number prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.phone_number_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number_prompt: prismic.KeyTextField;
+
+  /**
+   * Email Prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.email_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_prompt: prismic.KeyTextField;
+
+  /**
+   * Birthday prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.birthday_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  birthday_prompt: prismic.KeyTextField;
+
+  /**
+   * Instagram Prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.instagram_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  instagram_prompt: prismic.KeyTextField;
+
+  /**
+   * Occasion Prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.occasion_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  occasion_prompt: prismic.KeyTextField;
+
+  /**
+   * How You Found Us prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.how_you_found_us_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  how_you_found_us_prompt: prismic.KeyTextField;
+
+  /**
+   * Tan History prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.tan_history_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tan_history_prompt: prismic.KeyTextField;
+
+  /**
+   * Desired Results prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.desired_results_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  desired_results_prompt: prismic.KeyTextField;
+
+  /**
+   * Questions and Concerns prompt field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.questions_and_concerns_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  questions_and_concerns_prompt: prismic.KeyTextField;
 
   /**
    * Contact Info Heading field in *Contact → Default → Primary*
@@ -1494,7 +1567,6 @@ declare module "@prismicio/client" {
       BridalCtaSliceVariation,
       BridalCtaSliceDefault,
       ContactSlice,
-      ContactSliceDefaultPrimaryFormFieldsItem,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,
       ContactSliceDefault,

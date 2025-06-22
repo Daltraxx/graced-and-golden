@@ -3,24 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"form_fields": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"field_prompt",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "due",
-									"type": "Text"
-								}
-							]
-						]
-					}
-				]
-			},
 			"form_heading": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -86,6 +68,56 @@
 						}
 					}
 				]
+			},
+			"name_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "boy",
+				"type": "Text"
+			},
+			"phone_number_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "food",
+				"type": "Text"
+			},
+			"email_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "drop",
+				"type": "Text"
+			},
+			"instagram_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "enjoy",
+				"type": "Text"
+			},
+			"occasion_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "student",
+				"type": "Text"
+			},
+			"how_you_found_us_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "size",
+				"type": "Text"
+			},
+			"tan_history_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "seeing",
+				"type": "Text"
+			},
+			"desired_results_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "rhyme",
+				"type": "Text"
+			},
+			"questions_and_concerns_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "rubbed",
+				"type": "Text"
+			},
+			"birthday_prompt": {
+				"__TYPE__": "FieldContent",
+				"value": "angle",
+				"type": "Text"
 			}
 		},
 		"items": []

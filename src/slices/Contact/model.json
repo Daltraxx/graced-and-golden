@@ -21,20 +21,74 @@
             "single": "heading2,heading3"
           }
         },
-        "form_fields": {
-          "type": "Group",
+        "name_prompt": {
+          "type": "Text",
           "config": {
-            "label": "Form Fields",
-            "repeat": true,
-            "fields": {
-              "field_prompt": {
-                "type": "Text",
-                "config": {
-                  "label": "Field Prompt",
-                  "placeholder": ""
-                }
-              }
-            }
+            "label": "Name prompt",
+            "placeholder": ""
+          }
+        },
+        "phone_number_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Phone Number prompt",
+            "placeholder": ""
+          }
+        },
+        "email_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Email Prompt",
+            "placeholder": ""
+          }
+        },
+        "birthday_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Birthday prompt",
+            "placeholder": ""
+          }
+        },
+        "instagram_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Instagram Prompt",
+            "placeholder": ""
+          }
+        },
+        "occasion_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Occasion Prompt",
+            "placeholder": ""
+          }
+        },
+        "how_you_found_us_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "How You Found Us prompt",
+            "placeholder": ""
+          }
+        },
+        "tan_history_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Tan History prompt",
+            "placeholder": ""
+          }
+        },
+        "desired_results_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Desired Results prompt",
+            "placeholder": ""
+          }
+        },
+        "questions_and_concerns_prompt": {
+          "type": "Text",
+          "config": {
+            "label": "Questions and Concerns prompt",
+            "placeholder": ""
           }
         },
         "contact_info_heading": {
