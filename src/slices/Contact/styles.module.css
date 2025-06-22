@@ -1,11 +1,17 @@
-.inquiryForm > div {
+.fieldContainer {
    margin-bottom: 1rem;
 }
 
-.inquiryForm > div > * {
+.fieldContainer > * {
    display: block;
 }
 
-.inquiryForm > div > input {
+.inquiryField {
    background-color: var(--cream-350);
+}
+
+textarea.inquiryField {
+   width: 30rem;
+   padding: .3rem;
+   font-size: .875rem;
 }
