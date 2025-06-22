@@ -502,6 +502,128 @@ export type BridalCtaSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Contact → Default → Primary → Form Fields*
+ */
+export interface ContactSliceDefaultPrimaryFormFieldsItem {
+  /**
+   * Field Prompt field in *Contact → Default → Primary → Form Fields*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.form_fields[].field_prompt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  field_prompt: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+  /**
+   * Form Heading field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.form_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  form_heading: prismic.TitleField;
+
+  /**
+   * Form Fields field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.form_fields[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  form_fields: prismic.GroupField<
+    Simplify<ContactSliceDefaultPrimaryFormFieldsItem>
+  >;
+
+  /**
+   * Contact Info Heading field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.contact_info_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_info_heading: prismic.TitleField;
+
+  /**
+   * Contact Info Body field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.contact_info_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_info_body: prismic.RichTextField;
+
+  /**
+   * Location and Hours Heading field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.location_and_hours_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location_and_hours_heading: prismic.TitleField;
+
+  /**
+   * Location Description field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.location_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location_description: prismic.RichTextField;
+
+  /**
+   * Location Addendum field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.location_addendum
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location_addendum: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -1370,6 +1492,11 @@ declare module "@prismicio/client" {
       BridalCtaSliceDefaultPrimary,
       BridalCtaSliceVariation,
       BridalCtaSliceDefault,
+      ContactSlice,
+      ContactSliceDefaultPrimaryFormFieldsItem,
+      ContactSliceDefaultPrimary,
+      ContactSliceVariation,
+      ContactSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

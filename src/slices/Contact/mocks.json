@@ -1,0 +1,93 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"form_fields": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"field_prompt",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "due",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"form_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Package"
+						}
+					}
+				]
+			},
+			"contact_info_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Chart"
+						}
+					}
+				]
+			},
+			"contact_info_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint mollit magna Lorem deserunt sit labore consequat eiusmod tempor proident qui irure. Tempor irure sit mollit irure sint. Et deserunt veniam enim ipsum eu laboris."
+						}
+					}
+				]
+			},
+			"location_and_hours_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Shelf"
+						}
+					}
+				]
+			},
+			"location_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ipsum irure sint consequat est id ea deserunt ad ullamco voluptate irure elit sint. Commodo eiusmod veniam deserunt elit exercitation cillum ut elit."
+						}
+					}
+				]
+			},
+			"location_addendum": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eiusmod laborum ad aliquip ipsum labore cupidatat nostrud enim reprehenderit fugiat est anim eu ad."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -1,0 +1,89 @@
+{
+  "id": "contact",
+  "type": "SharedSlice",
+  "name": "Contact",
+  "description": "Contact",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "form_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Form Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading2,heading3"
+          }
+        },
+        "form_fields": {
+          "type": "Group",
+          "config": {
+            "label": "Form Fields",
+            "repeat": true,
+            "fields": {
+              "field_prompt": {
+                "type": "Text",
+                "config": {
+                  "label": "Field Prompt",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "contact_info_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Contact Info Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3"
+          }
+        },
+        "contact_info_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Contact Info Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "location_and_hours_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Location and Hours Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3"
+          }
+        },
+        "location_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Location Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "location_addendum": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Location Addendum",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
