@@ -151,6 +151,10 @@
    padding: .6rem 1rem;
 }
 
+.button:hover {
+   cursor: pointer;
+}
+
 .buttonCream200 {
    background: var(--cream-200);
    color: black;
