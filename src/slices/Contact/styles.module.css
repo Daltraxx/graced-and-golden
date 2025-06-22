@@ -1,0 +1,11 @@
+.inquiryForm > div {
+   margin-bottom: 1rem;
+}
+
+.inquiryForm > div > * {
+   display: block;
+}
+
+.inquiryForm > div > input {
+   background-color: var(--cream-350);
+}
