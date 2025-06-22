@@ -2,8 +2,10 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
-import styles from '@/slices/Contact/styles.module.css';
+import moduleStyles from '@/slices/Contact/styles.module.css';
+import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
+
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -34,56 +36,57 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
       <section>
         <PrismicRichText field={slice.primary.form_heading} components={components} />
-        <form action="" className={`${styles.inquiryForm}`}>
-          <div>
+        <form action="" className={`${moduleStyles.inquiryForm}`}>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="name-field">{slice.primary.name_prompt}</label>
-            <input type="text" name="name" id="name-field" />
+            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt}</label>
-            <input type="text" name="phone-number" id="phone-number-field" />
+            <input type="tel" name="phone-number" id="phone-number-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="email-field">{slice.primary.email_prompt}</label>
-            <input type="text" name="email" id="email-field" />
+            <input type="text" name="email" id="email-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="birthday-field">{slice.primary.birthday_prompt}</label>
-            <input type="text" name="birthday" id="birthday-field" />
+            <input type="date" name="birthday" id="birthday-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="instagram-field">{slice.primary.instagram_prompt}</label>
-            <input type="text" name="instagram" id="instagram-field" />
+            <input type="text" name="instagram" id="instagram-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="occasion-field">{slice.primary.occasion_prompt}</label>
-            <input type="text" name="occasion" id="occasion-field" />
+            <textarea name="occasion" id="occasion-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt}</label>
-            <input type="text" name="how-found" id="how-found-field" />
+            <textarea name="how-found" id="how-found-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt}</label>
-            <input type="text" name="tan-history" id="tan-history-field" />
+            <textarea name="tan-history" id="tan-history-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt}</label>
-            <input type="text" name="desired-results" id="desired-results-field" />
+            <textarea name="desired-results" id="desired-results-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
-          <div>
+          <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="questions-concerns-field">{slice.primary.questions_and_concerns_prompt}</label>
-            <input type="text" name="questions-concerns" id="questions-concerns-field" />
+            <textarea name="questions-concerns" id="questions-concerns-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
+          <button type='submit' className={`${styles.button} ${styles.buttonBrown800}`}>Submit</button>
         </form>
       </section>
     </Bounded>
