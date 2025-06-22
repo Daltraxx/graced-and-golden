@@ -175,6 +175,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ContactSlice
   | SingleColumnSlice
   | BridalCtaSlice
   | InfoListWideImageSlice
