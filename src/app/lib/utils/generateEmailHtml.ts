@@ -8,34 +8,34 @@ export default function generateEmailHtml(formInfo : FormInfo): string {
    if (!formInfo.questionsConcerns) formInfo.questionsConcerns = 'N/A';
    
    let html = `
-      <p>Name:</p>
+      <h3>Name:</h3>
       <p>${formInfo.name}</p>
       <br>
-      <p>Phone Number:</p>
+      <h3>Phone Number:</h3>
       <p>${formInfo.phoneNumber}</p>
       <br>
-      <p>Email:</p>
+      <h3>Email:</h3>
       <p>${formInfo.email}</p>
       <br>
-      <p>Birthday:</p>
+      <h3>Birthday:</h3>
       <p>${formInfo.birthday}</p>
       <br>
-      <p>Instagram Handle:</p>
+      <h3>Instagram Handle:</h3>
       <p>${formInfo.instagram}</p>
       <br>
-      <p>What is the occasion and when is it?:</p>
+      <h3>What is the occasion and when is it?:</h3>
       <p>${formInfo.occasion}</p>
       <br>
-      <p>How did you find Graced and Golden?:</p>
+      <h3>How did you find Graced and Golden?:</h3>
       <p>${formInfo.howFound}</p>
       <br>
-      <p>Have you had a spray tan before? If so, when was your last?:</p>
+      <h3>Have you had a spray tan before? If so, when was your last?:</h3>
       <p>${formInfo.tanHistory}</p>
       <br>
-      <p>What are your desired tanning results?:</p>
+      <h3>What are your desired tanning results?:</h3>
       <p>${formInfo.desiredResults}</p>
       <br>
-      <p>List any questions/concerns:</p>
+      <h3>List any questions/concerns:</h3>
       <p>${formInfo.questionsConcerns}</p>
    `;
 
