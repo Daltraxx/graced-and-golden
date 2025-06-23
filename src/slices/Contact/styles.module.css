@@ -1,3 +1,7 @@
+.inquiryForm button:disabled {
+   background-color: gray;
+}
+
 .fieldContainer {
    margin-bottom: 1rem;
 }

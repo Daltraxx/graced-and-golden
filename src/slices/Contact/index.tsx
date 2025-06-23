@@ -49,6 +49,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     desiredResults: false,
   });
 
+  const [submitDisabled, setSubmitDisabled] = useState(true);
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
@@ -104,7 +105,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <label htmlFor="questions-concerns-field">{slice.primary.questions_and_concerns_prompt}</label>
             <textarea name="questionsConcerns" id="questions-concerns-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
-          <button type='submit' className={`${styles.button} ${styles.buttonBrown800}`}>Submit</button>
+          <button type='submit' disabled={submitDisabled} className={`${styles.button} ${styles.buttonBrown800}`}>Submit</button>
         </form>
       </section>
     </Bounded>
