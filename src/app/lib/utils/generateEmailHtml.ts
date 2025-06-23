@@ -1,9 +1,11 @@
 export default function generateEmailHtml
-   (
-      name: string, phoneNumber: string, email: string, birthday: string, instagram: string,
-      occasion: string, howFound: string, tanHistory: string, desiredResults: string, 
-      questionsConcerns: string | null = 'N/A'
-   ): string {
+(
+   name: string, phoneNumber: string, email: string, birthday: string, instagram: string,
+   occasion: string, howFound: string, tanHistory: string, desiredResults: string, 
+   questionsConcerns: string
+): string {
+   if (!questionsConcerns) questionsConcerns = 'N/A';
+   
    let html = `
       <p>Name:</p>
       <p>${name}</p>
@@ -31,9 +33,10 @@ export default function generateEmailHtml
       <br>
       <p>What are your desired tanning results?:</p>
       <p>${desiredResults}</p>
+      <br>
+      <p>List any questions/concerns:</p>
+      <p>${questionsConcerns}</p>
    `;
-
-   if (questionsConcerns) html += `<br><p>List any questions/concerns:</p><p>${questionsConcerns}</p>`;
 
    return html;
 }
