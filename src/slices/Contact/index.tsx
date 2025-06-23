@@ -44,47 +44,47 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         <PrismicRichText field={slice.primary.form_heading} components={components} />
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="name-field">{slice.primary.name_prompt}</label>
+            <label htmlFor="name-field">{slice.primary.name_prompt + '*'}</label>
             <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt}</label>
+            <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt + '*'}</label>
             <input type="tel" name="phoneNumber" id="phone-number-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="email-field">{slice.primary.email_prompt}</label>
+            <label htmlFor="email-field">{slice.primary.email_prompt + '*'}</label>
             <input type="text" name="email" id="email-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="birthday-field">{slice.primary.birthday_prompt}</label>
+            <label htmlFor="birthday-field">{slice.primary.birthday_prompt + '*'}</label>
             <input type="date" name="birthday" id="birthday-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="instagram-field">{slice.primary.instagram_prompt}</label>
+            <label htmlFor="instagram-field">{slice.primary.instagram_prompt + '*'}</label>
             <input type="text" name="instagram" id="instagram-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="occasion-field">{slice.primary.occasion_prompt}</label>
+            <label htmlFor="occasion-field">{slice.primary.occasion_prompt + '*'}</label>
             <textarea name="occasion" id="occasion-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt}</label>
+            <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt + '*'}</label>
             <textarea name="howFound" id="how-found-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt}</label>
+            <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt + '*'}</label>
             <textarea name="tanHistory" id="tan-history-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
-            <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt}</label>
+            <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt + '*'}</label>
             <textarea name="desiredResults" id="desired-results-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
