@@ -44,7 +44,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt}</label>
-            <input type="tel" name="phone-number" id="phone-number-field" className={`${moduleStyles.inquiryField}`}/>
+            <input type="tel" name="phoneNumber" id="phone-number-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
@@ -69,22 +69,22 @@ const Contact: FC<ContactProps> = ({ slice }) => {
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt}</label>
-            <textarea name="how-found" id="how-found-field" className={`${moduleStyles.inquiryField}`}/>
+            <textarea name="howFound" id="how-found-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt}</label>
-            <textarea name="tan-history" id="tan-history-field" className={`${moduleStyles.inquiryField}`}/>
+            <textarea name="tanHistory" id="tan-history-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt}</label>
-            <textarea name="desired-results" id="desired-results-field" className={`${moduleStyles.inquiryField}`}/>
+            <textarea name="desiredResults" id="desired-results-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="questions-concerns-field">{slice.primary.questions_and_concerns_prompt}</label>
-            <textarea name="questions-concerns" id="questions-concerns-field" className={`${moduleStyles.inquiryField}`}/>
+            <textarea name="questionsConcerns" id="questions-concerns-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
           <button type='submit' className={`${styles.button} ${styles.buttonBrown800}`}>Submit</button>
         </form>
