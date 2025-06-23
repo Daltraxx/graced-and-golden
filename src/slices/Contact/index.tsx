@@ -1,10 +1,13 @@
-import { FC } from "react";
+'use client';
+
+import { FC, useActionState } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
+import { sendSimpleMessage, State } from "@/app/lib/actions";
 
 
 const components: JSXMapSerializer = {
@@ -32,11 +35,14 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
  * Component for "Contact" Slices.
  */
 const Contact: FC<ContactProps> = ({ slice }) => {
+  const initialState: State = { message: null, errors: {} };
+  const [state, formAction] = useActionState(sendSimpleMessage, initialState);
+
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
       <section>
         <PrismicRichText field={slice.primary.form_heading} components={components} />
-        <form action="" className={`${moduleStyles.inquiryForm}`}>
+        <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="name-field">{slice.primary.name_prompt}</label>
             <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`}/>
