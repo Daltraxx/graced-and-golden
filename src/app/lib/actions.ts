@@ -34,7 +34,7 @@ export type State = {
 
 const CreateInquiry = FormSchema;
 
-export async function sendSimpleMessage(prevState: State, formData: FormData): Promise<State> {
+export async function sendInquiryEmail(prevState: State, formData: FormData): Promise<State> {
   const mailgun = new Mailgun(FormData);
   const mg = mailgun.client({
     username: "api",

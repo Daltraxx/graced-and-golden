@@ -7,7 +7,7 @@ import Heading from "@/components/Heading";
 import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
-import { sendSimpleMessage, State } from "@/app/lib/actions";
+import { sendInquiryEmail, State } from "@/app/lib/actions";
 
 
 const components: JSXMapSerializer = {
@@ -36,7 +36,7 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
  */
 const Contact: FC<ContactProps> = ({ slice }) => {
   const initialState: State = { message: null, errors: {} };
-  const [state, formAction] = useActionState(sendSimpleMessage, initialState);
+  const [state, formAction] = useActionState(sendInquiryEmail, initialState);
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
