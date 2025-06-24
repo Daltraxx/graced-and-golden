@@ -8,6 +8,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
+import { handleNameValidation } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -51,27 +52,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
 
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
-  const handleNameValidation = ({ target }: { target: HTMLInputElement}) => {
-    const nameValue = target.value.trim();
-    // regex for name requiring two words and allows hyphens and apostrophes
-    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-    const minLength = nameValue.length > 4;
-    const maxLength = nameValue.length < 50;
-    if (minLength && maxLength && regEx.test(nameValue)) {
-      setFieldsValidated(prev => ({
-        ...prev,
-        name: true
-      }));
-    } else {
-      setFieldsValidated(prev => ({
-        ...prev,
-        name: false
-      }));
-    }
-
-    console.log(fieldsValidated);
-  }
-
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
       <section>
@@ -79,7 +59,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="name-field">{slice.primary.name_prompt + '*'}</label>
-            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onChange={handleNameValidation}/>
+            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onChange={(event) => handleNameValidation(event, setFieldsValidated)}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
