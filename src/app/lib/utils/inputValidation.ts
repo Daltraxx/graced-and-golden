@@ -16,6 +16,7 @@ type FieldsValidationState = {
    howFound: boolean;
    tanHistory: boolean;
    desiredResults: boolean;
+   questionsConcerns: boolean;
 };
 
 const handleNameValidation = (

@@ -50,6 +50,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     howFound: false,
     tanHistory: false,
     desiredResults: false,
+    questionsConcerns: false
   });
 
   const [submitDisabled, setSubmitDisabled] = useState(true);
