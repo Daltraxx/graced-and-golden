@@ -1,5 +1,7 @@
 'use client';
 
+import { useDebouncedCallback } from "use-debounce";
+
 import { FC, useActionState, useState } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -52,6 +54,11 @@ const Contact: FC<ContactProps> = ({ slice }) => {
 
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
+  const handleNameChange = useDebouncedCallback(handleNameValidation, 500);
+  // const handleClick = () => {
+  //   console.log(fieldsValidated);
+  // } for testing state updates
+
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
       <section>
@@ -59,7 +66,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="name-field">{slice.primary.name_prompt + '*'}</label>
-            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onChange={(event) => handleNameValidation(event, setFieldsValidated)}/>
+            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onChange={(event) => handleNameChange(event, setFieldsValidated)}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
@@ -70,7 +77,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="email-field">{slice.primary.email_prompt + '*'}</label>
             <input type="email" name="email" id="email-field" className={`${moduleStyles.inquiryField}`} required />
-          </div> 
+          </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="birthday-field">{slice.primary.birthday_prompt + '*'}</label>
