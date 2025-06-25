@@ -17,23 +17,27 @@ type FieldsValidationState = {
    tanHistory: boolean;
    desiredResults: boolean;
    questionsConcerns: boolean;
-   reqFieldsValidated: number;
-   totalReqFields: number;
+   fieldsValidated: number;
+   totalFields: number;
 };
 
 const handleNameValidation = (
    { target }: HandleInputValidationEvent,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>,
-   prevNameState: boolean,
-   fieldsValidated: number
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
    const nameValue = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
    const minLength = nameValue.length > 4;
    const maxLength = nameValue.length < 50;
+   const prevNameState = stateObject.name;
    const newNameState = minLength && maxLength && regEx.test(nameValue);
+
    if (prevNameState === newNameState) return;
+
+   const { fieldsValidated } = stateObject;
+
    if (!prevNameState && newNameState) {
       stateSetter(prev => ({
          ...prev,

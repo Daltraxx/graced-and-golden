@@ -50,17 +50,17 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     howFound: false,
     tanHistory: false,
     desiredResults: false,
-    questionsConcerns: false,
-    reqFieldsValidated: 0,
-    totalReqFields: 9
+    questionsConcerns: true,
+    fieldsValidated: 1,
+    totalFields: 10
   });
 
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
   const handleNameChange = useDebouncedCallback(handleNameValidation, 500);
-  // const handleClick = () => {
-  //   console.log(fieldsValidated);
-  // }
+  const handleClick = () => {
+    console.log(fieldsValidated);
+  }
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
@@ -69,7 +69,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="name-field">{slice.primary.name_prompt + '*'}</label>
-            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onChange={(event) => handleNameChange(event, setFieldsValidated, fieldsValidated.name, fieldsValidated.reqFieldsValidated)}/>
+            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onClick={handleClick} onChange={(event) => handleNameChange(event, fieldsValidated, setFieldsValidated)}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
@@ -116,7 +116,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <label htmlFor="questions-concerns-field">{slice.primary.questions_and_concerns_prompt}</label>
             <textarea name="questionsConcerns" id="questions-concerns-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
-          <button type='submit' disabled={fieldsValidated.reqFieldsValidated !== fieldsValidated.totalReqFields} className={`${styles.button} ${styles.buttonBrown800}`}>Submit</button>
+          <button type='submit' disabled={fieldsValidated.fieldsValidated !== fieldsValidated.totalFields} className={`${styles.button} ${styles.buttonBrown800}`}>Submit</button>
         </form>
       </section>
     </Bounded>
