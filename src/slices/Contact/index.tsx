@@ -70,7 +70,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="email-field">{slice.primary.email_prompt + '*'}</label>
             <input type="email" name="email" id="email-field" className={`${moduleStyles.inquiryField}`} required />
-          </div>
+          </div> 
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="birthday-field">{slice.primary.birthday_prompt + '*'}</label>
