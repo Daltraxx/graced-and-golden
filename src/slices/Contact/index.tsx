@@ -51,16 +51,15 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     tanHistory: false,
     desiredResults: false,
     questionsConcerns: true,
+    // try to fix hardcoding of below values later
     fieldsValidated: 1,
     totalFields: 10
   });
 
-  const [submitDisabled, setSubmitDisabled] = useState(true);
-
   const handleNameChange = useDebouncedCallback(handleNameValidation, 500);
-  const handleClick = () => {
-    console.log(fieldsValidated);
-  }
+  // const handleClick = () => {
+  //   console.log(fieldsValidated);
+  // }
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
@@ -69,7 +68,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="name-field">{slice.primary.name_prompt + '*'}</label>
-            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onClick={handleClick} onChange={(event) => handleNameChange(event, fieldsValidated, setFieldsValidated)}/>
+            <input type="text" name="name" id="name-field" className={`${moduleStyles.inquiryField}`} onChange={(event) => handleNameChange(event, fieldsValidated, setFieldsValidated)}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
