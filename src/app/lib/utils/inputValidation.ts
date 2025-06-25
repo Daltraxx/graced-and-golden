@@ -42,13 +42,13 @@ const handleNameValidation = (
       stateSetter(prev => ({
          ...prev,
          name: true,
-         reqFieldsValidated: fieldsValidated + 1
+         fieldsValidated: fieldsValidated + 1
       }));
    } else {
       stateSetter(prev => ({
          ...prev,
          name: false,
-         reqFieldsValidated: fieldsValidated - 1
+         fieldsValidated: fieldsValidated - 1
       }));
    }
    // console.log('state updated');
