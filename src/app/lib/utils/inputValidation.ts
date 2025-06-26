@@ -2,10 +2,6 @@
 
 import { Dispatch, SetStateAction } from "react";
 
-type HandleInputValidationEvent = {
-   target: HTMLInputElement;
-}
-
 type FieldsValidationState = {
    name: boolean;
    phoneNumber: boolean;
@@ -22,7 +18,7 @@ type FieldsValidationState = {
 };
 
 const handleNameValidation = (
-   { target }: HandleInputValidationEvent,
+   { target }: { target: HTMLInputElement },
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
@@ -53,6 +49,8 @@ const handleNameValidation = (
    }
    // console.log('state updated');
 }
+
+
 
 export {
    handleNameValidation
