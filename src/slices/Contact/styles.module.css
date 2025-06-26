@@ -12,6 +12,8 @@
 
 .inquiryField {
    background-color: var(--cream-350);
+   border-radius: 2px;
+   border: 1px solid var(--brown-300);
 }
 
 textarea.inquiryField {
