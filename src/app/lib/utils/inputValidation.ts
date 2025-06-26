@@ -17,7 +17,7 @@ type FieldsValidationState = {
    totalFields: number;
 };
 
-const handleNameValidation = (
+export const handleNameValidation = (
    { target }: { target: HTMLInputElement },
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
@@ -49,7 +49,7 @@ const handleNameValidation = (
    // console.log('state updated');
 }
 
-const handlePhoneNumberValidation = (
+export const handlePhoneNumberValidation = (
    { target }: { target: HTMLInputElement },
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
@@ -80,8 +80,4 @@ const handlePhoneNumberValidation = (
    }
    console.log('state updated');
    
-}
-
-export {
-   handleNameValidation
 }
