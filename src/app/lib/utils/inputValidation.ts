@@ -31,22 +31,20 @@ export const handleNameValidation = (
 
    if (prevNameState === newNameState) return;
 
-   const { fieldsValidated } = stateObject;
-
    if (!prevNameState && newNameState) {
       stateSetter(prev => ({
          ...prev,
          name: true,
-         fieldsValidated: fieldsValidated + 1
+         fieldsValidated: prev.fieldsValidated + 1
       }));
    } else {
       stateSetter(prev => ({
          ...prev,
          name: false,
-         fieldsValidated: fieldsValidated - 1
+         fieldsValidated: prev.fieldsValidated - 1
       }));
    }
-   console.log('state updated');
+   // console.log('state updated');
 }
 
 export const handlePhoneNumberValidation = (
@@ -63,21 +61,19 @@ export const handlePhoneNumberValidation = (
 
    if (prevPhoneNumberState === newPhoneNumberState) return;
 
-   const { fieldsValidated } = stateObject;
-
    if (!prevPhoneNumberState && newPhoneNumberState) {
       stateSetter(prev => ({
          ...prev,
          phoneNumber: true,
-         fieldsValidated: fieldsValidated + 1
+         fieldsValidated: prev.fieldsValidated + 1
       }));
    } else {
       stateSetter(prev => ({
          ...prev,
          phoneNumber: false,
-         fieldsValidated: fieldsValidated - 1
+         fieldsValidated: prev.fieldsValidated - 1
       }));
    }
-   console.log('state updated');
+   // console.log('state updated');
    
 }

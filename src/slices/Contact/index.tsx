@@ -58,9 +58,9 @@ const Contact: FC<ContactProps> = ({ slice }) => {
 
   const handleNameChange = useDebouncedCallback(handleNameValidation, 500);
   const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, 500);
-  const handleClick = () => {
-    console.log(fieldsValidated);
-  }
+  // const handleClick = () => {
+  //   console.log(fieldsValidated);
+  // }
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
@@ -87,7 +87,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="phone-number-field"
               className={moduleStyles.inquiryField}
               onChange={event => handlePhoneNumberChange(event, fieldsValidated, setFieldsValidated)}
-              onClick={handleClick}
             />
           </div>
 
