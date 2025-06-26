@@ -25,10 +25,9 @@ const handleNameValidation = (
    const nameValue = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-   const minLength = nameValue.length > 4;
-   const maxLength = nameValue.length < 50;
+   const correctLength = nameValue.length >= 5 && nameValue.length <= 50;
    const prevNameState = stateObject.name;
-   const newNameState = minLength && maxLength && regEx.test(nameValue);
+   const newNameState = correctLength && regEx.test(nameValue);
 
    if (prevNameState === newNameState) return;
 
