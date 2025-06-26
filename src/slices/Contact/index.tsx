@@ -80,42 +80,42 @@ const Contact: FC<ContactProps> = ({ slice }) => {
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt}*</label>
-            <input type="tel" name="phoneNumber" id="phone-number-field" className={`${moduleStyles.inquiryField}`} required />
+            <input type="tel" name="phoneNumber" id="phone-number-field" className={`${moduleStyles.inquiryField}`} />
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="email-field">{slice.primary.email_prompt}*</label>
-            <input type="email" name="email" id="email-field" className={`${moduleStyles.inquiryField}`} required />
+            <input type="email" name="email" id="email-field" className={`${moduleStyles.inquiryField}`} />
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="birthday-field">{slice.primary.birthday_prompt}*</label>
-            <input type="date" name="birthday" id="birthday-field" className={`${moduleStyles.inquiryField}`} required />
+            <input type="date" name="birthday" id="birthday-field" className={`${moduleStyles.inquiryField}`} />
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="instagram-field">{slice.primary.instagram_prompt}*</label>
-            <input type="text" name="instagram" id="instagram-field" className={`${moduleStyles.inquiryField}`} required />
+            <input type="text" name="instagram" id="instagram-field" className={`${moduleStyles.inquiryField}`} />
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="occasion-field">{slice.primary.occasion_prompt}*</label>
-            <textarea name="occasion" id="occasion-field" className={`${moduleStyles.inquiryField}`} required />
+            <textarea name="occasion" id="occasion-field" className={`${moduleStyles.inquiryField}`} />
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt}*</label>
-            <textarea name="howFound" id="how-found-field" className={`${moduleStyles.inquiryField}`} required />
+            <textarea name="howFound" id="how-found-field" className={`${moduleStyles.inquiryField}`} />
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt}*</label>
-            <textarea name="tanHistory" id="tan-history-field" className={`${moduleStyles.inquiryField}`} required />
+            <textarea name="tanHistory" id="tan-history-field" className={`${moduleStyles.inquiryField}`} />
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
             <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt}*</label>
-            <textarea name="desiredResults" id="desired-results-field" className={`${moduleStyles.inquiryField}`} required minLength={5}/>
+            <textarea name="desiredResults" id="desired-results-field" className={`${moduleStyles.inquiryField}`}/>
           </div>
 
           <div className={`${moduleStyles.fieldContainer}`}>
