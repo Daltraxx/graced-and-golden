@@ -10,7 +10,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
-import { handleNameValidation } from "@/app/lib/utils/inputValidation";
+import { handleNameValidation, handlePhoneNumberValidation } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -57,9 +57,10 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   });
 
   const handleNameChange = useDebouncedCallback(handleNameValidation, 500);
-  // const handleClick = () => {
-  //   console.log(fieldsValidated);
-  // }
+  const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, 500);
+  const handleClick = () => {
+    console.log(fieldsValidated);
+  }
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
@@ -85,6 +86,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="phoneNumber"
               id="phone-number-field"
               className={moduleStyles.inquiryField}
+              onChange={event => handlePhoneNumberChange(event, fieldsValidated, setFieldsValidated)}
+              onClick={handleClick}
             />
           </div>
 

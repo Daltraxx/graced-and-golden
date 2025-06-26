@@ -46,7 +46,7 @@ export const handleNameValidation = (
          fieldsValidated: fieldsValidated - 1
       }));
    }
-   // console.log('state updated');
+   console.log('state updated');
 }
 
 export const handlePhoneNumberValidation = (
