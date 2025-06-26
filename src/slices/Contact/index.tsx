@@ -66,7 +66,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
       <section>
         <PrismicRichText field={slice.primary.form_heading} components={components} />
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
-          
+
           <div className={moduleStyles.fieldContainer}>
             <label htmlFor="name-field">{slice.primary.name_prompt}*</label>
             <input
@@ -74,7 +74,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="name"
               id="name-field"
               className={moduleStyles.inquiryField}
-              required
               onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
               style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
             />
