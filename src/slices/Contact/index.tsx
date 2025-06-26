@@ -66,63 +66,120 @@ const Contact: FC<ContactProps> = ({ slice }) => {
       <section>
         <PrismicRichText field={slice.primary.form_heading} components={components} />
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
-            <div className={moduleStyles.fieldContainer}>
-              <label htmlFor="name-field">{slice.primary.name_prompt}*</label>
-              <input
-                type="text"
-                name="name"
-                id="name-field"
-                className={moduleStyles.inquiryField}
-                required
-                onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
-              />
-            </div>
+          
+          <div className={moduleStyles.fieldContainer}>
+            <label htmlFor="name-field">{slice.primary.name_prompt}*</label>
+            <input
+              type="text"
+              name="name"
+              id="name-field"
+              className={moduleStyles.inquiryField}
+              required
+              onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
+            />
+          </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt}*</label>
-            <input type="tel" name="phoneNumber" id="phone-number-field" className={`${moduleStyles.inquiryField}`} />
+            <input
+              type="tel"
+              name="phoneNumber"
+              id="phone-number-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="email-field">{slice.primary.email_prompt}*</label>
-            <input type="email" name="email" id="email-field" className={`${moduleStyles.inquiryField}`} />
+            <input
+              type="email"
+              name="email"
+              id="email-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="birthday-field">{slice.primary.birthday_prompt}*</label>
-            <input type="date" name="birthday" id="birthday-field" className={`${moduleStyles.inquiryField}`} />
+            <input
+              type="date"
+              name="birthday"
+              id="birthday-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="instagram-field">{slice.primary.instagram_prompt}*</label>
-            <input type="text" name="instagram" id="instagram-field" className={`${moduleStyles.inquiryField}`} />
+            <input
+              type="text"
+              name="instagram"
+              id="instagram-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="occasion-field">{slice.primary.occasion_prompt}*</label>
-            <textarea name="occasion" id="occasion-field" className={`${moduleStyles.inquiryField}`} />
+            <textarea
+              name="occasion"
+              id="occasion-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt}*</label>
-            <textarea name="howFound" id="how-found-field" className={`${moduleStyles.inquiryField}`} />
+            <textarea
+              name="howFound"
+              id="how-found-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt}*</label>
-            <textarea name="tanHistory" id="tan-history-field" className={`${moduleStyles.inquiryField}`} />
+            <textarea
+              name="tanHistory"
+              id="tan-history-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt}*</label>
-            <textarea name="desiredResults" id="desired-results-field" className={`${moduleStyles.inquiryField}`}/>
+            <textarea
+              name="desiredResults"
+              id="desired-results-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
+            />
           </div>
 
-          <div className={`${moduleStyles.fieldContainer}`}>
+          <div className={moduleStyles.fieldContainer}>
             <label htmlFor="questions-concerns-field">{slice.primary.questions_and_concerns_prompt}</label>
-            <textarea name="questionsConcerns" id="questions-concerns-field" className={`${moduleStyles.inquiryField}`}/>
+            <textarea
+              name="questionsConcerns"
+              id="questions-concerns-field"
+              className={moduleStyles.inquiryField}
+              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
+            />
           </div>
-          <button type='submit' disabled={fieldsValidated.fieldsValidated !== fieldsValidated.totalFields} className={`${styles.button} ${styles.buttonBrown800}`}>Submit</button>
+          <button
+            type='submit'
+            disabled={fieldsValidated.fieldsValidated !== fieldsValidated.totalFields}
+            className={`${styles.button} ${styles.buttonBrown800}`}
+          >
+          Submit
+          </button>
         </form>
       </section>
     </Bounded>
