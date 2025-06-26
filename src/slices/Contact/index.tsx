@@ -75,7 +75,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="name-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
             />
           </div>
 
@@ -86,7 +85,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="phoneNumber"
               id="phone-number-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
             />
           </div>
 
@@ -97,7 +95,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="email"
               id="email-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
             />
           </div>
 
@@ -108,7 +105,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="birthday"
               id="birthday-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
             />
           </div>
 
@@ -119,7 +115,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="instagram"
               id="instagram-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%" }}
             />
           </div>
 
@@ -129,7 +124,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="occasion"
               id="occasion-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
             />
           </div>
 
@@ -139,7 +133,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="howFound"
               id="how-found-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
             />
           </div>
 
@@ -149,7 +142,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="tanHistory"
               id="tan-history-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
             />
           </div>
 
@@ -159,7 +151,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="desiredResults"
               id="desired-results-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
             />
           </div>
 
@@ -169,7 +160,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="questionsConcerns"
               id="questions-concerns-field"
               className={moduleStyles.inquiryField}
-              style={{ padding: "0.5rem", borderRadius: "4px", border: "1px solid #ccc", width: "100%", minHeight: "80px" }}
             />
           </div>
           <button
