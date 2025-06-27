@@ -104,5 +104,5 @@ export const handleEmailValidation = (
          fieldsValidated: prev.fieldsValidated - 1
       }));
    }
-   // console.log('state updated');
+   console.log('state updated');
 }
