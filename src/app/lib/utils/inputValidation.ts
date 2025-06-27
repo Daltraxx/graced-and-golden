@@ -290,3 +290,33 @@ export const handleDesiredResultsValidation = (
    }
    // console.log('state updated');
 }
+
+export const handleQuestionsConcernsValidation = (
+   { target }: { target: HTMLTextAreaElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const questionsConcernsVal = target.value.trim();
+   // regex common characters for questions and concerns
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const correctLength = questionsConcernsVal.length <= 300;
+   const prevState = stateObject.questionsConcerns;
+   const newState = correctLength && regEx.test(questionsConcernsVal);
+
+   if (prevState === newState) return;
+
+   if (!prevState && newState) {
+      stateSetter(prev => ({
+         ...prev,
+         questionsConcerns: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         questionsConcerns: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
+}
