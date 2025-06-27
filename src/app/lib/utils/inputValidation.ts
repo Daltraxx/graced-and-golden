@@ -231,6 +231,36 @@ export const handleHowFoundValidation = (
    // console.log('state updated');
 }
 
+export const handleTanHistoryValidation = (
+   { target }: { target: HTMLTextAreaElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const tanHistoryVal = target.value.trim();
+   // regex common characters for tan history
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const correctLength = tanHistoryVal.length >= 3 && tanHistoryVal.length <= 300;
+   const prevState = stateObject.tanHistory;
+   const newState = correctLength && regEx.test(tanHistoryVal);
+
+   if (prevState === newState) return;
+
+   if (!prevState && newState) {
+      stateSetter(prev => ({
+         ...prev,
+         tanHistory: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         tanHistory: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
+}
+
 export const handleDesiredResultsValidation = (
    { target }: { target: HTMLTextAreaElement },
    stateObject: FieldsValidationState,
