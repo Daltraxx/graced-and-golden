@@ -146,10 +146,10 @@ export const handleInstagramValidation = (
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
    const instagramVal = target.value.trim().toLowerCase();
-   // regex for birth date
+   // regex for valid instagram handle
    const regEx = /^(?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
    const correctLength = instagramVal.length >= 3 && instagramVal.length <= 30;
-   const oneLetter = /[a-zA-Z]/.test(instagramVal);
+   const oneLetter = /[a-zA-Z]/.test(instagramVal[0]);
    const prevInstagramVal = stateObject.instagram;
    const newInstagramVal = oneLetter && correctLength && regEx.test(instagramVal);
 
