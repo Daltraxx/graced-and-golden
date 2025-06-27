@@ -10,7 +10,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
-import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation } from "@/app/lib/utils/inputValidation";
+import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation, handleQuestionsConcernsValidation } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -65,9 +65,10 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const handleHowFoundChange = useDebouncedCallback(handleHowFoundValidation, 500);
   const handleTanHistoryChange = useDebouncedCallback(handleTanHistoryValidation, 500);
   const handleDesiredResultsChange = useDebouncedCallback(handleDesiredResultsValidation, 500);
-  const handleClick = () => {
-    console.log(fieldsValidated);
-  }
+  const handleQuestionsConcernsChange = useDebouncedCallback(handleQuestionsConcernsValidation, 500);
+  // const handleClick = () => {
+  //   console.log(fieldsValidated);
+  // }
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
@@ -176,6 +177,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="questionsConcerns"
               id="questions-concerns-field"
               className={moduleStyles.inquiryField}
+              onChange={event => handleQuestionsConcernsChange(event, fieldsValidated, setFieldsValidated)}
             />
           </div>
           <button
