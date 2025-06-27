@@ -113,10 +113,12 @@ export const handleBirthdayValidation = (
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
    const emailVal = target.value.trim();
+   console.log(emailVal);
    // regex for birth date
-   const regEx = /^(?:0[1-9]|1[0-2])\/(?:0[1-9]|1\d|2\d|3[01])\/(?:19|20)\d{2}$/;
+   const regEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
    const correctLength = emailVal.length === 10;
    const prevBirthdayState = stateObject.birthday;
+   console.log(regEx.test(emailVal));
    const newBirthdayState = correctLength && regEx.test(emailVal);
 
    if (prevBirthdayState === newBirthdayState) return;
