@@ -172,7 +172,7 @@ export const handleInstagramValidation = (
 }
 
 export const handleOccasionValidation = (
-   { target }: { target: HTMLInputElement },
+   { target }: { target: HTMLTextAreaElement },
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
