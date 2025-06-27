@@ -10,7 +10,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
-import { handleBirthdayValidation, handleEmailValidation, handleNameValidation, handlePhoneNumberValidation } from "@/app/lib/utils/inputValidation";
+import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handlePhoneNumberValidation } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -60,6 +60,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, 500);
   const handleEmailChange = useDebouncedCallback(handleEmailValidation, 500);
   const handleBirthdayChange = useDebouncedCallback(handleBirthdayValidation, 500);
+  const handleInstagramChange = useDebouncedCallback(handleInstagramValidation, 500);
   const handleClick = () => {
     console.log(fieldsValidated);
   }
@@ -121,6 +122,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="instagram"
               id="instagram-field"
               className={moduleStyles.inquiryField}
+              onChange={event => handleInstagramChange(event, fieldsValidated, setFieldsValidated)}
             />
           </div>
 
