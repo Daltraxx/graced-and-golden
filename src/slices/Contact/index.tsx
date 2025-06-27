@@ -10,7 +10,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
-import { handleEmailValidation, handleNameValidation, handlePhoneNumberValidation } from "@/app/lib/utils/inputValidation";
+import { handleBirthdayValidation, handleEmailValidation, handleNameValidation, handlePhoneNumberValidation } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -59,6 +59,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const handleNameChange = useDebouncedCallback(handleNameValidation, 500);
   const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, 500);
   const handleEmailChange = useDebouncedCallback(handleEmailValidation, 500);
+  const handleBirthdayChange = useDebouncedCallback(handleBirthdayValidation, 500);
   const handleClick = () => {
     console.log(fieldsValidated);
   }
@@ -109,6 +110,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="birthday"
               id="birthday-field"
               className={moduleStyles.inquiryField}
+              onChange={event => handleBirthdayChange(event, fieldsValidated, setFieldsValidated)}
             />
           </div>
 
