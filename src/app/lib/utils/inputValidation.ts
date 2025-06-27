@@ -139,3 +139,34 @@ export const handleBirthdayValidation = (
    }
    // console.log('state updated');
 }
+
+export const handleInstagramValidation = (
+   { target }: { target: HTMLInputElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const instagramVal = target.value.trim().toLowerCase();
+   // regex for birth date
+   const regEx = /^(?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
+   const correctLength = instagramVal.length >= 3 && instagramVal.length <= 30;
+   const oneLetter = /[a-zA-Z]/.test(instagramVal);
+   const prevInstagramVal = stateObject.instagram;
+   const newInstagramVal = oneLetter && correctLength && regEx.test(instagramVal);
+
+   if (prevInstagramVal === newInstagramVal) return;
+
+   if (!prevInstagramVal && newInstagramVal) {
+      stateSetter(prev => ({
+         ...prev,
+         instagram: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         instagram: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
+}
