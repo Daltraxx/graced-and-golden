@@ -116,8 +116,11 @@ export const handleBirthdayValidation = (
    // regex for birth date
    const regEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
    const correctLength = emailVal.length === 10;
+   const birthYear = Number(emailVal.slice(0, 4));
+   // must be at least 10 years old to inquire?
+   const oldEnough = (new Date().getFullYear() - birthYear) >= 10;
    const prevBirthdayState = stateObject.birthday;
-   const newBirthdayState = correctLength && regEx.test(emailVal);
+   const newBirthdayState = correctLength && oldEnough && regEx.test(emailVal);
 
    if (prevBirthdayState === newBirthdayState) return;
 
