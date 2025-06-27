@@ -176,7 +176,7 @@ export const handleOccasionValidation = (
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const occasionVal = target.value.trim().toLowerCase();
+   const occasionVal = target.value.trim();
    // regex common characters for occasion
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
    const correctLength = occasionVal.length >= 3 && occasionVal.length <= 300;
