@@ -75,5 +75,34 @@ export const handlePhoneNumberValidation = (
       }));
    }
    // console.log('state updated');
-   
+}
+
+export const handleEmailValidation = (
+   { target }: { target: HTMLInputElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const emailVal = target.value.trim();
+   // regex for email
+   const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+   const correctLength = emailVal.length >= 5 && emailVal.length <= 256;
+   const prevEmailState = stateObject.email;
+   const newEmailState = correctLength && regEx.test(emailVal);
+
+   if (prevEmailState === newEmailState) return;
+
+   if (!prevEmailState && newEmailState) {
+      stateSetter(prev => ({
+         ...prev,
+         email: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         email: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
 }
