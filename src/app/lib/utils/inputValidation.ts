@@ -104,5 +104,35 @@ export const handleEmailValidation = (
          fieldsValidated: prev.fieldsValidated - 1
       }));
    }
-   console.log('state updated');
+   // console.log('state updated');
+}
+
+export const handleBirthdayValidation = (
+   { target }: { target: HTMLInputElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const emailVal = target.value.trim();
+   // regex for birth date
+   const regEx = /^(?:0[1-9]|1[0-2])\/(?:0[1-9]|1\d|2\d|3[01])\/(?:19|20)\d{2}$/;
+   const correctLength = emailVal.length === 10;
+   const prevBirthdayState = stateObject.birthday;
+   const newBirthdayState = correctLength && regEx.test(emailVal);
+
+   if (prevBirthdayState === newBirthdayState) return;
+
+   if (!prevBirthdayState && newBirthdayState) {
+      stateSetter(prev => ({
+         ...prev,
+         birthday: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         birthday: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
 }
