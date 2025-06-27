@@ -150,12 +150,42 @@ export const handleInstagramValidation = (
    const regEx = /^(?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
    const correctLength = instagramVal.length >= 3 && instagramVal.length <= 30;
    const oneLetter = /[a-zA-Z]/.test(instagramVal[0]);
-   const prevInstagramVal = stateObject.instagram;
-   const newInstagramVal = oneLetter && correctLength && regEx.test(instagramVal);
+   const prevInstagramState = stateObject.instagram;
+   const newInstagramState = oneLetter && correctLength && regEx.test(instagramVal);
 
-   if (prevInstagramVal === newInstagramVal) return;
+   if (prevInstagramState === newInstagramState) return;
 
-   if (!prevInstagramVal && newInstagramVal) {
+   if (!prevInstagramState && newInstagramState) {
+      stateSetter(prev => ({
+         ...prev,
+         instagram: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         instagram: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
+}
+
+export const handleOccasionValidation = (
+   { target }: { target: HTMLInputElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const occasionVal = target.value.trim().toLowerCase();
+   // regex common characters for occasion
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const correctLength = occasionVal.length >= 3 && occasionVal.length <= 300;
+   const prevOccasionState = stateObject.occasion;
+   const newOccasionState = correctLength && regEx.test(occasionVal);
+
+   if (prevOccasionState === newOccasionState) return;
+
+   if (!prevOccasionState && newOccasionState) {
       stateSetter(prev => ({
          ...prev,
          instagram: true,
