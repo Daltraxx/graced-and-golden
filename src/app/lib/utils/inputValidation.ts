@@ -178,7 +178,7 @@ export const handleOccasionValidation = (
 ): void => {
    const occasionVal = target.value.trim();
    // regex common characters for occasion
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
    const correctLength = occasionVal.length >= 2 && occasionVal.length <= 300;
    const prevState = stateObject.occasion;
    const newState = correctLength && regEx.test(occasionVal);
@@ -208,7 +208,7 @@ export const handleHowFoundValidation = (
 ): void => {
    const howFoundVal = target.value.trim();
    // regex common characters for how-found
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
    const correctLength = howFoundVal.length >= 2 && howFoundVal.length <= 300;
    const prevState = stateObject.howFound;
    const newState = correctLength && regEx.test(howFoundVal);
@@ -238,7 +238,7 @@ export const handleTanHistoryValidation = (
 ): void => {
    const tanHistoryVal = target.value.trim();
    // regex common characters for tan history
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
    const correctLength = tanHistoryVal.length >= 2 && tanHistoryVal.length <= 300;
    const prevState = stateObject.tanHistory;
    const newState = correctLength && regEx.test(tanHistoryVal);
@@ -268,7 +268,7 @@ export const handleDesiredResultsValidation = (
 ): void => {
    const desiredResultsVal = target.value.trim();
    // regex common characters for desired results
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
    const correctLength = desiredResultsVal.length >= 2 && desiredResultsVal.length <= 300;
    const prevState = stateObject.desiredResults;
    const newState = correctLength && regEx.test(desiredResultsVal);
@@ -298,10 +298,10 @@ export const handleQuestionsConcernsValidation = (
 ): void => {
    const questionsConcernsVal = target.value.trim();
    // regex common characters for questions and concerns
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
    const correctLength = questionsConcernsVal.length <= 300;
    const prevState = stateObject.questionsConcerns;
-   const newState = correctLength && regEx.test(questionsConcernsVal);
+   const newState = questionsConcernsVal.length === 0 ? true : correctLength && regEx.test(questionsConcernsVal);
 
    if (prevState === newState) return;
 
