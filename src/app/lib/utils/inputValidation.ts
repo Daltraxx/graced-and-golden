@@ -26,12 +26,12 @@ export const handleNameValidation = (
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
    const correctLength = nameVal.length >= 5 && nameVal.length <= 50;
-   const prevNameState = stateObject.name;
-   const newNameState = correctLength && regEx.test(nameVal);
+   const prevState = stateObject.name;
+   const newState = correctLength && regEx.test(nameVal);
 
-   if (prevNameState === newNameState) return;
+   if (prevState === newState) return;
 
-   if (!prevNameState && newNameState) {
+   if (!prevState && newState) {
       stateSetter(prev => ({
          ...prev,
          name: true,
@@ -56,12 +56,12 @@ export const handlePhoneNumberValidation = (
    // regex for phone number allowing formatting with parentheses, spaces, dashes, and periods
    const regEx = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
    const correctLength = phoneNumberVal.length >= 10 && phoneNumberVal.length <= 14;
-   const prevPhoneNumberState = stateObject.phoneNumber;
-   const newPhoneNumberState = correctLength && regEx.test(phoneNumberVal);
+   const prevState = stateObject.phoneNumber;
+   const newState = correctLength && regEx.test(phoneNumberVal);
 
-   if (prevPhoneNumberState === newPhoneNumberState) return;
+   if (prevState === newState) return;
 
-   if (!prevPhoneNumberState && newPhoneNumberState) {
+   if (!prevState && newState) {
       stateSetter(prev => ({
          ...prev,
          phoneNumber: true,
@@ -86,12 +86,12 @@ export const handleEmailValidation = (
    // regex for email
    const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
    const correctLength = emailVal.length >= 5 && emailVal.length <= 256;
-   const prevEmailState = stateObject.email;
-   const newEmailState = correctLength && regEx.test(emailVal);
+   const prevState = stateObject.email;
+   const newState = correctLength && regEx.test(emailVal);
 
-   if (prevEmailState === newEmailState) return;
+   if (prevState === newState) return;
 
-   if (!prevEmailState && newEmailState) {
+   if (!prevState && newState) {
       stateSetter(prev => ({
          ...prev,
          email: true,
@@ -119,12 +119,12 @@ export const handleBirthdayValidation = (
    const birthYear = Number(emailVal.slice(0, 4));
    // must be at least 10 years old to inquire?
    const oldEnough = (new Date().getFullYear() - birthYear) >= 10;
-   const prevBirthdayState = stateObject.birthday;
-   const newBirthdayState = correctLength && oldEnough && regEx.test(emailVal);
+   const prevState = stateObject.birthday;
+   const newState = correctLength && oldEnough && regEx.test(emailVal);
 
-   if (prevBirthdayState === newBirthdayState) return;
+   if (prevState === newState) return;
 
-   if (!prevBirthdayState && newBirthdayState) {
+   if (!prevState && newState) {
       stateSetter(prev => ({
          ...prev,
          birthday: true,
@@ -150,12 +150,12 @@ export const handleInstagramValidation = (
    const regEx = /^(?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
    const correctLength = instagramVal.length >= 3 && instagramVal.length <= 30;
    const oneLetter = /[a-zA-Z]/.test(instagramVal[0]);
-   const prevInstagramState = stateObject.instagram;
-   const newInstagramState = oneLetter && correctLength && regEx.test(instagramVal);
+   const prevState = stateObject.instagram;
+   const newState = oneLetter && correctLength && regEx.test(instagramVal);
 
-   if (prevInstagramState === newInstagramState) return;
+   if (prevState === newState) return;
 
-   if (!prevInstagramState && newInstagramState) {
+   if (!prevState && newState) {
       stateSetter(prev => ({
          ...prev,
          instagram: true,
@@ -180,12 +180,12 @@ export const handleOccasionValidation = (
    // regex common characters for occasion
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
    const correctLength = occasionVal.length >= 3 && occasionVal.length <= 300;
-   const prevOccasionState = stateObject.occasion;
-   const newOccasionState = correctLength && regEx.test(occasionVal);
+   const prevState = stateObject.occasion;
+   const newState = correctLength && regEx.test(occasionVal);
 
-   if (prevOccasionState === newOccasionState) return;
+   if (prevState === newState) return;
 
-   if (!prevOccasionState && newOccasionState) {
+   if (!prevState && newState) {
       stateSetter(prev => ({
          ...prev,
          occasion: true,
@@ -195,6 +195,36 @@ export const handleOccasionValidation = (
       stateSetter(prev => ({
          ...prev,
          occasion: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
+}
+
+export const handleHowFoundValidation = (
+   { target }: { target: HTMLTextAreaElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const howFoundVal = target.value.trim();
+   // regex common characters for how-found
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const correctLength = howFoundVal.length >= 3 && howFoundVal.length <= 300;
+   const prevState = stateObject.howFound;
+   const newState = correctLength && regEx.test(howFoundVal);
+
+   if (prevState === newState) return;
+
+   if (!prevState && newState) {
+      stateSetter(prev => ({
+         ...prev,
+         howFound: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         howFound: false,
          fieldsValidated: prev.fieldsValidated - 1
       }));
    }
