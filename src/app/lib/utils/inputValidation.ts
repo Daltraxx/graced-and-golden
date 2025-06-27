@@ -240,7 +240,7 @@ export const handleDesiredResultsValidation = (
    // regex common characters for desired results
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
    const correctLength = desiredResultsVal.length >= 3 && desiredResultsVal.length <= 300;
-   const prevState = stateObject.howFound;
+   const prevState = stateObject.desiredResults;
    const newState = correctLength && regEx.test(desiredResultsVal);
 
    if (prevState === newState) return;
