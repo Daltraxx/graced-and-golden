@@ -188,13 +188,13 @@ export const handleOccasionValidation = (
    if (!prevOccasionState && newOccasionState) {
       stateSetter(prev => ({
          ...prev,
-         instagram: true,
+         occasion: true,
          fieldsValidated: prev.fieldsValidated + 1
       }));
    } else {
       stateSetter(prev => ({
          ...prev,
-         instagram: false,
+         occasion: false,
          fieldsValidated: prev.fieldsValidated - 1
       }));
    }
