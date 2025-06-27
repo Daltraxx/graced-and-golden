@@ -230,3 +230,33 @@ export const handleHowFoundValidation = (
    }
    // console.log('state updated');
 }
+
+export const handleDesiredResultsValidation = (
+   { target }: { target: HTMLTextAreaElement },
+   stateObject: FieldsValidationState,
+   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+): void => {
+   const desiredResultsVal = target.value.trim();
+   // regex common characters for desired results
+   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ ]+$/;
+   const correctLength = desiredResultsVal.length >= 3 && desiredResultsVal.length <= 300;
+   const prevState = stateObject.howFound;
+   const newState = correctLength && regEx.test(desiredResultsVal);
+
+   if (prevState === newState) return;
+
+   if (!prevState && newState) {
+      stateSetter(prev => ({
+         ...prev,
+         desiredResults: true,
+         fieldsValidated: prev.fieldsValidated + 1
+      }));
+   } else {
+      stateSetter(prev => ({
+         ...prev,
+         desiredResults: false,
+         fieldsValidated: prev.fieldsValidated - 1
+      }));
+   }
+   // console.log('state updated');
+}
