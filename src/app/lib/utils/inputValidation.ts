@@ -258,7 +258,7 @@ export const handleTanHistoryValidation = (
          fieldsValidated: prev.fieldsValidated - 1
       }));
    }
-   console.log('state updated');
+   // console.log('state updated');
 }
 
 export const handleDesiredResultsValidation = (

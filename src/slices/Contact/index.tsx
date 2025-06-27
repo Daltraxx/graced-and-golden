@@ -10,7 +10,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
-import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleDesiredResultsValidation } from "@/app/lib/utils/inputValidation";
+import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -63,6 +63,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const handleInstagramChange = useDebouncedCallback(handleInstagramValidation, 500);
   const handleOccasionChange = useDebouncedCallback(handleOccasionValidation, 500);
   const handleHowFoundChange = useDebouncedCallback(handleHowFoundValidation, 500);
+  const handleTanHistoryChange = useDebouncedCallback(handleTanHistoryValidation, 500);
   const handleDesiredResultsChange = useDebouncedCallback(handleDesiredResultsValidation, 500);
   const handleClick = () => {
     console.log(fieldsValidated);
@@ -155,6 +156,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="tanHistory"
               id="tan-history-field"
               className={moduleStyles.inquiryField}
+              onChange={event => handleTanHistoryChange(event, fieldsValidated, setFieldsValidated)}
             />
           </div>
 
