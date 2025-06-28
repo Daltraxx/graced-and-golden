@@ -1,5 +1,6 @@
 'use client';
 
+import { stat } from "fs";
 import { Dispatch, SetStateAction } from "react";
 
 type fieldState = {
@@ -39,25 +40,30 @@ export const handleNameValidation = (
    const nameVal = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-   const correctLength = nameVal.length >= 5 && nameVal.length <= 50;
+   const isCorrectCharacters = regEx.test(nameVal);
+   const isCorrectLength = nameVal.length >= 5 && nameVal.length <= 50;
+   const errors = [];
+   if (!isCorrectCharacters) errors.push('Name can only contain letters, hyphens, and apostrophes.');
+   if (!isCorrectLength) errors.push('Please enter a name between 5 and 50 characters long.');
+   
    const prevState = stateObject.name;
-   const newState = correctLength && regEx.test(nameVal);
+   const newState: fieldState = {
+      valid: isCorrectCharacters && isCorrectLength,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
-
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         name: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         name: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
+   if (areStatesEqual(prevState, newState)) return;
+   const validityChange = prevState.valid === newState.valid;
+   let fieldsValidatedChange : number;
+   if (validityChange) {
+      newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
    }
+
+   stateSetter(prev => ({
+      ...prev,
+      name: newState,
+      fieldsValidated: validityChange ? prev.fieldsValidated + fieldsValidatedChange : prev.fieldsValidated
+   }))
    // console.log('state updated');
 }
 
