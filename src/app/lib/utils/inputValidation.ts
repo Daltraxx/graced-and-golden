@@ -53,7 +53,7 @@ export const handleNameValidation = (
    };
 
    if (areStatesEqual(prevState, newState)) return;
-   const validityChange = prevState.valid === newState.valid;
+   const validityChange = prevState.valid !== newState.valid;
    let fieldsValidatedChange : number;
    if (validityChange) {
       newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
