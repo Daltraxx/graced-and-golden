@@ -43,43 +43,43 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const [fieldsValidated, setFieldsValidated] = useState({
     name: {
       valid: false,
-      error: ''
+      errors: []
     },
     phoneNumber: {
       valid: false,
-      error: ''
+      errors: []
     },
     email: {
       valid: false,
-      error: ''
+      errors: []
     },
     birthday: {
       valid: false,
-      error: ''
+      errors: []
     },
     instagram: {
       valid: false,
-      error: ''
+      errors: []
     },
     occasion: {
       valid: false,
-      error: ''
+      errors: []
     },
     howFound: {
       valid: false,
-      error: ''
+      errors: []
     },
     tanHistory: {
       valid: false,
-      error: ''
+      errors: []
     },
     desiredResults: {
       valid: false,
-      error: ''
+      errors: []
     },
     questionsConcerns: {
       valid: true,
-      error: ''
+      errors: []
     },
     // try to fix hardcoding of below values later
     fieldsValidated: 1,

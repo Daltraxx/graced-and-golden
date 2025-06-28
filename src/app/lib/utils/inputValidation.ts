@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 
 type fieldState = {
    valid: boolean;
-   error: string;
+   errors: Array<string>;
 };
 
 type FieldsValidationState = {
