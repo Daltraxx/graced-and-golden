@@ -40,7 +40,7 @@ export const handleNameValidation = (
    const nameVal = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-   const isCorrectCharacters = regEx.test(nameVal);
+   const isCorrectCharacters = nameVal.length > 0 && regEx.test(nameVal);
    const isCorrectLength = nameVal.length >= 5 && nameVal.length <= 50;
    const errors = [];
    if (!isCorrectCharacters) errors.push('Name can only contain letters, hyphens, and apostrophes.');
@@ -48,13 +48,13 @@ export const handleNameValidation = (
    
    const prevState = stateObject.name;
    const newState: fieldState = {
-      valid: isCorrectCharacters && isCorrectLength,
+      valid: !errors.length,
       errors: errors
    };
 
    if (areStatesEqual(prevState, newState)) return;
    const validityChange = prevState.valid !== newState.valid;
-   let fieldsValidatedChange : number;
+   let fieldsValidatedChange = 0;
    if (validityChange) {
       newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
    }
@@ -62,7 +62,7 @@ export const handleNameValidation = (
    stateSetter(prev => ({
       ...prev,
       name: newState,
-      fieldsValidated: validityChange ? prev.fieldsValidated + fieldsValidatedChange : prev.fieldsValidated
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
    }))
    // console.log('state updated');
 }
@@ -75,25 +75,28 @@ export const handlePhoneNumberValidation = (
    const phoneNumberVal = target.value.trim();
    // regex for phone number allowing formatting with parentheses, spaces, dashes, and periods
    const regEx = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
-   const correctLength = phoneNumberVal.length >= 10 && phoneNumberVal.length <= 14;
+   const isCorrectCharacters = phoneNumberVal.length > 0 && regEx.test(phoneNumberVal);
+   const isCorrectLength = phoneNumberVal.length >= 10 && phoneNumberVal.length <= 14;
+   const errors = [];
+   if (!isCorrectCharacters || !isCorrectLength) errors.push('Please enter a valid phone number.');
    const prevState = stateObject.phoneNumber;
-   const newState = correctLength && regEx.test(phoneNumberVal);
-
-   if (prevState === newState) return;
-
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         phoneNumber: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         phoneNumber: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
+   const newState: fieldState = {
+      valid: !errors.length,
+      errors: errors
    }
+
+   if (areStatesEqual(prevState, newState)) return;
+   const validityChange = prevState.valid !== newState.valid;
+   let fieldsValidatedChange = 0;
+   if (validityChange) {
+      newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
+   }
+
+   stateSetter((prev) => ({
+      ...prev,
+      phoneNumber: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
 
@@ -105,7 +108,7 @@ export const handleEmailValidation = (
    const emailVal = target.value.trim();
    // regex for email
    const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-   const correctLength = emailVal.length >= 5 && emailVal.length <= 256;
+   const isCorrectLength = emailVal.length >= 5 && emailVal.length <= 256;
    const prevState = stateObject.email;
    const newState = correctLength && regEx.test(emailVal);
 
@@ -135,7 +138,7 @@ export const handleBirthdayValidation = (
    const emailVal = target.value.trim();
    // regex for birth date
    const regEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
-   const correctLength = emailVal.length === 10;
+   const isCorrectLength = emailVal.length === 10;
    const birthYear = Number(emailVal.slice(0, 4));
    // must be at least 10 years old to inquire?
    const oldEnough = (new Date().getFullYear() - birthYear) >= 10;
@@ -168,7 +171,7 @@ export const handleInstagramValidation = (
    const instagramVal = target.value.trim().toLowerCase();
    // regex for valid instagram handle
    const regEx = /^(?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
-   const correctLength = instagramVal.length >= 2 && instagramVal.length <= 30;
+   const isCorrectLength = instagramVal.length >= 2 && instagramVal.length <= 30;
    const oneLetter = /[a-zA-Z]/.test(instagramVal[0]);
    const prevState = stateObject.instagram;
    const newState = oneLetter && correctLength && regEx.test(instagramVal);
@@ -199,7 +202,7 @@ export const handleOccasionValidation = (
    const occasionVal = target.value.trim();
    // regex common characters for occasion
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const correctLength = occasionVal.length >= 2 && occasionVal.length <= 300;
+   const isCorrectLength = occasionVal.length >= 2 && occasionVal.length <= 300;
    const prevState = stateObject.occasion;
    const newState = correctLength && regEx.test(occasionVal);
 
@@ -229,7 +232,7 @@ export const handleHowFoundValidation = (
    const howFoundVal = target.value.trim();
    // regex common characters for how-found
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const correctLength = howFoundVal.length >= 2 && howFoundVal.length <= 300;
+   const isCorrectLength = howFoundVal.length >= 2 && howFoundVal.length <= 300;
    const prevState = stateObject.howFound;
    const newState = correctLength && regEx.test(howFoundVal);
 
@@ -259,7 +262,7 @@ export const handleTanHistoryValidation = (
    const tanHistoryVal = target.value.trim();
    // regex common characters for tan history
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const correctLength = tanHistoryVal.length >= 2 && tanHistoryVal.length <= 300;
+   const isCorrectLength = tanHistoryVal.length >= 2 && tanHistoryVal.length <= 300;
    const prevState = stateObject.tanHistory;
    const newState = correctLength && regEx.test(tanHistoryVal);
 
@@ -289,7 +292,7 @@ export const handleDesiredResultsValidation = (
    const desiredResultsVal = target.value.trim();
    // regex common characters for desired results
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const correctLength = desiredResultsVal.length >= 2 && desiredResultsVal.length <= 300;
+   const isCorrectLength = desiredResultsVal.length >= 2 && desiredResultsVal.length <= 300;
    const prevState = stateObject.desiredResults;
    const newState = correctLength && regEx.test(desiredResultsVal);
 
@@ -319,7 +322,7 @@ export const handleQuestionsConcernsValidation = (
    const questionsConcernsVal = target.value.trim();
    // regex common characters for questions and concerns
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const correctLength = questionsConcernsVal.length <= 300;
+   const isCorrectLength = questionsConcernsVal.length <= 300;
    const prevState = stateObject.questionsConcerns;
    const newState = questionsConcernsVal.length === 0 ? true : correctLength && regEx.test(questionsConcernsVal);
 
