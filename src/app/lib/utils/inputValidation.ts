@@ -52,6 +52,7 @@ export const handleNameValidation = (
    };
 
    if (areStatesEqual(prevState, newState)) return;
+
    const validityChange = prevState.valid !== newState.valid;
    let fieldsValidatedChange = 0;
    if (validityChange) {
@@ -85,6 +86,7 @@ export const handlePhoneNumberValidation = (
    }
 
    if (areStatesEqual(prevState, newState)) return;
+
    const validityChange = prevState.valid !== newState.valid;
    let fieldsValidatedChange = 0;
    if (validityChange) {
@@ -107,25 +109,29 @@ export const handleEmailValidation = (
    const emailVal = target.value.trim();
    // regex for email
    const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+   const isCorrectCharacters = emailVal.length > 0 && regEx.test(emailVal);
    const isCorrectLength = emailVal.length >= 5 && emailVal.length <= 256;
+   const errors = [];
+   if (!isCorrectLength || !isCorrectCharacters) errors.push('Please enter a valid email address.');
    const prevState = stateObject.email;
-   const newState = correctLength && regEx.test(emailVal);
+   const newState = {
+      valid: !errors.length,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
+   if (areStatesEqual(prevState, newState)) return;
 
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         email: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         email: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
+   const validityChange = prevState.valid !== newState.valid;
+   let fieldsValidatedChange = 0;
+   if (validityChange) {
+      newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
    }
+
+   stateSetter((prev) => ({
+      ...prev,
+      email: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
 
