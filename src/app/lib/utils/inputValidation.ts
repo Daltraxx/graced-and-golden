@@ -22,6 +22,15 @@ type FieldsValidationState = {
    totalFields: number;
 };
 
+const areStatesEqual = (prevState: fieldState, newState: fieldState): boolean => {
+   if (prevState.valid !== newState.valid) return false;
+   if (prevState.errors.length !== newState.errors.length) return false;
+   for (let i = 0; i < prevState.errors.length; i++) {
+      if (prevState.errors[i] !== newState.errors[i]) return false;
+   }
+   return true;
+}
+
 export const handleNameValidation = (
    { target }: { target: HTMLInputElement },
    stateObject: FieldsValidationState,
