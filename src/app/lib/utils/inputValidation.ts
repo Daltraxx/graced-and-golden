@@ -2,17 +2,22 @@
 
 import { Dispatch, SetStateAction } from "react";
 
+type fieldState = {
+   valid: boolean;
+   error: string;
+};
+
 type FieldsValidationState = {
-   name: boolean;
-   phoneNumber: boolean;
-   email: boolean;
-   birthday: boolean;
-   instagram: boolean;
-   occasion: boolean;
-   howFound: boolean;
-   tanHistory: boolean;
-   desiredResults: boolean;
-   questionsConcerns: boolean;
+   name: fieldState;
+   phoneNumber: fieldState;
+   email: fieldState;
+   birthday: fieldState;
+   instagram: fieldState;
+   occasion: fieldState;
+   howFound: fieldState;
+   tanHistory: fieldState;
+   desiredResults: fieldState;
+   questionsConcerns: fieldState;
    fieldsValidated: number;
    totalFields: number;
 };

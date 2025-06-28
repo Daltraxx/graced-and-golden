@@ -41,16 +41,46 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const initialState: State = { message: null, errors: {} };
   const [state, formAction] = useActionState(sendInquiryEmail, initialState);
   const [fieldsValidated, setFieldsValidated] = useState({
-    name: false,
-    phoneNumber: false,
-    email: false,
-    birthday: false,
-    instagram: false,
-    occasion: false,
-    howFound: false,
-    tanHistory: false,
-    desiredResults: false,
-    questionsConcerns: true,
+    name: {
+      valid: false,
+      error: ''
+    },
+    phoneNumber: {
+      valid: false,
+      error: ''
+    },
+    email: {
+      valid: false,
+      error: ''
+    },
+    birthday: {
+      valid: false,
+      error: ''
+    },
+    instagram: {
+      valid: false,
+      error: ''
+    },
+    occasion: {
+      valid: false,
+      error: ''
+    },
+    howFound: {
+      valid: false,
+      error: ''
+    },
+    tanHistory: {
+      valid: false,
+      error: ''
+    },
+    desiredResults: {
+      valid: false,
+      error: ''
+    },
+    questionsConcerns: {
+      valid: true,
+      error: ''
+    },
     // try to fix hardcoding of below values later
     fieldsValidated: 1,
     totalFields: 10
