@@ -31,6 +31,19 @@ const areStatesEqual = (prevState: fieldState, newState: fieldState): boolean =>
    return true;
 }
 
+const createErrorMessagesArray = (validityTests: Array<boolean>, errorMessages: Array<string> | string): string[] => {
+   const errors: string[] = [];
+   if (typeof errorMessages === 'string') {
+      return validityTests.some(result => !result) ? [errorMessages] : errors;
+   }
+
+   for (let i = 0; i < validityTests.length; i++) {
+      if (!validityTests[i]) errors.push(errorMessages[i]);
+   }
+
+   return errors;
+}
+
 export const handleNameValidation = (
    { target }: { target: HTMLInputElement },
    stateObject: FieldsValidationState,
