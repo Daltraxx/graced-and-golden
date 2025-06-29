@@ -2,6 +2,7 @@
 
 import { Dispatch, SetStateAction } from "react";
 
+// change to interfaces? 
 type FieldState = {
    valid: boolean;
    errors: Array<string>;
@@ -33,6 +34,18 @@ type Tests = {
    defaultErrorMessage?: string;
 }
 
+type ErrorMessages = {
+   incorrectChars: string;
+   incorrectLength: string;
+}
+
+const errorMessages: Record<string, ErrorMessages> = {
+   name: {
+      incorrectChars: 'Name can only contain letters, hyphens, and apostrophes.',
+      incorrectLength: 'Please enter a name between 5 and 50 characters long.'
+   }
+}
+
 const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean => {
    if (prevState.valid !== newState.valid) return false;
    if (prevState.errors.length !== newState.errors.length) return false;
@@ -42,18 +55,18 @@ const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean =>
    return true;
 }
 
-const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, charsMessage: string, lengthMessage: string): Tests => {
+const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, { incorrectChars, incorrectLength }: ErrorMessages): Tests => {
    const inputValLength = inputVal.length;
    const isCorrectChars = inputValLength ? true : regEx.test(inputVal);
    const isCorrectLength = inputValLength >= minLength && inputValLength <= maxLength;
    return {
       correctChars: {
          result: isCorrectChars,
-         errorMessage: charsMessage
+         errorMessage: incorrectChars
       },
       correctLength: {
          result: isCorrectLength,
-         errorMessage: lengthMessage
+         errorMessage: incorrectLength
       }
    }
 }
@@ -80,9 +93,7 @@ export const handleNameValidation = (
    const nameVal = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-   const incorrectCharsMessage = 'Name can only contain letters, hyphens, and apostrophes.';
-   const incorrectLengthMessage = 'Please enter a name between 5 and 50 characters long.';
-   const results = createTestResults(nameVal, regEx, 5, 50, incorrectCharsMessage, incorrectLengthMessage);
+   const results = createTestResults(nameVal, regEx, 5, 50, errorMessages.name);
    const errors = createErrorMessagesArray(results);
    
    const prevState = stateObject.name;
