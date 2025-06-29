@@ -22,7 +22,18 @@ type FieldsValidationState = {
    totalFields: number;
 };
 
-const areStatesEqual = (prevState: fieldState, newState: fieldState): boolean => {
+type TestResult = {
+   result: boolean;
+   errorMessage: string;
+}
+
+type Tests = {
+   correctChars: TestResult;
+   correctLength: TestResult;
+   defaultErrorMessage?: string;
+}
+
+const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean => {
    if (prevState.valid !== newState.valid) return false;
    if (prevState.errors.length !== newState.errors.length) return false;
    for (let i = 0; i < prevState.errors.length; i++) {
@@ -31,14 +42,31 @@ const areStatesEqual = (prevState: fieldState, newState: fieldState): boolean =>
    return true;
 }
 
-const createErrorMessagesArray = (validityTests: Array<boolean>, errorMessages: Array<string> | string): string[] => {
-   const errors: string[] = [];
-   if (typeof errorMessages === 'string') {
-      return validityTests.some(result => !result) ? [errorMessages] : errors;
+const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, charsMessage: string, lengthMessage: string): Tests => {
+   const inputValLength = inputVal.length;
+   const isCorrectChars = inputValLength ? true : regEx.test(inputVal);
+   const isCorrectLength = inputValLength >= minLength && inputValLength <= maxLength;
+   return {
+      correctChars: {
+         result: isCorrectChars,
+         errorMessage: charsMessage
+      },
+      correctLength: {
+         result: isCorrectLength,
+         errorMessage: lengthMessage
+      }
    }
+}
 
-   for (let i = 0; i < validityTests.length; i++) {
-      if (!validityTests[i]) errors.push(errorMessages[i]);
+const createErrorMessagesArray = ({ correctChars, correctLength, defaultErrorMessage }: Tests, sameMessage: boolean = false): string[] => {
+   const errors: string[] = [];
+   if (!defaultErrorMessage) defaultErrorMessage = 'Invalid entry';
+
+   if (!sameMessage){
+      if (!correctChars.result) errors.push(correctChars.errorMessage);
+      if (!correctLength.result) errors.push(correctLength.errorMessage);
+   } else {
+      if (!correctChars.result || !correctLength.result) errors.push(defaultErrorMessage);
    }
 
    return errors;
@@ -52,14 +80,13 @@ export const handleNameValidation = (
    const nameVal = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-   const isCorrectChars = nameVal.length > 0 && regEx.test(nameVal);
-   const isCorrectLength = nameVal.length >= 5 && nameVal.length <= 50;
    const incorrectCharsMessage = 'Name can only contain letters, hyphens, and apostrophes.';
    const incorrectLengthMessage = 'Please enter a name between 5 and 50 characters long.';
-   const errors = createErrorMessagesArray([isCorrectChars, isCorrectLength], [incorrectCharsMessage, incorrectLengthMessage]);
+   const results = createTestResults(nameVal, regEx, 5, 50, incorrectCharsMessage, incorrectLengthMessage);
+   const errors = createErrorMessagesArray(results);
    
    const prevState = stateObject.name;
-   const newState: fieldState = {
+   const newState: FieldState = {
       valid: !errors.length,
       errors: errors
    };
@@ -93,7 +120,7 @@ export const handlePhoneNumberValidation = (
    const errors = [];
    if (!isCorrectCharacters || !isCorrectLength) errors.push('Please enter a valid phone number.');
    const prevState = stateObject.phoneNumber;
-   const newState: fieldState = {
+   const newState: FieldState = {
       valid: !errors.length,
       errors: errors
    }
