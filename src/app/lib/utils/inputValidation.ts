@@ -52,11 +52,11 @@ export const handleNameValidation = (
    const nameVal = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-   const isCorrectCharacters = nameVal.length > 0 && regEx.test(nameVal);
+   const isCorrectChars = nameVal.length > 0 && regEx.test(nameVal);
    const isCorrectLength = nameVal.length >= 5 && nameVal.length <= 50;
-   const errors = [];
-   if (!isCorrectCharacters) errors.push('Name can only contain letters, hyphens, and apostrophes.');
-   if (!isCorrectLength) errors.push('Please enter a name between 5 and 50 characters long.');
+   const incorrectCharsMessage = 'Name can only contain letters, hyphens, and apostrophes.';
+   const incorrectLengthMessage = 'Please enter a name between 5 and 50 characters long.';
+   const errors = createErrorMessagesArray([isCorrectChars, isCorrectLength], [incorrectCharsMessage, incorrectLengthMessage]);
    
    const prevState = stateObject.name;
    const newState: fieldState = {
