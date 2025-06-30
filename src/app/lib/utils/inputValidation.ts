@@ -62,20 +62,31 @@ const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean =>
    return true;
 }
 
-const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, { incorrectChars, incorrectLength }: ErrorMessages): TestResults => {
+const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, errorMessages: ErrorMessages, ageRequirement = null): TestResults => {
    const inputValLength = inputVal.length;
    const isCorrectChars = inputValLength === 0 ? true : regEx.test(inputVal);
    const isCorrectLength = inputValLength >= minLength && inputValLength <= maxLength;
-   return {
+   const testResults: TestResults = {
       correctChars: {
          result: isCorrectChars,
-         errorMessage: incorrectChars
+         errorMessage: errorMessages.incorrectChars
       },
       correctLength: {
          result: isCorrectLength,
-         errorMessage: incorrectLength
+         errorMessage: errorMessages.incorrectLength
+      }
+   };
+
+   if (errorMessages.invalidAge) {
+      const birthYear = Number(inputVal.slice(0, 4));
+      const oldEnough = (new Date().getFullYear() - birthYear) >= 10;
+      testResults.correctAge = {
+         result: oldEnough,
+         errorMessage: errorMessages.invalidAge
       }
    }
+
+   return testResults;
 }
 
 const createErrorMessagesArray = ({ correctChars, correctLength }: TestResults): string[] => {
