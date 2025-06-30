@@ -70,6 +70,10 @@ const errorMessages: Record<string, ErrorMessages> = {
       incorrectChars: 'Please remove uncommon special characters.',
       incorrectLength: 'Please share how you found us!'
    },
+   tanHistory: {
+      incorrectChars: 'Please remove uncommon special characters.',
+      incorrectLength: 'Please describe your spray tan history in between 2 and 300 characters.'
+   },
 }
 
 const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean => {
@@ -338,25 +342,24 @@ export const handleTanHistoryValidation = (
    const tanHistoryVal = target.value.trim();
    // regex common characters for tan history
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const isCorrectLength = tanHistoryVal.length >= 2 && tanHistoryVal.length <= 300;
+   const results = createTestResults(tanHistoryVal, regEx, 2, 300, errorMessages.tanHistory);
+   const errors = createErrorMessagesArray(results);
+
    const prevState = stateObject.tanHistory;
-   const newState = correctLength && regEx.test(tanHistoryVal);
+   const newState = {
+      valid: !errors.length,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
+   if (areStatesEqual(prevState, newState)) return;
 
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         tanHistory: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         tanHistory: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
+
+   stateSetter((prev) => ({
+      ...prev,
+      tanHistory: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
 
