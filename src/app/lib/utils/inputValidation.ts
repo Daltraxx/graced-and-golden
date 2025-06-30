@@ -85,6 +85,15 @@ const createErrorMessagesArray = ({ correctChars, correctLength, defaultErrorMes
    return errors;
 }
 
+const getFieldsValidatedChange = (prevState: FieldState, newState: FieldState): number => {
+   const validityChange = prevState.valid !== newState.valid;
+   let fieldsValidatedChange = 0;
+   if (validityChange) {
+      newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
+   }
+   return fieldsValidatedChange;
+}
+
 export const handleNameValidation = (
    { target }: { target: HTMLInputElement },
    stateObject: FieldsValidationState,
@@ -104,11 +113,7 @@ export const handleNameValidation = (
 
    if (areStatesEqual(prevState, newState)) return;
 
-   const validityChange = prevState.valid !== newState.valid;
-   let fieldsValidatedChange = 0;
-   if (validityChange) {
-      newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
 
    stateSetter(prev => ({
       ...prev,
