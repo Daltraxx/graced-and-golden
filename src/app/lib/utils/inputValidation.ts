@@ -78,6 +78,10 @@ const errorMessages: Record<string, ErrorMessages> = {
       incorrectChars: 'Please remove uncommon special characters.',
       incorrectLength: 'Please describe your desired results in between 2 and 300 characters.'
    },
+   questionsConcerns: {
+      incorrectChars: 'Please remove uncommon special characters.',
+      incorrectLength: 'Please describe your questions and concerns in less than 300 characters.'
+   }
 }
 
 const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean => {
@@ -404,24 +408,23 @@ export const handleQuestionsConcernsValidation = (
    const questionsConcernsVal = target.value.trim();
    // regex common characters for questions and concerns
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const isCorrectLength = questionsConcernsVal.length <= 300;
+   const results = createTestResults(questionsConcernsVal, regEx, 0, 300, errorMessages.questionsConcerns);
+   const errors = createErrorMessagesArray(results);
+
    const prevState = stateObject.questionsConcerns;
-   const newState = questionsConcernsVal.length === 0 ? true : correctLength && regEx.test(questionsConcernsVal);
+   const newState = {
+      valid: !errors.length,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
+   if (areStatesEqual(prevState, newState)) return;
 
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         questionsConcerns: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         questionsConcerns: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
+
+   stateSetter((prev) => ({
+      ...prev,
+      questionsConcerns: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
