@@ -90,18 +90,13 @@ const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, m
    return testResults;
 }
 
-const createErrorMessagesArray = ({ correctChars, correctLength }: TestResults): string[] => {
-   const errors: string[] = [];
-   let sameMessage = false;
-   if (correctChars.errorMessage === correctLength.errorMessage) sameMessage = true;
-   if (!sameMessage) {
-      if (!correctChars.result) errors.push(correctChars.errorMessage);
-      if (!correctLength.result) errors.push(correctLength.errorMessage);
-   } else {
-      if (!correctChars.result || !correctLength.result) errors.push(correctChars.errorMessage);
-   }
+const createErrorMessagesArray = (testResults: TestResults): string[] => {
+   const errors: Set<string> = new Set();
+   Object.values(testResults).forEach(testResult => {
+      if (!testResult.result) errors.add(testResult.errorMessage)
+   })
 
-   return errors;
+   return [...errors];
 }
 
 const getFieldsValidatedChange = (prevState: FieldState, newState: FieldState): number => {
