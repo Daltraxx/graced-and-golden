@@ -62,6 +62,10 @@ const errorMessages: Record<string, ErrorMessages> = {
       incorrectChars: 'Please enter a valid Instagram handle.',
       incorrectLength: 'Please enter a valid Instagram handle.'
    },
+   occasion: {
+      incorrectChars: 'Please remove uncommon special characters.',
+      incorrectLength: 'Please enter an occasion description that is between 2 and 300 characters.'
+   },
 }
 
 const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean => {
@@ -243,7 +247,6 @@ export const handleInstagramValidation = (
    const instagramVal = target.value.trim();
    // regex for valid instagram handle
    const regEx = /^[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
-   const isCorrectLength = instagramVal.length >= 2 && instagramVal.length <= 30;
    const results = createTestResults(instagramVal, regEx, 2, 30, errorMessages.instagram);
    const errors = createErrorMessagesArray(results);
    
@@ -273,25 +276,24 @@ export const handleOccasionValidation = (
    const occasionVal = target.value.trim();
    // regex common characters for occasion
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const isCorrectLength = occasionVal.length >= 2 && occasionVal.length <= 300;
+   const results = createTestResults(occasionVal, regEx, 2, 300, errorMessages.occasion);
+   const errors = createErrorMessagesArray(results);
+
    const prevState = stateObject.occasion;
-   const newState = correctLength && regEx.test(occasionVal);
+   const newState = {
+      valid: !errors.length,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
+   if (areStatesEqual(prevState, newState)) return;
 
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         occasion: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         occasion: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
+
+   stateSetter((prev) => ({
+      ...prev,
+      occasion: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
 
