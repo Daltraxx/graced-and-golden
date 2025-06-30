@@ -31,7 +31,6 @@ type TestResult = {
 type TestResults = {
    correctChars: TestResult;
    correctLength: TestResult;
-   defaultErrorMessage?: string;
 }
 
 type ErrorMessages = {
@@ -135,10 +134,9 @@ export const handlePhoneNumberValidation = (
    const phoneNumberVal = target.value.trim();
    // regex for phone number allowing formatting with parentheses, spaces, dashes, and periods
    const regEx = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
-   const isCorrectCharacters = phoneNumberVal.length > 0 && regEx.test(phoneNumberVal);
-   const isCorrectLength = phoneNumberVal.length >= 10 && phoneNumberVal.length <= 14;
-   const errors = [];
-   if (!isCorrectCharacters || !isCorrectLength) errors.push('Please enter a valid phone number.');
+   const results = createTestResults(phoneNumberVal, regEx, 10, 14, errorMessages.phoneNumber);
+   const errors = createErrorMessagesArray(results);
+
    const prevState = stateObject.phoneNumber;
    const newState: FieldState = {
       valid: !errors.length,
@@ -147,11 +145,7 @@ export const handlePhoneNumberValidation = (
 
    if (areStatesEqual(prevState, newState)) return;
 
-   const validityChange = prevState.valid !== newState.valid;
-   let fieldsValidatedChange = 0;
-   if (validityChange) {
-      newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
 
    stateSetter((prev) => ({
       ...prev,
