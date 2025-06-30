@@ -28,7 +28,7 @@ type TestResult = {
    errorMessage: string;
 }
 
-type Tests = {
+type TestResults = {
    correctChars: TestResult;
    correctLength: TestResult;
    defaultErrorMessage?: string;
@@ -43,6 +43,10 @@ const errorMessages: Record<string, ErrorMessages> = {
    name: {
       incorrectChars: 'Name can only contain letters, hyphens, and apostrophes.',
       incorrectLength: 'Please enter a name between 5 and 50 characters long.'
+   },
+   phoneNumber: {
+      incorrectChars: 'Please enter a valid phone number.',
+      incorrectLength: 'Please enter a valid phone number.'
    }
 }
 
@@ -55,7 +59,7 @@ const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean =>
    return true;
 }
 
-const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, { incorrectChars, incorrectLength }: ErrorMessages): Tests => {
+const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, { incorrectChars, incorrectLength }: ErrorMessages): TestResults => {
    const inputValLength = inputVal.length;
    const isCorrectChars = inputValLength ? true : regEx.test(inputVal);
    const isCorrectLength = inputValLength >= minLength && inputValLength <= maxLength;
@@ -71,15 +75,15 @@ const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, m
    }
 }
 
-const createErrorMessagesArray = ({ correctChars, correctLength, defaultErrorMessage }: Tests, sameMessage: boolean = false): string[] => {
+const createErrorMessagesArray = ({ correctChars, correctLength }: TestResults): string[] => {
    const errors: string[] = [];
-   if (!defaultErrorMessage) defaultErrorMessage = 'Invalid entry';
-
-   if (!sameMessage){
+   let sameMessage = false;
+   if (correctChars.errorMessage === correctLength.errorMessage) sameMessage = true;
+   if (!sameMessage) {
       if (!correctChars.result) errors.push(correctChars.errorMessage);
       if (!correctLength.result) errors.push(correctLength.errorMessage);
    } else {
-      if (!correctChars.result || !correctLength.result) errors.push(defaultErrorMessage);
+      if (!correctChars.result || !correctLength.result) errors.push(correctChars.errorMessage);
    }
 
    return errors;
