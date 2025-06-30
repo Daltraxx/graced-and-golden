@@ -77,9 +77,10 @@ const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, m
       }
    };
 
-   if (errorMessages.invalidAge) {
+   // if ageRequirement isn't present this will all be ignored, should perhaps throw error if not present when invalidAge is present
+   if (errorMessages.invalidAge && ageRequirement) {
       const birthYear = Number(inputVal.slice(0, 4));
-      const oldEnough = (new Date().getFullYear() - birthYear) >= 10;
+      const oldEnough = (new Date().getFullYear() - birthYear) >= ageRequirement;
       testResults.correctAge = {
          result: oldEnough,
          errorMessage: errorMessages.invalidAge
