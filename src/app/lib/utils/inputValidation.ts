@@ -57,7 +57,11 @@ const errorMessages: Record<string, ErrorMessages> = {
       incorrectChars: 'Please enter a valid email address.',
       incorrectLength: 'Please enter a valid email address.',
       invalidAge: 'Must be at least 10 years old.'
-   }
+   },
+   instagram: {
+      incorrectChars: 'Please enter a valid Instagram handle.',
+      incorrectLength: 'Please enter a valid Instagram handle.'
+   },
 }
 
 const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean => {
@@ -236,29 +240,28 @@ export const handleInstagramValidation = (
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const instagramVal = target.value.trim().toLowerCase();
+   const instagramVal = target.value.trim();
    // regex for valid instagram handle
-   const regEx = /^(?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
+   const regEx = /^[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
    const isCorrectLength = instagramVal.length >= 2 && instagramVal.length <= 30;
-   const oneLetter = /[a-zA-Z]/.test(instagramVal[0]);
+   const results = createTestResults(instagramVal, regEx, 2, 30, errorMessages.instagram);
+   const errors = createErrorMessagesArray(results);
+   
    const prevState = stateObject.instagram;
-   const newState = oneLetter && correctLength && regEx.test(instagramVal);
+   const newState = {
+      valid: !errors.length,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
+   if (areStatesEqual(prevState, newState)) return;
 
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         instagram: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         instagram: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
+
+   stateSetter((prev) => ({
+      ...prev,
+      instagram: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
 
