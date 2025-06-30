@@ -64,7 +64,11 @@ const errorMessages: Record<string, ErrorMessages> = {
    },
    occasion: {
       incorrectChars: 'Please remove uncommon special characters.',
-      incorrectLength: 'Please enter an occasion description that is between 2 and 300 characters.'
+      incorrectLength: 'Please enter an occasion description that is between 2 and 300 characters. If no occasion, please enter "None".'
+   },
+   howFound: {
+      incorrectChars: 'Please remove uncommon special characters.',
+      incorrectLength: 'Please share how you found us!'
    },
 }
 
@@ -305,25 +309,24 @@ export const handleHowFoundValidation = (
    const howFoundVal = target.value.trim();
    // regex common characters for how-found
    const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
-   const isCorrectLength = howFoundVal.length >= 2 && howFoundVal.length <= 300;
+   const results = createTestResults(howFoundVal, regEx, 2, 300, errorMessages.howFound);
+   const errors = createErrorMessagesArray(results);
+
    const prevState = stateObject.howFound;
-   const newState = correctLength && regEx.test(howFoundVal);
+   const newState = {
+      valid: !errors.length,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
+   if (areStatesEqual(prevState, newState)) return;
 
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         howFound: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         howFound: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
+
+   stateSetter((prev) => ({
+      ...prev,
+      howFound: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
 
