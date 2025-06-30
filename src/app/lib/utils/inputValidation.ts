@@ -8,7 +8,7 @@ type FieldState = {
    errors: Array<string>;
 };
 
-type FieldsValidationState = {
+export interface FieldsValidationState {
    name: FieldState;
    phoneNumber: FieldState;
    email: FieldState;

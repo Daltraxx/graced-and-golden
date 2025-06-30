@@ -10,7 +10,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
-import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation, handleQuestionsConcernsValidation } from "@/app/lib/utils/inputValidation";
+import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation, handleQuestionsConcernsValidation, FieldsValidationState } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -37,10 +37,11 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 /**
  * Component for "Contact" Slices.
  */
+
 const Contact: FC<ContactProps> = ({ slice }) => {
   const initialState: State = { message: null, errors: {} };
   const [state, formAction] = useActionState(sendInquiryEmail, initialState);
-  const [fieldsValidated, setFieldsValidated] = useState({
+  const [fieldsValidated, setFieldsValidated] = useState<FieldsValidationState>({
     name: {
       valid: false,
       errors: []
