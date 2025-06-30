@@ -31,11 +31,13 @@ type TestResult = {
 type TestResults = {
    correctChars: TestResult;
    correctLength: TestResult;
+   correctAge?: TestResult;
 }
 
 type ErrorMessages = {
    incorrectChars: string;
    incorrectLength: string;
+   invalidAge?: string;
 }
 
 const errorMessages: Record<string, ErrorMessages> = {
@@ -50,6 +52,11 @@ const errorMessages: Record<string, ErrorMessages> = {
    email: {
       incorrectChars: 'Please enter a valid email address.',
       incorrectLength: 'Please enter a valid email address.'
+   },
+   birthday: {
+      incorrectChars: 'Please enter a valid email address.',
+      incorrectLength: 'Please enter a valid email address.',
+      invalidAge: 'Must be at least 10 years old.'
    }
 }
 
@@ -62,7 +69,7 @@ const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean =>
    return true;
 }
 
-const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, errorMessages: ErrorMessages, ageRequirement = null): TestResults => {
+const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, errorMessages: ErrorMessages, ageRequirement: number | null = null): TestResults => {
    const inputValLength = inputVal.length;
    const isCorrectChars = inputValLength === 0 ? true : regEx.test(inputVal);
    const isCorrectLength = inputValLength >= minLength && inputValLength <= maxLength;
@@ -200,31 +207,27 @@ export const handleBirthdayValidation = (
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const emailVal = target.value.trim();
+   const birthdayVal = target.value.trim();
    // regex for birth date
    const regEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
-   const isCorrectLength = emailVal.length === 10;
-   const birthYear = Number(emailVal.slice(0, 4));
-   // must be at least 10 years old to inquire?
-   const oldEnough = (new Date().getFullYear() - birthYear) >= 10;
+   const results = createTestResults(birthdayVal, regEx, 10, 10, errorMessages.birthDay, 10);
+   const errors = createErrorMessagesArray(results);
+   
    const prevState = stateObject.birthday;
-   const newState = correctLength && oldEnough && regEx.test(emailVal);
+   const newState = {
+      valid: !errors.length,
+      errors: errors
+   };
 
-   if (prevState === newState) return;
+   if (areStatesEqual(prevState, newState)) return;
 
-   if (!prevState && newState) {
-      stateSetter(prev => ({
-         ...prev,
-         birthday: true,
-         fieldsValidated: prev.fieldsValidated + 1
-      }));
-   } else {
-      stateSetter(prev => ({
-         ...prev,
-         birthday: false,
-         fieldsValidated: prev.fieldsValidated - 1
-      }));
-   }
+   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
+
+   stateSetter((prev) => ({
+      ...prev,
+      birthday: newState,
+      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+   }))
    // console.log('state updated');
 }
 
