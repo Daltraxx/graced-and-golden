@@ -64,7 +64,7 @@ const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean =>
 
 const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, { incorrectChars, incorrectLength }: ErrorMessages): TestResults => {
    const inputValLength = inputVal.length;
-   const isCorrectChars = inputValLength ? true : regEx.test(inputVal);
+   const isCorrectChars = inputValLength === 0 ? true : regEx.test(inputVal);
    const isCorrectLength = inputValLength >= minLength && inputValLength <= maxLength;
    return {
       correctChars: {
