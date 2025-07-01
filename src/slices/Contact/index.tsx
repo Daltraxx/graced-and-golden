@@ -115,7 +115,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="name-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="name-error"
             />
+            <div id="name-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.name.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -126,7 +132,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="phone-number-field"
               className={moduleStyles.inquiryField}
               onChange={event => handlePhoneNumberChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="phone-number-error"
             />
+            <div id="phone-number-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.phoneNumber.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -137,7 +149,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="email-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleEmailChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="email-error"
             />
+            <div id="email-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.email.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -148,7 +166,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="birthday-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleBirthdayChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="birthday-error"
             />
+            <div id="birthday-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.birthday.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -159,7 +183,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="instagram-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleInstagramChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="instagram-error"
             />
+            <div id="instagram-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.instagram.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -169,7 +199,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="occasion-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleOccasionChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="occasion-error"
             />
+            <div id="occasion-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.occasion.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -179,7 +215,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="how-found-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleHowFoundChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="how-found-error"
             />
+            <div id="how-found-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.howFound.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -189,7 +231,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="tan-history-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleTanHistoryChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="tan-history-error"
             />
+            <div id="tan-history-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.tanHistory.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -199,7 +247,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="desired-results-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleDesiredResultsChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="desired-results-error"
             />
+            <div id="desired-results-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.desiredResults.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
 
           <div className={moduleStyles.fieldContainer}>
@@ -209,7 +263,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="questions-concerns-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleQuestionsConcernsChange(event, fieldsValidated, setFieldsValidated)}
+              aria-describedby="questions-concerns-error"
             />
+            <div id="questions-concerns-error" aria-live="polite" aria-atomic >
+              {fieldsValidated.questionsConcerns.errors.map(errorMessage => (
+                <p>{errorMessage}</p>
+              ))}
+            </div>
           </div>
           <button
             type='submit'
