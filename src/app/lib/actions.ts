@@ -129,7 +129,7 @@ export async function sendInquiryEmail(prevState: State, formData: FormData): Pr
   if (!validatedFields.success) {
     return {
         errors: validatedFields.error.flatten().fieldErrors,
-        message: 'Missing Fields. Failed to Create and Send Inquiry.'
+        message: 'Fields are not correctly filled. Please fill all required fields and resolve errors before submitting.'
     }
   }
 
@@ -146,12 +146,13 @@ export async function sendInquiryEmail(prevState: State, formData: FormData): Pr
 
     console.log(data); // logs response data
     return {
-      message: 'success'
+      message: 'Inquiry submitted successfully! We will get back to you as soon as possible.',
+      errors: prevState.errors || {}
     };
   } catch (error) {
     console.log(error); //logs any error
     return {
-      message: 'failed'
+      message: 'Submission failed. Please try again later.'
     }
   }
 }
