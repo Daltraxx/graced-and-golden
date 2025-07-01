@@ -118,8 +118,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="name-error"
             />
             <div id="name-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.name.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.name.errors.map((errorMessage, i) => (
+                <p key={`name-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -135,8 +135,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="phone-number-error"
             />
             <div id="phone-number-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.phoneNumber.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.phoneNumber.errors.map((errorMessage, i) => (
+                <p key={`phone-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -152,8 +152,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="email-error"
             />
             <div id="email-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.email.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.email.errors.map((errorMessage, i) => (
+                <p key={`email-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -169,8 +169,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="birthday-error"
             />
             <div id="birthday-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.birthday.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.birthday.errors.map((errorMessage, i) => (
+                <p key={`birthday-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -186,8 +186,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="instagram-error"
             />
             <div id="instagram-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.instagram.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.instagram.errors.map((errorMessage, i) => (
+                <p key={`instagram-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -202,8 +202,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="occasion-error"
             />
             <div id="occasion-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.occasion.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.occasion.errors.map((errorMessage, i) => (
+                <p key={`occasion-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -218,8 +218,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="how-found-error"
             />
             <div id="how-found-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.howFound.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.howFound.errors.map((errorMessage, i) => (
+                <p key={`how-found-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -234,8 +234,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="tan-history-error"
             />
             <div id="tan-history-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.tanHistory.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.tanHistory.errors.map((errorMessage, i) => (
+                <p key={`history-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -250,8 +250,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="desired-results-error"
             />
             <div id="desired-results-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.desiredResults.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.desiredResults.errors.map((errorMessage, i) => (
+                <p key={`results-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
@@ -266,8 +266,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               aria-describedby="questions-concerns-error"
             />
             <div id="questions-concerns-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.questionsConcerns.errors.map(errorMessage => (
-                <p>{errorMessage}</p>
+              {fieldsValidated.questionsConcerns.errors.map((errorMessage, i) => (
+                <p key={`questions-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
           </div>
