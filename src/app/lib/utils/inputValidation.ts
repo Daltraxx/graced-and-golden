@@ -45,7 +45,7 @@ type ErrorMessages = {
 const errorMessages: Record<string, ErrorMessages> = {
    name: {
       incorrectChars: 'Name can only contain letters, hyphens, and apostrophes.',
-      incorrectLength: 'Please enter a name between 5 and 50 characters long.'
+      incorrectLength: 'Please enter a name between 4 and 50 characters long.'
    },
    phoneNumber: {
       incorrectChars: 'Please enter a valid phone number.',
@@ -161,7 +161,7 @@ export const handleNameValidation = (
    const nameVal = target.value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
-   const results = createTestResults(nameVal, regEx, 5, 50, errorMessages.name);
+   const results = createTestResults(nameVal, regEx, 4, 50, errorMessages.name);
    const errors = createErrorMessagesArray(results);
    
    const prevState = stateObject.name;
@@ -190,7 +190,7 @@ export const handlePhoneNumberValidation = (
    const phoneNumberVal = target.value.trim();
    // regex for phone number allowing formatting with parentheses, spaces, dashes, and periods
    const regEx = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
-   const results = createTestResults(phoneNumberVal, regEx, 10, 14, errorMessages.phoneNumber);
+   const results = createTestResults(phoneNumberVal, regEx, 10, 15, errorMessages.phoneNumber);
    const errors = createErrorMessagesArray(results);
 
    const prevState = stateObject.phoneNumber;
@@ -277,7 +277,7 @@ export const handleInstagramValidation = (
    const instagramVal = target.value.trim();
    // regex for valid instagram handle
    const regEx = /^[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
-   const results = createTestResults(instagramVal, regEx, 2, 30, errorMessages.instagram);
+   const results = createTestResults(instagramVal, regEx, 1, 30, errorMessages.instagram);
    const errors = createErrorMessagesArray(results);
    
    const prevState = stateObject.instagram;

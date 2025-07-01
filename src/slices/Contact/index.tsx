@@ -107,6 +107,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
       <section>
         <PrismicRichText field={slice.primary.form_heading} components={components} />
+        {state.message && <div>{state.message}</div>}
         <form action={formAction} className={`${moduleStyles.inquiryForm}`}>
 
           <div className={moduleStyles.fieldContainer}>
@@ -276,7 +277,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
           </div>
           <button
             type='submit'
-            disabled={fieldsValidated.fieldsValidated !== fieldsValidated.totalFields}
+            // disabled={fieldsValidated.fieldsValidated !== fieldsValidated.totalFields}
             className={`${styles.button} ${styles.buttonBrown800}`}
           >
           Submit
