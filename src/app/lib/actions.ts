@@ -28,6 +28,7 @@ export type State = {
       howFound?: string[];
       tanHistory?: string[];
       desiredResults?: string[];
+      questionsConcerns?: string[];
    };
    message?: string | null;
 }
