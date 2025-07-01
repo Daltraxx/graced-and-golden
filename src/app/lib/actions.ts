@@ -54,7 +54,7 @@ const FormSchema = z.object({
       message: "Occasion must be at least 2 character long"
     }).max(300, {
       message: "Occasion must be at most 300 characters long"
-    }).regex(/^$|[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/, {
+    }).regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message: "Occasion can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /"
   }),
   howFound: z.string({
@@ -64,7 +64,7 @@ const FormSchema = z.object({
       message: "How you found us must be at least 2 characters long"
     }).max(300, {
       message: "How you found us must be at most 300 characters long"
-    }).regex(/^$|[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/, {
+    }).regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message: "How you found us can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /"
   }),
   tanHistory: z.string({
@@ -74,7 +74,7 @@ const FormSchema = z.object({
       message: "Tanning history must be at least 2 characters long"
     }).max(300, {
       message: "Tanning history must be at most 300 characters long"
-    }).regex(/^$|[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/, {
+    }).regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message: "Tanning history can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /"
   }),
   desiredResults: z.string({
@@ -84,14 +84,14 @@ const FormSchema = z.object({
       message: "Desired results must be at least 2 characters long"
     }).max(300, {
       message: "Desired results must be at most 300 characters long"
-    }).regex(/^$|[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/, {
+    }).regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message: "Desired results can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /"
   }),
   questionsConcerns: z.string({
     invalid_type_error: "Questions or concerns must be a string"
     }).max(300, {
       message: "Questions or concerns must be at most 300 characters long"
-    }).regex(/^$|[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/, {
+    }).regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message: "Questions or concerns can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /"
   })
 });

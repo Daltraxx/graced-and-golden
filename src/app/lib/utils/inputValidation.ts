@@ -276,7 +276,7 @@ export const handleInstagramValidation = (
 ): void => {
    const instagramVal = target.value.trim();
    // regex for valid instagram handle
-   const regEx = /^[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
+   const regEx = /^@?[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
    const results = createTestResults(instagramVal, regEx, 1, 30, errorMessages.instagram);
    const errors = createErrorMessagesArray(results);
    
@@ -305,7 +305,7 @@ export const handleOccasionValidation = (
 ): void => {
    const occasionVal = target.value.trim();
    // regex common characters for occasion
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
+   const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(occasionVal, regEx, 2, 300, errorMessages.occasion);
    const errors = createErrorMessagesArray(results);
 
@@ -334,7 +334,7 @@ export const handleHowFoundValidation = (
 ): void => {
    const howFoundVal = target.value.trim();
    // regex common characters for how-found
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
+   const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(howFoundVal, regEx, 2, 300, errorMessages.howFound);
    const errors = createErrorMessagesArray(results);
 
@@ -363,7 +363,7 @@ export const handleTanHistoryValidation = (
 ): void => {
    const tanHistoryVal = target.value.trim();
    // regex common characters for tan history
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
+   const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(tanHistoryVal, regEx, 2, 300, errorMessages.tanHistory);
    const errors = createErrorMessagesArray(results);
 
@@ -392,7 +392,7 @@ export const handleDesiredResultsValidation = (
 ): void => {
    const desiredResultsVal = target.value.trim();
    // regex common characters for desired results
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
+   const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(desiredResultsVal, regEx, 2, 300, errorMessages.desiredResults);
    const errors = createErrorMessagesArray(results);
 
@@ -421,7 +421,7 @@ export const handleQuestionsConcernsValidation = (
 ): void => {
    const questionsConcernsVal = target.value.trim();
    // regex common characters for questions and concerns
-   const regEx = /^[a-zA-Z0-9._@#!&$\-\/ \n\r]+$/;
+   const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(questionsConcernsVal, regEx, 0, 300, errorMessages.questionsConcerns);
    const errors = createErrorMessagesArray(results);
 
