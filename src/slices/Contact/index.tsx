@@ -40,7 +40,7 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 
 const Contact: FC<ContactProps> = ({ slice }) => {
   const initialState: State = { message: null, errors: {} };
-  const [state, formAction] = useActionState(sendInquiryEmail, initialState);
+  const [inquiryState, formAction] = useActionState(sendInquiryEmail, initialState);
   const [fieldsValidated, setFieldsValidated] = useState<FieldsValidationState>({
     name: {
       valid: false,
@@ -275,7 +275,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             </div>
           </div>
           <div id="form-error" aria-live="polite" aria-atomic>
-            {state.message && <p>{state.message}</p>}
+            {inquiryState.message && <p>{inquiryState.message}</p>}
           </div>
           <button
             type='submit'
