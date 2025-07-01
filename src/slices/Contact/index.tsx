@@ -87,16 +87,18 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     totalFields: 10
   });
 
-  const handleNameChange = useDebouncedCallback(handleNameValidation, 500);
-  const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, 500);
-  const handleEmailChange = useDebouncedCallback(handleEmailValidation, 500);
-  const handleBirthdayChange = useDebouncedCallback(handleBirthdayValidation, 500);
-  const handleInstagramChange = useDebouncedCallback(handleInstagramValidation, 500);
-  const handleOccasionChange = useDebouncedCallback(handleOccasionValidation, 500);
-  const handleHowFoundChange = useDebouncedCallback(handleHowFoundValidation, 500);
-  const handleTanHistoryChange = useDebouncedCallback(handleTanHistoryValidation, 500);
-  const handleDesiredResultsChange = useDebouncedCallback(handleDesiredResultsValidation, 500);
-  const handleQuestionsConcernsChange = useDebouncedCallback(handleQuestionsConcernsValidation, 500);
+  const debounceDelay = 400;
+
+  const handleNameChange = useDebouncedCallback(handleNameValidation, 400);
+  const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, 400);
+  const handleEmailChange = useDebouncedCallback(handleEmailValidation, 400);
+  const handleBirthdayChange = useDebouncedCallback(handleBirthdayValidation, 400);
+  const handleInstagramChange = useDebouncedCallback(handleInstagramValidation, 400);
+  const handleOccasionChange = useDebouncedCallback(handleOccasionValidation, 400);
+  const handleHowFoundChange = useDebouncedCallback(handleHowFoundValidation, 400);
+  const handleTanHistoryChange = useDebouncedCallback(handleTanHistoryValidation, 400);
+  const handleDesiredResultsChange = useDebouncedCallback(handleDesiredResultsValidation, 400);
+  const handleQuestionsConcernsChange = useDebouncedCallback(handleQuestionsConcernsValidation, 400);
   // const handleClick = () => {
   //   console.log(fieldsValidated);
   // }
