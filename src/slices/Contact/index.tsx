@@ -165,6 +165,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="birthday"
               id="birthday-field"
               className={moduleStyles.inquiryField}
+              max={new Date().toISOString().slice(0, 10)}
               onChange={event => handleBirthdayChange(event, fieldsValidated, setFieldsValidated)}
               aria-describedby="birthday-error"
             />
