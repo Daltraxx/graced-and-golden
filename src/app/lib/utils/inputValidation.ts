@@ -31,13 +31,15 @@ type TestResult = {
 type TestResults = {
    correctChars: TestResult;
    correctLength: TestResult;
-   correctAge?: TestResult;
+   oldEnough?: TestResult;
+   validYear?: TestResult;
 }
 
 type ErrorMessages = {
    incorrectChars: string;
    incorrectLength: string;
-   invalidAge?: string;
+   underage?: string;
+   invalidYear?: string;
 }
 
 const errorMessages: Record<string, ErrorMessages> = {
@@ -56,7 +58,8 @@ const errorMessages: Record<string, ErrorMessages> = {
    birthday: {
       incorrectChars: 'Please enter a valid birthday.',
       incorrectLength: 'Please enter a valid birthday.',
-      invalidAge: 'Must be at least 10 years old.'
+      underage: 'Must be at least 10 years old.',
+      invalidYear: 'Please enter a valid birthday.'
    },
    instagram: {
       incorrectChars: 'Please enter a valid Instagram handle.',
@@ -108,13 +111,22 @@ const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, m
       }
    };
 
-   // if ageRequirement isn't present this will all be ignored, should perhaps throw error if not present when invalidAge is present
-   if (errorMessages.invalidAge && ageRequirement) {
+   
+   if (errorMessages.underage || errorMessages.invalidYear) {
+      if (ageRequirement === null) {
+         throw new Error('Age requirement must be provided when handling birthday validation.');
+      }
       const birthYear = Number(inputVal.slice(0, 4));
-      const oldEnough = (new Date().getFullYear() - birthYear) >= ageRequirement;
-      testResults.correctAge = {
+      const currentYear = new Date().getFullYear();
+      const oldEnough = (currentYear - birthYear) >= ageRequirement;
+      const validYear = birthYear >= 1925 && birthYear < currentYear;
+      testResults.oldEnough = {
          result: oldEnough,
-         errorMessage: errorMessages.invalidAge
+         errorMessage: errorMessages.underage || 'You must be at least 10 years old to book a spray tan.'
+      };
+      testResults.validYear = {
+         result: validYear,
+         errorMessage: errorMessages.invalidYear || 'Please enter a valid year.'
       }
    }
 
@@ -252,7 +264,7 @@ export const handleBirthdayValidation = (
       birthday: newState,
       fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
    }))
-   console.log('state updated');
+   // console.log('state updated');
 }
 
 export const handleInstagramValidation = (
