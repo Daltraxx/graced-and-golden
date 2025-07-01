@@ -87,7 +87,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     totalFields: 10
   });
 
-  const debounceDelay = 400;
+  const debounceDelay = 300;
 
   const handleNameChange = useDebouncedCallback(handleNameValidation, debounceDelay);
   const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, debounceDelay);

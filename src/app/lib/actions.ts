@@ -127,6 +127,7 @@ export async function sendInquiryEmail(prevState: State, formData: FormData): Pr
   const validatedFields = CreateInquiry.safeParse(rawFormData);
 
   if (!validatedFields.success) {
+    console.error("Validation failed:", validatedFields.error.flatten().fieldErrors);
     return {
         errors: validatedFields.error.flatten().fieldErrors,
         message: 'Fields are not correctly filled. Please fill all required fields and resolve errors before submitting.'

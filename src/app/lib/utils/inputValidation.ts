@@ -71,7 +71,7 @@ const errorMessages: Record<string, ErrorMessages> = {
    },
    howFound: {
       incorrectChars: 'Please remove uncommon special characters.',
-      incorrectLength: 'Please share how you found us!'
+      incorrectLength: 'Please describe how you found us in between 2 and 300 characters.'
    },
    tanHistory: {
       incorrectChars: 'Please remove uncommon special characters.',
