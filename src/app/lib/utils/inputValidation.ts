@@ -54,8 +54,8 @@ const errorMessages: Record<string, ErrorMessages> = {
       incorrectLength: 'Please enter a valid email address.'
    },
    birthday: {
-      incorrectChars: 'Please enter a valid email address.',
-      incorrectLength: 'Please enter a valid email address.',
+      incorrectChars: 'Please enter a valid birthday.',
+      incorrectLength: 'Please enter a valid birthday.',
       invalidAge: 'Must be at least 10 years old.'
    },
    instagram: {
@@ -234,7 +234,7 @@ export const handleBirthdayValidation = (
    const birthdayVal = target.value.trim();
    // regex for birth date
    const regEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
-   const results = createTestResults(birthdayVal, regEx, 10, 10, errorMessages.birthDay, 10);
+   const results = createTestResults(birthdayVal, regEx, 10, 10, errorMessages.birthday, 10);
    const errors = createErrorMessagesArray(results);
    
    const prevState = stateObject.birthday;
@@ -252,7 +252,7 @@ export const handleBirthdayValidation = (
       birthday: newState,
       fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
    }))
-   // console.log('state updated');
+   console.log('state updated');
 }
 
 export const handleInstagramValidation = (
