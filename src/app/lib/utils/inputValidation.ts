@@ -58,7 +58,7 @@ const errorMessages: Record<string, ErrorMessages> = {
    birthday: {
       incorrectChars: 'Please enter a valid birthday.',
       incorrectLength: 'Please enter a valid birthday.',
-      underage: 'Must be at least 10 years old.',
+      underage: 'You must be at least 10 years old to book a spray tan.',
       invalidYear: 'Please enter a valid birthday.'
    },
    instagram: {
@@ -118,7 +118,9 @@ const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, m
       }
       const birthYear = Number(inputVal.slice(0, 4));
       const currentYear = new Date().getFullYear();
-      const oldEnough = (currentYear - birthYear) >= ageRequirement;
+      let oldEnough = (currentYear - birthYear) >= ageRequirement;
+      // dont use oldEnough validation error if year is greater than or equal to current year
+      if (currentYear <= birthYear) oldEnough = true;
       const validYear = birthYear >= 1925 && birthYear < currentYear;
       testResults.oldEnough = {
          result: oldEnough,
