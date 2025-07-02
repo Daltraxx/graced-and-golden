@@ -12,6 +12,7 @@ import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
 import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation, handleQuestionsConcernsValidation, FieldState } from "@/app/lib/utils/inputValidation";
+import { set } from "zod/v4";
 
 
 const components: JSXMapSerializer = {
@@ -112,23 +113,14 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   });
 
   const [allFieldsValidated, setAllFieldsValidated] = useState(false);
-  const fieldStatesAndSetters: [FieldState, React.Dispatch<SetStateAction<FieldState>>][] = [
-    [name, setName],
-    [phoneNumber, setPhoneNumber],
-    [email, setEmail],
-    [birthday, setBirthday],
-    [instagram, setInstagram],
-    [occasion, setOccasion],
-    [howFound, setHowFound],
-    [tanHistory, setTanHistory],
-    [desiredResults, setDesiredResults],
-    [questionsConcerns, setQuestionsConcerns]
-  ];
+  const fieldStates = [name, phoneNumber, email, birthday, instagram, occasion, howFound, tanHistory, desiredResults, questionsConcerns];
+  const fieldStateSetters = [setName, setPhoneNumber, setEmail, setBirthday, setInstagram, setOccasion, setHowFound, setTanHistory, setDesiredResults, setQuestionsConcerns];
 
   // If values present from session storage upon mounting, handle validation
   useEffect(() => {
-    fieldStatesAndSetters.forEach(stateAndSetter => {
-      const [state, setter] = stateAndSetter;
+    fieldStates.forEach((_, i) => {
+      const state = fieldStates[i];
+      const setter = fieldStateSetters[i];
       if (state.value) state.validationHandler(state.value, setter);
     })
   }, [])
