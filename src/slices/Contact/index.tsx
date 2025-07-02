@@ -87,9 +87,32 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     totalFields: 10
   });
 
+  const getSessionValue = (key: string) => {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      return sessionStorage.getItem(key) || '';
+    }
+    return '';
+  };
+
+  const [name, setName] = useState(getSessionValue('name'));
+  const [phoneNumber, setPhoneNumber] = useState(getSessionValue('phoneNumber'));
+  const [email, setEmail] = useState(getSessionValue('email'));
+  const [birthday, setBirthday] = useState(getSessionValue('birthday'));
+  const [instagram, setInstagram] = useState(getSessionValue('instagram'));
+  const [occasion, setOccasion] = useState(getSessionValue('occasion'));
+  const [howFound, setHowFound] = useState(getSessionValue('howFound'));
+  const [tanHistory, setTanHistory] = useState(getSessionValue('tanHistory'));
+  const [desiredResults, setDesiredResults] = useState(getSessionValue('desiredResults'));
+  const [questionsConcerns, setQuestionsConcerns] = useState(getSessionValue('questionsConcerns'));
+
   const debounceDelay = 300;
 
-  const handleNameChange = useDebouncedCallback(handleNameValidation, debounceDelay);
+  const debouncedNameValidation = useDebouncedCallback(handleNameValidation, debounceDelay);
+
+  const handleNameChange = ({ target }: { target: HTMLInputElement}) => {
+    setName(target.value);
+    debouncedNameValidation(target, fieldsValidated, setFieldsValidated);
+  };
   const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, debounceDelay);
   const handleEmailChange = useDebouncedCallback(handleEmailValidation, debounceDelay);
   const handleBirthdayChange = useDebouncedCallback(handleBirthdayValidation, debounceDelay);
@@ -99,6 +122,16 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const handleTanHistoryChange = useDebouncedCallback(handleTanHistoryValidation, debounceDelay);
   const handleDesiredResultsChange = useDebouncedCallback(handleDesiredResultsValidation, debounceDelay);
   const handleQuestionsConcernsChange = useDebouncedCallback(handleQuestionsConcernsValidation, debounceDelay);
+
+  const handleBlur = ({ target }: { target: HTMLInputElement | HTMLTextAreaElement}) => {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      const key = target.name;
+      const value = target.value;
+      sessionStorage.setItem(key, value);
+    }
+    
+  }
+  
   // const handleClick = () => {
   //   console.log(fieldsValidated);
   // }
@@ -115,8 +148,11 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="text"
               name="name"
               id="name-field"
+              value={name}
+              onChange={handleNameChange}
+              onBlur={handleBlur}
               className={moduleStyles.inquiryField}
-              onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
+              // onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
               aria-describedby="name-error"
             />
             <div id="name-error" aria-live="polite" aria-atomic >
