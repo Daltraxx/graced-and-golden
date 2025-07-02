@@ -44,7 +44,7 @@ type ErrorMessages = {
 
 const errorMessages: Record<string, ErrorMessages> = {
    name: {
-      incorrectChars: 'Name can only contain letters, hyphens, and apostrophes.',
+      incorrectChars: 'Please enter a valid first and last name.',
       incorrectLength: 'Please enter a name between 4 and 50 characters long.'
    },
    phoneNumber: {
@@ -159,6 +159,7 @@ export const handleNameValidation = (
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
    const nameVal = target.value.trim();
+   console.log(nameVal);
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
    const results = createTestResults(nameVal, regEx, 4, 50, errorMessages.name);
