@@ -75,15 +75,6 @@ const errorMessages: Record<string, ErrorMessages> = {
    }
 }
 
-const areStatesEqual = (prevState: FieldState, newState: FieldState): boolean => {
-   if (prevState.valid !== newState.valid) return false;
-   if (prevState.errors.length !== newState.errors.length) return false;
-   for (let i = 0; i < prevState.errors.length; i++) {
-      if (prevState.errors[i] !== newState.errors[i]) return false;
-   }
-   return true;
-}
-
 const createTestResults = (inputVal: string, regEx: RegExp, minLength: number, maxLength: number, errorMessages: ErrorMessages, ageRequirement: number | null = null): TestResults => {
    const inputValLength = inputVal.length;
    const isCorrectChars = inputValLength === 0 ? true : regEx.test(inputVal);
@@ -130,15 +121,6 @@ const createErrorMessagesArray = (testResults: TestResults): string[] => {
    })
 
    return [...errors];
-}
-
-const getFieldsValidatedChange = (prevState: FieldState, newState: FieldState): number => {
-   const validityChange = prevState.valid !== newState.valid;
-   let fieldsValidatedChange = 0;
-   if (validityChange) {
-      newState.valid ? fieldsValidatedChange = 1 : fieldsValidatedChange = -1;
-   }
-   return fieldsValidatedChange;
 }
 
 export const handleNameValidation = (
