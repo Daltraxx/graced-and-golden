@@ -249,6 +249,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="tel"
               name="phoneNumber"
               id="phone-number-field"
+              value={phoneNumber}
               className={moduleStyles.inquiryField}
               onChange={handlePhoneNumberChange}
               onBlur={handleBlur}
@@ -267,6 +268,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="email"
               name="email"
               id="email-field"
+              value={email}
               className={moduleStyles.inquiryField}
               onChange={handleEmailChange}
               onBlur={handleBlur}
@@ -285,6 +287,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="date"
               name="birthday"
               id="birthday-field"
+              value={birthday}
               className={moduleStyles.inquiryField}
               max={new Date().toISOString().slice(0, 10)}
               onChange={handleBirthdayChange}
@@ -304,6 +307,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="text"
               name="instagram"
               id="instagram-field"
+              value={instagram}
               className={moduleStyles.inquiryField}
               onChange={handleInstagramChange}
               onBlur={handleBlur}
@@ -321,6 +325,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="occasion"
               id="occasion-field"
+              value={occasion}
               className={moduleStyles.inquiryField}
               onChange={handleOccasionChange}
               onBlur={handleBlur}
@@ -338,6 +343,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="howFound"
               id="how-found-field"
+              value={howFound}
               className={moduleStyles.inquiryField}
               onChange={handleHowFoundChange}
               onBlur={handleBlur}
@@ -355,6 +361,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="tanHistory"
               id="tan-history-field"
+              value={tanHistory}
               className={moduleStyles.inquiryField}
               onChange={handleTanHistoryChange}
               onBlur={handleBlur}
@@ -372,6 +379,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="desiredResults"
               id="desired-results-field"
+              value={desiredResults}
               className={moduleStyles.inquiryField}
               onChange={handleDesiredResultsChange}
               onBlur={handleBlur}
@@ -389,6 +397,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="questionsConcerns"
               id="questions-concerns-field"
+              value={questionsConcerns}
               className={moduleStyles.inquiryField}
               onChange={handleQuestionsConcernsChange}
               onBlur={handleBlur}
