@@ -205,6 +205,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="phone-number-field"
               className={moduleStyles.inquiryField}
               onChange={event => handlePhoneNumberChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="phone-number-error"
             />
             <div id="phone-number-error" aria-live="polite" aria-atomic >
@@ -222,6 +223,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="email-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleEmailChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="email-error"
             />
             <div id="email-error" aria-live="polite" aria-atomic >
@@ -240,6 +242,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               className={moduleStyles.inquiryField}
               max={new Date().toISOString().slice(0, 10)}
               onChange={event => handleBirthdayChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="birthday-error"
             />
             <div id="birthday-error" aria-live="polite" aria-atomic >
@@ -257,6 +260,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="instagram-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleInstagramChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="instagram-error"
             />
             <div id="instagram-error" aria-live="polite" aria-atomic >
@@ -273,6 +277,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="occasion-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleOccasionChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="occasion-error"
             />
             <div id="occasion-error" aria-live="polite" aria-atomic >
@@ -289,6 +294,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="how-found-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleHowFoundChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="how-found-error"
             />
             <div id="how-found-error" aria-live="polite" aria-atomic >
@@ -305,6 +311,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="tan-history-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleTanHistoryChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="tan-history-error"
             />
             <div id="tan-history-error" aria-live="polite" aria-atomic >
@@ -321,6 +328,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="desired-results-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleDesiredResultsChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="desired-results-error"
             />
             <div id="desired-results-error" aria-live="polite" aria-atomic >
@@ -337,6 +345,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="questions-concerns-field"
               className={moduleStyles.inquiryField}
               onChange={event => handleQuestionsConcernsChange(event, fieldsValidated, setFieldsValidated)}
+              onBlur={handleBlur}
               aria-describedby="questions-concerns-error"
             />
             <div id="questions-concerns-error" aria-live="polite" aria-atomic >
