@@ -154,11 +154,11 @@ const getFieldsValidatedChange = (prevState: FieldState, newState: FieldState): 
 }
 
 export const handleNameValidation = (
-   target: HTMLInputElement,
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const nameVal = target.value.trim();
+   const nameVal = value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
    const results = createTestResults(nameVal, regEx, 4, 50, errorMessages.name);
@@ -183,11 +183,11 @@ export const handleNameValidation = (
 }
 
 export const handlePhoneNumberValidation = (
-   { target }: { target: HTMLInputElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const phoneNumberVal = target.value.trim();
+   const phoneNumberVal = value.trim();
    // regex for phone number allowing formatting with parentheses, spaces, dashes, and periods
    const regEx = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/;
    const results = createTestResults(phoneNumberVal, regEx, 10, 15, errorMessages.phoneNumber);
@@ -212,11 +212,11 @@ export const handlePhoneNumberValidation = (
 }
 
 export const handleEmailValidation = (
-   { target }: { target: HTMLInputElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const emailVal = target.value.trim();
+   const emailVal = value.trim();
    // regex for email
    const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
    const results = createTestResults(emailVal, regEx, 5, 256, errorMessages.email);
@@ -241,11 +241,11 @@ export const handleEmailValidation = (
 }
 
 export const handleBirthdayValidation = (
-   { target }: { target: HTMLInputElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const birthdayVal = target.value.trim();
+   const birthdayVal = value.trim();
    // regex for birth date
    const regEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
    const results = createTestResults(birthdayVal, regEx, 10, 10, errorMessages.birthday, 10);
@@ -270,11 +270,11 @@ export const handleBirthdayValidation = (
 }
 
 export const handleInstagramValidation = (
-   { target }: { target: HTMLInputElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const instagramVal = target.value.trim();
+   const instagramVal = value.trim();
    // regex for valid instagram handle
    const regEx = /^@?[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i;
    const results = createTestResults(instagramVal, regEx, 1, 30, errorMessages.instagram);
@@ -299,11 +299,11 @@ export const handleInstagramValidation = (
 }
 
 export const handleOccasionValidation = (
-   { target }: { target: HTMLTextAreaElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const occasionVal = target.value.trim();
+   const occasionVal = value.trim();
    // regex common characters for occasion
    const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(occasionVal, regEx, 2, 300, errorMessages.occasion);
@@ -328,11 +328,11 @@ export const handleOccasionValidation = (
 }
 
 export const handleHowFoundValidation = (
-   { target }: { target: HTMLTextAreaElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const howFoundVal = target.value.trim();
+   const howFoundVal = value.trim();
    // regex common characters for how-found
    const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(howFoundVal, regEx, 2, 300, errorMessages.howFound);
@@ -357,11 +357,11 @@ export const handleHowFoundValidation = (
 }
 
 export const handleTanHistoryValidation = (
-   { target }: { target: HTMLTextAreaElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const tanHistoryVal = target.value.trim();
+   const tanHistoryVal = value.trim();
    // regex common characters for tan history
    const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(tanHistoryVal, regEx, 2, 300, errorMessages.tanHistory);
@@ -386,11 +386,11 @@ export const handleTanHistoryValidation = (
 }
 
 export const handleDesiredResultsValidation = (
-   { target }: { target: HTMLTextAreaElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const desiredResultsVal = target.value.trim();
+   const desiredResultsVal = value.trim();
    // regex common characters for desired results
    const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(desiredResultsVal, regEx, 2, 300, errorMessages.desiredResults);
@@ -415,11 +415,11 @@ export const handleDesiredResultsValidation = (
 }
 
 export const handleQuestionsConcernsValidation = (
-   { target }: { target: HTMLTextAreaElement },
+   value: string,
    stateObject: FieldsValidationState,
    stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
 ): void => {
-   const questionsConcernsVal = target.value.trim();
+   const questionsConcernsVal = value.trim();
    // regex common characters for questions and concerns
    const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
    const results = createTestResults(questionsConcernsVal, regEx, 0, 300, errorMessages.questionsConcerns);
