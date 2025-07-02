@@ -112,10 +112,15 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     errors: []
   });
 
-  const [allFieldsValidated, setAllFieldsValidated] = useState(false);
+  const [formValidated, setFormValidated] = useState(false);
   const fieldStates = [name, phoneNumber, email, birthday, instagram, occasion, howFound, tanHistory, desiredResults, questionsConcerns];
   const fieldStateSetters = [setName, setPhoneNumber, setEmail, setBirthday, setInstagram, setOccasion, setHowFound, setTanHistory, setDesiredResults, setQuestionsConcerns];
 
+  useEffect(() => {
+    const allFieldsValidated = fieldStates.every((fieldState) => fieldState.valid);
+    setFormValidated(allFieldsValidated);
+  }, [fieldStates])
+  
   // If values present from session storage upon mounting, handle validation
   useEffect(() => {
     fieldStates.forEach((_, i) => {
@@ -431,7 +436,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
           </div>
           <button
             type='submit'
-            // disabled={fieldsValidated.fieldsValidated !== fieldsValidated.totalFields}
+            disabled={!formValidated}
             className={`${styles.button} ${styles.buttonBrown800}`}
           >
           Submit Inquiry
