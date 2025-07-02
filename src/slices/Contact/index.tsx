@@ -1,6 +1,7 @@
 'use client';
 
 import { useDebouncedCallback } from "use-debounce";
+import { use, useEffect } from "react";
 
 import { FC, useActionState, useState } from "react";
 import { Content } from "@prismicio/client";
@@ -10,7 +11,7 @@ import moduleStyles from '@/slices/Contact/styles.module.css';
 import styles from '@/styles/styles.module.css'
 import Bounded from "@/components/Bounded";
 import { sendInquiryEmail, State } from "@/app/lib/actions";
-import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation, handleQuestionsConcernsValidation, FieldsValidationState } from "@/app/lib/utils/inputValidation";
+import { handleBirthdayValidation, handleEmailValidation, handleInstagramValidation, handleNameValidation, handleOccasionValidation, handlePhoneNumberValidation, handleHowFoundValidation, handleTanHistoryValidation, handleDesiredResultsValidation, handleQuestionsConcernsValidation, FieldState } from "@/app/lib/utils/inputValidation";
 
 
 const components: JSXMapSerializer = {
@@ -41,52 +42,6 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 const Contact: FC<ContactProps> = ({ slice }) => {
   const initialState: State = { message: null, errors: {} };
   const [inquiryState, formAction] = useActionState(sendInquiryEmail, initialState);
-  const [fieldsValidated, setFieldsValidated] = useState<FieldsValidationState>({
-    name: {
-      valid: false,
-      errors: []
-    },
-    phoneNumber: {
-      valid: false,
-      errors: []
-    },
-    email: {
-      valid: false,
-      errors: []
-    },
-    birthday: {
-      valid: false,
-      errors: []
-    },
-    instagram: {
-      valid: false,
-      errors: []
-    },
-    occasion: {
-      valid: false,
-      errors: []
-    },
-    howFound: {
-      valid: false,
-      errors: []
-    },
-    tanHistory: {
-      valid: false,
-      errors: []
-    },
-    desiredResults: {
-      valid: false,
-      errors: []
-    },
-    questionsConcerns: {
-      valid: true,
-      errors: []
-    },
-    // try to fix hardcoding of below values later
-    fieldsValidated: 1,
-    totalFields: 10
-  });
-
   const getSessionValue = (key: string): string => {
     if (typeof window !== 'undefined' && window.sessionStorage) {
       return sessionStorage.getItem(key) || '';
@@ -94,125 +49,185 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     return '';
   };
 
-  const [name, setName] = useState(getSessionValue('name'));
-  const [phoneNumber, setPhoneNumber] = useState(getSessionValue('phoneNumber'));
-  const [email, setEmail] = useState(getSessionValue('email'));
-  const [birthday, setBirthday] = useState(getSessionValue('birthday'));
-  const [instagram, setInstagram] = useState(getSessionValue('instagram'));
-  const [occasion, setOccasion] = useState(getSessionValue('occasion'));
-  const [howFound, setHowFound] = useState(getSessionValue('howFound'));
-  const [tanHistory, setTanHistory] = useState(getSessionValue('tanHistory'));
-  const [desiredResults, setDesiredResults] = useState(getSessionValue('desiredResults'));
-  const [questionsConcerns, setQuestionsConcerns] = useState(getSessionValue('questionsConcerns'));
+  // Field States
 
+  const [name, setName] = useState<FieldState>({
+    value: getSessionValue('name'),
+    valid: false,
+    validationHandler: handleNameValidation,
+    errors: []
+  });
+  const [phoneNumber, setPhoneNumber] = useState<FieldState>({
+    value: getSessionValue('phoneNumber'),
+    valid: false,
+    validationHandler: handlePhoneNumberValidation,
+    errors: []
+  });
+  const [email, setEmail] = useState<FieldState>({
+    value: getSessionValue('email'),
+    valid: false,
+    validationHandler: handleEmailValidation,
+    errors: []
+  });
+  const [birthday, setBirthday] = useState<FieldState>({
+    value: getSessionValue('birthday'),
+    valid: false,
+    validationHandler: handleBirthdayValidation,
+    errors: []
+  });
+  const [instagram, setInstagram] = useState<FieldState>({
+    value: getSessionValue('instagram'),
+    valid: false,
+    validationHandler: handleInstagramValidation,
+    errors: []
+  });
+  const [occasion, setOccasion] = useState<FieldState>({
+    value: getSessionValue('occasion'),
+    valid: false,
+    validationHandler: handleOccasionValidation,
+    errors: []
+  });
+  const [howFound, setHowFound] = useState<FieldState>({
+    value: getSessionValue('howFound'),
+    valid: false,
+    validationHandler: handleHowFoundValidation,
+    errors: []
+  });
+  const [tanHistory, setTanHistory] = useState<FieldState>({
+    value: getSessionValue('tanHistory'),
+    valid: false,
+    validationHandler: handleTanHistoryValidation,
+    errors: []
+  });
+  const [desiredResults, setDesiredResults] = useState<FieldState>({
+    value: getSessionValue('desiredResults'),
+    valid: false,
+    validationHandler: handleDesiredResultsValidation,
+    errors: []
+  });
+  const [questionsConcerns, setQuestionsConcerns] = useState<FieldState>({
+    value: getSessionValue('questionsConcerns'),
+    valid: true,
+    validationHandler: handleQuestionsConcernsValidation,
+    errors: []
+  });
+
+  // Handle input changes, validation, and session storage
   const debounceDelay = 300;
 
+  const debouncedStorage = useDebouncedCallback((key: string, value: string) => {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+          sessionStorage.setItem(key, value);
+      }
+  }, debounceDelay);
+
   const debouncedNameValidation = useDebouncedCallback(handleNameValidation, debounceDelay);
+  
   const handleNameChange = ({ target }: { target: HTMLInputElement }) => {
-    setName(target.value);
-    debouncedNameValidation(target.value, fieldsValidated, setFieldsValidated);
+    setName(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedNameValidation(target.value, setName);
   };
 
   const debouncedPhoneNumberValidation = useDebouncedCallback(handlePhoneNumberValidation, debounceDelay);
   const handlePhoneNumberChange = ({ target }: { target: HTMLInputElement }) => {
-    setPhoneNumber(target.value);
-    debouncedPhoneNumberValidation(target.value, fieldsValidated, setFieldsValidated);
+    setPhoneNumber(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedPhoneNumberValidation(target.value, setPhoneNumber);
   };
 
   const debouncedEmailValidation = useDebouncedCallback(handleEmailValidation, debounceDelay);
   const handleEmailChange = ({ target }: { target: HTMLInputElement }) => {
-    setEmail(target.value);
-    debouncedEmailValidation(target.value, fieldsValidated, setFieldsValidated);
+    setEmail(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedEmailValidation(target.value, setEmail);
   };
 
   const debouncedBirthdayValidation = useDebouncedCallback(handleBirthdayValidation, debounceDelay);
   const handleBirthdayChange = ({ target }: { target: HTMLInputElement }) => {
-    setBirthday(target.value);
-    debouncedBirthdayValidation(target.value, fieldsValidated, setFieldsValidated);
+    setBirthday(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedBirthdayValidation(target.value, setBirthday);
+    debouncedStorage(target.name, target.value);
   };
 
   const debouncedInstagramValidation = useDebouncedCallback(handleInstagramValidation, debounceDelay);
   const handleInstagramChange = ({ target }: { target: HTMLInputElement }) => {
-    setInstagram(target.value);
-    debouncedInstagramValidation(target.value, fieldsValidated, setFieldsValidated);
+    setInstagram(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedInstagramValidation(target.value, setInstagram);
+    debouncedStorage(target.name, target.value);
   };
 
   const debouncedOccasionValidation = useDebouncedCallback(handleOccasionValidation, debounceDelay);
   const handleOccasionChange = ({ target }: { target: HTMLTextAreaElement }) => {
-    setOccasion(target.value);
-    debouncedOccasionValidation(target.value, fieldsValidated, setFieldsValidated);
+    setOccasion(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedOccasionValidation(target.value, setOccasion);
+    debouncedStorage(target.name, target.value);
   };
 
   const debouncedHowFoundValidation = useDebouncedCallback(handleHowFoundValidation, debounceDelay);
   const handleHowFoundChange = ({ target }: { target: HTMLTextAreaElement }) => {
-    setHowFound(target.value);
-    debouncedHowFoundValidation(target.value, fieldsValidated, setFieldsValidated);
+    setHowFound(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedHowFoundValidation(target.value, setHowFound);
+    debouncedStorage(target.name, target.value);
   };
 
   const debouncedTanHistoryValidation = useDebouncedCallback(handleTanHistoryValidation, debounceDelay);
   const handleTanHistoryChange = ({ target }: { target: HTMLTextAreaElement }) => {
-    setTanHistory(target.value);
-    debouncedTanHistoryValidation(target.value, fieldsValidated, setFieldsValidated);
+    setTanHistory(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedTanHistoryValidation(target.value, setTanHistory);
+    debouncedStorage(target.name, target.value);
   };
 
   const debouncedDesiredResultsValidation = useDebouncedCallback(handleDesiredResultsValidation, debounceDelay);
   const handleDesiredResultsChange = ({ target }: { target: HTMLTextAreaElement }) => {
-    setDesiredResults(target.value);
-    debouncedDesiredResultsValidation(target.value, fieldsValidated, setFieldsValidated);
+    setDesiredResults(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedDesiredResultsValidation(target.value, setDesiredResults);
+    debouncedStorage(target.name, target.value);
   };
 
   const debouncedQuestionsConcernsValidation = useDebouncedCallback(handleQuestionsConcernsValidation, debounceDelay);
   const handleQuestionsConcernsChange = ({ target }: { target: HTMLTextAreaElement }) => {
-    setQuestionsConcerns(target.value);
-    debouncedQuestionsConcernsValidation(target.value, fieldsValidated, setFieldsValidated);
+    setQuestionsConcerns(prev => ({
+      ...prev,
+      value: target.value,
+    }));
+    debouncedQuestionsConcernsValidation(target.value, setQuestionsConcerns);
+    debouncedStorage(target.name, target.value);
   };
-
-  const handleBlur = ({ target }: { target: HTMLInputElement | HTMLTextAreaElement}) => {
-    if (typeof window !== 'undefined' && window.sessionStorage) {
-      const key = target.name;
-      let value;
-      switch (key) {
-        case 'name':
-          value = name;
-          break;
-        case 'phoneNumber':
-          value = phoneNumber;
-          break;
-        case 'email':
-          value = email;
-          break;
-        case 'birthday':
-          value = birthday;
-          break;
-        case 'instagram':
-          value = instagram;
-          break;
-        case 'occasion':
-          value = occasion;
-          break;
-        case 'howFound':
-          value = howFound;
-          break;
-        case 'tanHistory':
-          value = tanHistory;
-          break;
-        case 'desiredResults':
-          value = desiredResults;
-          break;
-        case 'questionsConcerns':
-          value = questionsConcerns;
-          break;
-        default:
-          return;
-      }
-
-      console.log(key, value);
-
-      if (value) sessionStorage.setItem(key, value);
-    }
-    
-  }
   
+  // Selectively sync some fields to session storage to handle autofill
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      sessionStorage.setItem('name', name.value);
+      sessionStorage.setItem('phoneNumber', phoneNumber.value);
+      sessionStorage.setItem('email', email.value);
+    }
+  }, [name, phoneNumber, email]);
+
   // const handleClick = () => {
   //   console.log(fieldsValidated);
   // }
@@ -229,15 +244,14 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="text"
               name="name"
               id="name-field"
-              value={name}
+              value={name.value}
               onChange={handleNameChange}
-              onBlur={handleBlur}
               className={moduleStyles.inquiryField}
               // onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
               aria-describedby="name-error"
             />
             <div id="name-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.name.errors.map((errorMessage, i) => (
+              {name.errors.map((errorMessage, i) => (
                 <p key={`name-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -249,14 +263,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="tel"
               name="phoneNumber"
               id="phone-number-field"
-              value={phoneNumber}
+              value={phoneNumber.value}
               className={moduleStyles.inquiryField}
               onChange={handlePhoneNumberChange}
-              onBlur={handleBlur}
               aria-describedby="phone-number-error"
             />
             <div id="phone-number-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.phoneNumber.errors.map((errorMessage, i) => (
+              {phoneNumber.errors.map((errorMessage, i) => (
                 <p key={`phone-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -268,14 +281,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="email"
               name="email"
               id="email-field"
-              value={email}
+              value={email.value}
               className={moduleStyles.inquiryField}
               onChange={handleEmailChange}
-              onBlur={handleBlur}
               aria-describedby="email-error"
             />
             <div id="email-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.email.errors.map((errorMessage, i) => (
+              {email.errors.map((errorMessage, i) => (
                 <p key={`email-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -287,15 +299,14 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="date"
               name="birthday"
               id="birthday-field"
-              value={birthday}
+              value={birthday.value}
               className={moduleStyles.inquiryField}
               max={new Date().toISOString().slice(0, 10)}
               onChange={handleBirthdayChange}
-              onBlur={handleBlur}
               aria-describedby="birthday-error"
             />
             <div id="birthday-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.birthday.errors.map((errorMessage, i) => (
+              {birthday.errors.map((errorMessage, i) => (
                 <p key={`birthday-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -307,14 +318,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               type="text"
               name="instagram"
               id="instagram-field"
-              value={instagram}
+              value={instagram.value}
               className={moduleStyles.inquiryField}
               onChange={handleInstagramChange}
-              onBlur={handleBlur}
               aria-describedby="instagram-error"
             />
             <div id="instagram-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.instagram.errors.map((errorMessage, i) => (
+              {instagram.errors.map((errorMessage, i) => (
                 <p key={`instagram-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -325,14 +335,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="occasion"
               id="occasion-field"
-              value={occasion}
+              value={occasion.value}
               className={moduleStyles.inquiryField}
               onChange={handleOccasionChange}
-              onBlur={handleBlur}
               aria-describedby="occasion-error"
             />
             <div id="occasion-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.occasion.errors.map((errorMessage, i) => (
+              {occasion.errors.map((errorMessage, i) => (
                 <p key={`occasion-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -343,14 +352,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="howFound"
               id="how-found-field"
-              value={howFound}
+              value={howFound.value}
               className={moduleStyles.inquiryField}
               onChange={handleHowFoundChange}
-              onBlur={handleBlur}
               aria-describedby="how-found-error"
             />
             <div id="how-found-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.howFound.errors.map((errorMessage, i) => (
+              {howFound.errors.map((errorMessage, i) => (
                 <p key={`how-found-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -361,14 +369,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="tanHistory"
               id="tan-history-field"
-              value={tanHistory}
+              value={tanHistory.value}
               className={moduleStyles.inquiryField}
               onChange={handleTanHistoryChange}
-              onBlur={handleBlur}
               aria-describedby="tan-history-error"
             />
             <div id="tan-history-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.tanHistory.errors.map((errorMessage, i) => (
+              {tanHistory.errors.map((errorMessage, i) => (
                 <p key={`history-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -379,14 +386,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="desiredResults"
               id="desired-results-field"
-              value={desiredResults}
+              value={desiredResults.value}
               className={moduleStyles.inquiryField}
               onChange={handleDesiredResultsChange}
-              onBlur={handleBlur}
               aria-describedby="desired-results-error"
             />
             <div id="desired-results-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.desiredResults.errors.map((errorMessage, i) => (
+              {desiredResults.errors.map((errorMessage, i) => (
                 <p key={`results-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
@@ -397,14 +403,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             <textarea
               name="questionsConcerns"
               id="questions-concerns-field"
-              value={questionsConcerns}
+              value={questionsConcerns.value}
               className={moduleStyles.inquiryField}
               onChange={handleQuestionsConcernsChange}
-              onBlur={handleBlur}
               aria-describedby="questions-concerns-error"
             />
             <div id="questions-concerns-error" aria-live="polite" aria-atomic >
-              {fieldsValidated.questionsConcerns.errors.map((errorMessage, i) => (
+              {questionsConcerns.errors.map((errorMessage, i) => (
                 <p key={`questions-error-${i}`}>{errorMessage}</p>
               ))}
             </div>

@@ -2,26 +2,14 @@
 
 import { Dispatch, SetStateAction } from "react";
 
-// change to interfaces? 
-type FieldState = {
-   valid: boolean;
-   errors: Array<string>;
-};
 
-export interface FieldsValidationState {
-   name: FieldState;
-   phoneNumber: FieldState;
-   email: FieldState;
-   birthday: FieldState;
-   instagram: FieldState;
-   occasion: FieldState;
-   howFound: FieldState;
-   tanHistory: FieldState;
-   desiredResults: FieldState;
-   questionsConcerns: FieldState;
-   fieldsValidated: number;
-   totalFields: number;
-};
+
+export interface FieldState {
+   value: string;
+   valid: boolean;
+   validationHandler: (value: string, stateSetter: Dispatch<SetStateAction<FieldState>>) => void;
+   errors: Array<string>;
+}
 
 type TestResult = {
    result: boolean;
@@ -155,37 +143,25 @@ const getFieldsValidatedChange = (prevState: FieldState, newState: FieldState): 
 
 export const handleNameValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const nameVal = value.trim();
    // regex for name requiring two words and allows hyphens and apostrophes
    const regEx = /^[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/;
    const results = createTestResults(nameVal, regEx, 4, 50, errorMessages.name);
    const errors = createErrorMessagesArray(results);
-   
-   const prevState = stateObject.name;
-   const newState: FieldState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
 
    stateSetter(prev => ({
       ...prev,
-      name: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handlePhoneNumberValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const phoneNumberVal = value.trim();
    // regex for phone number allowing formatting with parentheses, spaces, dashes, and periods
@@ -193,28 +169,17 @@ export const handlePhoneNumberValidation = (
    const results = createTestResults(phoneNumberVal, regEx, 10, 15, errorMessages.phoneNumber);
    const errors = createErrorMessagesArray(results);
 
-   const prevState = stateObject.phoneNumber;
-   const newState: FieldState = {
-      valid: !errors.length,
-      errors: errors
-   }
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      phoneNumber: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleEmailValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const emailVal = value.trim();
    // regex for email
@@ -222,28 +187,17 @@ export const handleEmailValidation = (
    const results = createTestResults(emailVal, regEx, 5, 256, errorMessages.email);
    const errors = createErrorMessagesArray(results);
 
-   const prevState = stateObject.email;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      email: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleBirthdayValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const birthdayVal = value.trim();
    // regex for birth date
@@ -251,28 +205,17 @@ export const handleBirthdayValidation = (
    const results = createTestResults(birthdayVal, regEx, 10, 10, errorMessages.birthday, 10);
    const errors = createErrorMessagesArray(results);
    
-   const prevState = stateObject.birthday;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      birthday: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleInstagramValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const instagramVal = value.trim();
    // regex for valid instagram handle
@@ -280,28 +223,17 @@ export const handleInstagramValidation = (
    const results = createTestResults(instagramVal, regEx, 1, 30, errorMessages.instagram);
    const errors = createErrorMessagesArray(results);
    
-   const prevState = stateObject.instagram;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      instagram: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleOccasionValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const occasionVal = value.trim();
    // regex common characters for occasion
@@ -309,28 +241,17 @@ export const handleOccasionValidation = (
    const results = createTestResults(occasionVal, regEx, 2, 300, errorMessages.occasion);
    const errors = createErrorMessagesArray(results);
 
-   const prevState = stateObject.occasion;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      occasion: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleHowFoundValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const howFoundVal = value.trim();
    // regex common characters for how-found
@@ -338,28 +259,17 @@ export const handleHowFoundValidation = (
    const results = createTestResults(howFoundVal, regEx, 2, 300, errorMessages.howFound);
    const errors = createErrorMessagesArray(results);
 
-   const prevState = stateObject.howFound;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      howFound: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleTanHistoryValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const tanHistoryVal = value.trim();
    // regex common characters for tan history
@@ -367,28 +277,17 @@ export const handleTanHistoryValidation = (
    const results = createTestResults(tanHistoryVal, regEx, 2, 300, errorMessages.tanHistory);
    const errors = createErrorMessagesArray(results);
 
-   const prevState = stateObject.tanHistory;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      tanHistory: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleDesiredResultsValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const desiredResultsVal = value.trim();
    // regex common characters for desired results
@@ -396,28 +295,17 @@ export const handleDesiredResultsValidation = (
    const results = createTestResults(desiredResultsVal, regEx, 2, 300, errorMessages.desiredResults);
    const errors = createErrorMessagesArray(results);
 
-   const prevState = stateObject.desiredResults;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      desiredResults: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
 
 export const handleQuestionsConcernsValidation = (
    value: string,
-   stateObject: FieldsValidationState,
-   stateSetter: Dispatch<SetStateAction<FieldsValidationState>>
+   stateSetter: Dispatch<SetStateAction<FieldState>>
 ): void => {
    const questionsConcernsVal = value.trim();
    // regex common characters for questions and concerns
@@ -425,20 +313,10 @@ export const handleQuestionsConcernsValidation = (
    const results = createTestResults(questionsConcernsVal, regEx, 0, 300, errorMessages.questionsConcerns);
    const errors = createErrorMessagesArray(results);
 
-   const prevState = stateObject.questionsConcerns;
-   const newState = {
-      valid: !errors.length,
-      errors: errors
-   };
-
-   if (areStatesEqual(prevState, newState)) return;
-
-   const fieldsValidatedChange = getFieldsValidatedChange(prevState, newState);
-
    stateSetter((prev) => ({
       ...prev,
-      questionsConcerns: newState,
-      fieldsValidated: prev.fieldsValidated + fieldsValidatedChange
+      valid: !errors.length,
+      errors: errors
    }))
    // console.log('state updated');
 }
