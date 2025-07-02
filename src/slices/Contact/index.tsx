@@ -108,20 +108,64 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const debounceDelay = 300;
 
   const debouncedNameValidation = useDebouncedCallback(handleNameValidation, debounceDelay);
-
-  const handleNameChange = ({ target }: { target: HTMLInputElement}) => {
+  const handleNameChange = ({ target }: { target: HTMLInputElement }) => {
     setName(target.value);
-    debouncedNameValidation(target, fieldsValidated, setFieldsValidated);
+    debouncedNameValidation(target.value, fieldsValidated, setFieldsValidated);
   };
-  const handlePhoneNumberChange = useDebouncedCallback(handlePhoneNumberValidation, debounceDelay);
-  const handleEmailChange = useDebouncedCallback(handleEmailValidation, debounceDelay);
-  const handleBirthdayChange = useDebouncedCallback(handleBirthdayValidation, debounceDelay);
-  const handleInstagramChange = useDebouncedCallback(handleInstagramValidation, debounceDelay);
-  const handleOccasionChange = useDebouncedCallback(handleOccasionValidation, debounceDelay);
-  const handleHowFoundChange = useDebouncedCallback(handleHowFoundValidation, debounceDelay);
-  const handleTanHistoryChange = useDebouncedCallback(handleTanHistoryValidation, debounceDelay);
-  const handleDesiredResultsChange = useDebouncedCallback(handleDesiredResultsValidation, debounceDelay);
-  const handleQuestionsConcernsChange = useDebouncedCallback(handleQuestionsConcernsValidation, debounceDelay);
+
+  const debouncedPhoneNumberValidation = useDebouncedCallback(handlePhoneNumberValidation, debounceDelay);
+  const handlePhoneNumberChange = ({ target }: { target: HTMLInputElement }) => {
+    setPhoneNumber(target.value);
+    debouncedPhoneNumberValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedEmailValidation = useDebouncedCallback(handleEmailValidation, debounceDelay);
+  const handleEmailChange = ({ target }: { target: HTMLInputElement }) => {
+    setEmail(target.value);
+    debouncedEmailValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedBirthdayValidation = useDebouncedCallback(handleBirthdayValidation, debounceDelay);
+  const handleBirthdayChange = ({ target }: { target: HTMLInputElement }) => {
+    setBirthday(target.value);
+    debouncedBirthdayValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedInstagramValidation = useDebouncedCallback(handleInstagramValidation, debounceDelay);
+  const handleInstagramChange = ({ target }: { target: HTMLInputElement }) => {
+    setInstagram(target.value);
+    debouncedInstagramValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedOccasionValidation = useDebouncedCallback(handleOccasionValidation, debounceDelay);
+  const handleOccasionChange = ({ target }: { target: HTMLTextAreaElement }) => {
+    setOccasion(target.value);
+    debouncedOccasionValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedHowFoundValidation = useDebouncedCallback(handleHowFoundValidation, debounceDelay);
+  const handleHowFoundChange = ({ target }: { target: HTMLTextAreaElement }) => {
+    setHowFound(target.value);
+    debouncedHowFoundValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedTanHistoryValidation = useDebouncedCallback(handleTanHistoryValidation, debounceDelay);
+  const handleTanHistoryChange = ({ target }: { target: HTMLTextAreaElement }) => {
+    setTanHistory(target.value);
+    debouncedTanHistoryValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedDesiredResultsValidation = useDebouncedCallback(handleDesiredResultsValidation, debounceDelay);
+  const handleDesiredResultsChange = ({ target }: { target: HTMLTextAreaElement }) => {
+    setDesiredResults(target.value);
+    debouncedDesiredResultsValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
+
+  const debouncedQuestionsConcernsValidation = useDebouncedCallback(handleQuestionsConcernsValidation, debounceDelay);
+  const handleQuestionsConcernsChange = ({ target }: { target: HTMLTextAreaElement }) => {
+    setQuestionsConcerns(target.value);
+    debouncedQuestionsConcernsValidation(target.value, fieldsValidated, setFieldsValidated);
+  };
 
   const handleBlur = ({ target }: { target: HTMLInputElement | HTMLTextAreaElement}) => {
     if (typeof window !== 'undefined' && window.sessionStorage) {
@@ -161,6 +205,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         default:
           return;
       }
+
+      console.log(key, value);
 
       if (value) sessionStorage.setItem(key, value);
     }
@@ -204,7 +250,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="phoneNumber"
               id="phone-number-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handlePhoneNumberChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handlePhoneNumberChange}
               onBlur={handleBlur}
               aria-describedby="phone-number-error"
             />
@@ -222,7 +268,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="email"
               id="email-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handleEmailChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleEmailChange}
               onBlur={handleBlur}
               aria-describedby="email-error"
             />
@@ -241,7 +287,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               id="birthday-field"
               className={moduleStyles.inquiryField}
               max={new Date().toISOString().slice(0, 10)}
-              onChange={event => handleBirthdayChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleBirthdayChange}
               onBlur={handleBlur}
               aria-describedby="birthday-error"
             />
@@ -259,7 +305,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="instagram"
               id="instagram-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handleInstagramChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleInstagramChange}
               onBlur={handleBlur}
               aria-describedby="instagram-error"
             />
@@ -276,7 +322,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="occasion"
               id="occasion-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handleOccasionChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleOccasionChange}
               onBlur={handleBlur}
               aria-describedby="occasion-error"
             />
@@ -293,7 +339,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="howFound"
               id="how-found-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handleHowFoundChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleHowFoundChange}
               onBlur={handleBlur}
               aria-describedby="how-found-error"
             />
@@ -310,7 +356,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="tanHistory"
               id="tan-history-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handleTanHistoryChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleTanHistoryChange}
               onBlur={handleBlur}
               aria-describedby="tan-history-error"
             />
@@ -327,7 +373,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="desiredResults"
               id="desired-results-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handleDesiredResultsChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleDesiredResultsChange}
               onBlur={handleBlur}
               aria-describedby="desired-results-error"
             />
@@ -344,7 +390,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
               name="questionsConcerns"
               id="questions-concerns-field"
               className={moduleStyles.inquiryField}
-              onChange={event => handleQuestionsConcernsChange(event, fieldsValidated, setFieldsValidated)}
+              onChange={handleQuestionsConcernsChange}
               onBlur={handleBlur}
               aria-describedby="questions-concerns-error"
             />
