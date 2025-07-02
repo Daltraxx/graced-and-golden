@@ -87,7 +87,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     totalFields: 10
   });
 
-  const getSessionValue = (key: string) => {
+  const getSessionValue = (key: string): string => {
     if (typeof window !== 'undefined' && window.sessionStorage) {
       return sessionStorage.getItem(key) || '';
     }
@@ -126,8 +126,43 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const handleBlur = ({ target }: { target: HTMLInputElement | HTMLTextAreaElement}) => {
     if (typeof window !== 'undefined' && window.sessionStorage) {
       const key = target.name;
-      const value = target.value;
-      sessionStorage.setItem(key, value);
+      let value;
+      switch (key) {
+        case 'name':
+          value = name;
+          break;
+        case 'phoneNumber':
+          value = phoneNumber;
+          break;
+        case 'email':
+          value = email;
+          break;
+        case 'birthday':
+          value = birthday;
+          break;
+        case 'instagram':
+          value = instagram;
+          break;
+        case 'occasion':
+          value = occasion;
+          break;
+        case 'howFound':
+          value = howFound;
+          break;
+        case 'tanHistory':
+          value = tanHistory;
+          break;
+        case 'desiredResults':
+          value = desiredResults;
+          break;
+        case 'questionsConcerns':
+          value = questionsConcerns;
+          break;
+        default:
+          return;
+      }
+
+      if (value) sessionStorage.setItem(key, value);
     }
     
   }
