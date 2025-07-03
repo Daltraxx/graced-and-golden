@@ -24,7 +24,7 @@ const useAddAnimation = (containerRef: RefObject<HTMLElement | null>, observerTh
          animatedElements.forEach((element) => observer.unobserve(element));
          observer.disconnect();
        };
-     }, []);
+     }, [containerRef, observerThreshold]);
 }
 
 export default useAddAnimation;
