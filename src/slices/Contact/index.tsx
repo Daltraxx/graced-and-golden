@@ -1,7 +1,7 @@
 'use client';
 
 import { useDebouncedCallback } from "use-debounce";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 import { FC, useActionState, useState } from "react";
 import { Content } from "@prismicio/client";
@@ -112,7 +112,10 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   });
 
   const [formValidated, setFormValidated] = useState(false);
-  const fieldStates = [name, phoneNumber, email, birthday, instagram, occasion, howFound, tanHistory, desiredResults, questionsConcerns];
+  const fieldStates = useMemo(
+    () => [name, phoneNumber, email, birthday, instagram, occasion, howFound, tanHistory, desiredResults, questionsConcerns],
+    [name, phoneNumber, email, birthday, instagram, occasion, howFound, tanHistory, desiredResults, questionsConcerns]
+  );
   const fieldStateSetters = [setName, setPhoneNumber, setEmail, setBirthday, setInstagram, setOccasion, setHowFound, setTanHistory, setDesiredResults, setQuestionsConcerns];
 
   useEffect(() => {
