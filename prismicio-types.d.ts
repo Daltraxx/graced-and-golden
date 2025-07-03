@@ -101,6 +101,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | HomepageHeroSlice
   | SingleColumnSlice
   | HeroThreeImageSlice
   | InfoListWideImageSlice
@@ -877,6 +878,73 @@ export type HeroThreeImageSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *HomepageHero → Default → Primary*
+ */
+export interface HomepageHeroSliceDefaultPrimary {
+  /**
+   * Main Heading field in *HomepageHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_heading: prismic.KeyTextField;
+
+  /**
+   * Short Text field in *HomepageHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.default.primary.short_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  short_text: prismic.RichTextField;
+
+  /**
+   * Link field in *HomepageHero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Default variation for HomepageHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HomepageHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HomepageHero*
+ */
+type HomepageHeroSliceVariation = HomepageHeroSliceDefault;
+
+/**
+ * HomepageHero Shared Slice
+ *
+ * - **API ID**: `homepage_hero`
+ * - **Description**: HomepageHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageHeroSlice = prismic.SharedSlice<
+  "homepage_hero",
+  HomepageHeroSliceVariation
+>;
+
+/**
  * Primary content in *Info3Col → Default → Primary*
  */
 export interface Info3ColSliceDefaultPrimary {
@@ -1578,6 +1646,10 @@ declare module "@prismicio/client" {
       HeroThreeImageSliceDefaultPrimary,
       HeroThreeImageSliceVariation,
       HeroThreeImageSliceDefault,
+      HomepageHeroSlice,
+      HomepageHeroSliceDefaultPrimary,
+      HomepageHeroSliceVariation,
+      HomepageHeroSliceDefault,
       Info3ColSlice,
       Info3ColSliceDefaultPrimary,
       Info3ColSliceNoHeadingTextImageTextPrimary,

@@ -7,6 +7,7 @@ export const components = {
   contact: dynamic(() => import("./Contact")),
   hero: dynamic(() => import("./Hero")),
   hero_three_image: dynamic(() => import("./HeroThreeImage")),
+  homepage_hero: dynamic(() => import("./HomepageHero")),
   info3_col: dynamic(() => import("./Info3Col")),
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
   introduction: dynamic(() => import("./Introduction")),

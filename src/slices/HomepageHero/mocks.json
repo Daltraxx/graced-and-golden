@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"main_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "remain",
+				"type": "Text"
+			},
+			"short_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat non incididunt dolore enim culpa culpa in veniam eiusmod. Incididunt elit laboris et elit ad veniam sint eu excepteur occaecat."
+						}
+					}
+				]
+			},
+			"link": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"__TYPE__": "LinkContent",
+						"key": "e9d9570a-16c9-4eaa-bf90-62649be91b75",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://prismic.io",
+							"text": "loose"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
