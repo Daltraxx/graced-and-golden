@@ -4,8 +4,8 @@
 } */
 
 @theme {
-  --font-body: var(--font-nunito-sans);
-  --font-display: var(--font-nunito);
+  --font-body: var(--font-barlow);
+  --font-display: var(--font-aboreto);
   --cream-200: hsl(0, 0%, 98%); /* #FAFAFA */
   --cream-300: hsl(36, 15%, 94%); /* #F2F0ED */
   --cream-350: hsl(24, 47%, 90%); /* #f1e3da */
