@@ -8,7 +8,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import styles from '@/styles/styles.module.css';
 import moduleStyles from '@/slices/Tryptich/styles.module.css';
 import Heading from "@/components/Heading";
-import addAnimation from "@/utilities/addAnimation";
+import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -32,7 +32,7 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
-  addAnimation(containerRef, .5);
+  useAddAnimation(containerRef, .5);
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundGradientBrown}`}>
