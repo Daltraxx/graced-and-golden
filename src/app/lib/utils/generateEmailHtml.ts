@@ -7,7 +7,7 @@ type FormInfo = {
 export default function generateEmailHtml(formInfo : FormInfo): string {
    if (!formInfo.questionsConcerns) formInfo.questionsConcerns = 'N/A';
    
-   let html = `
+   const html = `
       <h3>Name:</h3>
       <p>${formInfo.name}</p>
       <br>
