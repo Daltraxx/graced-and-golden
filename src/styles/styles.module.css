@@ -160,9 +160,19 @@
    color: black;
 }
 
+.buttonBrown200 {
+   color: white;
+   background: var(--brown-200);
+}
+
 .buttonBrown300 {
    color: white;
    background: var(--brown-300);
+}
+
+.buttonBrown500 {
+   color: white;
+   background: var(--brown-500);
 }
 
 .buttonBrown800 {
