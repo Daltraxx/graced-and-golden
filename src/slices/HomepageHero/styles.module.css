@@ -3,6 +3,7 @@
    background-image: url('/couple-beach-main-dark-cropped.png');
    background-size: cover;
    background-repeat: no-repeat;
+   background-position: -200px 0;
    color: var(--cream-200);
 }
 
@@ -45,6 +46,10 @@
 }
 
 @media only screen and (min-width: 525px) {
+   .heroContainer {
+      background-position: -100px 0;
+   }
+
    .empty {
       height: 12rem;
    }
@@ -55,6 +60,12 @@
 
    .links li {
       margin: 0 1rem;
+   }
+}
+
+@media only screen and (min-width: 670px) {
+   .heroContainer {
+      background-position: 0 0;
    }
 }
 
