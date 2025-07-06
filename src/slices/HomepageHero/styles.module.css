@@ -1,11 +1,24 @@
 .heroContainer {
-   height: 35rem;
+   height: 36rem;
    background-image: url('/couple-beach-main-dark-cropped.png');
    background-size: cover;
    background-repeat: no-repeat;
    color: var(--cream-200);
 }
 
+.row {
+   height: 12rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.links li {
+   display: inline-block;
+   margin: 0 1rem;
+}
+
 .button {
-   width: 8rem;
+   width: 9rem;
+   font-size: 1.2rem;
 }

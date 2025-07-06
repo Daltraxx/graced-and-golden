@@ -8,12 +8,12 @@ import moduleStyles from '@/slices/HomepageHero/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
-    <Heading as="h1" size="lg" className="text-center pt-2">
+    <Heading as="h1" size="lg" className="text-center">
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="">
+    <p className="text-3xl">
       {children}
     </p>
   )
@@ -42,17 +42,18 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
   }
 
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${moduleStyles.heroContainer}`}>
-      <section>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${moduleStyles.heroContainer}`}>
+      <div className={`${moduleStyles.row}`}></div>
+      <div className={`${moduleStyles.row}`}>
         <PrismicRichText field={slice.primary.main_heading} components={components}/>
-      </section>
-      <section>
+      </div>
+      <section className={`${moduleStyles.row} ${moduleStyles.linkRow}`}>
         <PrismicRichText field={slice.primary.short_text} components={components}/>
-        <div>
+        <ul className={`${moduleStyles.links}`}>
           {slice.primary.link.map((link, i) => (
-            <Button key={link.key} field={link} color={getButtonColor(i)} className={`${moduleStyles.button}`} />
+            <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${moduleStyles.button}`} /></li>
           ))}
-        </div>
+        </ul>
       </section>
     </Bounded>
   );
