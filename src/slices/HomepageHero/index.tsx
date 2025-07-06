@@ -13,7 +13,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="text-3xl">
+    <p className={`${moduleStyles.text} text-center text-3xl mr-4 mb-4`}>
       {children}
     </p>
   )
@@ -43,11 +43,11 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${moduleStyles.heroContainer}`}>
-      <div className={`${moduleStyles.row}`}></div>
-      <div className={`${moduleStyles.row}`}>
+      <div className={`${moduleStyles.row} ${moduleStyles.empty}`}></div>
+      <div className={`${moduleStyles.row} ${moduleStyles.headingRow}`}>
         <PrismicRichText field={slice.primary.main_heading} components={components}/>
       </div>
-      <section className={`${moduleStyles.row} ${moduleStyles.linkRow}`}>
+      <section className={`${moduleStyles.row} ${moduleStyles.linksRow} mt-4`}>
         <PrismicRichText field={slice.primary.short_text} components={components}/>
         <ul className={`${moduleStyles.links}`}>
           {slice.primary.link.map((link, i) => (

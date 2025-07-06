@@ -9,16 +9,59 @@
 .row {
    height: 12rem;
    display: flex;
+   flex-direction: column;
    align-items: center;
-   justify-content: center;
+}
+
+.empty {
+   height: 5rem;
+}
+
+.headingRow {
+   margin: 0 auto;
+   max-width: 90%;
+   align-items: center;
+}
+
+.linksRow {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.links {
+   display: flex;
+   flex-direction: column;
 }
 
 .links li {
    display: inline-block;
-   margin: 0 1rem;
+   margin: .5rem 1rem;
 }
 
 .button {
    width: 9rem;
    font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 525px) {
+   .empty {
+      height: 12rem;
+   }
+
+   .links {
+      flex-direction: row;
+   }
+
+   .links li {
+      margin: 0 1rem;
+   }
+}
+
+@media only screen and (min-width: 800px) {
+   .row {
+      flex-direction: row;
+      align-items: start;
+      justify-content: center;
+   }
 }
