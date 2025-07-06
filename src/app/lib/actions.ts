@@ -138,7 +138,7 @@ export async function sendInquiryEmail(prevState: State, formData: FormData): Pr
   
   try {
     const data = await mg.messages.create("gracedandgolden.com", {
-      from: "Mailgun Sandbox <postmaster@gracedandgolden.com>",
+      from: "G&G Inquiries <postmaster@gracedandgolden.com>",
       to: ["Dalton Pettus <daltpettus@gmail.com>"],
       subject: `Inquiry from ${validatedFields.data.name}`,
       text: "Graced and Golden Inquiry",
