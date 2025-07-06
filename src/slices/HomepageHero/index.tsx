@@ -4,6 +4,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
+import moduleStyles from '@/slices/HomepageHero/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
@@ -39,13 +40,13 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
         return 'brown-200';
     }
   }
-  
+
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
       <PrismicRichText field={slice.primary.main_heading} components={components}/>
       <PrismicRichText field={slice.primary.short_text} components={components}/>
       {slice.primary.link.map((link, i) => (
-        <Button key={link.key} field={link} color={getButtonColor(i)} />
+        <Button key={link.key} field={link} color={getButtonColor(i)} className={`${moduleStyles.button}`} />
       ))}
     </Bounded>
   );
