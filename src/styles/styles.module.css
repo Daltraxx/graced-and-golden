@@ -163,22 +163,22 @@
 }
 
 .buttonBrown200 {
-   color: white;
+   color: var(--cream-300);
    background: var(--brown-200);
 }
 
 .buttonBrown300 {
-   color: white;
+   color: var(--cream-300);
    background: var(--brown-300);
 }
 
 .buttonBrown500 {
-   color: white;
+   color: var(--cream-300);
    background: var(--brown-500);
 }
 
 .buttonBrown800 {
-   color: white;
+   color: var(--cream-300);
    background: var(--brown-800);
 }
 
