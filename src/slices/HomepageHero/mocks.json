@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"main_heading": {
-				"__TYPE__": "FieldContent",
-				"value": "remain",
-				"type": "Text"
-			},
 			"short_text": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -24,12 +19,23 @@
 				"type": "Link",
 				"value": [
 					{
-						"__TYPE__": "LinkContent",
 						"key": "e9d9570a-16c9-4eaa-bf90-62649be91b75",
+						"__TYPE__": "LinkContent",
 						"value": {
 							"__TYPE__": "ExternalLink",
 							"url": "https://prismic.io",
 							"text": "loose"
+						}
+					}
+				]
+			},
+			"main_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Cloud"
 						}
 					}
 				]

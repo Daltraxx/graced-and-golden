@@ -884,12 +884,12 @@ export interface HomepageHeroSliceDefaultPrimary {
   /**
    * Main Heading field in *HomepageHero → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: homepage_hero.default.primary.main_heading
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  main_heading: prismic.KeyTextField;
+  main_heading: prismic.TitleField;
 
   /**
    * Short Text field in *HomepageHero → Default → Primary*
