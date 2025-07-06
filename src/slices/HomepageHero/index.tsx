@@ -42,12 +42,18 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
   }
 
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
-      <PrismicRichText field={slice.primary.main_heading} components={components}/>
-      <PrismicRichText field={slice.primary.short_text} components={components}/>
-      {slice.primary.link.map((link, i) => (
-        <Button key={link.key} field={link} color={getButtonColor(i)} className={`${moduleStyles.button}`} />
-      ))}
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${moduleStyles.heroContainer}`}>
+      <section>
+        <PrismicRichText field={slice.primary.main_heading} components={components}/>
+      </section>
+      <section>
+        <PrismicRichText field={slice.primary.short_text} components={components}/>
+        <div>
+          {slice.primary.link.map((link, i) => (
+            <Button key={link.key} field={link} color={getButtonColor(i)} className={`${moduleStyles.button}`} />
+          ))}
+        </div>
+      </section>
     </Bounded>
   );
 };
