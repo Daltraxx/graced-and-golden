@@ -147,6 +147,8 @@
 
 .button {
    display: block;
+   width: fit-content;
+   text-align: center;
    border-radius: 100px;
    padding: .6rem 1rem;
 }
