@@ -14,10 +14,10 @@
   --gray-300: hsl(0, 0%, 68%); /* #AEAEAE */
   --black-700: 	hsl(0, 0%, 15%); /* #252525 */
   --brown-100: hsl(18 21% 91.2%); /* #ede6e3 */
-  --brown-200: hsl(18 21% 77%); /* #d1bfb8 */
-  --brown-300: 	hsl(27, 23%, 68%); /* #C0AB9A approved*/
+  --brown-200: 	hsl(27, 23%, 68%); /* #C0AB9A approved */
+  --brown-300: 	hsl(18, 21%, 57%); /* #A8887A approved? */
   --brown-400: 	hsl(29, 36%, 39%); /* #876240 brown-gold? */
-  --brown-500: hsl(17, 39%, 40%); /* 	#8e553e */
+  --brown-500: 	hsl(21, 24%, 39%); /* 	#7B5C4B approved */
   --brown-700: hsl(17 39% 28%); /* #633b2c */
   --brown-750: 	hsl(21, 61%, 21%); /* #572c15 */
   --brown-800: hsl(17, 39%, 23%); /* #523124 */
