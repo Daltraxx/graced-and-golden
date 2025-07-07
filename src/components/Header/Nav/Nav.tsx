@@ -1,0 +1,39 @@
+'use client';
+
+import clsx from "clsx";
+import { useState } from "react";
+import moduleStyles from '@/components/Header/Nav/styles.module.css'
+import { PrismicNextLink } from "@prismicio/next";
+
+export default function Nav({ navLinks }: { navLinks: any[] }) {
+   const [navOpen, setNavOpen] = useState(false);
+
+   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      setNavOpen(prev => !prev);
+   }
+
+   return (
+      <nav className={moduleStyles.navContainer}>
+         <button onClick={handleClick} className={moduleStyles.navToggle}>
+            Navigation Menu&nbsp;
+            <span
+               className={clsx(
+               moduleStyles.arrow,
+               navOpen && moduleStyles.arrowDown,
+               !navOpen && moduleStyles.arrowUp
+               )}
+            >
+               &#11205;
+            </span>
+         </button>
+         <ul className={clsx(moduleStyles.linksContainer, navOpen && moduleStyles.linksDisplayed, !navOpen && moduleStyles.linksHidden)}>
+            {navLinks.map((link) => (
+               <li key={link.key}>
+                  <PrismicNextLink key={link.key} field={link} />
+               </li>
+            ))}
+         </ul>
+      </nav>
+   )
+}
