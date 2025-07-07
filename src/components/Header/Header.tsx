@@ -27,12 +27,9 @@ export default async function Header() {
                         <PrismicNextLink key={link.key} field={link} />
                      </li>
                   ))}
-                  <li>
-                     <Button field={header.data.booking_link} className={styles.buttonCream200} color="cream-200"/>
-                  </li>
                </ul>
             </nav>
-            <Button field={header.data.booking_link} className={styles.buttonCream200} color="cream-200"/>
+            <Button field={header.data.booking_link} className={`${styles.buttonCream200}`} color="cream-200"/>
          </div>
       </Bounded>
    );
