@@ -5,7 +5,7 @@ import "./globals.css";
 import { createClient, repositoryName } from "@/prismicio";
 import { asImageSrc } from "@prismicio/client";
 import { PrismicPreview } from "@prismicio/next";
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 
 export async function generateMetadata(): Promise<Metadata> {
