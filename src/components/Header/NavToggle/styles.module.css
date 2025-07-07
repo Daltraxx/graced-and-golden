@@ -1,0 +1,13 @@
+.arrow {
+   display: inline-block;
+}
+
+.navOpen {
+   transform: rotate(-180deg);
+   transition: transform 0.3s;
+}
+
+.navClosed {
+   transform: rotate(-360deg);
+   transition: transform 0.3s;
+}
