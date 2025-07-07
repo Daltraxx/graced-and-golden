@@ -29,7 +29,7 @@
 }
 
 .navToggle:checked ~ nav {
-   max-height: 16rem;
+   max-height: 25rem;
 }
 
 .linksContainer {
@@ -40,7 +40,24 @@
    text-align: center;
 }
 
-@media only screen and (min-width: 640px) {
+.linksContainer a {
+   padding: .6rem;
+   display: inline-block;
+}
+
+.linksContainer a:focus {
+   text-decoration: underline;
+   border: none;
+}
+
+.linksContainer a:hover {
+   color: var(--brown-750);
+   text-decoration: underline;
+}
+
+
+
+@media only screen and (min-width: 674px) {
    .headerContainer {
       gap: 1rem;
    }
@@ -52,16 +69,21 @@
    }
 
    .nav {
-      max-height: fit-content;
+      height: 4rem;
+      max-height: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
 
    .linksContainer {
       flex-direction: row;
-      font-size: 1.05rem;
+      font-size: 1.2rem;
+      font-family: var(--font-body);
    }
 }
 
-@media only screen and (min-width: 940px) {
+@media only screen and (min-width: 972px) {
    .headerContainer {
       flex-direction: row;
    }
