@@ -17,16 +17,22 @@ export default async function Header() {
             <Link href='/'>
                <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
             </Link>
-            <ul className={`${moduleStyles.linksContainer}`}>
-               {header.data.nav_link.map((link) => (
-                  <li key={link.key}>
-                     <PrismicNextLink key={link.key} field={link} />
+            {/* &#9776; hamburger menu icon */}
+            <label htmlFor="hamburger-toggle">Navigation Menu</label>
+            <input type="checkbox" id="hamburger-toggle" className={moduleStyles.navToggle} />
+            <nav className={moduleStyles.nav}>
+               <ul className={`${moduleStyles.linksContainer}`}>
+                  {header.data.nav_link.map((link) => (
+                     <li key={link.key}>
+                        <PrismicNextLink key={link.key} field={link} />
+                     </li>
+                  ))}
+                  <li>
+                     <Button field={header.data.booking_link} className={styles.buttonCream200} color="cream-200"/>
                   </li>
-               ))}
-               <li>
-                  <Button field={header.data.booking_link} className={styles.buttonCream200} color="cream-200"/>
-               </li>
-            </ul>
+               </ul>
+            </nav>
+            <Button field={header.data.booking_link} className={styles.buttonCream200} color="cream-200"/>
          </div>
       </Bounded>
    );

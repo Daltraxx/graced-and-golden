@@ -10,6 +10,24 @@
    justify-content: space-between;
 }
 
+.headerContainer > label {
+   text-decoration: underline;
+}
+
+.nav {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height .6s ease;
+}
+
+.navToggle {
+   display: none;
+}
+
+.navToggle:checked ~ nav {
+   max-height: 15rem;
+}
+
 .linksContainer {
    display: flex;
    flex-direction: column;
@@ -24,7 +42,7 @@
    }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 870) {
    .headerContainer {
       flex-direction: row;
    }
