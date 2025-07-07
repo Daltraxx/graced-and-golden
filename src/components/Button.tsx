@@ -3,7 +3,7 @@ import clsx from "clsx";
 import styles from '@/styles/styles.module.css'
 
 type ButtonProps = PrismicNextLinkProps & {
-   color?: 'brown-200' | 'brown-300' | 'brown-500';
+   color?: 'cream-200' | 'brown-200' | 'brown-300' | 'brown-500';
 }
 
 
@@ -16,6 +16,7 @@ export default function Button({
    return (
       <PrismicNextLink 
          className={clsx(styles.button,
+            color === 'cream-200' && styles.buttonCream200,
             color === 'brown-200' && styles.buttonBrown200,
             color === 'brown-300' && styles.buttonBrown300,
             color === 'brown-500' && styles.buttonBrown500,

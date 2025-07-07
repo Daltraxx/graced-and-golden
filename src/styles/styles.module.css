@@ -158,8 +158,8 @@
 }
 
 .buttonCream200 {
+   color: var(--brown-750);
    background: var(--cream-200);
-   color: black;
 }
 
 .buttonBrown200 {
