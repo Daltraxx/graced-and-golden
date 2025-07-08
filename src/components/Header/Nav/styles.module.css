@@ -37,17 +37,20 @@
    transition: max-height .6s ease;
 }
 
-.navLink {
+.navLink,
+.serviceLink {
    padding: .6rem;
    display: inline-block;
 }
 
-.navLink:focus {
+.navLink:focus,
+.serviceLink:focus {
    text-decoration: underline;
    border: none;
 }
 
-.navLink:hover {
+.navLink:hover,
+.serviceLink:hover {
    color: var(--brown-750);
    text-decoration: underline;
 }
@@ -88,12 +91,8 @@
    transition: max-height .6s ease;
 }
 
-.servicesContainer li:not(:first-child) {
-   margin-top: .5rem;
-}
 
 .serviceLink {
-   display: inline-block;
    font-family: var(--font-body);
    font-style: italic;
 }
