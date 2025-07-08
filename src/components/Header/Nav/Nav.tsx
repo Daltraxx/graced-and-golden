@@ -7,7 +7,6 @@ import { PrismicNextLink } from "@prismicio/next";
 
 export default function Nav({ navLinks }: { navLinks: any[] }) {
    const [navOpen, setNavOpen] = useState(false);
-   console.log(navLinks);
 
    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -15,7 +14,8 @@ export default function Nav({ navLinks }: { navLinks: any[] }) {
    }
 
    const navListItems = navLinks.map((link) => {
-      if (link.text.toLowerCase === 'services') {
+      console.log(link.text);
+      if (link.text.toLowerCase() === 'services') {
          return (
             <li key={link.key}>
                   <PrismicNextLink key={link.key} field={link} />
