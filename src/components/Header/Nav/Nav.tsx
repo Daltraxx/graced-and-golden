@@ -4,8 +4,9 @@ import clsx from "clsx";
 import { useState } from "react";
 import moduleStyles from '@/components/Header/Nav/styles.module.css'
 import { PrismicNextLink } from "@prismicio/next";
+import { LinkField } from "@prismicio/client";
 
-export default function Nav({ navLinks }: { navLinks: any[] }) {
+export default function Nav({ navLinks }: { navLinks: LinkField[] }) {
    const [navOpen, setNavOpen] = useState(false);
 
    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -13,18 +14,17 @@ export default function Nav({ navLinks }: { navLinks: any[] }) {
       setNavOpen(prev => !prev);
    }
 
-   const navListItems = navLinks.map((link) => {
-      console.log(link.text);
-      if (link.text.toLowerCase() === 'services') {
+   const navListItems = navLinks.map((link, i) => {
+      if (link.text && link.text.toLowerCase() === 'services') {
          return (
-            <li key={link.key}>
-                  <PrismicNextLink key={link.key} field={link} />
+            <li key={`nav-link-${i}`}>
+                  <PrismicNextLink field={link} />
             </li>
          );
       } else {
          return (
-            <li key={link.key}>
-                  <PrismicNextLink key={link.key} field={link} />
+            <li key={`nav-link-${i}`}>
+                  <PrismicNextLink field={link} />
             </li>
          );
       }
