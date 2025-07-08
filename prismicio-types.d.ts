@@ -43,6 +43,17 @@ export type FooterDocument<Lang extends string = string> =
  */
 interface HeaderDocumentData {
   /**
+   * Logo Full field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.logo_full
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo_full: prismic.ImageField<never>;
+
+  /**
    * Nav Link field in *Header*
    *
    * - **Field Type**: Link
@@ -52,6 +63,19 @@ interface HeaderDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   nav_link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Separate Service Page field in *Header*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.separate_service_page
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  separate_service_page: prismic.Repeatable<
     prismic.LinkField<string, string, unknown, prismic.FieldState, never>
   >;
 
@@ -71,17 +95,6 @@ interface HeaderDocumentData {
     prismic.FieldState,
     never
   >;
-
-  /**
-   * Logo Full field in *Header*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.logo_full
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  logo_full: prismic.ImageField<never>;
 }
 
 /**

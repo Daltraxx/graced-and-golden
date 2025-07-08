@@ -6,7 +6,7 @@ import moduleStyles from '@/components/Header/Nav/styles.module.css'
 import { PrismicNextLink } from "@prismicio/next";
 import { LinkField } from "@prismicio/client";
 
-export default function Nav({ navLinks }: { navLinks: LinkField[] }) {
+export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkField[], servicePageLinks: LinkField[] }) {
    const [navOpen, setNavOpen] = useState(false);
 
    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

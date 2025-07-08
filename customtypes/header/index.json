@@ -6,6 +6,14 @@
   "status": true,
   "json": {
     "Main": {
+      "logo_full": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Full",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "nav_link": {
         "type": "Link",
         "config": {
@@ -13,6 +21,17 @@
           "placeholder": "",
           "select": null,
           "allowTargetBlank": false,
+          "allowText": true,
+          "repeat": true
+        }
+      },
+      "separate_service_page": {
+        "type": "Link",
+        "config": {
+          "label": "Separate Service Page",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
           "allowText": true,
           "repeat": true
         }
@@ -26,14 +45,6 @@
           "allowTargetBlank": true,
           "allowText": true,
           "repeat": false
-        }
-      },
-      "logo_full": {
-        "type": "Image",
-        "config": {
-          "label": "Logo Full",
-          "constraint": {},
-          "thumbnails": []
         }
       }
     }

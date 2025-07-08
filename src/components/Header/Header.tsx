@@ -11,6 +11,7 @@ export default async function Header() {
    const client = createClient();
    const header = await client.getSingle('header');
    const navLinks = header.data.nav_link;
+   const servicePageLinks = header.data.separate_service_page;
 
    return (
       <Bounded as='header' className={`${styles.backgroundBrown200} ${moduleStyles.headerBounded}`}>
@@ -19,7 +20,7 @@ export default async function Header() {
                <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
             </Link>
             {/* &#9776; hamburger menu icon */}
-            <Nav navLinks={navLinks}/>
+            <Nav navLinks={navLinks} servicePageLinks={servicePageLinks} />
             <Button field={header.data.booking_link} className={`${styles.buttonCream200}`} color="cream-200"/>
          </div>
       </Bounded>
