@@ -37,17 +37,17 @@
    transition: max-height .6s ease;
 }
 
-.linksContainer a {
+.navLink {
    padding: .6rem;
    display: inline-block;
 }
 
-.linksContainer a:focus {
+.navLink:focus {
    text-decoration: underline;
    border: none;
 }
 
-.linksContainer a:hover {
+.navLink:hover {
    color: var(--brown-750);
    text-decoration: underline;
 }
@@ -61,6 +61,11 @@
 }
 
 /* Service Links Dropdown */
+
+.mainServiceLink:hover {
+   text-decoration: none;
+   color: inherit;
+}
 
 .serviceMenuArrow {
    display: inline-block;
@@ -83,17 +88,22 @@
    transition: max-height .6s ease;
 }
 
+.servicesContainer li:not(:first-child) {
+   margin-top: .5rem;
+}
+
+.serviceLink {
+   display: inline-block;
+   font-family: var(--font-body);
+   font-style: italic;
+}
+
 .servicesHidden {
    max-height: 0;
 }
 
 .servicesOpen {
    max-height: 10rem;
-}
-
-.servicePageLink {
-   font-family: var(--font-body);
-   font-style: italic;
 }
 
 @media only screen and (min-width: 674px) {
