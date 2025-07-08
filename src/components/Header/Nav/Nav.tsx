@@ -15,6 +15,7 @@ export default function Nav({ navLinks }: { navLinks: LinkField[] }) {
    }
 
    const navListItems = navLinks.map((link, i) => {
+      // consider changing comparison to be based on something else such as slug or uid
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
             <li key={`nav-link-${i}`}>
