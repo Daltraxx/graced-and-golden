@@ -30,23 +30,27 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
             <li key={`nav-link-${i}`}>
-               <PrismicNextLink field={link} onClick={handleServicesToggle} className={clsx(moduleStyles.mainServiceLink, moduleStyles.navLink)}/>
+               <PrismicNextLink
+                  field={link}
+                  onClick={handleServicesToggle}
+                  className={clsx(moduleStyles.mainServiceLink, moduleStyles.navLink)}
+               />
                <span
-               className={clsx(
-               moduleStyles.serviceMenuArrow,
-               servicesOpen && moduleStyles.serviceMenuArrowDown,
-               !servicesOpen && moduleStyles.serviceMenuArrowUp
-               )}
-            >
-               &#11205;
-            </span>
-                  <ul
-                    className={clsx(
-                      moduleStyles.servicesContainer,
-                      servicesOpen && moduleStyles.servicesDisplayed,
-                      !servicesOpen && moduleStyles.servicesHidden
-                    )}
-                  >
+                  className={clsx(
+                     moduleStyles.serviceMenuArrow,
+                     servicesOpen && moduleStyles.serviceMenuArrowDown,
+                     !servicesOpen && moduleStyles.serviceMenuArrowUp
+                  )}
+               >
+                  &#11205;
+               </span>
+               <ul
+                  className={clsx(
+                     moduleStyles.servicesContainer,
+                     servicesOpen && moduleStyles.servicesDisplayed,
+                     !servicesOpen && moduleStyles.servicesHidden
+                  )}
+               >
                   {servicesDropdownListItems}
                </ul>
             </li>
