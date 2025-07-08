@@ -1,5 +1,4 @@
 import { createClient } from "@/prismicio";
-import { PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
 import Link from "next/link";
 import Bounded from "../Bounded";
