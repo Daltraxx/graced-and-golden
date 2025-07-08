@@ -7,16 +7,16 @@
    margin: 0 auto;
 }
 
-.arrow {
+.navMenuArrow {
    display: inline-block;
 }
 
-.arrowUp {
+.navMenuArrowUp {
    transform: rotate(-360deg);
    transition: transform 0.3s;
 }
 
-.arrowDown {
+.navMenuArrowDown {
    transform: rotate(-180deg);
    transition: transform 0.3s;
 }
@@ -55,6 +55,20 @@
    max-height: 25rem;
 }
 
+.serviceMenuArrow {
+   display: inline-block;
+}
+
+.serviceMenuArrowUp {
+   transform: rotate(-360deg);
+   transition: transform 0.3s;
+}
+
+.serviceMenuArrowDown {
+   transform: rotate(-180deg);
+   transition: transform 0.3s;
+}
+
 .servicesContainer {
    overflow: hidden;
    max-height: 10rem;
@@ -67,6 +81,10 @@
 
 .servicesOpen {
    max-height: 10rem;
+}
+
+.servicePageLink {
+   font-family: var(--font-body);
 }
 
 @media only screen and (min-width: 674px) {

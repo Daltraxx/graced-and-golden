@@ -8,7 +8,7 @@ import { LinkField } from "@prismicio/client";
 
 export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkField[], servicePageLinks: LinkField[] }) {
    const [navOpen, setNavOpen] = useState(false);
-   const [ servicesOpen, setServicesOpen ] = useState(false);
+   const [servicesOpen, setServicesOpen] = useState(false);
 
    const handleNavToggleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -20,7 +20,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    }
 
    const servicesDropdownListItems = servicePageLinks.map((link, i) => (
-      <li key={`service-dropdown-link-${i}`}>
+      <li key={`service-dropdown-link-${i}`} className={moduleStyles.servicePageLink} >
          <PrismicNextLink field={link} />
       </li>
    ))
@@ -31,6 +31,15 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
          return (
             <li key={`nav-link-${i}`}>
                <PrismicNextLink field={link} onClick={handleServicesToggle}/>
+               <span
+               className={clsx(
+               moduleStyles.serviceMenuArrow,
+               servicesOpen && moduleStyles.serviceMenuArrowDown,
+               !servicesOpen && moduleStyles.serviceMenuArrowUp
+               )}
+            >
+               &#11205;
+            </span>
                   <ul
                     className={clsx(
                       moduleStyles.servicesContainer,
@@ -58,9 +67,9 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
             Navigation Menu&nbsp;
             <span
                className={clsx(
-               moduleStyles.arrow,
-               navOpen && moduleStyles.arrowDown,
-               !navOpen && moduleStyles.arrowUp
+               moduleStyles.navMenuArrow,
+               navOpen && moduleStyles.navMenuArrowDown,
+               !navOpen && moduleStyles.navMenuArrowUp
                )}
             >
                &#11205;
