@@ -8,24 +8,40 @@ import { LinkField } from "@prismicio/client";
 
 export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkField[], servicePageLinks: LinkField[] }) {
    const [navOpen, setNavOpen] = useState(false);
+   const [ servicesOpen, setServicesOpen ] = useState(false);
 
    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       setNavOpen(prev => !prev);
    }
 
+   const servicesDropdownListItems = servicePageLinks.map((link, i) => (
+      <li key={`service-dropdown-link-${i}`}>
+         <PrismicNextLink field={link} />
+      </li>
+   ))
+
    const navListItems = navLinks.map((link, i) => {
       // consider changing comparison to be based on something else such as slug or uid
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
             <li key={`nav-link-${i}`}>
-                  <PrismicNextLink field={link} />
+               <PrismicNextLink field={link} />
+                  <ul
+                    className={clsx(
+                      moduleStyles.servicesContainer,
+                      !servicesOpen && moduleStyles.servicesHidden,
+                      servicesOpen && moduleStyles.servicesDisplayed
+                    )}
+                  >
+                  {servicesDropdownListItems}
+               </ul>
             </li>
          );
       } else {
          return (
             <li key={`nav-link-${i}`}>
-                  <PrismicNextLink field={link} />
+               <PrismicNextLink field={link} />
             </li>
          );
       }

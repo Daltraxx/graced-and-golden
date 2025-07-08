@@ -1,5 +1,10 @@
 .navContainer {
+   text-align: center;
    padding: 1rem 0;
+}
+
+.navToggle {
+   margin: 0 auto;
 }
 
 .arrow {
@@ -47,7 +52,15 @@
 }
 
 .linksDisplayed {
-   max-height: 25rem;
+   max-height: 20rem;
+}
+
+.servicesContainer {
+   overflow: hidden;
+}
+
+.servicesHidden {
+   max-height: 0;
 }
 
 @media only screen and (min-width: 674px) {
