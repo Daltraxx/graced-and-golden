@@ -52,15 +52,21 @@
 }
 
 .linksDisplayed {
-   max-height: 20rem;
+   max-height: 25rem;
 }
 
 .servicesContainer {
    overflow: hidden;
+   max-height: 10rem;
+   transition: max-height .6s ease;
 }
 
 .servicesHidden {
    max-height: 0;
+}
+
+.servicesOpen {
+   max-height: 10rem;
 }
 
 @media only screen and (min-width: 674px) {

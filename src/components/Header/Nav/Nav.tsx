@@ -15,6 +15,10 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       setNavOpen(prev => !prev);
    }
 
+   const handleServicesToggle = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      setServicesOpen(prev => !prev);
+   }
+
    const servicesDropdownListItems = servicePageLinks.map((link, i) => (
       <li key={`service-dropdown-link-${i}`}>
          <PrismicNextLink field={link} />
@@ -26,12 +30,13 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
             <li key={`nav-link-${i}`}>
-               <PrismicNextLink field={link} />
+               <PrismicNextLink field={link} onClick={handleServicesToggle}/>
                   <ul
                     className={clsx(
                       moduleStyles.servicesContainer,
-                      !servicesOpen && moduleStyles.servicesHidden,
-                      servicesOpen && moduleStyles.servicesDisplayed
+                      servicesOpen && moduleStyles.servicesDisplayed,
+                      !servicesOpen && moduleStyles.servicesHidden
+                      
                     )}
                   >
                   {servicesDropdownListItems}
