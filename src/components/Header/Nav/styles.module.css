@@ -1,14 +1,17 @@
+/* Nav Menu Button */
+
 .navContainer {
    text-align: center;
    padding: 1rem 0;
 }
 
 .navToggle {
-   margin: 0 auto;
+   font-size: 1.2rem;
 }
 
 .navMenuArrow {
    display: inline-block;
+   color: var(--brown-750);
 }
 
 .navMenuArrowUp {
@@ -20,6 +23,8 @@
    transform: rotate(-180deg);
    transition: transform 0.3s;
 }
+
+/* Nav Links Dropdown */
 
 .linksContainer {
    display: flex;
@@ -55,8 +60,11 @@
    max-height: 25rem;
 }
 
+/* Service Links Dropdown */
+
 .serviceMenuArrow {
    display: inline-block;
+   color: var(--brown-500);
 }
 
 .serviceMenuArrowUp {
@@ -85,6 +93,7 @@
 
 .servicePageLink {
    font-family: var(--font-body);
+   font-style: italic;
 }
 
 @media only screen and (min-width: 674px) {

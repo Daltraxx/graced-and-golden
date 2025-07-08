@@ -45,7 +45,6 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
                       moduleStyles.servicesContainer,
                       servicesOpen && moduleStyles.servicesDisplayed,
                       !servicesOpen && moduleStyles.servicesHidden
-                      
                     )}
                   >
                   {servicesDropdownListItems}
