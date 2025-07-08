@@ -10,7 +10,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    const [navOpen, setNavOpen] = useState(false);
    const [ servicesOpen, setServicesOpen ] = useState(false);
 
-   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+   const handleNavToggleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       setNavOpen(prev => !prev);
    }
@@ -49,7 +49,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
 
    return (
       <nav className={moduleStyles.navContainer}>
-         <button onClick={handleClick} className={moduleStyles.navToggle}>
+         <button onClick={handleNavToggleClick} className={moduleStyles.navToggle}>
             Navigation Menu&nbsp;
             <span
                className={clsx(
