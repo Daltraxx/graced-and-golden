@@ -105,6 +105,7 @@
 }
 
 .servicesContainer {
+   position: relative;
    overflow: hidden;
    max-height: 10rem;
    transition: max-height .6s ease;
@@ -113,16 +114,17 @@
 
 .serviceLink {
    font-family: var(--font-body);
-   font-style: italic;
 }
 
 .servicesHidden {
    max-height: 0;
 }
 
-.servicesOpen {
+.servicesDisplayed {
    max-height: 10rem;
 }
+
+/* MEDIA QUERIES */
 
 @media only screen and (min-width: 674px) {
    .menuArrow {
@@ -152,6 +154,35 @@
       justify-content: center;
       font-size: 1.2rem;
       font-family: var(--font-body);
+      overflow: visible;
+   }
+
+   .servicesContainer {
+      position: relative;
+      display: block;
+      overflow: visible;
+      max-height: inherit;
+      transition: max-height .6s ease;
+   }
+
+   .servicesList {
+      position: absolute;
+      background: hsla(36, 15%, 94%, .9);
+      top: 100%;
+      left: -40%;
+      min-width: 10rem;
+      border-radius: 4px;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+   }
+
+   .servicesHidden {
+      display: none;
+      visibility: hidden;
+   }
+
+   .servicesDisplayed {
+      display: block;
+      visibility: visible;
    }
 }
 

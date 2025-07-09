@@ -48,14 +48,14 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
                   >
                   </span>
                </button>
-               <div>
-                  <ul
-                     className={clsx(
+               <div
+                  className={clsx(
                         moduleStyles.servicesContainer,
                         servicesOpen && moduleStyles.servicesDisplayed,
                         !servicesOpen && moduleStyles.servicesHidden
                      )}
-                  >
+               >
+                  <ul className={moduleStyles.servicesList}>
                      {servicesDropdownListItems}
                   </ul>
                </div>
