@@ -21,6 +21,7 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
 
    return (
       <>
+         {/* Dropdown Menu Toggle */}
          <button
             type="button"
             onClick={handleServicesToggle}
@@ -40,6 +41,7 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
                )}
             />
          </button>
+         {/* Dropdown Menu */}
          <div
             className={clsx(
                moduleStyles.servicesContainer,
