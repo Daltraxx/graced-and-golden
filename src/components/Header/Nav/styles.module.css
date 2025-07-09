@@ -103,6 +103,7 @@
       justify-content: center;
       font-size: 1.2rem;
       font-family: var(--font-body);
+      /* Overflow visible important for services menu on bigger screens */
       overflow: visible;
    }
    
