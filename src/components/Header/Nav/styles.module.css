@@ -64,10 +64,22 @@
 }
 
 /* Service Links Dropdown */
+.mainServiceButton {
+   padding: .6rem;
+}
 
-.mainServiceLink:hover {
-   text-decoration: none;
+.mainServiceButton:hover {
+   cursor: pointer;
+}
+
+.mainServiceButtonOpenState {
+   color: var(--brown-750);
+   text-decoration: underline;
+}
+
+.mainServiceButtonClosedState {
    color: inherit;
+   text-decoration: none;
 }
 
 .serviceMenuArrow {

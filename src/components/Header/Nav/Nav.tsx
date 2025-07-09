@@ -15,7 +15,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       setNavOpen(prev => !prev);
    }
 
-   const handleServicesToggle = (e: React.MouseEvent<HTMLAnchorElement>) => {
+   const handleServicesToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
       setServicesOpen(prev => !prev);
    }
 
@@ -30,11 +30,15 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
             <li key={`nav-link-${i}`}>
-               <PrismicNextLink
-                  field={link}
+               <button
                   onClick={handleServicesToggle}
-                  className={clsx(moduleStyles.mainServiceLink, moduleStyles.navLink)}
-               />
+                  className={clsx(moduleStyles.mainServiceButton,
+                     servicesOpen && moduleStyles.mainServiceButtonOpenState,
+                     !servicesOpen && moduleStyles.mainServiceButtonClosedState
+                  )}
+               >
+                  {link.text}
+               </button>
                <span
                   className={clsx(
                      moduleStyles.serviceMenuArrow,
