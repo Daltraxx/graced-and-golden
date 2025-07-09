@@ -11,7 +11,12 @@
 
 .navMenuArrow {
    display: inline-block;
-   color: var(--brown-750);
+   width: 0;
+   height: 0;
+   vertical-align: middle;
+   border-right: .4rem solid transparent;
+   border-left: .4rem solid transparent;
+   border-bottom: .6rem solid var(--brown-750);
 }
 
 .navMenuArrowUp {
@@ -85,6 +90,16 @@
 .serviceMenuArrow {
    display: inline-block;
    color: var(--brown-500);
+}
+
+.serviceMenuArrow {
+   display: inline-block;
+   width: 0;
+   height: 0;
+   vertical-align: middle;
+   border-right: .4rem solid transparent;
+   border-left: .4rem solid transparent;
+   border-bottom: .6rem solid #7B5C4B;
 }
 
 .serviceMenuArrowUp {

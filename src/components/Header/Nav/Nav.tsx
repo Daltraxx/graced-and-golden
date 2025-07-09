@@ -46,7 +46,6 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
                      !servicesOpen && moduleStyles.serviceMenuArrowUp
                   )}
                >
-                  &#11205;
                </span>
                <ul
                   className={clsx(
@@ -79,7 +78,6 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
                !navOpen && moduleStyles.navMenuArrowUp
                )}
             >
-               &#11205;
             </span>
          </button>
          <ul className={clsx(moduleStyles.linksContainer, navOpen && moduleStyles.linksDisplayed, !navOpen && moduleStyles.linksHidden)}>
