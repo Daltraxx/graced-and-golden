@@ -1,0 +1,119 @@
+/* Could clean up menu arrow repeated styles from parent component */
+.menuArrow {
+   position: absolute;
+   display: inline-block;
+   width: 0;
+   height: 0;
+   vertical-align: middle;
+   border-right: .4rem solid transparent;
+   border-left: .4rem solid transparent;
+   border-bottom: .6rem solid #000;
+}
+
+.menuArrowUp {
+   transform: rotate(-360deg);
+   transition: transform 0.3s;
+}
+
+.menuArrowDown {
+   transform: rotate(-180deg);
+   transition: transform 0.3s;
+}
+
+/* same as nav link in parent component */
+.serviceLink {
+   padding: .5625rem;
+   display: inline-block;
+}
+
+.serviceLink:focus {
+   text-decoration: underline;
+   border: none;
+}
+
+.serviceLink:hover {
+   color: var(--brown-750);
+   text-decoration: underline;
+}
+
+.mainServiceButton {
+   position: relative;
+   padding: .5625rem;
+}
+
+.mainServiceButton:hover {
+   cursor: pointer;
+}
+
+.mainServiceButtonOpenState {
+   color: var(--brown-750);
+   text-decoration: underline;
+}
+
+.mainServiceButtonClosedState {
+   color: inherit;
+   text-decoration: none;
+}
+
+.serviceMenuArrow {
+   top: 1rem;
+   right: -.4rem;
+   border-right: .3rem solid transparent;
+   border-left: .3rem solid transparent;
+   border-bottom: .45rem solid var(--brown-750);
+}
+
+.servicesContainer {
+   position: relative;
+   overflow: hidden;
+   max-height: 10rem;
+   transition: max-height .6s ease;
+}
+
+
+.serviceLink {
+   font-family: var(--font-body);
+}
+
+.servicesHidden {
+   max-height: 0;
+}
+
+.servicesDisplayed {
+   max-height: 10rem;
+}
+
+@media only screen and (min-width: 674px) {
+   .menuArrow {
+      display: none;
+      visibility: hidden;
+   }
+
+   .servicesContainer {
+      position: relative;
+      display: block;
+      overflow: visible;
+      max-height: inherit;
+      transition: max-height .6s ease;
+   }
+
+   .servicesList {
+      position: absolute;
+      background: hsla(36, 15%, 94%, .9);
+      top: 100%;
+      left: -40%;
+      min-width: 10rem;
+      border-radius: 4px;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+   }
+
+   .servicesHidden {
+      display: none;
+      visibility: hidden;
+   }
+
+   .servicesDisplayed {
+      display: block;
+      visibility: visible;
+   }
+}
