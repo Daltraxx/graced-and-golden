@@ -38,15 +38,16 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
                   )}
                >
                   {link.text}
+                  <span
+                     className={clsx(
+                        moduleStyles.menuArrow,
+                        moduleStyles.serviceMenuArrow,
+                        servicesOpen && moduleStyles.menuArrowDown,
+                        !servicesOpen && moduleStyles.menuArrowUp
+                     )}
+                  >
+                  </span>
                </button>
-               <span
-                  className={clsx(
-                     moduleStyles.serviceMenuArrow,
-                     servicesOpen && moduleStyles.serviceMenuArrowDown,
-                     !servicesOpen && moduleStyles.serviceMenuArrowUp
-                  )}
-               >
-               </span>
                <ul
                   className={clsx(
                      moduleStyles.servicesContainer,
@@ -70,12 +71,13 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    return (
       <nav className={moduleStyles.navContainer}>
          <button onClick={handleNavToggleClick} type="button" className={moduleStyles.navToggle}>
-            Navigation Menu&nbsp;
+            MENU
             <span
                className={clsx(
+               moduleStyles.menuArrow,
                moduleStyles.navMenuArrow,
-               navOpen && moduleStyles.navMenuArrowDown,
-               !navOpen && moduleStyles.navMenuArrowUp
+               navOpen && moduleStyles.menuArrowDown,
+               !navOpen && moduleStyles.menuArrowUp
                )}
             >
             </span>
