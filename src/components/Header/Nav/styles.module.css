@@ -52,7 +52,7 @@
 
 .navLink,
 .serviceLink {
-   padding: .6rem;
+   padding: .5625rem;
    display: inline-block;
 }
 
@@ -79,7 +79,7 @@
 /* Service Links Dropdown */
 .mainServiceButton {
    position: relative;
-   padding: .6rem;
+   padding: .5625rem;
 }
 
 .mainServiceButton:hover {
@@ -97,7 +97,7 @@
 }
 
 .serviceMenuArrow {
-   top: 1.1rem;
+   top: 1rem;
    right: -.4rem;
    border-right: .3rem solid transparent;
    border-left: .3rem solid transparent;
@@ -125,6 +125,11 @@
 }
 
 @media only screen and (min-width: 674px) {
+   .menuArrow {
+      display: none;
+      visibility: hidden;
+   }
+
    .navContainer {
       padding: 0;
    }
