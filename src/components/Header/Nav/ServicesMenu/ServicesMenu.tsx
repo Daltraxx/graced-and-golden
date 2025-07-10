@@ -30,6 +30,9 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
                servicesOpen && moduleStyles.mainServiceButtonOpenState,
                !servicesOpen && moduleStyles.mainServiceButtonClosedState
             )}
+            aria-haspopup='menu'
+            aria-expanded={servicesOpen}
+            aria-controls='services-menu'
          >
             {text}
             <span
@@ -49,11 +52,14 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
                !servicesOpen && moduleStyles.servicesHidden
             )}
          >
-            <ul className={clsx(
-               moduleStyles.servicesList,
-               servicesOpen && moduleStyles.servicesDisplayedBiggerScreen,
-               !servicesOpen && moduleStyles.servicesHiddenBiggerScreen
-            )}>
+            <ul 
+               id="services-menu"
+               className={clsx(
+                  moduleStyles.servicesList,
+                  servicesOpen && moduleStyles.servicesDisplayedBiggerScreen,
+                  !servicesOpen && moduleStyles.servicesHiddenBiggerScreen
+               )}
+            >
                {servicesDropdownListItems}
             </ul>
          </div>
