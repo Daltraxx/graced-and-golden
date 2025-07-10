@@ -51,8 +51,8 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
          >
             <ul className={clsx(
                moduleStyles.servicesList,
-               servicesOpen && moduleStyles.servicesDisplayed,
-               !servicesOpen && moduleStyles.servicesHidden
+               servicesOpen && moduleStyles.servicesDisplayedBiggerScreen,
+               !servicesOpen && moduleStyles.servicesHiddenBiggerScreen
             )}>
                {servicesDropdownListItems}
             </ul>
