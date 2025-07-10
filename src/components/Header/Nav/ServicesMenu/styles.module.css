@@ -98,27 +98,26 @@
       position: relative;
       display: block;
       overflow: visible;
-      max-height: inherit;
-      transition: max-height .6s ease;
    }
 
    .servicesList {
       position: absolute;
       background: hsla(36, 15%, 94%, .9);
+      max-height: 0;
+      overflow: hidden;
       top: 100%;
       left: -40%;
       min-width: 10rem;
       border-radius: 4px;
       box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      transition: max-height .6s ease;
    }
 
    .servicesHidden {
-      display: none;
-      visibility: hidden;
+      max-height: 0;
    }
 
    .servicesDisplayed {
-      display: block;
-      visibility: visible;
+      max-height: 10.625rem;
    }
 }

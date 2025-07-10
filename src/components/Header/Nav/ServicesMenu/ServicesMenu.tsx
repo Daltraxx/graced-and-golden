@@ -49,7 +49,11 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
                !servicesOpen && moduleStyles.servicesHidden
             )}
          >
-            <ul className={moduleStyles.servicesList}>
+            <ul className={clsx(
+               moduleStyles.servicesList,
+               servicesOpen && moduleStyles.servicesDisplayed,
+               !servicesOpen && moduleStyles.servicesHidden
+            )}>
                {servicesDropdownListItems}
             </ul>
          </div>
