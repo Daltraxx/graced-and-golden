@@ -16,12 +16,18 @@ export default async function Header() {
    return (
       <Bounded as='header' className={`${styles.backgroundBrown200} ${moduleStyles.headerBounded}`}>
          <div className={`${moduleStyles.headerContainer}`}>
-            <Link href='/'>
-               <Image src='/logo-full-header.png' width={100} height={54} alt='Graced and Golden logo'/>
-            </Link>
+            <div className={moduleStyles.headerSideCol} >
+               <Link href='/'>
+                  <Image src='/logo-full-header.png' width={188} height={100} alt='Graced and Golden logo'/>
+               </Link>
+            </div>
             {/* &#9776; hamburger menu icon */}
-            <Nav navLinks={navLinks} servicePageLinks={servicePageLinks} />
-            <Button field={header.data.booking_link} className={`${styles.buttonCream200}`} color="cream-200"/>
+            <div>
+               <Nav navLinks={navLinks} servicePageLinks={servicePageLinks} />
+            </div>
+            <div className={moduleStyles.headerSideCol} >
+               <Button field={header.data.booking_link} className={`${styles.buttonCream200}`} color="cream-200"/>
+            </div>
          </div>
       </Bounded>
    );
