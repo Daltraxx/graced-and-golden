@@ -1,7 +1,7 @@
 'use client';
 
 import { PrismicNextLink } from "@prismicio/next";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import moduleStyles from '@/components/Header/Nav/ServicesMenu/styles.module.css'
 import clsx from "clsx";
 import { LinkField } from "@prismicio/client";
@@ -9,18 +9,31 @@ import { LinkField } from "@prismicio/client";
 export default function ServicesMenu({ text, servicePageLinks }: { text: string, servicePageLinks: LinkField[] }) {
    const [servicesOpen, setServicesOpen] = useState(false);
 
-   // Have services menu close if it is open and user clicks away from it
-   useEffect(() => {
-      const servicesMenuToggle = document.getElementById('services-menu-toggle');
-      const servicesMenu = document.getElementById('services-menu');
+   const servicesMenuToggleRef = useRef<HTMLButtonElement>(null);
+   const servicesMenuRef = useRef<HTMLUListElement>(null);
 
-      window.addEventListener('click', ({ target }) => {
-         const nodeTarget = target as Node;
-         if (servicesMenuToggle && !servicesMenuToggle.contains(nodeTarget) && servicesMenu && !servicesMenu.contains(nodeTarget)) {
+   const handleClickOutsideServicesMenu = ({ target }: MouseEvent) => {
+      const nodeTarget = target as Node;
+          if (
+            servicesMenuToggleRef.current &&
+            !servicesMenuToggleRef.current.contains(nodeTarget) &&
+            servicesMenuRef.current &&
+            !servicesMenuRef.current.contains(nodeTarget)
+          ) {
             setServicesOpen(false);
          }
-      })
-   }, [])
+   }
+
+   // Have services menu close if it is open and user clicks away from it
+   useEffect(() => {
+
+      window.addEventListener('mousedown', handleClickOutsideServicesMenu);
+
+      return () => {
+         window.removeEventListener('mousedown', handleClickOutsideServicesMenu);
+      };
+      
+   }, [servicesOpen])
 
    const handleServicesToggle = () => {
       setServicesOpen(prev => !prev);
@@ -38,7 +51,7 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
          <button
             type="button"
             onClick={handleServicesToggle}
-            id="services-menu-toggle"
+            ref={servicesMenuToggleRef}
             className={clsx(
                moduleStyles.mainServiceButton,
                servicesOpen && moduleStyles.mainServiceButtonOpenState,
@@ -68,6 +81,7 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
          >
             <ul 
                id="services-menu"
+               ref={servicesMenuRef}
                className={clsx(
                   moduleStyles.servicesList,
                   servicesOpen && moduleStyles.servicesDisplayedBiggerScreen,
