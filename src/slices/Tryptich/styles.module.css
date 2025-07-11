@@ -1,6 +1,6 @@
 .triptychContainer {
-   background: var(--brown-800);
-   background: linear-gradient(135deg, var(--brown-500) 0%, var(--brown-300) 50%, var(--brown-500) 100%);
+   background: var(--brown-500);
+   background: linear-gradient(135deg, var(--brown-500) 0%, hsl(21, 24%, 42%) 50%, var(--brown-500) 100%);
 }
 
 .row {
