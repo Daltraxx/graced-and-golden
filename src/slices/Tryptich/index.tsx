@@ -35,7 +35,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
   useAddAnimation(containerRef, .5);
 
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundGradientBrown}`}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${moduleStyles.triptychContainer}`}>
       <div ref={containerRef} className={`${moduleStyles.row}`}>
         <div style={{ backgroundImage: `url(${slice.primary.image_left.url})`}} className={`${moduleStyles.bgImageContainer} animated-element`}></div>
         <div className={`${moduleStyles.bodyContainer}`}>

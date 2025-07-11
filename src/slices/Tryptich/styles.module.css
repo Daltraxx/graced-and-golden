@@ -1,3 +1,8 @@
+.triptychContainer {
+   background: var(--brown-800);
+   background: linear-gradient(135deg, var(--brown-500) 0%, var(--brown-300) 50%, var(--brown-500) 100%);
+}
+
 .row {
    margin: 0 auto;
 }
