@@ -1,13 +1,26 @@
 'use client';
 
 import { PrismicNextLink } from "@prismicio/next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import moduleStyles from '@/components/Header/Nav/ServicesMenu/styles.module.css'
 import clsx from "clsx";
 import { LinkField } from "@prismicio/client";
 
 export default function ServicesMenu({ text, servicePageLinks }: { text: string, servicePageLinks: LinkField[] }) {
    const [servicesOpen, setServicesOpen] = useState(false);
+
+   // Have services menu close if it is open and user clicks away from it
+   useEffect(() => {
+      const servicesMenuToggle = document.getElementById('services-menu-toggle');
+      const servicesMenu = document.getElementById('services-menu');
+
+      window.addEventListener('click', ({ target }) => {
+         const nodeTarget = target as Node;
+         if (servicesMenuToggle && !servicesMenuToggle.contains(nodeTarget) && servicesMenu && !servicesMenu.contains(nodeTarget)) {
+            setServicesOpen(false);
+         }
+      })
+   }, [])
 
    const handleServicesToggle = () => {
       setServicesOpen(prev => !prev);
@@ -25,6 +38,7 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
          <button
             type="button"
             onClick={handleServicesToggle}
+            id="services-menu-toggle"
             className={clsx(
                moduleStyles.mainServiceButton,
                servicesOpen && moduleStyles.mainServiceButtonOpenState,
