@@ -1,0 +1,85 @@
+{
+  "id": "testimonials",
+  "type": "SharedSlice",
+  "name": "Testimonials",
+  "description": "Testimonials",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text_1": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text 1",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "strong,em,heading3,heading4"
+          }
+        },
+        "links_1": {
+          "type": "Link",
+          "config": {
+            "label": "Links 1",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        },
+        "text_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,heading3,heading4,strong,em"
+          }
+        },
+        "links_2": {
+          "type": "Link",
+          "config": {
+            "label": "Links 2",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "center_image": {
+          "type": "Image",
+          "config": {
+            "label": "Center Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "testimonial": {
+          "type": "Group",
+          "config": {
+            "label": "Testimonials",
+            "repeat": true,
+            "fields": {
+              "testimonial": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Testimonial",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

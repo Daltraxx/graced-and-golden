@@ -114,6 +114,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | TestimonialsSlice
   | HomepageHeroSlice
   | SingleColumnSlice
   | HeroThreeImageSlice
@@ -1503,6 +1504,126 @@ export type SingleColumnSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Testimonials → Default → Primary → Testimonials*
+ */
+export interface TestimonialsSliceDefaultPrimaryTestimonialItem {
+  /**
+   * Testimonial field in *Testimonials → Default → Primary → Testimonials*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonial[].testimonial
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testimonial: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Testimonials → Default → Primary*
+ */
+export interface TestimonialsSliceDefaultPrimary {
+  /**
+   * Text 1 field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.text_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_1: prismic.RichTextField;
+
+  /**
+   * Links 1 field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.links_1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  links_1: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+
+  /**
+   * Text 2 field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.text_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_2: prismic.RichTextField;
+
+  /**
+   * Links 2 field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.links_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  links_2: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Center Image field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.center_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  center_image: prismic.ImageField<never>;
+
+  /**
+   * Testimonials field in *Testimonials → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials.default.primary.testimonial[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  testimonial: prismic.GroupField<
+    Simplify<TestimonialsSliceDefaultPrimaryTestimonialItem>
+  >;
+}
+
+/**
+ * Default variation for Testimonials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Testimonials*
+ */
+type TestimonialsSliceVariation = TestimonialsSliceDefault;
+
+/**
+ * Testimonials Shared Slice
+ *
+ * - **API ID**: `testimonials`
+ * - **Description**: Testimonials
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSlice = prismic.SharedSlice<
+  "testimonials",
+  TestimonialsSliceVariation
+>;
+
+/**
  * Primary content in *Tryptich → Default → Primary*
  */
 export interface TryptichSliceDefaultPrimary {
@@ -1690,6 +1811,11 @@ declare module "@prismicio/client" {
       SingleColumnSliceDefaultPrimary,
       SingleColumnSliceVariation,
       SingleColumnSliceDefault,
+      TestimonialsSlice,
+      TestimonialsSliceDefaultPrimaryTestimonialItem,
+      TestimonialsSliceDefaultPrimary,
+      TestimonialsSliceVariation,
+      TestimonialsSliceDefault,
       TryptichSlice,
       TryptichSliceDefaultPrimary,
       TryptichSliceVariation,

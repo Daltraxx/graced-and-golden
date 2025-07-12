@@ -13,5 +13,6 @@ export const components = {
   introduction: dynamic(() => import("./Introduction")),
   services: dynamic(() => import("./Services")),
   single_column: dynamic(() => import("./SingleColumn")),
+  testimonials: dynamic(() => import("./Testimonials")),
   tryptich: dynamic(() => import("./Tryptich")),
 };
