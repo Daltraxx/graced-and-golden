@@ -5,7 +5,6 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import styles from '@/styles/styles.module.css';
 import moduleStyles from '@/slices/Tryptich/styles.module.css';
 import Heading from "@/components/Heading";
 import useAddAnimation from "@/utilities/addAnimation";
