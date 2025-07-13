@@ -1,10 +1,20 @@
 .container {
+   height: 40rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    background: var(--brown-200);
    background: linear-gradient(to bottom, var(--beige-300) 50%, var(--brown-200) 50%); 
+}
+
+.sliceHalfContainer {
+   height: 20rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
 }
 
 @media only screen and (min-width: 700px) {
