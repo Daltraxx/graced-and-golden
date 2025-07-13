@@ -1,0 +1,14 @@
+.container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: var(--brown-200);
+   background: linear-gradient(to bottom, var(--beige-300) 50%, var(--brown-200) 50%); 
+}
+
+@media only screen and (min-width: 700px) {
+   .container {
+      background: linear-gradient(to right, var(--beige-300) 50%, var(--brown-200) 50%); 
+   }
+}

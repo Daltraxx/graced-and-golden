@@ -4,6 +4,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import { PrismicNextLink } from "@prismicio/next";
+import moduleStyles from '@/slices/Testimonials/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -38,6 +39,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.container}
     >
       <section>
         <section>
