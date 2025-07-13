@@ -17,6 +17,10 @@
    text-align: center;
 }
 
+.button {
+   width: 8rem;
+}
+
 @media only screen and (min-width: 700px) {
    .container {
       background: linear-gradient(to right, var(--beige-300) 50%, var(--brown-200) 50%); 

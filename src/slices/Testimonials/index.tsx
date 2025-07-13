@@ -5,10 +5,11 @@ import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import { PrismicNextLink } from "@prismicio/next";
 import moduleStyles from '@/slices/Testimonials/styles.module.css';
+import Button from "@/components/Button";
 
 const components: JSXMapSerializer = {
-  heading2: ({ children }) => (
-    <Heading as="h2" size="md" className="">
+  heading3: ({ children }) => (
+    <Heading as="h3" size="sm" className="">
       {children}
     </Heading>
   ),
@@ -33,6 +34,12 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
   const testimonials = slice.primary.testimonial.map((item) => (
     <PrismicRichText field={item.testimonial} components={components}/>
   ));
+
+  const links = slice.primary.links_1.map((link, i) => {
+    return i % 2 === 0 ? 
+      <li key={link.key}><Button field={link} color="brown-200" className={moduleStyles.button} /></li>
+      : <li key={link.key}><Button field={link} color="brown-500" className={moduleStyles.button} /></li>;
+  })
   
 
   return (
@@ -41,24 +48,20 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={moduleStyles.container}
     >
-      <section>
+      <section className={moduleStyles.sliceHalfContainer}>
         <section>
           <PrismicRichText field={slice.primary.text_1} components={components} />
           <ul>
-            {slice.primary.links_1.map((link) => (
-              <li key={link.key}>
-                <PrismicNextLink field={link} />
-              </li>
-            ))}
+            {links}
           </ul>
         </section>
         <section>
           <PrismicRichText field={slice.primary.text_2} components={components} />
-          <PrismicNextLink field={slice.primary.links_2} />
+          <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
         </section>
       </section>
       <div style={{ backgroundImage: `url(${slice.primary.center_image})` }}></div>
-      <section>
+      <section className={moduleStyles.sliceHalfContainer}>
         {testimonials[0]}
       </section>
     </Bounded>
