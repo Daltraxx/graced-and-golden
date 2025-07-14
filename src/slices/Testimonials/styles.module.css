@@ -1,5 +1,5 @@
 .container {
-   height: 50rem;
+   height: 44rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .sliceHalfContainer {
-   height: 25rem;
+   height: 22rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -32,12 +32,15 @@
 
 .linksRow {
    display: flex;
-   flex-direction: column;
    align-items: center;
+   justify-content: center;
 }
-
 .button {
    width: 8rem;
+   margin: .5rem .75rem;
+}
+
+.linksSection > a {
    margin: .5rem auto;
 }
 
