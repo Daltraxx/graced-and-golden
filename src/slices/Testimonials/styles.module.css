@@ -1,5 +1,5 @@
 .container {
-   height: 40rem;
+   height: 50rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .sliceHalfContainer {
-   height: 20rem;
+   height: 25rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -17,8 +17,28 @@
    text-align: center;
 }
 
+.linksSection {
+   display: flex;
+   flex-direction: column;
+}
+
+.linksSection h3 {
+   margin-bottom: .5rem;
+}
+
+.linksSection:last-of-type h3 {
+   margin-top: 1rem;
+}
+
+.linksRow {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
 .button {
    width: 8rem;
+   margin: .5rem auto;
 }
 
 @media only screen and (min-width: 700px) {

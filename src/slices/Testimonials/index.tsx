@@ -37,7 +37,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
 
   const links = slice.primary.links_1.map((link, i) => {
     return i % 2 === 0 ? 
-      <li key={link.key}><Button field={link} color="brown-200" className={moduleStyles.button} /></li>
+       <li key={link.key}><Button field={link} color="brown-200" className={moduleStyles.button} /></li>
       : <li key={link.key}><Button field={link} color="brown-500" className={moduleStyles.button} /></li>;
   })
   
@@ -48,14 +48,14 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={moduleStyles.container}
     >
-      <section className={moduleStyles.sliceHalfContainer}>
-        <section>
+      <section className={`${moduleStyles.sliceHalfContainer}`}>
+        <section className={`${moduleStyles.linksSection}`} >
           <PrismicRichText field={slice.primary.text_1} components={components} />
-          <ul>
+          <ul className={moduleStyles.linksRow}>
             {links}
           </ul>
         </section>
-        <section>
+        <section className={`${moduleStyles.linksSection}`} >
           <PrismicRichText field={slice.primary.text_2} components={components} />
           <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
         </section>
