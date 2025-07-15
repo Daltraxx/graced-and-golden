@@ -52,8 +52,9 @@
 
 /* CENTER IMAGE */
 .centerImage {
-   aspect-ratio: 1 / 1;
-   width: 30%;
+   height: 25rem;
+   width: 25rem;
+   min-width: 25rem;
    background-repeat: no-repeat;
    background-size: contain;
 }
