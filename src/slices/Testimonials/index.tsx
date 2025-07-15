@@ -1,4 +1,6 @@
-import { FC } from "react";
+'use client';
+
+import { FC, useEffect, useState } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
@@ -34,6 +36,23 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
     <PrismicRichText field={item.testimonial} components={components} key={`testimonial-${i}`}/>
   ));
 
+  const [testimonial, setTestimonial] = useState({
+    text: testimonials[0],
+    index: 0
+  });
+
+  const setNextTestimonial = () => {
+    const nextIndex = (testimonial.index + 1) % testimonials.length;
+    setTestimonial({
+      text: testimonials[nextIndex],
+      index: nextIndex
+    });
+  }
+
+  useEffect(() => {
+    setTimeout(setNextTestimonial, 3500);
+  }, [testimonial])
+
   const links = slice.primary.links_1.map((link, i) => {
     return i % 2 === 0 ? 
        <li key={link.key}><Button field={link} color="brown-200" className={moduleStyles.button} /></li>
@@ -64,7 +83,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
         </section>
         <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={moduleStyles.centerImage}></div>
         <section className={moduleStyles.sliceHalfContainer}>
-          {testimonials[0]}
+          {testimonial.text}
         </section>
       </div>
     </Bounded>
