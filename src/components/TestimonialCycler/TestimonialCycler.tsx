@@ -18,7 +18,7 @@ export default function TestimonialCycler({ testimonials }: { testimonials: JSX.
 
   useEffect(() => {
     setTimeout(setNextTestimonial, 3500);
-  }, [testimonial])
+  }, [testimonial, setNextTestimonial])
 
   return (
    <>
