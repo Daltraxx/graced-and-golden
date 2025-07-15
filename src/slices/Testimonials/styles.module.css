@@ -4,7 +4,8 @@
 }
 
 .container {
-   height: 45rem;
+   height: 55rem;
+   min-height: 55rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -12,7 +13,7 @@
 }
 
 .sliceHalfContainer {
-   height: 22.5rem;
+   height: 20rem;
    margin: 0 1rem;
    display: flex;
    flex-direction: column;
@@ -52,10 +53,11 @@
 
 /* CENTER IMAGE */
 .centerImage {
-   height: 10rem;
-   width: 10rem;
-   min-width: 10rem;
-   max-width: 10rem;
+   min-height: 15rem;
+   height: 15rem;
+   width: 15rem;
+   min-width: 15rem;
+   max-width: 15rem;
    background-repeat: no-repeat;
    background-size: contain;
 }
