@@ -1,12 +1,11 @@
-'use client';
-
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import moduleStyles from '@/slices/Testimonials/styles.module.css';
 import Button from "@/components/Button";
+import TestimonialCycler from "@/components/TestimonialCycler/TestimonialCycler";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
@@ -36,22 +35,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
     <PrismicRichText field={item.testimonial} components={components} key={`testimonial-${i}`}/>
   ));
 
-  const [testimonial, setTestimonial] = useState({
-    text: testimonials[0],
-    index: 0
-  });
-
-  const setNextTestimonial = () => {
-    const nextIndex = (testimonial.index + 1) % testimonials.length;
-    setTestimonial({
-      text: testimonials[nextIndex],
-      index: nextIndex
-    });
-  }
-
-  useEffect(() => {
-    setTimeout(setNextTestimonial, 3500);
-  }, [testimonial])
+  
 
   const links = slice.primary.links_1.map((link, i) => {
     return i % 2 === 0 ? 
@@ -83,7 +67,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
         </section>
         <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={moduleStyles.centerImage}></div>
         <section className={moduleStyles.sliceHalfContainer}>
-          {testimonial.text}
+          <TestimonialCycler testimonials={testimonials} />
         </section>
       </div>
     </Bounded>
