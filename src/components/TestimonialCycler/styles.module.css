@@ -1,0 +1,43 @@
+.animation1 {
+   animation: 4000ms ease-in-out fade-in-and-out-1 forwards;
+}
+
+.animation2 {
+   animation: 4000ms ease-in-out fade-in-and-out-2 forwards;
+}
+
+@keyframes fade-in-and-out-1 {
+   0% {
+      opacity: 0;
+   }
+
+   20% {
+      opacity: 1;
+   }
+
+   80% {
+      opacity: 1;
+   }
+
+   100% {
+      opacity: 0;
+   }
+}
+
+@keyframes fade-in-and-out-2 {
+   0% {
+      opacity: 0;
+   }
+
+   20% {
+      opacity: 1;
+   }
+
+   80% {
+      opacity: 1;
+   }
+
+   100% {
+      opacity: 0;
+   }
+}
