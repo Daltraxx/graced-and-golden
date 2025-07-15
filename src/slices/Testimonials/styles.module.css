@@ -13,7 +13,7 @@
 
 .sliceHalfContainer {
    height: 22.5rem;
-   max-width: 80%;
+   margin: 0 1rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -52,9 +52,10 @@
 
 /* CENTER IMAGE */
 .centerImage {
-   height: 25rem;
-   width: 25rem;
-   min-width: 25rem;
+   height: 10rem;
+   width: 10rem;
+   min-width: 10rem;
+   max-width: 10rem;
    background-repeat: no-repeat;
    background-size: contain;
 }
@@ -95,5 +96,43 @@
 
    .sliceHalfContainer {
       width: 50%;
+   }
+
+   .linksRow {
+      flex-direction: column;
+   }
+
+   .centerImage {
+      height: 12rem;
+      width: 12rem;
+      min-width: 12rem;
+   }
+}
+
+@media only screen and (min-width: 900px) {
+   .linksRow {
+      flex-direction: row;
+   }
+
+   .centerImage {
+      height: 14rem;
+      width: 14rem;
+      min-width: 14rem;
+   }
+}
+
+@media only screen and (min-width: 1000px) {
+   .centerImage {
+      height: 20rem;
+      width: 20rem;
+      min-width: 20rem;
+   }
+}
+
+@media only screen and (min-width: 1150px) {
+   .centerImage {
+      height: 25rem;
+      width: 25rem;
+      min-width: 25rem;
    }
 }
