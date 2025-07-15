@@ -30,8 +30,8 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
  */
 const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
 
-  const testimonials = slice.primary.testimonial.map((item) => (
-    <PrismicRichText field={item.testimonial} components={components}/>
+  const testimonials = slice.primary.testimonial.map((item, i) => (
+    <PrismicRichText field={item.testimonial} components={components} key={`testimonial-${i}`}/>
   ));
 
   const links = slice.primary.links_1.map((link, i) => {
