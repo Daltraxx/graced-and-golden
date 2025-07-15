@@ -50,6 +50,16 @@
    margin: .5rem auto 1rem auto;
 }
 
+/* CENTER IMAGE */
+.centerImage {
+   height: 400px;
+   width: 400px;
+   min-width: 400px;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+
 /* RIGHT/BOTTOM HALF */
 
 

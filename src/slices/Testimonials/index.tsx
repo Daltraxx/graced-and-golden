@@ -63,7 +63,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
             <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
           </section>
         </section>
-        <div style={{ backgroundImage: `url(${slice.primary.center_image})` }}></div>
+        <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={moduleStyles.centerImage}></div>
         <section className={moduleStyles.sliceHalfContainer}>
           {testimonials[0]}
         </section>
