@@ -10,7 +10,7 @@ import moduleStyles from '@/slices/BridalCta/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className={`italic text-center mb-2 lg:mb-4`}>
+    <Heading as="h3" size="sm" className={`italic font-bold text-center mb-2 lg:mb-4`}>
       {children}
     </Heading>
   ),
@@ -29,14 +29,14 @@ export type BridalCtaProps = SliceComponentProps<Content.BridalCtaSlice>;
  */
 const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${moduleStyles.container}`}>
       <div className={`${styles.flexRow}`}>
         <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.ctaImage}`}/>
-        <div className={`${styles.backgroundBrown300} ${styles.textCream200} ${moduleStyles.ctaContentContainer}`}>
+        <div className={`${moduleStyles.ctaContentContainer}`}>
           <div className={`${moduleStyles.ctaTextContentContainer}`}>
             <PrismicRichText field={slice.primary.heading} components={components}/>
             <PrismicRichText field={slice.primary.body} components={components}/>
-            <Button field={slice.primary.bridal_page_link} className={`${styles.buttonCream200}`}/>
+            <Button field={slice.primary.bridal_page_link} color="cream-200" className={moduleStyles.button} />
           </div>
         </div>
         <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.ctaImage}`}/>
