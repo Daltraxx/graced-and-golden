@@ -8,17 +8,19 @@ export default function TestimonialCycler({ testimonials }: { testimonials: JSX.
        index: 0
    });
 
+  useEffect(() => {
+
    const setNextTestimonial = () => {
       const nextIndex = (testimonial.index + 1) % testimonials.length;
       setTestimonial({
          text: testimonials[nextIndex],
          index: nextIndex
       });
-  }
+   }
 
-  useEffect(() => {
-    setTimeout(setNextTestimonial, 3500);
-  }, [testimonial, setTestimonial])
+   setTimeout(setNextTestimonial, 3500);
+
+  }, [testimonial, testimonials])
 
   return (
    <>
