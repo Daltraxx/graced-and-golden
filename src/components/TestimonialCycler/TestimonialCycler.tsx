@@ -1,10 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 
-
-
-export default function TestimonialCycler({ testimonials }) {
+export default function TestimonialCycler({ testimonials }: { testimonials: JSX.Element[] }) {
    const [testimonial, setTestimonial] = useState({
        text: testimonials[0],
        index: 0
