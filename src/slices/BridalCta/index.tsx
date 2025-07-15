@@ -29,17 +29,17 @@ export type BridalCtaProps = SliceComponentProps<Content.BridalCtaSlice>;
  */
 const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${moduleStyles.container}`}>
-      <div className={`${styles.flexRow}`}>
-        <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.ctaImage}`}/>
-        <div className={`${moduleStyles.ctaContentContainer}`}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${moduleStyles.container}`} horizontalSpacing={false}>
+      <div className={`${moduleStyles.rowContainer}`}>
+        <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.ctaImage} ${moduleStyles.box}`}/>
+        <div className={`${moduleStyles.ctaContentContainer} ${moduleStyles.box}`}>
           <div className={`${moduleStyles.ctaTextContentContainer}`}>
             <PrismicRichText field={slice.primary.heading} components={components}/>
             <PrismicRichText field={slice.primary.body} components={components}/>
             <Button field={slice.primary.bridal_page_link} color="cream-200" className={moduleStyles.button} />
           </div>
         </div>
-        <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.ctaImage}`}/>
+        <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.ctaImage} ${moduleStyles.box}`}/>
       </div>
     </Bounded>
   );
