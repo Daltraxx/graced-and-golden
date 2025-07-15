@@ -2,3 +2,40 @@
    background: var(--brown-200);
    font-family: var(--font-display);
 }
+
+.rowContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   justify-content: space-between;
+   align-items: center;
+
+}
+
+.rowContainer > * {
+   flex-basis: 33.3333%;
+}
+
+.rowContainer > a > img {
+   margin: 0 auto;
+}
+
+.linksContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+@media only screen and (min-width: 640px) {
+   .linksContainer {
+      flex-direction: row;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .rowContainer {
+      flex-direction: row;
+   }
+}
