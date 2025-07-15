@@ -8,7 +8,7 @@ import Button from "@/components/Button";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className="">
+    <Heading as="h3" size="sm" className={moduleStyles.heading}>
       {children}
     </Heading>
   ),

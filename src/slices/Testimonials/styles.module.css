@@ -42,6 +42,10 @@
    justify-content: center;
 }
 
+.heading {
+   font-size: 1.375rem;
+}
+
 .button {
    width: 8rem;
    margin: .5rem .75rem;
@@ -64,15 +68,15 @@
 
 
 /* RIGHT/BOTTOM HALF */
+.testimonial {
+   font-size: 1.125rem;
+   color: var(--cream-200);
+}
 
 
 @media only screen and (min-width: 400px) {
-   .container {
-      height: 40rem;
-   }
-
-   .sliceHalfContainer {
-      height: 20rem;
+   .heading {
+      font-size: 1.5rem;
    }
 
    .testimonial {
@@ -82,7 +86,8 @@
 
 @media only screen and (min-width: 600px) {
    .container {
-      height: 36rem;
+      height: 51rem;
+      min-height: 51rem;
    }
 
    .sliceHalfContainer {
@@ -92,6 +97,9 @@
 
 @media only screen and (min-width: 800px) {
    .container {
+      height: 30rem;
+      min-height: 30rem;
+      max-height: 30rem;
       flex-direction: row;
       background: linear-gradient(to right, var(--beige-300) 50%, var(--brown-200) 50%); 
    }
@@ -105,9 +113,9 @@
    }
 
    .centerImage {
-      height: 12rem;
-      width: 12rem;
-      min-width: 12rem;
+      height: 14rem;
+      width: 14rem;
+      min-width: 14rem;
    }
 }
 
@@ -132,6 +140,12 @@
 }
 
 @media only screen and (min-width: 1150px) {
+   .container {
+      height: 32rem;
+      min-height: 32rem;
+      max-height: 32rem;
+   }
+
    .centerImage {
       height: 25rem;
       width: 25rem;
