@@ -17,7 +17,7 @@ const components: JSXMapSerializer = {
     const textWithSurroundingQuotes = [...children];
     textWithSurroundingQuotes.push('"');
     textWithSurroundingQuotes.unshift('"');
-    return <p className="">{textWithSurroundingQuotes}</p>
+    return <p className={moduleStyles.testimonial}>{textWithSurroundingQuotes}</p>
   }
 }
 
@@ -46,24 +46,28 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={moduleStyles.container}
+      className={moduleStyles.bounded}
+      horizontalSpacing={false}
+      verticalPadding={false}
     >
-      <section className={`${moduleStyles.sliceHalfContainer}`}>
-        <section className={`${moduleStyles.linksSection}`} >
-          <PrismicRichText field={slice.primary.text_1} components={components} />
-          <ul className={moduleStyles.linksRow}>
-            {links}
-          </ul>
+      <div className={moduleStyles.container}>
+        <section className={`${moduleStyles.sliceHalfContainer}`}>
+          <section className={`${moduleStyles.linksSection}`} >
+            <PrismicRichText field={slice.primary.text_1} components={components} />
+            <ul className={moduleStyles.linksRow}>
+              {links}
+            </ul>
+          </section>
+          <section className={`${moduleStyles.linksSection}`} >
+            <PrismicRichText field={slice.primary.text_2} components={components} />
+            <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
+          </section>
         </section>
-        <section className={`${moduleStyles.linksSection}`} >
-          <PrismicRichText field={slice.primary.text_2} components={components} />
-          <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
+        <div style={{ backgroundImage: `url(${slice.primary.center_image})` }}></div>
+        <section className={moduleStyles.sliceHalfContainer}>
+          {testimonials[0]}
         </section>
-      </section>
-      <div style={{ backgroundImage: `url(${slice.primary.center_image})` }}></div>
-      <section className={moduleStyles.sliceHalfContainer}>
-        {testimonials[0]}
-      </section>
+      </div>
     </Bounded>
   );
 };
