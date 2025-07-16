@@ -152,6 +152,11 @@
    cursor: pointer;
 }
 
+.buttonBeige300 {
+   color: var(--brown-750);
+   background: var(--beige-300);
+}
+
 .buttonCream200 {
    color: var(--brown-750);
    background: var(--cream-200);
