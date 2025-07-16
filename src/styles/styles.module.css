@@ -159,26 +159,31 @@
 
 .buttonCream200 {
    color: var(--brown-750);
+   font-weight: 500;
    background: var(--cream-200);
 }
 
 .buttonBrown200 {
    color: var(--cream-300);
+   font-weight: 500;
    background: var(--brown-200);
 }
 
 .buttonBrown300 {
    color: var(--cream-300);
+   font-weight: 500;
    background: var(--brown-300);
 }
 
 .buttonBrown500 {
    color: var(--cream-300);
+   font-weight: 500;
    background: var(--brown-500);
 }
 
 .buttonBrown800 {
    color: var(--cream-300);
+   font-weight: 500;
    background: var(--brown-800);
 }
 
