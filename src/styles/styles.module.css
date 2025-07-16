@@ -159,7 +159,7 @@
 }
 
 .buttonBeige300:focus {
-   background: (28, 29%, 98%);
+   background: hsl(28, 29%, 98%);
 }
 
 .buttonBeige300:hover {
