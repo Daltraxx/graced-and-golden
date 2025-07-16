@@ -144,6 +144,7 @@
    display: block;
    width: fit-content;
    text-align: center;
+   font-weight: 500;
    border-radius: 100px;
    padding: .6rem 1rem;
 }
@@ -154,7 +155,6 @@
 
 .buttonBeige300 {
    color: var(--brown-500);
-   font-weight: 500;
    background: var(--beige-300);
 }
 
@@ -172,7 +172,6 @@
 
 .buttonCream200 {
    color: var(--brown-400);
-   font-weight: 500;
    background: var(--cream-200);
 }
 
@@ -190,25 +189,21 @@
 
 .buttonBrown200 {
    color: var(--cream-300);
-   font-weight: 500;
    background: var(--brown-200);
 }
 
 .buttonBrown300 {
    color: var(--cream-300);
-   font-weight: 500;
    background: var(--brown-300);
 }
 
 .buttonBrown500 {
    color: var(--cream-300);
-   font-weight: 500;
    background: var(--brown-500);
 }
 
 .buttonBrown800 {
    color: var(--cream-300);
-   font-weight: 500;
    background: var(--brown-800);
 }
 
