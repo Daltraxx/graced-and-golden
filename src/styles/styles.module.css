@@ -171,9 +171,21 @@
 }
 
 .buttonCream200 {
-   color: var(--brown-750);
+   color: var(--brown-400);
    font-weight: 500;
    background: var(--cream-200);
+}
+
+.buttonCream200:focus {
+   background: hsl(0, 0%, 92%);
+}
+
+.buttonCream200:hover {
+   background: hsl(0, 0%, 92%);
+}
+
+.buttonCream200:active {
+   background: hsl(0, 0%, 85%);
 }
 
 .buttonBrown200 {
