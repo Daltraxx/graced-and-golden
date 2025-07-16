@@ -1,4 +1,6 @@
-import { FC } from "react";
+'use client';
+
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
@@ -6,6 +8,7 @@ import Bounded from "@/components/Bounded";
 import moduleStyles from '@/slices/Testimonials/styles.module.css';
 import Button from "@/components/Button";
 import TestimonialCycler from "@/components/TestimonialCycler/TestimonialCycler";
+import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
@@ -30,12 +33,12 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
  * Component for "Testimonials" Slices.
  */
 const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useAddAnimation(containerRef, .5);
 
   const testimonials = slice.primary.testimonial.map((item, i) => (
     <PrismicRichText field={item.testimonial} components={components} key={`testimonial-${i}`}/>
   ));
-
-  
 
   const links = slice.primary.links_1.map((link, i) => {
     return i % 2 === 0 ? 
@@ -52,8 +55,8 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
       horizontalSpacing={false}
       verticalPadding={false}
     >
-      <div className={moduleStyles.container}>
-        <section className={`${moduleStyles.sliceHalfContainer}`}>
+      <div className={moduleStyles.container} ref={containerRef}>
+        <section className={`${moduleStyles.sliceHalfContainer} animated-element`}>
           <section className={`${moduleStyles.linksSection}`} >
             <PrismicRichText field={slice.primary.text_1} components={components} />
             <ul className={moduleStyles.linksRow}>
@@ -65,8 +68,8 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
             <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
           </section>
         </section>
-        <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={moduleStyles.centerImage}></div>
-        <section className={moduleStyles.sliceHalfContainer}>
+        <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={`${moduleStyles.centerImage} animated-element`}></div>
+        <section className={`${moduleStyles.sliceHalfContainer} animated-element`}>
           <TestimonialCycler testimonials={testimonials} />
         </section>
       </div>
