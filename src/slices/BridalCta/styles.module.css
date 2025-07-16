@@ -34,9 +34,17 @@
 }
 
 .ctaTextContentContainer .button {
-   color: var(--gold-750);
-   font-weight: bold;
    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.ctaTextContentContainer .button:focus,
+.ctaTextContentContainer .button:hover {
+   color: var(--cream-200);
+   background: var(--brown-500);
+}
+
+.ctaTextContentContainer .button:active {
+   background: hsl(21, 24%, 35%);
 }
 
 @media only screen and (min-width: 375px) {
