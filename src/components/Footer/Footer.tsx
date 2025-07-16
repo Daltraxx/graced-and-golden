@@ -1,9 +1,11 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from "next/image";
 import Link from "next/link";
 import Bounded from "../Bounded";
 import moduleStyles from '@/components/Footer/styles.module.css';
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export default async function Footer() {
    const client = createClient();
@@ -22,6 +24,11 @@ export default async function Footer() {
                      <PrismicNextLink key={link.key} field={link} />
                   </li>
                ))}
+               <li>
+                  <a href="https://www.instagram.com/gracedandgolden/" target="_blank">
+                     <FontAwesomeIcon icon={faInstagram} className={moduleStyles.instagramIcon}/>
+                  </a>
+               </li>
             </ul>
          </div>
       </Bounded>
