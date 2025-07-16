@@ -243,6 +243,18 @@
    background: var(--brown-800);
 }
 
+.buttonBrown800:focus {
+   background: hsl(17, 39%, 27%);
+}
+
+.buttonBrown800:hover {
+   background: hsl(17, 39%, 27%);
+}
+
+.buttonBrown800:active {
+   background: hsl(17, 39%, 21%);
+}
+
 
 
 
