@@ -61,8 +61,12 @@
 }
 
 .navLink:hover {
-   color: var(--brown-750);
+   color: var(--brown-500);
    text-decoration: underline;
+}
+
+.navLink:active {
+   color: var(--gold-700);
 }
 
 .linksHidden {

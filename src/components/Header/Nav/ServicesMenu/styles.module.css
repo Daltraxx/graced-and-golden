@@ -20,22 +20,6 @@
    transition: transform 0.3s;
 }
 
-/* same as nav link in parent component */
-.serviceLink {
-   padding: .5625rem;
-   display: inline-block;
-}
-
-.serviceLink:focus {
-   text-decoration: underline;
-   border: none;
-}
-
-.serviceLink:hover {
-   color: var(--brown-750);
-   text-decoration: underline;
-}
-
 /* Services Menu Toggle */
 
 .mainServiceButton {
@@ -69,9 +53,25 @@
    transition: max-height .6s ease;
 }
 
-
+/* same as nav link in parent component */
 .serviceLink {
    font-family: var(--font-body);
+   padding: .5625rem;
+   display: inline-block;
+}
+
+.serviceLink:focus {
+   text-decoration: underline;
+   border: none;
+}
+
+.serviceLink:hover {
+   color: var(--brown-500);
+   text-decoration: underline;
+}
+
+.serviceLink:active {
+   color: var(--gold-700);
 }
 
 .servicesHidden {
@@ -90,8 +90,12 @@
 
    .mainServiceButton:hover {
       cursor: pointer;
-      color: var(--brown-750);
+      color: var(--brown-500);
       text-decoration: underline;
+   }
+
+   .mainServiceButton:active {
+      color: var(--gold-700);
    }
 
    .servicesContainer {
