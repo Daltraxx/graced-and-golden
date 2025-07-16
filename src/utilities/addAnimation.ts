@@ -18,13 +18,13 @@ const useAddAnimation = (containerRef: RefObject<HTMLElement | null>, observerTh
 
       const observer = new IntersectionObserver(observerCallback, { threshold: observerThreshold });
    
-       animatedElements.forEach((element) => observer.observe(element));
+      animatedElements.forEach((element) => observer.observe(element));
    
-       return () => {
+      return () => {
          animatedElements.forEach((element) => observer.unobserve(element));
          observer.disconnect();
-       };
-     }, [containerRef, observerThreshold]);
+      };
+   }, [containerRef, observerThreshold]);
 }
 
 export default useAddAnimation;
