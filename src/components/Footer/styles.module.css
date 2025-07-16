@@ -29,6 +29,24 @@
    align-items: center;
 }
 
+.linksContainer a {
+   padding: .5rem;
+}
+
+.linksContainer a:focus {
+   text-decoration: underline;
+   border: none;
+}
+
+.linksContainer a:hover {
+   color: var(--brown-500);
+   text-decoration: underline;
+}
+
+.linksContainer a:active {
+   color: var(--gold-700);
+}
+
 .instagramIcon {
    display: inline-block;
    height: 1.4rem;
