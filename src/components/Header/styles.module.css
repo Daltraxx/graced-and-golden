@@ -1,5 +1,6 @@
 .headerBounded {
    font-family: var(--font-display);
+   color: var(--brown-725);
 }
 
 .headerContainer {
