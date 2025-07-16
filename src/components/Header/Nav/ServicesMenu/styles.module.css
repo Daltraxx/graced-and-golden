@@ -108,6 +108,7 @@
       background: hsla(36, 15%, 94%, .9);
       max-height: 0;
       overflow: hidden;
+      z-index: 10;
       top: 100%;
       left: -40%;
       min-width: 10rem;
