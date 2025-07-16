@@ -1,7 +1,7 @@
 {
   "id": "homepage_hero",
   "type": "SharedSlice",
-  "name": "HomepageHero",
+  "name": "HeroLargeImageWithLinks",
   "description": "HomepageHero",
   "variations": [
     {

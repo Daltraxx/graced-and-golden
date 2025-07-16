@@ -6,7 +6,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
-import moduleStyles from '@/slices/HomepageHero/styles.module.css';
+import moduleStyles from '@/slices/HeroLargeImageWithLinks/styles.module.css';
 import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {

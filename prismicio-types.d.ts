@@ -892,11 +892,11 @@ export type HeroThreeImageSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *HomepageHero → Default → Primary*
+ * Primary content in *HeroLargeImageWithLinks → Default → Primary*
  */
 export interface HomepageHeroSliceDefaultPrimary {
   /**
-   * Main Heading field in *HomepageHero → Default → Primary*
+   * Main Heading field in *HeroLargeImageWithLinks → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -906,7 +906,7 @@ export interface HomepageHeroSliceDefaultPrimary {
   main_heading: prismic.TitleField;
 
   /**
-   * Short Text field in *HomepageHero → Default → Primary*
+   * Short Text field in *HeroLargeImageWithLinks → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -916,7 +916,7 @@ export interface HomepageHeroSliceDefaultPrimary {
   short_text: prismic.RichTextField;
 
   /**
-   * Link field in *HomepageHero → Default → Primary*
+   * Link field in *HeroLargeImageWithLinks → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -929,7 +929,7 @@ export interface HomepageHeroSliceDefaultPrimary {
 }
 
 /**
- * Default variation for HomepageHero Slice
+ * Default variation for HeroLargeImageWithLinks Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -942,12 +942,12 @@ export type HomepageHeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *HomepageHero*
+ * Slice variation for *HeroLargeImageWithLinks*
  */
 type HomepageHeroSliceVariation = HomepageHeroSliceDefault;
 
 /**
- * HomepageHero Shared Slice
+ * HeroLargeImageWithLinks Shared Slice
  *
  * - **API ID**: `homepage_hero`
  * - **Description**: HomepageHero
