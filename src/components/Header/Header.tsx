@@ -26,7 +26,7 @@ export default async function Header() {
                <Nav navLinks={navLinks} servicePageLinks={servicePageLinks} />
             </div>
             <div className={moduleStyles.headerSideCol} >
-               <Button field={header.data.booking_link} className={`${styles.buttonCream200}`} color="cream-200"/>
+               <Button field={header.data.booking_link} className={moduleStyles.bookingButton} color="beige-300"/>
             </div>
          </div>
       </Bounded>
