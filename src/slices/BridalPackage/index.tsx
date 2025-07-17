@@ -38,29 +38,31 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
     >
-      <section className={moduleStyles.explainerContainer}>
-        <PrismicRichText field={slice.primary.package_name} components={components} />
-        <PrismicRichText field={slice.primary.package_body_text} components={components} />
-      </section>
-      <section>
-        <div>
-          <PrismicNextImage field={slice.primary.deal_logo} />
-          <PrismicRichText field={slice.primary.deal_heading} components={components} />
-        </div>
-        <div>
-          <ul>
-            {slice.primary.bullet_points.map((item, i) => (
-              <li key={`bridal-bullet-${i}`}><PrismicRichText field={item.bullet_point} /></li>
-            ))}
-          </ul>
-          <PrismicRichText field={slice.primary.sub_text} components={components} />
-          <PrismicRichText field={slice.primary.asterisk_text} components={components} />
-          <PrismicNextImage field={slice.primary.deal_image} />
-        </div>
-        <div>
-          <PrismicRichText field={slice.primary.deal_bottom_tagline} components={components} />
-        </div>
-      </section>
+      <div className={moduleStyles.contentContainer}>
+        <section className={moduleStyles.explainerContainer}>
+          <PrismicRichText field={slice.primary.package_name} components={components} />
+          <PrismicRichText field={slice.primary.package_body_text} components={components} />
+        </section>
+        <section className={moduleStyles.dealContainer}>
+          <div className={`${moduleStyles.dealBorder} ${moduleStyles.dealBorderTop}`}>
+            <PrismicNextImage field={slice.primary.deal_logo} />
+            <PrismicRichText field={slice.primary.deal_heading} components={components} />
+          </div>
+          <div className={moduleStyles.dealBody}>
+            <ul>
+              {slice.primary.bullet_points.map((item, i) => (
+                <li key={`bridal-bullet-${i}`}><PrismicRichText field={item.bullet_point} /></li>
+              ))}
+            </ul>
+            <PrismicRichText field={slice.primary.sub_text} components={components} />
+            <PrismicRichText field={slice.primary.asterisk_text} components={components} />
+            <PrismicNextImage field={slice.primary.deal_image} />
+          </div>
+          <div className={`${moduleStyles.dealBorder} ${moduleStyles.dealBorderBottom}`}>
+            <PrismicRichText field={slice.primary.deal_bottom_tagline} components={components} />
+          </div>
+        </section>
+      </div>
     </Bounded>
   );
 };
