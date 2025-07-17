@@ -111,9 +111,9 @@
    }
 
    .dealImageContainer img {
-      height: 14.375rem;
       width: 9.625rem;
       min-width: 9.625rem;
+      height: 14.375rem;
    }
 }
 
@@ -128,17 +128,15 @@
    }
 }
 
-/* @media only screen and (min-width: 600px) {
-   .dealImageContainer img {
-      height: 18.9375rem;
-      width: 14.375rem;
-      min-width: 14.375rem;
-   }
-}
-
 @media only screen and (min-width: 1440px) {
 
    .sectionContainer {
-      height: 26.4375rem;
+      height: 24.54375rem;
    }
-} */
+
+   .dealImageContainer img {
+      width: 12.9375rem;
+      min-width: 12.9375rem;
+      height: 17.04375rem;
+   }
+}
