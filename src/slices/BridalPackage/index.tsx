@@ -49,15 +49,19 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
             <PrismicNextImage field={slice.primary.deal_logo} />
             <PrismicRichText field={slice.primary.deal_heading} components={components} />
           </div>
-          <div className={moduleStyles.dealBody}>
-            <ul>
-              {slice.primary.bullet_points.map((item, i) => (
-                <li key={`bridal-bullet-${i}`}><HeartIcon className={moduleStyles.listIcon} /><PrismicRichText field={item.bullet_point} /></li>
-              ))}
-            </ul>
-            <PrismicRichText field={slice.primary.sub_text} components={components} />
-            <PrismicRichText field={slice.primary.asterisk_text} components={components} />
-            <PrismicNextImage field={slice.primary.deal_image} />
+          <div className={moduleStyles.dealBodyContainer}>
+            <div className={moduleStyles.dealTextContainer}>
+              <ul>
+                {slice.primary.bullet_points.map((item, i) => (
+                  <li key={`bridal-bullet-${i}`}><HeartIcon className={moduleStyles.listIcon} /><PrismicRichText field={item.bullet_point} /></li>
+                ))}
+              </ul>
+              <PrismicRichText field={slice.primary.sub_text} components={components} />
+              <PrismicRichText field={slice.primary.asterisk_text} components={components} />
+            </div>
+            <div className={moduleStyles.dealImageContainer} >
+              <PrismicNextImage field={slice.primary.deal_image} />
+            </div>
           </div>
           <div className={`${moduleStyles.dealBorder} ${moduleStyles.dealBorderBottom}`}>
             <PrismicRichText field={slice.primary.deal_bottom_tagline} components={components} />

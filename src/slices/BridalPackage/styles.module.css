@@ -63,14 +63,19 @@
    font-size: 1.25rem;
 }
 
-.dealBody {
+.dealBodyContainer {
    background: var(--beige-300);
    color: var(--black-700);
+   display: flex;
+   justify-content: space-between;
    font-weight: 500;
+}
+
+.dealTextContainer {
    padding: .5rem;
 }
 
-.dealBody li {
+.dealTextContainer li {
    position: relative;
 }
 
@@ -81,19 +86,33 @@
    width: 1.25rem;
 }
 
-.dealBody li p {
+.dealTextContainer li p {
    padding-left: 2rem;
 }
 
-.dealBody > p:first-of-type {
+.dealTextContainer > p:first-of-type {
    margin-top: 1rem;
 }
 
-.dealBody > p:last-of-type {
+.dealTextContainer > p:last-of-type {
    margin-top: .25rem;
 }
 
-.dealBody img {
+.dealImageContainer {
    display: none;
    visibility: hidden;
 }
+
+@media only screen and (min-width: 474px) {
+   .dealImageContainer {
+      display: block;
+      visibility: visible;
+   }
+
+   .dealImageContainer img {
+      height: 14.375rem;
+      width: 9.625rem;
+      min-width: 9.625rem;
+   }
+}
+
