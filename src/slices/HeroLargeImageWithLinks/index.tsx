@@ -7,6 +7,7 @@ import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
 import defaultStyles from '@/slices/HeroLargeImageWithLinks/defaultStyles.module.css';
+import altStyles from '@/slices/HeroLargeImageWithLinks/altStyles.module.css';
 import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
@@ -16,7 +17,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className={`${defaultStyles.text} text-center text-3xl mr-4 mb-4 animated-element`}>
+    <p className={`text-center animated-element`}>
       {children}
     </p>
   )
@@ -68,17 +69,16 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
     );
   } else {
     return (
-      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${defaultStyles.heroContainer}`}>
-        <div ref={containerRef}>
-          <div className={`${defaultStyles.row} ${defaultStyles.empty}`}></div>
-          <div className={`${defaultStyles.row} ${defaultStyles.headingRow} animated-element`}>
+      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${altStyles.boundedContainer}`}>
+        <div ref={containerRef} className={altStyles.heroContainer}>
+          <div className={`${altStyles.row} ${altStyles.headingRow} animated-element`}>
             <PrismicRichText field={slice.primary.main_heading} components={components}/>
           </div>
-          <section className={`${defaultStyles.row} ${defaultStyles.linksRow} mt-4`}>
+          <section className={`${altStyles.row} ${altStyles.linksRow} mt-4`}>
             <PrismicRichText field={slice.primary.body_text} components={components}/>
-            <ul className={`${defaultStyles.links} animated-element`}>
+            <ul className={`${altStyles.links} animated-element`}>
               {slice.primary.link.map((link, i) => (
-                <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${defaultStyles.button}`} /></li>
+                <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${altStyles.button}`} /></li>
               ))}
             </ul>
           </section>
