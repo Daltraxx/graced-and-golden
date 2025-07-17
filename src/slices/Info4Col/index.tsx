@@ -36,11 +36,11 @@ const Info4Col: FC<Info4ColProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
     >
-      <PrismicRichText field={slice.primary.main_heading} />
+      <PrismicRichText field={slice.primary.main_heading} components={components} />
       {slice.primary.column.map((item) => (
         <section>
-          <PrismicRichText field={item.heading} />
-          <PrismicRichText field={item.body_text} />
+          <PrismicRichText field={item.heading} components={components} />
+          <PrismicRichText field={item.body_text} components={components} />
         </section>
       ))}
     </Bounded>
