@@ -190,6 +190,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TestimonialsSlice
+  | Info4ColSlice
   | HomepageHeroSlice
   | ContactSlice
   | SingleColumnSlice
@@ -1227,6 +1229,86 @@ export type Info3ColSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Info4Col → Default → Primary → Column*
+ */
+export interface Info4ColSliceDefaultPrimaryColumnItem {
+  /**
+   * Heading field in *Info4Col → Default → Primary → Column*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info4_col.default.primary.column[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body Text field in *Info4Col → Default → Primary → Column*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info4_col.default.primary.column[].body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Info4Col → Default → Primary*
+ */
+export interface Info4ColSliceDefaultPrimary {
+  /**
+   * Main Heading field in *Info4Col → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info4_col.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.TitleField;
+
+  /**
+   * Column field in *Info4Col → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info4_col.default.primary.column[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  column: prismic.GroupField<Simplify<Info4ColSliceDefaultPrimaryColumnItem>>;
+}
+
+/**
+ * Default variation for Info4Col Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Info4ColSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Info4ColSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Info4Col*
+ */
+type Info4ColSliceVariation = Info4ColSliceDefault;
+
+/**
+ * Info4Col Shared Slice
+ *
+ * - **API ID**: `info4_col`
+ * - **Description**: Info4Col
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Info4ColSlice = prismic.SharedSlice<
+  "info4_col",
+  Info4ColSliceVariation
+>;
+
+/**
  * Primary content in *InfoListWideImage → Default → Primary*
  */
 export interface InfoListWideImageSliceDefaultPrimary {
@@ -1848,6 +1930,11 @@ declare module "@prismicio/client" {
       Info3ColSliceDefault,
       Info3ColSliceNoHeadingTextImageText,
       Info3ColSliceNoHeadingImageTextImage,
+      Info4ColSlice,
+      Info4ColSliceDefaultPrimaryColumnItem,
+      Info4ColSliceDefaultPrimary,
+      Info4ColSliceVariation,
+      Info4ColSliceDefault,
       InfoListWideImageSlice,
       InfoListWideImageSliceDefaultPrimary,
       InfoListWideImageSliceVariation,

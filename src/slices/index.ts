@@ -9,6 +9,7 @@ export const components = {
   hero_three_image: dynamic(() => import("./HeroThreeImage")),
   homepage_hero: dynamic(() => import("./HeroLargeImageWithLinks")),
   info3_col: dynamic(() => import("./Info3Col")),
+  info4_col: dynamic(() => import("./Info4Col")),
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
   introduction: dynamic(() => import("./Introduction")),
   services: dynamic(() => import("./Services")),

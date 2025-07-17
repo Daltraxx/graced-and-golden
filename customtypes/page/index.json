@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "testimonials": {
+              "type": "SharedSlice"
+            },
+            "info4_col": {
+              "type": "SharedSlice"
+            },
             "homepage_hero": {
               "type": "SharedSlice"
             },
