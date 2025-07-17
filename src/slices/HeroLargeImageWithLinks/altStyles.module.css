@@ -38,8 +38,30 @@
    font-size: 1.2rem;
 }
 
-@media only screen and (min-width: 340px) {
+@media only screen and (min-width: 400px) {
+   .boundedContainer {
+      background-position: -25px 0;
+   }
+
+   .heroContainer {
+      height: 36rem;
+   }
+}
+
+@media only screen and (min-width: 460px) {
    .boundedContainer {
       background-position: 0 0;
+   }
+}
+
+@media only screen and (min-width: 600px) {
+   .textRow {
+      max-width: 60%;
+   }
+}
+
+@media only screen and (min-width: 600px) {
+   .textRow {
+      max-width: 30rem;
    }
 }
