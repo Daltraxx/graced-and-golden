@@ -7,7 +7,7 @@ import moduleStyles from '@/slices/Info4Col/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="md" className="">
+    <Heading as="h2" size="lg" className={moduleStyles.mainHeading} >
         {children}
     </Heading>
   ),
@@ -38,7 +38,7 @@ const Info4Col: FC<Info4ColProps> = ({ slice }) => {
     >
       <PrismicRichText field={slice.primary.main_heading} components={components} />
       {slice.primary.column.map((item) => (
-        <section>
+        <section className={moduleStyles.box} >
           <PrismicRichText field={item.heading} components={components} />
           <PrismicRichText field={item.body_text} components={components} />
         </section>
