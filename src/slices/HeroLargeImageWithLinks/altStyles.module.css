@@ -11,7 +11,12 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   gap: 2rem;
    height: 44rem;
+}
+
+.textRow {
+   max-width: 90%;
 }
 
 .textRow h1 {
@@ -22,8 +27,10 @@
    font-size: 1.5rem;
 }
 
-.textRow {
-   max-width: 90%;
+.links {
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
 }
 
 .button {
