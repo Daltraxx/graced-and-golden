@@ -11,6 +11,7 @@
 }
 
 .sectionContainer {
+   max-width: 32.875rem;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -116,10 +117,21 @@
    }
 }
 
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
    .dealImageContainer img {
       height: 18.9375rem;
       width: 14.375rem;
       min-width: 14.375rem;
    }
 }
+
+@media only screen and (min-width: 1440px) {
+   .contentContainer {
+      flex-direction: row;
+      gap: 4rem;
+   }
+
+   .sectionContainer {
+      height: 26.4375rem;
+   }
+} */
