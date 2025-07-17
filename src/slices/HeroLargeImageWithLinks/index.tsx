@@ -71,17 +71,17 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
     return (
       <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${altStyles.boundedContainer}`}>
         <div ref={containerRef} className={altStyles.heroContainer}>
-          <div className={`${altStyles.row} ${altStyles.headingRow} animated-element`}>
+          <div className={`${altStyles.textRow} animated-element`}>
             <PrismicRichText field={slice.primary.main_heading} components={components}/>
           </div>
-          <section className={`${altStyles.row} ${altStyles.linksRow} mt-4`}>
+          <div className={`${altStyles.textRow} animated-element`}>
             <PrismicRichText field={slice.primary.body_text} components={components}/>
-            <ul className={`${altStyles.links} animated-element`}>
-              {slice.primary.link.map((link, i) => (
-                <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${altStyles.button}`} /></li>
-              ))}
-            </ul>
-          </section>
+          </div>
+          <ul className={`${altStyles.links} animated-element`}>
+            {slice.primary.link.map((link, i) => (
+              <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${altStyles.button}`} /></li>
+            ))}
+          </ul>
         </div>
       </Bounded>
     )
