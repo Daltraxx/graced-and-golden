@@ -3,6 +3,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
+import moduleStyles from '@/slices/Info4Col/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -33,6 +34,7 @@ const Info4Col: FC<Info4ColProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
       <PrismicRichText field={slice.primary.main_heading} />
       {slice.primary.column.map((item) => (
