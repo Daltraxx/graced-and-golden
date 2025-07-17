@@ -90,6 +90,11 @@
    .boundedContainer {
       background-position: 0 -700px;
    }
+
+   .heroContainer {
+      height: 50rem;
+      gap: 3rem;
+   }
 }
 
 @media only screen and (min-width: 2100px) {
