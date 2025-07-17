@@ -55,13 +55,51 @@
 }
 
 @media only screen and (min-width: 600px) {
+   .boundedContainer {
+      background-position: 0 -100px;
+   }
+   
    .textRow {
       max-width: 60%;
    }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
+   .boundedContainer {
+      background-position: 0 -300px;
+   }
+
    .textRow {
       max-width: 30rem;
+   }
+}
+
+@media only screen and (min-width: 1100px) {
+   .boundedContainer {
+      background-position: 0 -400px;
+   }
+}
+
+@media only screen and (min-width: 1500px) {
+   .boundedContainer {
+      background-position: 0 -500px;
+   }
+}
+
+@media only screen and (min-width: 1800px) {
+   .boundedContainer {
+      background-position: 0 -700px;
+   }
+}
+
+@media only screen and (min-width: 2100px) {
+   .boundedContainer {
+      background-position: 0 -800px;
+   }
+}
+
+@media only screen and (min-width: 2450px) {
+   .boundedContainer {
+      background-position: 0 -900px;
    }
 }
