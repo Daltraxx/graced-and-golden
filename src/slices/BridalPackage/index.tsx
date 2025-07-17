@@ -5,6 +5,7 @@ import Heading from "@/components/Heading";
 import moduleStyles from '@/slices/BridalPackage/styles.module.css';
 import Bounded from "@/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
+import HeartIcon from "@/components/HeartIcon";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -51,7 +52,7 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
           <div className={moduleStyles.dealBody}>
             <ul>
               {slice.primary.bullet_points.map((item, i) => (
-                <li key={`bridal-bullet-${i}`}><PrismicRichText field={item.bullet_point} /></li>
+                <li key={`bridal-bullet-${i}`}><HeartIcon className={moduleStyles.listIcon} /><PrismicRichText field={item.bullet_point} /></li>
               ))}
             </ul>
             <PrismicRichText field={slice.primary.sub_text} components={components} />

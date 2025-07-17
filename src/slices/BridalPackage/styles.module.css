@@ -69,6 +69,22 @@
    background: var(--beige-300);
    color: var(--black-700);
    font-weight: 500;
+   padding: .5rem;
+}
+
+.dealBody li {
+   position: relative;
+}
+
+.listIcon {
+   position: absolute;
+   top: .25rem;
+   height: 1.25rem;
+   width: 1.25rem;
+}
+
+.dealBody li p {
+   padding-left: 2rem;
 }
 
 .dealBody img {
