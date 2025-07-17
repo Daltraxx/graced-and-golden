@@ -116,3 +116,10 @@
    }
 }
 
+@media only screen and (min-width: 600px) {
+   .dealImageContainer img {
+      height: 18.9375rem;
+      width: 14.375rem;
+      min-width: 14.375rem;
+   }
+}
