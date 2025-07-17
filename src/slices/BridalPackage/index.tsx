@@ -39,11 +39,11 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
       className={moduleStyles.boundedContainer}
     >
       <div className={moduleStyles.contentContainer}>
-        <section className={moduleStyles.explainerContainer}>
+        <section className={`${moduleStyles.sectionContainer} ${moduleStyles.explainerContainer}`}>
           <PrismicRichText field={slice.primary.package_name} components={components} />
           <PrismicRichText field={slice.primary.package_body_text} components={components} />
         </section>
-        <section className={moduleStyles.dealContainer}>
+        <section className={`${moduleStyles.sectionContainer} ${moduleStyles.dealContainer}`}>
           <div className={`${moduleStyles.dealBorder} ${moduleStyles.dealBorderTop}`}>
             <PrismicNextImage field={slice.primary.deal_logo} />
             <PrismicRichText field={slice.primary.deal_heading} components={components} />
