@@ -10,7 +10,7 @@
    gap: 2rem;
 }
 
-.sectionContainer {
+.cardContainer {
    max-width: 32.875rem;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -123,14 +123,14 @@
       gap: 4rem;
    }
 
-   .sectionContainer {
+   .cardContainer {
       height: 21.875rem;
    }
 }
 
 @media only screen and (min-width: 1440px) {
 
-   .sectionContainer {
+   .cardContainer {
       height: 24.54375rem;
    }
 
