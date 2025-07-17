@@ -58,4 +58,20 @@
       position: absolute;
       top: 5.75rem;
    }
+
+   /* Styles for centering text */
+   /* .box {
+      height: 21rem;
+      width: 20rem;
+   }
+
+   .box h3 {
+      height: 3rem;
+   }
+
+   .box p {
+      height: 18rem;
+      display: flex;
+      align-items: center;
+   } */
 }
