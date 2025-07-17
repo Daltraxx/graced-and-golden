@@ -36,15 +36,16 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
-      <section>
-        <PrismicRichText field={slice.primary.package_name} />
-        <PrismicRichText field={slice.primary.package_body_text} />
+      <section className={moduleStyles.explainerContainer}>
+        <PrismicRichText field={slice.primary.package_name} components={components} />
+        <PrismicRichText field={slice.primary.package_body_text} components={components} />
       </section>
       <section>
         <div>
           <PrismicNextImage field={slice.primary.deal_logo} />
-          <PrismicRichText field={slice.primary.deal_heading} />
+          <PrismicRichText field={slice.primary.deal_heading} components={components} />
         </div>
         <div>
           <ul>
@@ -52,12 +53,12 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
               <li key={`bridal-bullet-${i}`}><PrismicRichText field={item.bullet_point} /></li>
             ))}
           </ul>
-          <PrismicRichText field={slice.primary.sub_text} />
-          <PrismicRichText field={slice.primary.asterisk_text} />
+          <PrismicRichText field={slice.primary.sub_text} components={components} />
+          <PrismicRichText field={slice.primary.asterisk_text} components={components} />
           <PrismicNextImage field={slice.primary.deal_image} />
         </div>
         <div>
-          <PrismicRichText field={slice.primary.deal_bottom_tagline} />
+          <PrismicRichText field={slice.primary.deal_bottom_tagline} components={components} />
         </div>
       </section>
     </Bounded>
