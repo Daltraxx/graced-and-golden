@@ -1,7 +1,7 @@
 .boundedContainer {
    background: var(--beige-300);
    text-align: center;
-   padding: 0 1rem;
+   padding: 1rem 1rem 2.5rem 1rem;
 }
 
 .boxesContainer {
@@ -39,28 +39,12 @@
 }
 
 @media only screen and (min-width: 1024px) {
-   .boundedContainer {
-      padding: 2rem 1rem;
-   }
-
    .boxesContainer {
       flex-direction: row;
       flex-wrap: wrap;
    }
 
    .box {
-      height: 22rem;
-      width: 20rem;
-      position: relative;
-   }
-
-   .box p {
-      position: absolute;
-      top: 5.75rem;
-   }
-
-   /* Styles for centering text */
-   /* .box {
       height: 21rem;
       width: 20rem;
    }
@@ -73,5 +57,44 @@
       height: 18rem;
       display: flex;
       align-items: center;
-   } */
+   }
+}
+
+@media only screen and (min-width: 1040px) {
+   .box {
+      height: 22rem;
+      width: 20rem;
+      position: relative;
+   }
+
+   .box p {
+      display: block;
+      position: absolute;
+      top: 5.75rem;
+   }
+
+   .box:last-of-type {
+      height: fit-content;
+   }
+
+   .box:last-of-type p {
+      height: 18rem;
+      position: static;
+      display: flex;
+      align-items: center;
+   }
+}
+
+@media only screen and (min-width: 1384px) {
+   .box:last-of-type {
+      height: 22rem;
+      width: 20rem;
+      position: relative;
+   }
+
+   .box:last-of-type p {
+      display: block;
+      position: absolute;
+      top: 5.75rem;
+   }
 }
