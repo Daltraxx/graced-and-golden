@@ -1,0 +1,145 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"package_name": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Planned"
+						}
+					}
+				]
+			},
+			"package_body_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim cupidatat sit occaecat aute duis eiusmod excepteur aute officia id sit qui dolor aute sunt. Eu Lorem elit fugiat pariatur do incididunt nostrud ut non occaecat qui. Enim non anim ut eiusmod aliquip est."
+						}
+					}
+				]
+			},
+			"deal_logo": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+				"width": 5616,
+				"height": 3744,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "sort",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"deal_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Pupil"
+						}
+					}
+				]
+			},
+			"bullet_points": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"bullet_point",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Mollit adipisicing ullamco tempor tempor do in anim nostrud esse et officia adipisicing consectetur. Eu laborum pariatur id enim consequat sint sint qui consectetur labore labore amet. Cupidatat eiusmod laborum laborum ut elit quis duis et est."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"sub_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo veniam ad laborum laboris deserunt et deserunt minim sint. Fugiat officia eu eiusmod aliquip."
+						}
+					}
+				]
+			},
+			"asterisk_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cupidatat proident sunt in do. Officia mollit incididunt occaecat velit do. Do adipisicing sint commodo consectetur mollit reprehenderit aute irure velit Lorem."
+						}
+					}
+				]
+			},
+			"deal_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
+					"width": 5848,
+					"height": 3899
+				},
+				"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
+				"width": 5848,
+				"height": 3899,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "provide",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"deal_bottom_tagline": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint voluptate qui occaecat ad nostrud esse veniam magna eu occaecat cupidatat dolor sint. Consequat nulla cillum elit deserunt nulla ad irure dolore nisi ipsum et esse adipisicing non. Consequat mollit anim mollit veniam velit ut veniam veniam sint sint aute."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

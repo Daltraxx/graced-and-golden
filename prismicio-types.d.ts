@@ -114,6 +114,9 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | Info4ColSlice
+  | ContactSlice
+  | BridalPackageSlice
   | TestimonialsSlice
   | HomepageHeroSlice
   | SingleColumnSlice
@@ -190,6 +193,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | BridalPackageSlice
   | TestimonialsSlice
   | Info4ColSlice
   | HomepageHeroSlice
@@ -518,6 +522,148 @@ type BridalCtaSliceVariation = BridalCtaSliceDefault;
 export type BridalCtaSlice = prismic.SharedSlice<
   "bridal_cta",
   BridalCtaSliceVariation
+>;
+
+/**
+ * Item in *BridalPackage → Default → Primary → Bullet points*
+ */
+export interface BridalPackageSliceDefaultPrimaryBulletPointsItem {
+  /**
+   * Bullet Point field in *BridalPackage → Default → Primary → Bullet points*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.bullet_points[].bullet_point
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bullet_point: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *BridalPackage → Default → Primary*
+ */
+export interface BridalPackageSliceDefaultPrimary {
+  /**
+   * Package Name field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.package_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  package_name: prismic.TitleField;
+
+  /**
+   * Package Body Text field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.package_body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  package_body_text: prismic.RichTextField;
+
+  /**
+   * Deal Logo field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.deal_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  deal_logo: prismic.ImageField<never>;
+
+  /**
+   * Deal Heading field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.deal_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  deal_heading: prismic.TitleField;
+
+  /**
+   * Bullet points field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.bullet_points[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  bullet_points: prismic.GroupField<
+    Simplify<BridalPackageSliceDefaultPrimaryBulletPointsItem>
+  >;
+
+  /**
+   * Sub Text field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.sub_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_text: prismic.RichTextField;
+
+  /**
+   * Asterisk Text field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.asterisk_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  asterisk_text: prismic.RichTextField;
+
+  /**
+   * Deal Image field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.deal_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  deal_image: prismic.ImageField<never>;
+
+  /**
+   * Deal Bottom Tagline field in *BridalPackage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.default.primary.deal_bottom_tagline
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  deal_bottom_tagline: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BridalPackage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BridalPackageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BridalPackageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BridalPackage*
+ */
+type BridalPackageSliceVariation = BridalPackageSliceDefault;
+
+/**
+ * BridalPackage Shared Slice
+ *
+ * - **API ID**: `bridal_package`
+ * - **Description**: BridalPackage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BridalPackageSlice = prismic.SharedSlice<
+  "bridal_package",
+  BridalPackageSliceVariation
 >;
 
 /**
@@ -1904,6 +2050,11 @@ declare module "@prismicio/client" {
       BridalCtaSliceDefaultPrimary,
       BridalCtaSliceVariation,
       BridalCtaSliceDefault,
+      BridalPackageSlice,
+      BridalPackageSliceDefaultPrimaryBulletPointsItem,
+      BridalPackageSliceDefaultPrimary,
+      BridalPackageSliceVariation,
+      BridalPackageSliceDefault,
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,
