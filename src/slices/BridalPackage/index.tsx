@@ -1,6 +1,26 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Heading from "@/components/Heading";
+import moduleStyles from '@/slices/BridalPackage/styles.module.css';
+import Bounded from "@/components/Bounded";
+import { PrismicNextImage } from "@prismicio/next";
+
+const components: JSXMapSerializer = {
+  heading2: ({children}) => (
+    <Heading as="h2" size="lg" className={``} >
+        {children}
+    </Heading>
+  ),
+  heading3: ({children}) => (
+    <Heading as="h3" size="sm" className="">
+        {children}
+    </Heading>
+  ),
+  paragraph: ({children}) => (
+    <p className="">{children}</p>
+  ),
+}
 
 /**
  * Props for `BridalPackage`.
@@ -13,40 +33,34 @@ export type BridalPackageProps =
  */
 const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for bridal_package (variation: {slice.variation})
-      slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select Claude 3.7 Sonnet (recommended for optimal output)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
-    </section>
+      <section>
+        <PrismicRichText field={slice.primary.package_name} />
+        <PrismicRichText field={slice.primary.package_body_text} />
+      </section>
+      <section>
+        <div>
+          <PrismicNextImage field={slice.primary.deal_logo} />
+          <PrismicRichText field={slice.primary.deal_heading} />
+        </div>
+        <div>
+          <ul>
+            {slice.primary.bullet_points.map((item, i) => (
+              <li key={`bridal-bullet-${i}`}><PrismicRichText field={item.bullet_point} /></li>
+            ))}
+          </ul>
+          <PrismicRichText field={slice.primary.sub_text} />
+          <PrismicRichText field={slice.primary.asterisk_text} />
+          <PrismicNextImage field={slice.primary.deal_image} />
+        </div>
+        <div>
+          <PrismicRichText field={slice.primary.deal_bottom_tagline} />
+        </div>
+      </section>
+    </Bounded>
   );
 };
 
