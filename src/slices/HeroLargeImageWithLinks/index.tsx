@@ -6,7 +6,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
-import moduleStyles from '@/slices/HeroLargeImageWithLinks/styles.module.css';
+import defaultStyles from '@/slices/HeroLargeImageWithLinks/defaultStyles.module.css';
 import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
@@ -16,7 +16,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className={`${moduleStyles.text} text-center text-3xl mr-4 mb-4 animated-element`}>
+    <p className={`${defaultStyles.text} text-center text-3xl mr-4 mb-4 animated-element`}>
       {children}
     </p>
   )
@@ -47,24 +47,46 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
     }
   }
 
-  return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${moduleStyles.heroContainer}`}>
-      <div ref={containerRef}>
-        <div className={`${moduleStyles.row} ${moduleStyles.empty}`}></div>
-        <div className={`${moduleStyles.row} ${moduleStyles.headingRow} animated-element`}>
-          <PrismicRichText field={slice.primary.main_heading} components={components}/>
+  if (slice.variation === 'default') {
+    return (
+      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${defaultStyles.heroContainer}`}>
+        <div ref={containerRef}>
+          <div className={`${defaultStyles.row} ${defaultStyles.empty}`}></div>
+          <div className={`${defaultStyles.row} ${defaultStyles.headingRow} animated-element`}>
+            <PrismicRichText field={slice.primary.main_heading} components={components}/>
+          </div>
+          <section className={`${defaultStyles.row} ${defaultStyles.linksRow} mt-4`}>
+            <PrismicRichText field={slice.primary.short_text} components={components}/>
+            <ul className={`${defaultStyles.links} animated-element`}>
+              {slice.primary.link.map((link, i) => (
+                <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${defaultStyles.button}`} /></li>
+              ))}
+            </ul>
+          </section>
         </div>
-        <section className={`${moduleStyles.row} ${moduleStyles.linksRow} mt-4`}>
-          <PrismicRichText field={slice.primary.short_text} components={components}/>
-          <ul className={`${moduleStyles.links} animated-element`}>
-            {slice.primary.link.map((link, i) => (
-              <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${moduleStyles.button}`} /></li>
-            ))}
-          </ul>
-        </section>
-      </div>
-    </Bounded>
-  );
+      </Bounded>
+    );
+  } else {
+    return (
+      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${defaultStyles.heroContainer}`}>
+        <div ref={containerRef}>
+          <div className={`${defaultStyles.row} ${defaultStyles.empty}`}></div>
+          <div className={`${defaultStyles.row} ${defaultStyles.headingRow} animated-element`}>
+            <PrismicRichText field={slice.primary.main_heading} components={components}/>
+          </div>
+          <section className={`${defaultStyles.row} ${defaultStyles.linksRow} mt-4`}>
+            <PrismicRichText field={slice.primary.body_text} components={components}/>
+            <ul className={`${defaultStyles.links} animated-element`}>
+              {slice.primary.link.map((link, i) => (
+                <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${defaultStyles.button}`} /></li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </Bounded>
+    )
+  }
+  
 };
 
 export default HomepageHero;

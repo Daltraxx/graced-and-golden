@@ -190,6 +190,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | HomepageHeroSlice
   | ContactSlice
   | SingleColumnSlice
   | BridalCtaSlice
@@ -942,9 +943,62 @@ export type HomepageHeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+ */
+export interface HomepageHeroSliceCoupleKissingBackgroundPrimary {
+  /**
+   * Main Heading field in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.coupleKissingBackground.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.TitleField;
+
+  /**
+   * Body Text field in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.coupleKissingBackground.primary.body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Link field in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.coupleKissingBackground.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Couple Kissing Background variation for HeroLargeImageWithLinks Slice
+ *
+ * - **API ID**: `coupleKissingBackground`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageHeroSliceCoupleKissingBackground =
+  prismic.SharedSliceVariation<
+    "coupleKissingBackground",
+    Simplify<HomepageHeroSliceCoupleKissingBackgroundPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *HeroLargeImageWithLinks*
  */
-type HomepageHeroSliceVariation = HomepageHeroSliceDefault;
+type HomepageHeroSliceVariation =
+  | HomepageHeroSliceDefault
+  | HomepageHeroSliceCoupleKissingBackground;
 
 /**
  * HeroLargeImageWithLinks Shared Slice
@@ -1782,8 +1836,10 @@ declare module "@prismicio/client" {
       HeroThreeImageSliceDefault,
       HomepageHeroSlice,
       HomepageHeroSliceDefaultPrimary,
+      HomepageHeroSliceCoupleKissingBackgroundPrimary,
       HomepageHeroSliceVariation,
       HomepageHeroSliceDefault,
+      HomepageHeroSliceCoupleKissingBackground,
       Info3ColSlice,
       Info3ColSliceDefaultPrimary,
       Info3ColSliceNoHeadingTextImageTextPrimary,
