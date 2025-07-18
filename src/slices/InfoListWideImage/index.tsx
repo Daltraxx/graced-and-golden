@@ -8,7 +8,7 @@ import moduleStyles from '@/slices/InfoListWideImage/styles.module.css'
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="lg" className="italic text-center p-4">
+    <Heading as="h2" size="lg" className="">
         {children}
     </Heading>
   ),
@@ -34,8 +34,8 @@ export type InfoListWideImageProps =
  */
 const InfoListWideImage: FC<InfoListWideImageProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream200}`}>
-      <div className={`${moduleStyles.row} ${styles.backgroundBrown300}`}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${moduleStyles.boundedContainer}`}>
+      <div className={`${moduleStyles.row}`}>
         <div style={{ backgroundImage: `url(${slice.primary.background_image.url})` }} className={`${moduleStyles.leftContainer}`}>
           <PrismicRichText field={slice.primary.heading} components={components} />
         </div>

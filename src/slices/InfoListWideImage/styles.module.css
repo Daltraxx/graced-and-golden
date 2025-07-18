@@ -1,22 +1,35 @@
+.boundedContainer {
+   background: var(--beige-300);
+}
+
 .row {
    display: flex;
    flex-direction: column;
+   background: var(--brown-500);
+   min-height: 16rem;
 }
 
 .leftContainer {
    background-size: cover;
    background-repeat: no-repeat;
    width: 100%;
-   height: 10rem;
+   min-height: 16rem;
    display: flex;
    justify-content: center;
    align-items: center;
    color: var(--cream-200);
 }
 
+.leftContainer h2 {
+   font-family: var(--font-body);
+   text-align: center;
+   padding: 1rem;
+}
+
 .rightContainer {
    display: flex;
    align-items: center;
+   font-size: 1.25rem;
 }
 
 .list {
