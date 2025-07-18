@@ -8,6 +8,7 @@
    background: var(--brown-500);
    min-height: 12rem;
    border-radius: 5px;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .leftContainer {
@@ -22,7 +23,6 @@
 }
 
 .leftContainer h2 {
-   font-family: var(--font-body);
    text-align: center;
    padding: 1rem;
 }
