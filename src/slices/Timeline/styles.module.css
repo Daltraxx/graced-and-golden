@@ -137,7 +137,7 @@
       column-gap: 4rem;
    }
 
-   .timelineList li:nth-child(n) p {
+   .timelineList p {
       top: 3.5rem;
    }
 
