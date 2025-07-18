@@ -6,6 +6,7 @@ import moduleStyles from '@/slices/BridalPackage/styles.module.css';
 import Bounded from "@/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
 import HeartIcon from "@/components/HeartIcon";
+import BridalPackageCard from "@/components/BridalPackageCard/BridalPackageCard";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -46,29 +47,7 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.package_body_text} components={components} />
           </div>
         </section>
-        <section className={`${moduleStyles.cardContainer}`}>
-          <div className={`${moduleStyles.dealBorder} ${moduleStyles.dealBorderTop}`}>
-            <PrismicNextImage field={slice.primary.deal_logo} />
-            <PrismicRichText field={slice.primary.deal_heading} components={components} />
-          </div>
-          <div className={moduleStyles.dealBodyContainer}>
-            <div className={moduleStyles.dealTextContainer}>
-              <ul>
-                {slice.primary.bullet_points.map((item, i) => (
-                  <li key={`bridal-bullet-${i}`}><HeartIcon className={moduleStyles.listIcon} /><PrismicRichText field={item.bullet_point} /></li>
-                ))}
-              </ul>
-              <PrismicRichText field={slice.primary.sub_text} components={components} />
-              <PrismicRichText field={slice.primary.asterisk_text} components={components} />
-            </div>
-            <div className={moduleStyles.dealImageContainer} >
-              <PrismicNextImage field={slice.primary.deal_image} />
-            </div>
-          </div>
-          <div className={`${moduleStyles.dealBorder} ${moduleStyles.dealBorderBottom}`}>
-            <PrismicRichText field={slice.primary.deal_bottom_tagline} components={components} />
-          </div>
-        </section>
+        <BridalPackageCard slice={slice} className={moduleStyles.cardContainer} index={0} slices={[]} context={undefined} />
       </div>
     </Bounded>
   );
