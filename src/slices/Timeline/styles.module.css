@@ -26,7 +26,7 @@
    display: flex;
    flex-direction: column;
    max-width: 80%;
-   gap: 2rem;
+   row-gap: 2rem;
    margin: 2rem 0;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .timelineHeadingContainer {
-   margin-bottom: .5rem;
+   margin-bottom: .75rem;
 }
 
 .timelineItem h4 {
@@ -60,20 +60,27 @@
    .timelineContainer {
       max-width: inherit;
       width: 41.75rem;
-      margin: 0 0;
+      padding: 0 2rem;
    }
 
    .timelineList {
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: center;
+      align-items: center;
       max-width: 95%;
+      row-gap: 1rem;
+      column-gap: 2.5rem;
    }
 
    .timelineTextContainer {
       position: relative;
-      height: 15rem;
+      height: 12.5rem;
       width: 15rem;
+   }
+
+   .timelineHeadingContainer {
+      margin-bottom: 0;
    }
 
    .timelineItem p {
@@ -81,8 +88,60 @@
       top: 2rem;
    }
 
-   .timelineList li:nth-last-child(-n + 2) p {
+   .timelineList li:nth-child(n + 3) p {
       top: 3.5rem;
    }
 
+}
+
+@media only screen and (min-width: 1000px) {
+   .timelineContainer {
+      width: 57rem;
+   }
+
+   .timelineList {
+      row-gap: 1.5rem;
+   }
+
+   .timelineList li:nth-child(-n + 3) p {
+      top: 3.5rem;
+   }
+
+   .timelineList li:last-child p {
+      top: 2.5rem;
+   }
+}
+
+@media only screen and (min-width: 1300px) {
+   .timelineContainer {
+      width: 80rem;
+   }
+
+   .timelineList {
+      justify-content: space-between;
+      column-gap: 4rem;
+   }
+
+   .timelineList li:nth-child(n) p {
+      top: 3.5rem;
+   }
+}
+
+@media only screen and (min-width: 1440px) {
+   .timelineContainer {
+      width: 87.5rem;
+   }
+
+   .timelineList {
+      justify-content: space-between;
+      column-gap: 4rem;
+   }
+
+   .timelineList li:nth-child(n) p {
+      top: 3.5rem;
+   }
+
+   .timelineTextContainer {
+      width: 16rem;
+   }
 }
