@@ -42,7 +42,9 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
       <div className={moduleStyles.contentContainer}>
         <section className={`${moduleStyles.cardContainer} ${moduleStyles.explainerContainer}`}>
           <PrismicRichText field={slice.primary.package_name} components={components} />
-          <PrismicRichText field={slice.primary.package_body_text} components={components} />
+          <div className={moduleStyles.explainerTextContainer} >
+            <PrismicRichText field={slice.primary.package_body_text} components={components} />
+          </div>
         </section>
         <section className={`${moduleStyles.cardContainer}`}>
           <div className={`${moduleStyles.dealBorder} ${moduleStyles.dealBorderTop}`}>

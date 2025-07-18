@@ -27,7 +27,7 @@
    margin-bottom: 1rem;
 }
 
-.explainerContainer p {
+.explainerTextContainer {
    color: var(--black-700);
    font-weight: 600;
    text-align: center;
@@ -126,12 +126,30 @@
    .cardContainer {
       height: 21.875rem;
    }
+
+   .explainerContainer {
+      padding: 2rem 3rem 0 3rem;
+   }
+
+   .explainerContainer h2 {
+      margin-bottom: 0;
+   }
+
+   .explainerTextContainer {
+      height: 15.0625rem;
+      display: flex;
+      align-items: center;
+      text-align: start;
+   }
 }
 
 @media only screen and (min-width: 1440px) {
-
    .cardContainer {
       height: 24.54375rem;
+   }
+
+   .explainerTextContainer {
+      height: 17.73125rem;
    }
 
    .dealImageContainer img {
