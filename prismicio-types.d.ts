@@ -193,20 +193,18 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ServicesHeroSlice
   | TimelineSlice
   | BridalPackageSlice
   | TestimonialsSlice
   | Info4ColSlice
   | HomepageHeroSlice
   | ContactSlice
-  | SingleColumnSlice
   | BridalCtaSlice
   | InfoListWideImageSlice
   | TryptichSlice
   | Info3ColSlice
-  | HeroSlice
-  | IntroductionSlice
-  | HeroThreeImageSlice;
+  | IntroductionSlice;
 
 /**
  * Content for Page documents
@@ -1514,6 +1512,81 @@ export type IntroductionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ServicesHero → Default → Primary*
+ */
+export interface ServicesHeroSliceDefaultPrimary {
+  /**
+   * Background Image field in *ServicesHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_hero.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Main Image field in *ServicesHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_hero.default.primary.main_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *ServicesHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Sub-Heading field in *ServicesHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_hero.default.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ServicesHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServicesHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ServicesHero*
+ */
+type ServicesHeroSliceVariation = ServicesHeroSliceDefault;
+
+/**
+ * ServicesHero Shared Slice
+ *
+ * - **API ID**: `services_hero`
+ * - **Description**: ServicesHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesHeroSlice = prismic.SharedSlice<
+  "services_hero",
+  ServicesHeroSliceVariation
+>;
+
+/**
  * Primary content in *SingleColumn → Default → Primary*
  */
 export interface SingleColumnSliceDefaultPrimary {
@@ -2011,6 +2084,10 @@ declare module "@prismicio/client" {
       IntroductionSliceDefaultPrimary,
       IntroductionSliceVariation,
       IntroductionSliceDefault,
+      ServicesHeroSlice,
+      ServicesHeroSliceDefaultPrimary,
+      ServicesHeroSliceVariation,
+      ServicesHeroSliceDefault,
       SingleColumnSlice,
       SingleColumnSliceDefaultPrimary,
       SingleColumnSliceVariation,

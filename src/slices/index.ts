@@ -13,6 +13,7 @@ export const components = {
   info4_col: dynamic(() => import("./Info4Col")),
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
   introduction: dynamic(() => import("./Introduction")),
+  services_hero: dynamic(() => import("./ServicesHero")),
   single_column: dynamic(() => import("./SingleColumn")),
   testimonials: dynamic(() => import("./Testimonials")),
   timeline: dynamic(() => import("./Timeline")),
