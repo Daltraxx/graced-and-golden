@@ -45,10 +45,12 @@
                 }
               },
               "text_body": {
-                "type": "Text",
+                "type": "StructuredText",
                 "config": {
                   "label": "Text Body",
-                  "placeholder": ""
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,strong,em"
                 }
               }
             }

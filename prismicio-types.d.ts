@@ -1934,12 +1934,12 @@ export interface TimelineSliceDefaultPrimaryTimelineItem {
   /**
    * Text Body field in *Timeline → Default → Primary → Timeline*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: timeline.default.primary.timeline[].text_body
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text_body: prismic.KeyTextField;
+  text_body: prismic.RichTextField;
 }
 
 /**

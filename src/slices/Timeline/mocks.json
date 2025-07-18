@@ -63,9 +63,15 @@
 							[
 								"text_body",
 								{
-									"__TYPE__": "FieldContent",
-									"value": "shelter",
-									"type": "Text"
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ea velit enim irure aliquip ullamco laborum excepteur officia aliquip pariatur et sit fugiat pariatur. Proident ad ipsum Lorem minim dolor culpa exercitation incididunt aliquip enim nostrud ipsum."
+											}
+										}
+									]
 								}
 							]
 						]
