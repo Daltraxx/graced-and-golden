@@ -2,6 +2,7 @@
    background: var(--brown-200);
    display: flex;
    justify-content: center;
+   padding: 2rem;
 }
 
 .boundedContainer h2,
@@ -58,9 +59,30 @@
 
    .timelineContainer {
       max-width: inherit;
+      width: 41.75rem;
+      margin: 0 0;
    }
 
    .timelineList {
       flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 95%;
    }
+
+   .timelineTextContainer {
+      position: relative;
+      height: 15rem;
+      width: 15rem;
+   }
+
+   .timelineItem p {
+      position: absolute;
+      top: 2rem;
+   }
+
+   .timelineList li:nth-last-child(-n + 2) p {
+      top: 3.5rem;
+   }
+
 }

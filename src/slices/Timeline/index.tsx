@@ -41,6 +41,7 @@ const Timeline: FC<TimelineProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
+      horizontalSpacing={false}
     >
       <PrismicRichText field={slice.primary.heading} components={components} />
       <section className={moduleStyles.timelineContainer} >
@@ -49,10 +50,12 @@ const Timeline: FC<TimelineProps> = ({ slice }) => {
             <li key={`timeline-item-${i}`}>
               <section className={moduleStyles.timelineItem} >
                   <PrismicNextImage field={item.icon_image} />
-                  <div className={moduleStyles.timelineHeadingContainer} >
-                    <span>{i + 1}.</span><PrismicRichText field={item.item_heading} />
+                  <div className={moduleStyles.timelineTextContainer} >
+                    <div className={moduleStyles.timelineHeadingContainer} >
+                      <span>{i + 1}.</span><PrismicRichText field={item.item_heading} />
+                    </div>
+                    <PrismicRichText field={item.text_body} components={components} />
                   </div>
-                <PrismicRichText field={item.text_body} components={components} />
               </section>
             </li>
           ))}
