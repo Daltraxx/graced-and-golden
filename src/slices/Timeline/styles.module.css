@@ -1,12 +1,13 @@
 .boundedContainer {
    background: var(--brown-200);
+   display: flex;
+   justify-content: center;
 }
 
 .boundedContainer h2,
 .boundedContainer h3 {
    text-align: center;
    color: var(--brown-800);
-   font-weight: 600;
    margin-bottom: 1rem;
 }
 
@@ -14,6 +15,8 @@
    background: var(--brown-500);
    display: flex;
    justify-content: center;
+   max-width: 24.5625rem;
+   margin: 0 auto;
    color: var(--cream-200);
    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
