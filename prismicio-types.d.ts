@@ -114,6 +114,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | TimelineSlice
   | Info4ColSlice
   | ContactSlice
   | BridalPackageSlice
@@ -193,6 +194,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TimelineSlice
   | BridalPackageSlice
   | TestimonialsSlice
   | Info4ColSlice
@@ -1906,6 +1908,98 @@ export type TestimonialsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Timeline → Default → Primary → Timeline*
+ */
+export interface TimelineSliceDefaultPrimaryTimelineItem {
+  /**
+   * Icon Image field in *Timeline → Default → Primary → Timeline*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.timeline[].icon_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_image: prismic.ImageField<never>;
+
+  /**
+   * Item Heading field in *Timeline → Default → Primary → Timeline*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.timeline[].item_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  item_heading: prismic.TitleField;
+
+  /**
+   * Text Body field in *Timeline → Default → Primary → Timeline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.timeline[].text_body
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_body: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Timeline → Default → Primary*
+ */
+export interface TimelineSliceDefaultPrimary {
+  /**
+   * Heading field in *Timeline → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Timeline field in *Timeline → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.timeline[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  timeline: prismic.GroupField<
+    Simplify<TimelineSliceDefaultPrimaryTimelineItem>
+  >;
+}
+
+/**
+ * Default variation for Timeline Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TimelineSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Timeline*
+ */
+type TimelineSliceVariation = TimelineSliceDefault;
+
+/**
+ * Timeline Shared Slice
+ *
+ * - **API ID**: `timeline`
+ * - **Description**: Timeline
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineSlice = prismic.SharedSlice<
+  "timeline",
+  TimelineSliceVariation
+>;
+
+/**
  * Primary content in *Tryptich → Default → Primary*
  */
 export interface TryptichSliceDefaultPrimary {
@@ -2110,6 +2204,11 @@ declare module "@prismicio/client" {
       TestimonialsSliceDefaultPrimary,
       TestimonialsSliceVariation,
       TestimonialsSliceDefault,
+      TimelineSlice,
+      TimelineSliceDefaultPrimaryTimelineItem,
+      TimelineSliceDefaultPrimary,
+      TimelineSliceVariation,
+      TimelineSliceDefault,
       TryptichSlice,
       TryptichSliceDefaultPrimary,
       TryptichSliceVariation,

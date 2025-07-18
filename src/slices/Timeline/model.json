@@ -1,0 +1,61 @@
+{
+  "id": "timeline",
+  "type": "SharedSlice",
+  "name": "Timeline",
+  "description": "Timeline",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,heading2"
+          }
+        },
+        "timeline": {
+          "type": "Group",
+          "config": {
+            "label": "Timeline",
+            "repeat": true,
+            "fields": {
+              "icon_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "item_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Item Heading",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "single": "heading4"
+                }
+              },
+              "text_body": {
+                "type": "Text",
+                "config": {
+                  "label": "Text Body",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

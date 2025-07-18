@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "timeline": {
+              "type": "SharedSlice"
+            },
             "bridal_package": {
               "type": "SharedSlice"
             },
