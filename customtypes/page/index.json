@@ -47,9 +47,6 @@
             "tryptich": {
               "type": "SharedSlice"
             },
-            "services": {
-              "type": "SharedSlice"
-            },
             "info3_col": {
               "type": "SharedSlice"
             },

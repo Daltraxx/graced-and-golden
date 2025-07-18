@@ -47,9 +47,6 @@
             "bridal_cta": {
               "type": "SharedSlice"
             },
-            "services": {
-              "type": "SharedSlice"
-            },
             "introduction": {
               "type": "SharedSlice"
             },

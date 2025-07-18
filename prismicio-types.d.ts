@@ -126,7 +126,6 @@ type HomepageDocumentDataSlicesSlice =
   | Info3ColSlice
   | TryptichSlice
   | BridalCtaSlice
-  | ServicesSlice
   | IntroductionSlice
   | HeroSlice;
 
@@ -204,7 +203,6 @@ type PageDocumentDataSlicesSlice =
   | BridalCtaSlice
   | InfoListWideImageSlice
   | TryptichSlice
-  | ServicesSlice
   | Info3ColSlice
   | HeroSlice
   | IntroductionSlice
@@ -270,110 +268,6 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
- * Content for Service documents
- */
-interface ServiceDocumentData {
-  /**
-   * Image field in *Service*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Service Name field in *Service*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.service_name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  service_name: prismic.RichTextField;
-
-  /**
-   * Book Button field in *Service*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.book_button
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  book_button: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-
-  /**
-   * Details field in *Service*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.details
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  details: prismic.RichTextField;
-
-  /**
-   * Disclaimer field in *Service*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.disclaimer
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  disclaimer: prismic.KeyTextField;
-
-  /**
-   * Price field in *Service*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.price
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  price: prismic.KeyTextField;
-
-  /**
-   * Duration field in *Service*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.duration
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  duration: prismic.KeyTextField;
-}
-
-/**
- * Service document from Prismic
- *
- * - **API ID**: `service`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ServiceDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ServiceDocumentData>,
-    "service",
-    Lang
-  >;
-
-/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -432,7 +326,6 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomepageDocument
   | PageDocument
-  | ServiceDocument
   | SettingsDocument;
 
 /**
@@ -1621,76 +1514,6 @@ export type IntroductionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Services → Default → Primary → Services*
- */
-export interface ServicesSliceDefaultPrimaryServiceItem {
-  /**
-   * service field in *Services → Default → Primary → Services*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.default.primary.service[].service
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  service: prismic.ContentRelationshipField<"service">;
-}
-
-/**
- * Primary content in *Services → Default → Primary*
- */
-export interface ServicesSliceDefaultPrimary {
-  /**
-   * Heading field in *Services → Default → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * Services field in *Services → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.default.primary.service[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  service: prismic.GroupField<Simplify<ServicesSliceDefaultPrimaryServiceItem>>;
-}
-
-/**
- * Default variation for Services Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ServicesSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ServicesSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Services*
- */
-type ServicesSliceVariation = ServicesSliceDefault;
-
-/**
- * Services Shared Slice
- *
- * - **API ID**: `services`
- * - **Description**: Services
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ServicesSlice = prismic.SharedSlice<
-  "services",
-  ServicesSliceVariation
->;
-
-/**
  * Primary content in *SingleColumn → Default → Primary*
  */
 export interface SingleColumnSliceDefaultPrimary {
@@ -2135,8 +1958,6 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
-      ServiceDocument,
-      ServiceDocumentData,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -2190,11 +2011,6 @@ declare module "@prismicio/client" {
       IntroductionSliceDefaultPrimary,
       IntroductionSliceVariation,
       IntroductionSliceDefault,
-      ServicesSlice,
-      ServicesSliceDefaultPrimaryServiceItem,
-      ServicesSliceDefaultPrimary,
-      ServicesSliceVariation,
-      ServicesSliceDefault,
       SingleColumnSlice,
       SingleColumnSliceDefaultPrimary,
       SingleColumnSliceVariation,
