@@ -14,6 +14,8 @@
    background: var(--brown-500);
    display: flex;
    justify-content: center;
+   color: var(--cream-200);
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .timelineList {
@@ -24,9 +26,26 @@
 
 .timelineItem {
    text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 1rem 0;
+}
+
+.timelineItem:last-of-type {
+   margin: 1rem 0 2rem 0;
+}
+
+.timelineItem img {
+   height: 5rem;
+   width: 5rem;
+}
+
+.timelineHeadingContainer {
+   margin-bottom: .5rem;
 }
 
 .timelineItem h4 {
-   display: inline-block;
-   padding-left: 1rem;
+   display: inline;
+   padding-left: .5rem;
 }

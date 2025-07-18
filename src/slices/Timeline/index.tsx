@@ -48,8 +48,10 @@ const Timeline: FC<TimelineProps> = ({ slice }) => {
           {slice.primary.timeline.map((item, i) => (
             <li key={`timeline-item-${i}`}>
               <section className={moduleStyles.timelineItem} >
-                <PrismicNextImage field={item.icon_image} />
-                <span>{i + 1}.</span><PrismicRichText field={item.item_heading} />
+                  <PrismicNextImage field={item.icon_image} />
+                  <div className={moduleStyles.timelineHeadingContainer} >
+                    <span>{i + 1}.</span><PrismicRichText field={item.item_heading} />
+                  </div>
                 <PrismicRichText field={item.text_body} components={components} />
               </section>
             </li>
