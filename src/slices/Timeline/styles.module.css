@@ -25,6 +25,8 @@
    display: flex;
    flex-direction: column;
    max-width: 80%;
+   gap: 2rem;
+   margin: 2rem 0;
 }
 
 .timelineItem {
@@ -32,11 +34,6 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   margin: 1rem 0;
-}
-
-.timelineItem:last-of-type {
-   margin: 1rem 0 2rem 0;
 }
 
 .timelineItem img {
@@ -51,4 +48,19 @@
 .timelineItem h4 {
    display: inline;
    padding-left: .5rem;
+}
+
+@media only screen and (min-width: 699px) {
+   .boundedContainer h2,
+   .boundedContainer h3 {
+      margin-bottom: 2rem;
+   }
+
+   .timelineContainer {
+      max-width: inherit;
+   }
+
+   .timelineList {
+      flex-direction: row;
+   }
 }
