@@ -1,5 +1,3 @@
-'use client'
-
 import { BridalPackageProps } from "@/slices/BridalPackage";
 import { PrismicNextImage } from "@prismicio/next";
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";

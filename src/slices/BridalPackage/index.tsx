@@ -4,18 +4,11 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Heading from "@/components/Heading";
 import moduleStyles from '@/slices/BridalPackage/styles.module.css';
 import Bounded from "@/components/Bounded";
-import { PrismicNextImage } from "@prismicio/next";
-import HeartIcon from "@/components/HeartIcon";
 import BridalPackageCard from "@/components/BridalPackageCard/BridalPackageCard";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
     <Heading as="h2" size="lg" className={``} >
-        {children}
-    </Heading>
-  ),
-  heading3: ({children}) => (
-    <Heading as="h3" size="sm" className="">
         {children}
     </Heading>
   ),
