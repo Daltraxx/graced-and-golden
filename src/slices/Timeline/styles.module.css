@@ -1,0 +1,32 @@
+.boundedContainer {
+   background: var(--brown-200);
+}
+
+.boundedContainer h2,
+.boundedContainer h3 {
+   text-align: center;
+   color: var(--brown-800);
+   font-weight: 600;
+   margin-bottom: 1rem;
+}
+
+.timelineContainer {
+   background: var(--brown-500);
+   display: flex;
+   justify-content: center;
+}
+
+.timelineList {
+   display: flex;
+   flex-direction: column;
+   max-width: 80%;
+}
+
+.timelineItem {
+   text-align: center;
+}
+
+.timelineItem h4 {
+   display: inline-block;
+   padding-left: 1rem;
+}
