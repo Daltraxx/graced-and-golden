@@ -34,7 +34,7 @@ export type MainServicesProps = SliceComponentProps<Content.MainServicesSlice>;
  * Component for "MainServices" Slices.
  */
 const MainServices: FC<MainServicesProps> = ({ slice }) => {
-  
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -58,14 +58,14 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
                 <ul className={moduleStyles.linkList} >
                   {item.link.map((link, i) => (
                     <li key={link.key}>
-                      {i === 0 && <Button field={link} color="brown-300" />}
-                      {i === 1 && <Button field={link} color="brown-200" />}
+                      {i % 2 === 0 && <Button field={link} color="brown-300" />}
+                      {i % 2 !== 0 && <Button field={link} color="brown-200" />}
                     </li>
                   ))}
                 </ul>
               )}
               {item.link.length === 1 && (
-                <Button field={item.link[0]} color="beige-300" />
+                <Button field={item.link[0]} color="brown-200" />
               )}
             </div>
           </section>
