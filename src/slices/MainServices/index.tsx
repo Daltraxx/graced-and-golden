@@ -5,6 +5,7 @@ import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import { PrismicNextLink } from "@prismicio/next";
 import moduleStyles from '@/slices/MainServices/styles.module.css';
+import Button from "@/components/Button";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -33,6 +34,7 @@ export type MainServicesProps = SliceComponentProps<Content.MainServicesSlice>;
  * Component for "MainServices" Slices.
  */
 const MainServices: FC<MainServicesProps> = ({ slice }) => {
+  
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -51,18 +53,19 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
                 <PrismicRichText field={item.addendum} components={components} />
               </div>
             </div>
-            <div>
-              {item.link.length && (
-                <ul>
-                  {item.link.map((link) => (
+            <div className={moduleStyles.linkContainer} >
+              {item.link.length > 1 && (
+                <ul className={moduleStyles.linkList} >
+                  {item.link.map((link, i) => (
                     <li key={link.key}>
-                      <PrismicNextLink field={link} />
+                      {i === 0 && <Button field={link} color="brown-300" />}
+                      {i === 1 && <Button field={link} color="brown-200" />}
                     </li>
                   ))}
                 </ul>
               )}
-              {!item.link.length && (
-                <PrismicNextLink field={item.link[0]} />
+              {item.link.length === 1 && (
+                <Button field={item.link[0]} color="beige-300" />
               )}
             </div>
           </section>
