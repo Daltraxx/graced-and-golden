@@ -56,9 +56,9 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
           <div className={`${defaultStyles.row} ${defaultStyles.headingRow} animated-element`}>
             <PrismicRichText field={slice.primary.main_heading} components={components}/>
           </div>
-          <section className={`${defaultStyles.row} ${defaultStyles.linksRow} mt-4`}>
+          <section className={`${defaultStyles.row} ${defaultStyles.linksRow} animated-element`}>
             <PrismicRichText field={slice.primary.short_text} components={components}/>
-            <ul className={`${defaultStyles.links} animated-element`}>
+            <ul className={`${defaultStyles.links}`}>
               {slice.primary.link.map((link, i) => (
                 <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${defaultStyles.button}`} /></li>
               ))}
