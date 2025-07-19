@@ -12,12 +12,12 @@ import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
-    <Heading as="h1" size="lg" className="text-center animated-elemen">
+    <Heading as="h1" size="lg" className="text-center animated-element">
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className={`text-center animated-elemen`}>
+    <p className={`text-center animated-element`}>
       {children}
     </p>
   )
@@ -53,12 +53,12 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
       <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${defaultStyles.heroContainer}`}>
         <div ref={containerRef}>
           <div className={`${defaultStyles.row} ${defaultStyles.empty}`}></div>
-          <div className={`${defaultStyles.row} ${defaultStyles.headingRow} animated-element`}>
+          <div className={`${defaultStyles.row} ${defaultStyles.headingRow}`}>
             <PrismicRichText field={slice.primary.main_heading} components={components}/>
           </div>
-          <section className={`${defaultStyles.row} ${defaultStyles.linksRow} animated-element`}>
+          <section className={`${defaultStyles.row} ${defaultStyles.linksRow}`}>
             <PrismicRichText field={slice.primary.short_text} components={components}/>
-            <ul className={`${defaultStyles.links}`}>
+            <ul className={`${defaultStyles.links} animated-element`}>
               {slice.primary.link.map((link, i) => (
                 <li key={link.key}><Button field={link} color={getButtonColor(i)} className={`${defaultStyles.button}`} /></li>
               ))}
