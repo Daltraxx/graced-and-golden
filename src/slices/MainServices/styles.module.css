@@ -1,0 +1,41 @@
+.boundedContainer {
+   background: var(--brown-500);
+}
+
+.boundedContainer h2 {
+   color: var(--cream-200);
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.servicesContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   align-items: center;
+}
+
+.serviceBody {
+   background: var(--beige-300);
+   padding: 1rem;
+   border-radius: 3px;
+}
+
+.serviceBody h3 {
+   color: var(--brown-800);
+   margin-bottom: 1rem;
+}
+
+.serviceBody p {
+   color: var(--black-700);
+   font-weight: 500;
+}
+
+.serviceBody > p:nth-of-type(n + 2) {
+   margin-top: .5rem;
+}
+
+.serviceDetails {
+   margin-top: 1rem;
+}
+

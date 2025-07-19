@@ -4,6 +4,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import { PrismicNextLink } from "@prismicio/next";
+import moduleStyles from '@/slices/MainServices/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -12,7 +13,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" fontDisplay={false} className="">
+    <Heading as="h3" size="sm" className="">
       {children}
     </Heading>
   ),
@@ -36,16 +37,19 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
       <PrismicRichText field={slice.primary.main_header} components={components} />
-      <section>
+      <section className={moduleStyles.servicesContainer} >
         {slice.primary.service.map((item, i) => (
           <section key={`service-section-${i}`} >
-            <div>
+            <div className={moduleStyles.serviceBody} >
               <PrismicRichText field={item.service_name} components={components} />
               <PrismicRichText field={item.service_body_text} components={components} />
-              <PrismicRichText field={item.price_and_duration} components={components} />
-              <PrismicRichText field={item.addendum} components={components} />
+              <div className={moduleStyles.serviceDetails} >
+                <PrismicRichText field={item.price_and_duration} components={components} />
+                <PrismicRichText field={item.addendum} components={components} />
+              </div>
             </div>
             <div>
               {item.link.length && (
