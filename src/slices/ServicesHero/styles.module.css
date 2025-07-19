@@ -1,5 +1,7 @@
 .boundedContainer {
-   background-size: contain;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: -50px;
 }
 
 .heroContainer {
@@ -39,13 +41,15 @@
 }
 
 @media only screen and (min-width: 425px) {
-   .boundedContainer {
-      background-size: cover;
-   }
-
    .mainImage,
    .headingContainer {
       width: 19.625rem;
+   }
+}
+
+@media only screen and (min-width: 600px) {
+   .boundedContainer {
+      background-position: 0 0;
    }
 }
 
@@ -72,5 +76,35 @@
 
    .subHeadingContainer {
       font-size: 1.875rem;
+   }
+}
+
+@media only screen and (min-width: 1400px) {
+   .boundedContainer {
+      background-position: 0 -100px;
+   }
+}
+
+@media only screen and (min-width: 1600px) {
+   .boundedContainer {
+      background-position: 0 -150px;
+   }
+}
+
+@media only screen and (min-width: 1800px) {
+   .boundedContainer {
+      background-position: 0 -200px;
+   }
+}
+
+@media only screen and (min-width: 1900px) {
+   .boundedContainer {
+      background-position: 0 -300px;
+   }
+}
+
+@media only screen and (min-width: 2100px) {
+   .boundedContainer {
+      background-position: 0 -350px;
    }
 }
