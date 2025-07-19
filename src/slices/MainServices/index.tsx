@@ -71,7 +71,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           </section>
         ))}
       </section>
-      <section>
+      <section className={moduleStyles.cancellationPolicyContainer} >
         <PrismicRichText field={slice.primary.cancellation_policy_header} components={components} />
         <PrismicRichText field={slice.primary.cancellation_policy_body} components={components} />
       </section>
