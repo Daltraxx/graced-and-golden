@@ -1,0 +1,21 @@
+.boundedContainer {
+   background-size: contain;
+}
+
+.heroContainer {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+
+.mainImage,
+.mainHeadingContainer,
+.subHeadingContainer {
+   width: 80%;
+}
+
+.mainImage {
+   height: auto;
+}

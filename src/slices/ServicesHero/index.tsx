@@ -1,6 +1,23 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Heading from "@/components/Heading";
+import Bounded from "@/components/Bounded";
+import { PrismicNextImage } from "@prismicio/next";
+import moduleStyles from '@/slices/ServicesHero/styles.module.css';
+
+const components: JSXMapSerializer = {
+  heading1: ({children}) => (
+    <Heading as="h1" size="md" className="">
+      {children}
+    </Heading>
+  ),
+  heading2: ({ children }) => (
+    <Heading as="h2" size="sm" className="">
+      {children}
+    </Heading>
+  )
+}
 
 /**
  * Props for `ServicesHero`.
@@ -12,40 +29,23 @@ export type ServicesHeroProps = SliceComponentProps<Content.ServicesHeroSlice>;
  */
 const ServicesHero: FC<ServicesHeroProps> = ({ slice }) => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
+      style={{ backgroundImage: `url(${slice.primary.background_image.url})` }}
     >
-      Placeholder component for services_hero (variation: {slice.variation})
-      slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select Claude 3.7 Sonnet (recommended for optimal output)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
-    </section>
+      <div className={moduleStyles.heroContainer} >
+        <PrismicNextImage field={slice.primary.main_image} className={moduleStyles.mainImage} />
+        <div className={moduleStyles.mainHeadingContainer} >
+          <PrismicRichText field={slice.primary.heading} components={components} />
+        </div>
+        <div className={moduleStyles.subHeadingContainer} >
+          <PrismicRichText field={slice.primary.sub_heading} components={components} />
+        </div>
+      </div>
+      
+    </Bounded>
   );
 };
 
