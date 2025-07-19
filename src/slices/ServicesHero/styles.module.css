@@ -36,3 +36,14 @@
    background: var(--brown-300);
    font-size: 1.375rem;
 }
+
+@media only screen and (min-width: 425px) {
+   .boundedContainer {
+      background-size: cover;
+   }
+
+   .mainImage,
+   .headingContainer {
+      width: 19.625rem;
+   }
+}
