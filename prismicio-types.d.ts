@@ -114,6 +114,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | MainServicesSlice
   | TimelineSlice
   | Info4ColSlice
   | ContactSlice
@@ -121,13 +122,10 @@ type HomepageDocumentDataSlicesSlice =
   | TestimonialsSlice
   | HomepageHeroSlice
   | SingleColumnSlice
-  | HeroThreeImageSlice
   | InfoListWideImageSlice
   | Info3ColSlice
   | TryptichSlice
-  | BridalCtaSlice
-  | IntroductionSlice
-  | HeroSlice;
+  | BridalCtaSlice;
 
 /**
  * Content for Homepage documents
@@ -193,6 +191,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | MainServicesSlice
   | ServicesHeroSlice
   | TimelineSlice
   | BridalPackageSlice
@@ -1512,6 +1511,140 @@ export type IntroductionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *MainServices → Default → Primary → Service*
+ */
+export interface MainServicesSliceDefaultPrimaryServiceItem {
+  /**
+   * Service Name field in *MainServices → Default → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.service[].service_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_name: prismic.RichTextField;
+
+  /**
+   * Service Body Text field in *MainServices → Default → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.service[].service_body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_body_text: prismic.RichTextField;
+
+  /**
+   * Price and Duration field in *MainServices → Default → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.service[].price_and_duration
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  price_and_duration: prismic.RichTextField;
+
+  /**
+   * Addendum field in *MainServices → Default → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.service[].addendum
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  addendum: prismic.RichTextField;
+
+  /**
+   * Link field in *MainServices → Default → Primary → Service*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.service[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Primary content in *MainServices → Default → Primary*
+ */
+export interface MainServicesSliceDefaultPrimary {
+  /**
+   * Main Header field in *MainServices → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.main_header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_header: prismic.RichTextField;
+
+  /**
+   * Service field in *MainServices → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.service[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  service: prismic.GroupField<
+    Simplify<MainServicesSliceDefaultPrimaryServiceItem>
+  >;
+
+  /**
+   * Cancellation Policy Header field in *MainServices → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.cancellation_policy_header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cancellation_policy_header: prismic.RichTextField;
+
+  /**
+   * Cancellation Policy Body field in *MainServices → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.cancellation_policy_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cancellation_policy_body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for MainServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MainServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MainServicesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MainServices*
+ */
+type MainServicesSliceVariation = MainServicesSliceDefault;
+
+/**
+ * MainServices Shared Slice
+ *
+ * - **API ID**: `main_services`
+ * - **Description**: MainServices
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MainServicesSlice = prismic.SharedSlice<
+  "main_services",
+  MainServicesSliceVariation
+>;
+
+/**
  * Primary content in *ServicesHero → Default → Primary*
  */
 export interface ServicesHeroSliceDefaultPrimary {
@@ -2084,6 +2217,11 @@ declare module "@prismicio/client" {
       IntroductionSliceDefaultPrimary,
       IntroductionSliceVariation,
       IntroductionSliceDefault,
+      MainServicesSlice,
+      MainServicesSliceDefaultPrimaryServiceItem,
+      MainServicesSliceDefaultPrimary,
+      MainServicesSliceVariation,
+      MainServicesSliceDefault,
       ServicesHeroSlice,
       ServicesHeroSliceDefaultPrimary,
       ServicesHeroSliceVariation,

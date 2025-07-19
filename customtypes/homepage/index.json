@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "main_services": {
+              "type": "SharedSlice"
+            },
             "timeline": {
               "type": "SharedSlice"
             },
@@ -32,9 +35,6 @@
             "single_column": {
               "type": "SharedSlice"
             },
-            "hero_three_image": {
-              "type": "SharedSlice"
-            },
             "info_list_wide_image": {
               "type": "SharedSlice"
             },
@@ -45,12 +45,6 @@
               "type": "SharedSlice"
             },
             "bridal_cta": {
-              "type": "SharedSlice"
-            },
-            "introduction": {
-              "type": "SharedSlice"
-            },
-            "hero": {
               "type": "SharedSlice"
             }
           }

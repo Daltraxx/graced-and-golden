@@ -1,0 +1,102 @@
+{
+  "id": "main_services",
+  "type": "SharedSlice",
+  "name": "MainServices",
+  "description": "MainServices",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Header",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading2,strong,em"
+          }
+        },
+        "service": {
+          "type": "Group",
+          "config": {
+            "label": "Service",
+            "repeat": true,
+            "fields": {
+              "service_name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Service Name",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "single": "heading3,strong,em"
+                }
+              },
+              "service_body_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Service Body Text",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "multi": "paragraph,strong,em"
+                }
+              },
+              "price_and_duration": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Price and Duration",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "single": "paragraph,strong,em"
+                }
+              },
+              "addendum": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Addendum",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "single": "paragraph,strong,em"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": true
+                }
+              }
+            }
+          }
+        },
+        "cancellation_policy_header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Cancellation Policy Header",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading4,strong,em"
+          }
+        },
+        "cancellation_policy_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Cancellation Policy Body",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
