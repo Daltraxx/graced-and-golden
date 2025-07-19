@@ -6,6 +6,7 @@ type BoundedProps = {
    children: React.ReactNode;
    verticalPadding?: boolean;
    horizontalSpacing?: boolean;
+   style?: { backgroundImage: string };
 }
 
 export default function Bounded({
