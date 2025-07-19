@@ -8,7 +8,7 @@ import moduleStyles from '@/slices/ServicesHero/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
-    <Heading as="h1" size="md" className="">
+    <Heading as="h1" size="manual" className="">
       {children}
     </Heading>
   ),
