@@ -13,7 +13,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="sm" className="">
+    <Heading as="h2" size="manual" fontDisplay={false} className="">
       {children}
     </Heading>
   )
@@ -37,10 +37,10 @@ const ServicesHero: FC<ServicesHeroProps> = ({ slice }) => {
     >
       <div className={moduleStyles.heroContainer} >
         <PrismicNextImage field={slice.primary.main_image} className={moduleStyles.mainImage} />
-        <div className={moduleStyles.mainHeadingContainer} >
+        <div className={`${moduleStyles.headingContainer} ${moduleStyles.mainHeadingContainer}`} >
           <PrismicRichText field={slice.primary.heading} components={components} />
         </div>
-        <div className={moduleStyles.subHeadingContainer} >
+        <div className={`${moduleStyles.headingContainer} ${moduleStyles.subHeadingContainer}`} >
           <PrismicRichText field={slice.primary.sub_heading} components={components} />
         </div>
       </div>

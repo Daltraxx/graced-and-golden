@@ -8,14 +8,31 @@
    align-items: center;
    justify-content: center;
    text-align: center;
+   color: var(--cream-200);
 }
 
 .mainImage,
-.mainHeadingContainer,
-.subHeadingContainer {
+.headingContainer {
+   opacity: .9;
    width: 80%;
 }
 
 .mainImage {
    height: auto;
+}
+
+.headingContainer {
+   height: 5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.mainHeadingContainer {
+   background: var(--brown-500);
+}
+
+.subHeadingContainer {
+   background: var(--brown-300);
+   font-size: 1.375rem;
 }
