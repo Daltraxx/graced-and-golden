@@ -60,6 +60,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+   .boundedContainer {
+      background: linear-gradient(135deg, var(--brown-700) 0%, var(--brown-500) 25%, var(--brown-500) 75%, var(--brown-700) 100%);
+   }
    .servicesContainer {
       display: grid;
       grid-template-columns: 1fr 1fr;
