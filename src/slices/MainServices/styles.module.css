@@ -58,3 +58,45 @@
    margin-bottom: .5rem;
 }
 
+@media only screen and (min-width: 768px) {
+   .servicesContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+   }
+
+   .serviceBody {
+      height: 22.875rem;
+      border-radius: 10px;
+   }
+}
+
+@media only screen and (min-width: 1024px) {
+   .serviceBody {
+      height: 18.375rem;
+   }
+}
+
+@media only screen and (min-width: 1250px) {
+   .serviceBody {
+      height: 16.875rem;
+      position: relative;
+   }
+
+   .serviceDetails {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 13.575rem;
+      width: 35.25rem;
+   }
+}
+
+
+
+@media only screen and (min-width: 1500px) {
+   .servicesContainer {
+      column-gap: 5rem;
+   }
+}
+
+
