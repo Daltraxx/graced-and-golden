@@ -19,6 +19,8 @@
 
 .rowContainer > a > img {
    margin: 0 auto;
+   width: 6.25rem;
+   height: 3.375rem;
 }
 
 .linksContainer {

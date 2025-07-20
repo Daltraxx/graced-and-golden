@@ -10,6 +10,11 @@
    justify-content: space-between;
 }
 
+.headerContainer img {
+   width: 11.75rem;
+   height: 6.25rem;
+}
+
 .headerSideCol .bookingButton {
    border: 2px solid var(--brown-300);
 }
