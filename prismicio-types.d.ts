@@ -190,6 +190,74 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+type MainServicesPageDocumentDataSlicesSlice =
+  | BridalCtaSlice
+  | MainServicesSlice
+  | ServicesHeroSlice;
+
+/**
+ * Content for Main Services Page documents
+ */
+interface MainServicesPageDocumentData {
+  /**
+   * Slice Zone field in *Main Services Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<MainServicesPageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Main Services Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: main_services_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Main Services Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: main_services_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Main Services Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Main Services Page document from Prismic
+ *
+ * - **API ID**: `main_services_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MainServicesPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<MainServicesPageDocumentData>,
+    "main_services_page",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | MainServicesSlice
   | ServicesHeroSlice
@@ -322,6 +390,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
   | HomepageDocument
+  | MainServicesPageDocument
   | PageDocument
   | SettingsDocument;
 
@@ -2235,6 +2304,9 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      MainServicesPageDocument,
+      MainServicesPageDocumentData,
+      MainServicesPageDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
