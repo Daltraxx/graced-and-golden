@@ -34,18 +34,20 @@ const ServiceHero: FC<ServiceHeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
     >
-      <div className={moduleStyles.headingsContainer} >
-        <section
-          style={{
-            backgroundImage: `url(${slice.primary.background_image.url})`,
-          }}
-          className={clsx(moduleStyles.headingSection, moduleStyles.mainheadingSection)}
-        >
-          <PrismicRichText field={slice.primary.main_heading} components={components} />
-        </section>
-        <section className={clsx(moduleStyles.headingSection, moduleStyles.subHeadingSection)} >
-          <PrismicRichText field={slice.primary.sub_heading} components={components} />
-        </section>
+      <div className={moduleStyles.heroContainer} >
+        <div className={moduleStyles.headingsContainer} >
+          <section
+            style={{
+              backgroundImage: `url(${slice.primary.background_image.url})`,
+            }}
+            className={clsx(moduleStyles.headingSection, moduleStyles.mainheadingSection)}
+          >
+            <PrismicRichText field={slice.primary.main_heading} components={components} />
+          </section>
+          <section className={clsx(moduleStyles.headingSection, moduleStyles.subHeadingSection)} >
+            <PrismicRichText field={slice.primary.sub_heading} components={components} />
+          </section>
+        </div>
       </div>
     </Bounded>
   );
