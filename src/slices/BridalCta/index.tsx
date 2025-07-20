@@ -58,10 +58,14 @@ const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
           <div className={`${moduleStyles.ctaTextContentContainer}`}>
             <PrismicRichText field={slice.primary.heading} components={components}/>
             <PrismicRichText field={slice.primary.body} components={components}/>
-            <Button field={slice.primary.bridal_page_link} color="cream-200" className={clsx(
+            <Button
+              field={slice.primary.bridal_page_link}
+              color="cream-200"
+              className={clsx(
                 moduleStyles.button,
-                slice.variation === 'default' && moduleStyles.buttonDefault
-              )} />
+                slice.variation === "default" && moduleStyles.buttonDefault
+              )}
+            />
           </div>
         </div>
         <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.ctaImage} ${moduleStyles.box} animated-element`}/>
