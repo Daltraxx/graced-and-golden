@@ -332,7 +332,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ServicePageDocumentDataSlicesSlice = ServiceHeroSlice;
+type ServicePageDocumentDataSlicesSlice = TrainingBodySlice | ServiceHeroSlice;
 
 /**
  * Content for Service Page documents
@@ -2303,6 +2303,213 @@ export type TimelineSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TrainingBody → Default → Primary*
+ */
+export interface TrainingBodySliceDefaultPrimary {
+  /**
+   * Main Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Intro Paragraph 1 field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.intro_paragraph_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro_paragraph_1: prismic.RichTextField;
+
+  /**
+   * Intro Paragraph 2 field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.intro_paragraph_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro_paragraph_2: prismic.RichTextField;
+
+  /**
+   * Image field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Includes Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.includes_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  includes_heading: prismic.RichTextField;
+
+  /**
+   * Includes List field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.includes_list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  includes_list: prismic.RichTextField;
+
+  /**
+   * Includes Sidebar Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.includes_sidebar_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  includes_sidebar_heading: prismic.TitleField;
+
+  /**
+   * Includes Sidebar Body field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.includes_sidebar_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  includes_sidebar_body: prismic.RichTextField;
+
+  /**
+   * Requirements Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.requirements_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  requirements_heading: prismic.RichTextField;
+
+  /**
+   * Requirements Body field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.requirements_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  requirements_body: prismic.RichTextField;
+
+  /**
+   * Format and Location Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.format_and_location_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  format_and_location_heading: prismic.RichTextField;
+
+  /**
+   * Format and Location Details List field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.format_and_location_details_list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  format_and_location_details_list: prismic.RichTextField;
+
+  /**
+   * Booking and Availability Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.booking_and_availability_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  booking_and_availability_heading: prismic.RichTextField;
+
+  /**
+   * Booking and Availability Body field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.booking_and_availability_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  booking_and_availability_body: prismic.RichTextField;
+
+  /**
+   * Link Box Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.link_box_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  link_box_heading: prismic.RichTextField;
+
+  /**
+   * Link Box Body field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.link_box_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  link_box_body: prismic.RichTextField;
+
+  /**
+   * Link field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Default variation for TrainingBody Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TrainingBodySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TrainingBodySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TrainingBody*
+ */
+type TrainingBodySliceVariation = TrainingBodySliceDefault;
+
+/**
+ * TrainingBody Shared Slice
+ *
+ * - **API ID**: `training_body`
+ * - **Description**: TrainingBody
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TrainingBodySlice = prismic.SharedSlice<
+  "training_body",
+  TrainingBodySliceVariation
+>;
+
+/**
  * Primary content in *Tryptich → Default → Primary*
  */
 export interface TryptichSliceDefaultPrimary {
@@ -2526,6 +2733,10 @@ declare module "@prismicio/client" {
       TimelineSliceDefaultPrimary,
       TimelineSliceVariation,
       TimelineSliceDefault,
+      TrainingBodySlice,
+      TrainingBodySliceDefaultPrimary,
+      TrainingBodySliceVariation,
+      TrainingBodySliceDefault,
       TryptichSlice,
       TryptichSliceDefaultPrimary,
       TryptichSliceVariation,

@@ -1,0 +1,173 @@
+{
+  "id": "training_body",
+  "type": "SharedSlice",
+  "name": "TrainingBody",
+  "description": "TrainingBody",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,strong,em,heading2"
+          }
+        },
+        "intro_paragraph_1": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Intro Paragraph 1",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "intro_paragraph_2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Intro Paragraph 2",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "includes_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Includes Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,strong,em"
+          }
+        },
+        "includes_list": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Includes List",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "list-item"
+          }
+        },
+        "includes_sidebar_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Includes Sidebar Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading4"
+          }
+        },
+        "includes_sidebar_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Includes Sidebar Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "requirements_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Requirements Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading4,strong,em"
+          }
+        },
+        "requirements_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Requirements Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "format_and_location_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Format and Location Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "strong,em,heading4"
+          }
+        },
+        "format_and_location_details_list": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Format and Location Details List",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "list-item,strong,em"
+          }
+        },
+        "booking_and_availability_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Booking and Availability Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading4,strong,em"
+          }
+        },
+        "booking_and_availability_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Booking and Availability Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "link_box_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Link Box Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,strong,em"
+          }
+        },
+        "link_box_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Link Box Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

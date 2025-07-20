@@ -1,0 +1,212 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"main_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Atomic"
+						}
+					}
+				]
+			},
+			"intro_paragraph_1": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris culpa esse laboris nisi velit mollit. Eiusmod tempor anim occaecat ipsum. Labore sint dolore est ad duis ad tempor deserunt magna elit consectetur enim ut culpa ut."
+						}
+					}
+				]
+			},
+			"intro_paragraph_2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt tempor duis cillum anim deserunt cillum."
+						}
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+					"width": 6000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+				"width": 6000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "separate",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"includes_list": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur veniam consequat qui excepteur non culpa esse aliqua quis ad voluptate. Dolor mollit est consectetur ipsum in occaecat elit sint adipisicing eiusmod."
+						}
+					}
+				]
+			},
+			"includes_sidebar_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Lorem nulla commodo labore veniam ullamco."
+						}
+					}
+				]
+			},
+			"requirements_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Whose"
+						}
+					}
+				]
+			},
+			"includes_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Distant"
+						}
+					}
+				]
+			},
+			"includes_sidebar_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Sentence"
+						}
+					}
+				]
+			},
+			"requirements_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam enim culpa Lorem reprehenderit non eiusmod."
+						}
+					}
+				]
+			},
+			"format_and_location_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Leave"
+						}
+					}
+				]
+			},
+			"format_and_location_details_list": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint dolor reprehenderit ea tempor. Dolore eiusmod minim et id incididunt enim qui culpa."
+						}
+					}
+				]
+			},
+			"booking_and_availability_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Common"
+						}
+					}
+				]
+			},
+			"booking_and_availability_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo occaecat proident in cillum pariatur occaecat aliqua nisi do cillum magna reprehenderit. Deserunt ea aliquip elit ad nostrud ut aliqua ipsum ut minim pariatur Lorem adipisicing esse ea. Culpa nostrud qui enim elit laborum eu laborum laboris ut sunt esse excepteur."
+						}
+					}
+				]
+			},
+			"link_box_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Slight"
+						}
+					}
+				]
+			},
+			"link_box_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat aliqua ullamco pariatur mollit commodo mollit nulla non aute aliquip elit. Lorem nostrud ut dolor laboris nisi mollit exercitation deserunt est magna."
+						}
+					}
+				]
+			},
+			"link": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "277677f6-3b29-44dc-a864-f59ebfdeb6a1",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "page"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
