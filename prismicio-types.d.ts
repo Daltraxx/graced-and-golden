@@ -332,6 +332,71 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+type ServicePageDocumentDataSlicesSlice = ServiceHeroSlice;
+
+/**
+ * Content for Service Page documents
+ */
+interface ServicePageDocumentData {
+  /**
+   * Slice Zone field in *Service Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ServicePageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Service Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: service_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Service Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: service_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Service Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Service Page document from Prismic
+ *
+ * - **API ID**: `service_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServicePageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ServicePageDocumentData>,
+    "service_page",
+    Lang
+  >;
+
 /**
  * Content for Settings documents
  */
@@ -392,6 +457,7 @@ export type AllDocumentTypes =
   | HomepageDocument
   | MainServicesPageDocument
   | PageDocument
+  | ServicePageDocument
   | SettingsDocument;
 
 /**
@@ -1788,6 +1854,71 @@ export type MainServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ServiceHero → Default → Primary*
+ */
+export interface ServiceHeroSliceDefaultPrimary {
+  /**
+   * Background Image field in *ServiceHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_hero.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Main Heading field in *ServiceHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_hero.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Sub-Heading field in *ServiceHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_hero.default.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ServiceHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServiceHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ServiceHero*
+ */
+type ServiceHeroSliceVariation = ServiceHeroSliceDefault;
+
+/**
+ * ServiceHero Shared Slice
+ *
+ * - **API ID**: `service_hero`
+ * - **Description**: ServiceHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceHeroSlice = prismic.SharedSlice<
+  "service_hero",
+  ServiceHeroSliceVariation
+>;
+
+/**
  * Primary content in *ServicesHero → Default → Primary*
  */
 export interface ServicesHeroSliceDefaultPrimary {
@@ -2310,6 +2441,9 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ServicePageDocument,
+      ServicePageDocumentData,
+      ServicePageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -2370,6 +2504,10 @@ declare module "@prismicio/client" {
       MainServicesSliceDefaultPrimary,
       MainServicesSliceVariation,
       MainServicesSliceDefault,
+      ServiceHeroSlice,
+      ServiceHeroSliceDefaultPrimary,
+      ServiceHeroSliceVariation,
+      ServiceHeroSliceDefault,
       ServicesHeroSlice,
       ServicesHeroSliceDefaultPrimary,
       ServicesHeroSliceVariation,

@@ -23,6 +23,7 @@ const routes: Route[] = [
   { type: "homepage", path: "/" },
   { type: "page", path: "/:uid" },
   { type: "main_services_page", path: "/services" },
+  { type: "service_page", path: "/services/:uid" },
 ];
 
 /**
