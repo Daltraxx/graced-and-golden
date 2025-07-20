@@ -40,7 +40,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
       <PrismicRichText field={slice.primary.main_heading} />
       <section>
         <div>
-          <PrismicRichText field={slice.primary.main_heading} />
+          <PrismicRichText field={slice.primary.intro_paragraph_1} />
           <PrismicRichText field={slice.primary.intro_paragraph_2} />
         </div>
         <PrismicNextImage field={slice.primary.image} />
