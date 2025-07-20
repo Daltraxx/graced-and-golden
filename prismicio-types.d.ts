@@ -400,9 +400,83 @@ export type BridalCtaSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *BridalCta → Light → Primary*
+ */
+export interface BridalCtaSliceLightPrimary {
+  /**
+   * Image Left field in *BridalCta → Light → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.light.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *BridalCta → Light → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.light.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *BridalCta → Light → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.light.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Bridal Page Link field in *BridalCta → Light → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.light.primary.bridal_page_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  bridal_page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Image Right field in *BridalCta → Light → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_cta.light.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
+}
+
+/**
+ * Light variation for BridalCta Slice
+ *
+ * - **API ID**: `light`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BridalCtaSliceLight = prismic.SharedSliceVariation<
+  "light",
+  Simplify<BridalCtaSliceLightPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *BridalCta*
  */
-type BridalCtaSliceVariation = BridalCtaSliceDefault;
+type BridalCtaSliceVariation = BridalCtaSliceDefault | BridalCtaSliceLight;
 
 /**
  * BridalCta Shared Slice
@@ -2169,8 +2243,10 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       BridalCtaSlice,
       BridalCtaSliceDefaultPrimary,
+      BridalCtaSliceLightPrimary,
       BridalCtaSliceVariation,
       BridalCtaSliceDefault,
+      BridalCtaSliceLight,
       BridalPackageSlice,
       BridalPackageSliceDefaultPrimaryBulletPointsItem,
       BridalPackageSliceDefaultPrimary,
