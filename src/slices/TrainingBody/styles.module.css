@@ -47,10 +47,6 @@
 
 /* INTRO ROW */
 
-.introBox {
-   max-width: 35rem;
-}
-
 .introRow img {
    border-radius: 10px;
 }
@@ -156,6 +152,7 @@ ul.linksList {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      max-width: 35rem;
    }
 
    .introRow img {
