@@ -33,7 +33,7 @@ export type HomepageHeroProps = SliceComponentProps<Content.HomepageHeroSlice>;
  */
 const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  useAddAnimation(containerRef, .5);
+  useAddAnimation(containerRef);
   
   const getButtonColor = (index: number) => {
     switch (index) {
