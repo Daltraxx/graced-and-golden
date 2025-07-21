@@ -6,7 +6,7 @@ import Bounded from "@/components/Bounded";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import moduleStyles from '@/slices/TrainingBody/styles.module.css';
 import clsx from "clsx";
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (

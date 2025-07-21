@@ -5,7 +5,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import Bounded from "@/components/Bounded";
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 import Heading from "@/components/Heading";
 import styles from '@/styles/styles.module.css';
 import moduleStyles from '@/slices/BridalCta/styles.module.css';

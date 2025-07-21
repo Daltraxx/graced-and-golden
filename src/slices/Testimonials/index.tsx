@@ -6,7 +6,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import moduleStyles from '@/slices/Testimonials/styles.module.css';
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 import TestimonialCycler from "@/components/TestimonialCycler/TestimonialCycler";
 import useAddAnimation from "@/utilities/addAnimation";
 

@@ -6,7 +6,7 @@ import Heading from "@/components/Heading";
 import { PrismicNextImage } from "@prismicio/next";
 import styles from '@/styles/styles.module.css';
 import sliceStyles from '@/slices/HeroThreeImage/styles.module.css';
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (

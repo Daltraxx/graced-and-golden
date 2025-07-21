@@ -5,7 +5,7 @@ import Bounded from "@/components/Bounded";
 import styles from '@/styles/styles.module.css';
 import moduleStyles from '@/slices/SingleColumn/styles.module.css';
 import Heading from "@/components/Heading";
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 
 const components : JSXMapSerializer = {
   heading2: ({children}) => (

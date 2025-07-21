@@ -2,7 +2,7 @@ import { createClient } from "@/prismicio";
 import Image from "next/image";
 import Link from "next/link";
 import Bounded from "../Bounded";
-import Button from "../Button";
+import Button from "../Button/Button";
 import styles from '@/styles/styles.module.css';
 import moduleStyles from '@/components/Header/styles.module.css';
 import Nav from './Nav/Nav';

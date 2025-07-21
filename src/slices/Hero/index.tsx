@@ -3,7 +3,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 import Heading from "@/components/Heading";
 import styles from '@/styles/styles.module.css';
 

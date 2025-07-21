@@ -4,7 +4,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import moduleStyles from '@/slices/MainServices/styles.module.css';
-import Button from "@/components/Button";
+import Button from "@/components/Button/Button";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
