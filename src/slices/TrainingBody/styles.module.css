@@ -47,6 +47,10 @@
 
 /* INTRO ROW */
 
+.introBox {
+   max-width: 35rem;
+}
+
 .introRow img {
    border-radius: 10px;
 }
@@ -125,4 +129,38 @@ ul.linksList {
 
 .button {
    width: 7rem;
+}
+
+@media only screen and (min-width: 425px) {
+   .introRow .box {
+      padding: 1.5rem;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .row {
+      flex-direction: row;
+      margin-top: 2rem;
+   }
+
+   .introRow {
+      max-height: 20rem;
+   }
+
+   .introBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+   }
+
+   .introRow img {
+      max-height: 20rem;
+      max-width: 20rem;
+   }
+}
+
+@media only screen and (min-width: 850px) {
+   .introRow {
+      max-height: 18rem;
+   }
 }

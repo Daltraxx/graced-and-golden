@@ -51,12 +51,12 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
     >
       <PrismicRichText field={slice.primary.main_heading} components={components} />
       <section className={clsx(moduleStyles.row, moduleStyles.introRow)} >
-        <div className={moduleStyles.box} >
+        <div className={clsx(moduleStyles.box, moduleStyles.introBox)} >
           <PrismicRichText field={slice.primary.intro_paragraph_1} components={components} />
           <div className={moduleStyles.divider} ></div>
           <PrismicRichText field={slice.primary.intro_paragraph_2} components={components} />
         </div>
-        <PrismicNextImage field={slice.primary.image} className="" />
+        <PrismicNextImage field={slice.primary.image} className="" height={778} width={778} />
       </section>
       <section className={clsx(moduleStyles.row, moduleStyles.includesRow)} >
         <section className={clsx(moduleStyles.box, moduleStyles.includesMainBody)} >
