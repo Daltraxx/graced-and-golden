@@ -5,6 +5,7 @@ import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import moduleStyles from '@/slices/TrainingBody/styles.module.css';
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -48,14 +49,15 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
       className={moduleStyles.boundedContainer}
     >
       <PrismicRichText field={slice.primary.main_heading} components={components} />
-      <section>
-        <div>
+      <section className={clsx(moduleStyles.row, moduleStyles.introRow)} >
+        <div className={moduleStyles.box} >
           <PrismicRichText field={slice.primary.intro_paragraph_1} components={components} />
+          <div className={moduleStyles.divider} ></div>
           <PrismicRichText field={slice.primary.intro_paragraph_2} components={components} />
         </div>
-        <PrismicNextImage field={slice.primary.image} />
+        <PrismicNextImage field={slice.primary.image} className="" />
       </section>
-      <section>
+      <section className={clsx(moduleStyles.row, moduleStyles.box)} >
         <section>
           <PrismicRichText field={slice.primary.includes_heading} components={components} />
           <PrismicRichText field={slice.primary.includes_list} components={components} />
@@ -65,21 +67,21 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           <PrismicRichText field={slice.primary.includes_sidebar_body} components={components} />
         </section>
       </section>
-      <div>
-        <section>
+      <div className={moduleStyles.row} >
+        <section className={moduleStyles.box} >
           <PrismicRichText field={slice.primary.requirements_heading} components={components} />
           <PrismicRichText field={slice.primary.requirements_body} components={components} />
         </section>
-        <section>
+        <section className={moduleStyles.box} >
           <PrismicRichText field={slice.primary.format_and_location_heading} components={components} />
           <PrismicRichText field={slice.primary.format_and_location_details_list} components={components} />
         </section>
-        <section>
+        <section className={moduleStyles.box} >
           <PrismicRichText field={slice.primary.booking_and_availability_heading} components={components} />
           <PrismicRichText field={slice.primary.booking_and_availability_body} components={components} />
         </section>
       </div>
-      <section>
+      <section className={clsx(moduleStyles.row, moduleStyles.box)} >
         <PrismicRichText field={slice.primary.link_box_heading} components={components} />
         <PrismicRichText field={slice.primary.link_box_body} components={components} />
         {slice.primary.link.map((link) => (

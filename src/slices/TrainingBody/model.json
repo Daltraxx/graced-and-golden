@@ -107,7 +107,7 @@
             "label": "Format and Location Heading",
             "placeholder": "",
             "allowTargetBlank": false,
-            "single": "strong,em,heading4"
+            "single": "heading4,strong,em"
           }
         },
         "format_and_location_details_list": {
