@@ -12,6 +12,7 @@
 .boundedContainer h3,
 .boundedContainer h4 {
    font-weight: 600;
+   color: var(--brown-500);
 }
 
 .boundedContainer p {
@@ -98,4 +99,9 @@
 
 .includesSideBar p {
    color: var(--cream-200);
+}
+
+/* DETAILS ROW */
+.detailsBox p {
+   text-align: center;
 }

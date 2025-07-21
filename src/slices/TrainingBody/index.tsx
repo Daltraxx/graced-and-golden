@@ -68,15 +68,15 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         </section>
       </section>
       <div className={moduleStyles.row} >
-        <section className={moduleStyles.box} >
+        <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
           <PrismicRichText field={slice.primary.requirements_heading} components={components} />
           <PrismicRichText field={slice.primary.requirements_body} components={components} />
         </section>
-        <section className={moduleStyles.box} >
+        <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
           <PrismicRichText field={slice.primary.format_and_location_heading} components={components} />
           <PrismicRichText field={slice.primary.format_and_location_details_list} components={components} />
         </section>
-        <section className={moduleStyles.box} >
+        <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
           <PrismicRichText field={slice.primary.booking_and_availability_heading} components={components} />
           <PrismicRichText field={slice.primary.booking_and_availability_body} components={components} />
         </section>
