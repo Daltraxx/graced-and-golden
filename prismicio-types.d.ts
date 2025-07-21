@@ -333,6 +333,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicePageDocumentDataSlicesSlice =
+  | ServiceBodySlice
   | ServicesHeroSlice
   | TrainingBodySlice
   | ServiceHeroSlice;
@@ -1857,6 +1858,183 @@ export type MainServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ServiceBody → Default → Primary*
+ */
+export interface ServiceBodySliceDefaultPrimary {
+  /**
+   * Main Heading field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Description Heading field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.description_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_heading: prismic.RichTextField;
+
+  /**
+   * Description Body field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.description_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_body: prismic.RichTextField;
+
+  /**
+   * Includes Heading field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.includes_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  includes_heading: prismic.RichTextField;
+
+  /**
+   * Includes List field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.includes_list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  includes_list: prismic.RichTextField;
+
+  /**
+   * Additional Details Heading field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.additional_details_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  additional_details_heading: prismic.RichTextField;
+
+  /**
+   * Additional Details Body field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.additional_details_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  additional_details_body: prismic.RichTextField;
+
+  /**
+   * Price field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.price
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  price: prismic.RichTextField;
+
+  /**
+   * Deposit field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.deposit
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  deposit: prismic.RichTextField;
+
+  /**
+   * Duration field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.duration
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  duration: prismic.RichTextField;
+
+  /**
+   * Booking Link field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.booking_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  booking_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Further Information Heading field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.further_information_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  further_information_heading: prismic.RichTextField;
+
+  /**
+   * Inquiry Link field in *ServiceBody → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_body.default.primary.inquiry_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  inquiry_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for ServiceBody Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBodySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServiceBodySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ServiceBody*
+ */
+type ServiceBodySliceVariation = ServiceBodySliceDefault;
+
+/**
+ * ServiceBody Shared Slice
+ *
+ * - **API ID**: `service_body`
+ * - **Description**: ServiceBody
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceBodySlice = prismic.SharedSlice<
+  "service_body",
+  ServiceBodySliceVariation
+>;
+
+/**
  * Primary content in *ServiceHero → Default → Primary*
  */
 export interface ServiceHeroSliceDefaultPrimary {
@@ -2714,6 +2892,10 @@ declare module "@prismicio/client" {
       MainServicesSliceDefaultPrimary,
       MainServicesSliceVariation,
       MainServicesSliceDefault,
+      ServiceBodySlice,
+      ServiceBodySliceDefaultPrimary,
+      ServiceBodySliceVariation,
+      ServiceBodySliceDefault,
       ServiceHeroSlice,
       ServiceHeroSliceDefaultPrimary,
       ServiceHeroSliceVariation,

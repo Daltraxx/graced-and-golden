@@ -14,6 +14,7 @@ export const components = {
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
   introduction: dynamic(() => import("./Introduction")),
   main_services: dynamic(() => import("./MainServices")),
+  service_body: dynamic(() => import("./ServiceBody")),
   service_hero: dynamic(() => import("./ServiceHero")),
   services_hero: dynamic(() => import("./ServicesHero")),
   single_column: dynamic(() => import("./SingleColumn")),

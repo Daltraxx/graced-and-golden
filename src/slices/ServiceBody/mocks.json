@@ -1,0 +1,148 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"main_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Share"
+						}
+					}
+				]
+			},
+			"description_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Piece"
+						}
+					}
+				]
+			},
+			"description_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt proident esse velit mollit labore labore dolore. Laborum veniam tempor amet est aute deserunt fugiat."
+						}
+					}
+				]
+			},
+			"includes_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Clean"
+						}
+					}
+				]
+			},
+			"includes_list": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla ad anim officia anim voluptate duis nostrud amet esse dolor anim aute. Aute pariatur ex officia sit nulla veniam velit."
+						}
+					}
+				]
+			},
+			"additional_details_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Arrow"
+						}
+					}
+				]
+			},
+			"additional_details_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim magna aliqua ut veniam irure consectetur incididunt excepteur non deserunt sunt aute. Pariatur proident commodo anim ea ipsum voluptate non occaecat ad nostrud velit nisi mollit aliquip anim. Enim consectetur sit officia adipisicing mollit esse ea esse sit ex eiusmod velit."
+						}
+					}
+				]
+			},
+			"price": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sit et aliquip sit."
+						}
+					}
+				]
+			},
+			"deposit": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Quis consequat commodo ad magna nisi elit et Lorem ea tempor. Ullamco officia tempor quis do in occaecat reprehenderit deserunt pariatur. Ipsum excepteur enim anim eu occaecat enim dolor."
+						}
+					}
+				]
+			},
+			"duration": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aute ad veniam reprehenderit ea laboris Lorem qui non duis laboris mollit."
+						}
+					}
+				]
+			},
+			"booking_link": {
+				"key": "11964265-4c7a-4e7d-809e-df8c5fc6df34",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "distance"
+				}
+			},
+			"further_information_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading5",
+						"content": {
+							"text": "Mostly"
+						}
+					}
+				]
+			},
+			"inquiry_link": {
+				"__TYPE__": "LinkContent",
+				"key": "0621588c-06af-43d4-8b5d-6c7cad7d9cdf",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "rose"
+				}
+			}
+		},
+		"items": []
+	}
+]

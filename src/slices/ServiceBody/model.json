@@ -1,0 +1,140 @@
+{
+  "id": "service_body",
+  "type": "SharedSlice",
+  "name": "ServiceBody",
+  "description": "ServiceBody",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading2,strong,em"
+          }
+        },
+        "description_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,strong,em"
+          }
+        },
+        "description_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "includes_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Includes Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading4,strong,em"
+          }
+        },
+        "includes_list": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Includes List",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "list-item,strong,em"
+          }
+        },
+        "additional_details_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Additional Details Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading4,strong,em"
+          }
+        },
+        "additional_details_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Additional Details Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "price": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Price",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "deposit": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Deposit",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "duration": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Duration",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "booking_link": {
+          "type": "Link",
+          "config": {
+            "label": "Booking Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "further_information_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Further Information Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading5,strong,em"
+          }
+        },
+        "inquiry_link": {
+          "type": "Link",
+          "config": {
+            "label": "Inquiry Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
