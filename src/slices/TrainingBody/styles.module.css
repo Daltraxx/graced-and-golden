@@ -31,6 +31,15 @@
    border-radius: 10px;
 }
 
+.box ul {
+   padding: 0 1.25rem;
+}
+
+.box h3,
+.box h4 {
+   margin-bottom: 1rem;
+}
+
 /* INTRO ROW */
 
 .introRow img {
@@ -64,11 +73,6 @@
 
 .includesRow .includesMainBody {
    border-radius: 10px 10px 0 0;
-}
-
-.includesMainBody ul {
-   margin-top: 1rem;
-   padding: 0 1.25rem;
 }
 
 .includesMainBody li:not(:last-child) {
