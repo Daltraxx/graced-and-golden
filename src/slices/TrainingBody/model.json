@@ -62,7 +62,7 @@
             "label": "Includes List",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "list-item"
+            "single": "strong,list-item,em"
           }
         },
         "includes_sidebar_heading": {

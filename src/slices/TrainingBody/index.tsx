@@ -58,6 +58,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         </div>
         <PrismicNextImage field={slice.primary.image} className="" height={778} width={778} />
       </section>
+
       <section className={clsx(moduleStyles.row, moduleStyles.includesRow)} >
         <section className={clsx(moduleStyles.box, moduleStyles.includesMainBody)} >
           <PrismicRichText field={slice.primary.includes_heading} components={components} />
@@ -65,9 +66,12 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         </section>
         <section className={clsx(moduleStyles.box, moduleStyles.includesSideBar)}>
           <PrismicRichText field={slice.primary.includes_sidebar_heading} components={components} />
-          <PrismicRichText field={slice.primary.includes_sidebar_body} components={components} />
+          <div className={moduleStyles.includesSideBarBodyText} >
+            <PrismicRichText field={slice.primary.includes_sidebar_body} components={components} />
+          </div>
         </section>
       </section>
+
       <div className={moduleStyles.row} >
         <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
           <PrismicRichText field={slice.primary.requirements_heading} components={components} />
@@ -82,6 +86,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           <PrismicRichText field={slice.primary.booking_and_availability_body} components={components} />
         </section>
       </div>
+
       <section className={clsx(moduleStyles.row, moduleStyles.linksRow)} >
         <div className={clsx(moduleStyles.box)} >
           <PrismicRichText field={slice.primary.link_box_heading} components={components} />

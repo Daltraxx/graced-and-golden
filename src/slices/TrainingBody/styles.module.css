@@ -80,6 +80,11 @@
    background: var(--beige-300);
 }
 
+.includesMainBody strong,
+.includesMainBody li::marker {
+   color: var(--brown-500);
+}
+
 .includesRow .includesMainBody {
    border-radius: 10px 10px 0 0;
 }
@@ -157,10 +162,39 @@ ul.linksList {
       max-height: 20rem;
       max-width: 20rem;
    }
+
+
+   .includesRow {
+      flex-direction: column;
+   }
 }
 
 @media only screen and (min-width: 850px) {
    .introRow {
       max-height: 18rem;
+   }
+
+
+   .includesRow {
+      flex-direction: row;
+   }
+
+   .includesMainBody {
+      min-width: 60%;
+   }
+
+   .includesRow .includesMainBody {
+      border-radius: 10px 0 0 10px;
+   }
+
+   .includesRow .includesSideBar {
+      border-radius: 0 10px 10px 0;
+   }
+
+   .includesSideBarBodyText {
+      height: 80%;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
    }
 }
