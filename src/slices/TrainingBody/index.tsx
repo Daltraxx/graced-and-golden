@@ -47,7 +47,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
     >
-      <PrismicRichText field={slice.primary.main_heading} />
+      <PrismicRichText field={slice.primary.main_heading} components={components} />
       <section>
         <div>
           <PrismicRichText field={slice.primary.intro_paragraph_1} components={components} />
