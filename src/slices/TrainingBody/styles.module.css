@@ -41,6 +41,10 @@
    margin-bottom: 1rem;
 }
 
+.boundedContainer li:not(:last-child) {
+   margin-bottom: .5rem;
+}
+
 /* INTRO ROW */
 
 .introRow img {
@@ -74,10 +78,6 @@
 
 .includesRow .includesMainBody {
    border-radius: 10px 10px 0 0;
-}
-
-.includesMainBody li:not(:last-child) {
-   margin-bottom: .5rem;
 }
 
 /* ---Side Bar */
