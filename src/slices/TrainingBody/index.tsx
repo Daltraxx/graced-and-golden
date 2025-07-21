@@ -82,15 +82,15 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           <PrismicRichText field={slice.primary.booking_and_availability_body} components={components} />
         </section>
       </div>
-      <section className={clsx(moduleStyles.row)} >
-        <div className={moduleStyles.box} >
+      <section className={clsx(moduleStyles.row, moduleStyles.linksRow)} >
+        <div className={clsx(moduleStyles.box)} >
           <PrismicRichText field={slice.primary.link_box_heading} components={components} />
           <PrismicRichText field={slice.primary.link_box_body} components={components} />
-          <ul>
+          <ul className={moduleStyles.linksList} >
             {slice.primary.link.map((link, i) => (
               <li key={link.key}>
-                {i % 2 === 0 && <Button field={link} color="brown-300" />}
-                {i % 2 !== 0 && <Button field={link} color="brown-700" />}
+                {i % 2 === 0 && <Button field={link} color="brown-300" className={moduleStyles.button} />}
+                {i % 2 !== 0 && <Button field={link} color="brown-700" className={moduleStyles.button} />}
               </li>
             ))}
           </ul>
