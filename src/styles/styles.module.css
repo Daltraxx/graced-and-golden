@@ -242,6 +242,23 @@
    background: hsl(21, 24%, 36%);
 }
 
+.buttonBrown700 {
+   color: var(--cream-300);
+   background: var(--brown-700);
+}
+
+.buttonBrown700:focus {
+   background: hsl(17, 39%, 32%);
+}
+
+.buttonBrown700:hover {
+   background: hsl(17, 39%, 32%);
+}
+
+.buttonBrown700:active {
+   background: hsl(17, 39%, 26%);
+}
+
 .buttonBrown800 {
    color: var(--cream-300);
    background: var(--brown-800);
