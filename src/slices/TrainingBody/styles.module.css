@@ -144,6 +144,7 @@ ul.linksList {
       margin-top: 2rem;
    }
 
+   /* INTRO ROW */
    .introRow {
       max-height: 20rem;
    }
@@ -160,18 +161,35 @@ ul.linksList {
       max-width: 20rem;
    }
 
-
+   /* INCLUDES ROW */
    .includesRow {
       flex-direction: column;
+   }
+
+   /* DETAILS ROW */
+   .detailsBox {
+      flex-basis: 33%;
+   }
+
+   /* ---for centering when heading is 2 lines, could be better fixed with fixed heading percentage height */
+   .detailsBox:nth-child(2) h4 {
+      margin: 0;
+   }
+
+   .detailsBody {
+      height: 75%;
+      display: flex;
+      align-items: center;
    }
 }
 
 @media only screen and (min-width: 850px) {
+   /* INTRO ROW */
    .introRow {
       max-height: 18rem;
    }
 
-
+   /* INCLUDES ROW */
    .includesRow {
       flex-direction: row;
    }
@@ -193,5 +211,25 @@ ul.linksList {
       padding: 0 3rem;
       display: flex;
       align-items: center;
+   }
+
+   /* DETAILS ROW */
+   .detailsRow {
+      gap: 2rem;
+   }
+}
+
+@media only screen and (min-width: 1000px) {
+   /* DETAILS ROW */
+   .detailsRow {
+      gap: 4rem;
+   }
+}
+
+@media only screen and (min-width: 1075px) {
+   /* DETAILS ROW */
+   /* ---heading becomes 1 line again, re-introduce margin, could be better fixed with fixed heading percentage height */
+   .detailsBox:nth-child(2) h4 {
+      margin-bottom: 1rem;
    }
 }

@@ -72,18 +72,24 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         </section>
       </section>
 
-      <div className={moduleStyles.row} >
+      <div className={clsx(moduleStyles.row, moduleStyles.detailsRow)} >
         <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
           <PrismicRichText field={slice.primary.requirements_heading} components={components} />
-          <PrismicRichText field={slice.primary.requirements_body} components={components} />
+          <div >
+            <PrismicRichText field={slice.primary.requirements_body} components={components} />
+          </div>
         </section>
         <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
           <PrismicRichText field={slice.primary.format_and_location_heading} components={components} />
-          <PrismicRichText field={slice.primary.format_and_location_details_list} components={components} />
+          <div className={moduleStyles.detailsBody} >
+            <PrismicRichText field={slice.primary.format_and_location_details_list} components={components} />
+          </div>
         </section>
         <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
           <PrismicRichText field={slice.primary.booking_and_availability_heading} components={components} />
-          <PrismicRichText field={slice.primary.booking_and_availability_body} components={components} />
+          <div className={moduleStyles.detailsBody} >
+            <PrismicRichText field={slice.primary.booking_and_availability_body} components={components} />
+          </div>
         </section>
       </div>
 
