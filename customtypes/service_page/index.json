@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "services_hero": {
+              "type": "SharedSlice"
+            },
             "training_body": {
               "type": "SharedSlice"
             },

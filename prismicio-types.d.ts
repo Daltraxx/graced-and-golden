@@ -332,7 +332,10 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ServicePageDocumentDataSlicesSlice = TrainingBodySlice | ServiceHeroSlice;
+type ServicePageDocumentDataSlicesSlice =
+  | ServicesHeroSlice
+  | TrainingBodySlice
+  | ServiceHeroSlice;
 
 /**
  * Content for Service Page documents
