@@ -88,9 +88,9 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           <PrismicRichText field={slice.primary.link_box_body} components={components} />
           <ul>
             {slice.primary.link.map((link, i) => (
-              <li>
-                {i % 2 === 0 && <Button key={link.key} field={link} color="brown-300" />}
-                {i % 2 !== 0 && <Button key={link.key} field={link} color="brown-700" />}
+              <li key={link.key}>
+                {i % 2 === 0 && <Button field={link} color="brown-300" />}
+                {i % 2 !== 0 && <Button field={link} color="brown-700" />}
               </li>
             ))}
           </ul>
