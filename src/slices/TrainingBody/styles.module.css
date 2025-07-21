@@ -5,7 +5,17 @@
 .boundedContainer h2,
 .boundedContainer h3,
 .boundedContainer h4 {
+   color: var(--black-700);
    text-align: center;
+}
+
+.boundedContainer h3,
+.boundedContainer h4 {
+   font-weight: 600;
+}
+
+.boundedContainer p {
+   color: var(--black-700);
 }
 
 .row {
@@ -33,3 +43,55 @@
    width: 75%;
 }
 
+/* INCLUDES ROW */
+/* ---Negate some styles for this row */
+.includesRow .box {
+   border-radius: 0;
+}
+.includesRow.row {
+   gap: 0;
+}
+
+/* ---Main Body */
+.includesMainBody,
+.includesSideBar {
+   padding: 1.5rem 1rem;
+}
+
+.includesMainBody {
+   background: var(--beige-300);
+}
+
+.includesRow .includesMainBody {
+   border-radius: 10px 10px 0 0;
+}
+
+.includesMainBody ul {
+   margin-top: 1rem;
+   padding: 0 1.25rem;
+}
+
+.includesMainBody li:not(:last-child) {
+   margin-bottom: .5rem;
+}
+
+/* ---Side Bar */
+.includesRow .includesSideBar {
+   border-radius: 0 0 10px 10px;
+}
+
+.includesSideBar {
+   background: var(--brown-500);
+   text-align: center;
+}
+
+.includesSideBar h4 {
+   margin: .5rem 0 1rem 0;
+   color: var(--cream-200);
+   font-size: 1.2rem;
+   font-weight: normal;
+}
+
+.includesSideBar p {
+   color: var(--cream-200);
+}
