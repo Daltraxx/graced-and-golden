@@ -3,6 +3,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
+import moduleStyles from '@/slices/SimpleHero/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
@@ -11,7 +12,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="sm" className='' >
+    <Heading as="h2" size="sm" className='' fontDisplay={false} >
       {children}
     </Heading>
   )
@@ -30,10 +31,11 @@ const SimpleHero: FC<SimpleHeroProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
-      <div style={{backgroundImage: `url(${slice.primary.background_image.url})`}}>
-        <PrismicRichText field={slice.primary.main_heading} />
-        <PrismicRichText field={slice.primary.sub_heading} />
+      <div style={{backgroundImage: `url(${slice.primary.background_image.url})`}} className={moduleStyles.heroContainer} >
+        <PrismicRichText field={slice.primary.main_heading} components={components} />
+        <PrismicRichText field={slice.primary.sub_heading} components={components} />
       </div>
     </Bounded>
   );

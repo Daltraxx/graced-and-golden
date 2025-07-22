@@ -1,0 +1,18 @@
+.boundedContainer {
+   background: var(--cream-300)
+}
+
+.heroContainer {
+   padding: 3rem;
+   color: var(--cream-200);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+   text-align: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: -50px 0;
+}
+
