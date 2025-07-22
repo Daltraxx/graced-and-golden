@@ -270,8 +270,7 @@ type PageDocumentDataSlicesSlice =
   | BridalCtaSlice
   | InfoListWideImageSlice
   | TryptichSlice
-  | Info3ColSlice
-  | IntroductionSlice;
+  | Info3ColSlice;
 
 /**
  * Content for Page documents
@@ -968,68 +967,6 @@ export type ContactSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Hero → Default → Primary*
- */
-export interface HeroSliceDefaultPrimary {
-  /**
-   * Image field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Heading field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.RichTextField;
-
-  /**
-   * Button field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.button
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
- * Default variation for Hero Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<HeroSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Hero*
- */
-type HeroSliceVariation = HeroSliceDefault;
-
-/**
- * Hero Shared Slice
- *
- * - **API ID**: `hero`
- * - **Description**: Hero
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
-
-/**
  * Primary content in *HeroThreeImage → Default → Primary*
  */
 export interface HeroThreeImageSliceDefaultPrimary {
@@ -1623,105 +1560,6 @@ type InfoListWideImageSliceVariation = InfoListWideImageSliceDefault;
 export type InfoListWideImageSlice = prismic.SharedSlice<
   "info_list_wide_image",
   InfoListWideImageSliceVariation
->;
-
-/**
- * Item in *Introduction → Default → Primary → Paragraphs Column 1*
- */
-export interface IntroductionSliceDefaultPrimaryParagraphsColumn1Item {
-  /**
-   * Paragraph field in *Introduction → Default → Primary → Paragraphs Column 1*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.paragraphs_column_1[].paragraph
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  paragraph: prismic.RichTextField;
-}
-
-/**
- * Item in *Introduction → Default → Primary → Paragraphs Column 2*
- */
-export interface IntroductionSliceDefaultPrimaryParagraphsColumn2Item {
-  /**
-   * Paragraph field in *Introduction → Default → Primary → Paragraphs Column 2*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.paragraphs_column_2[].paragraph
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  paragraph: prismic.RichTextField;
-}
-
-/**
- * Primary content in *Introduction → Default → Primary*
- */
-export interface IntroductionSliceDefaultPrimary {
-  /**
-   * Heading field in *Introduction → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.RichTextField;
-
-  /**
-   * Paragraphs Column 1 field in *Introduction → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.paragraphs_column_1[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  paragraphs_column_1: prismic.GroupField<
-    Simplify<IntroductionSliceDefaultPrimaryParagraphsColumn1Item>
-  >;
-
-  /**
-   * Paragraphs Column 2 field in *Introduction → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: introduction.default.primary.paragraphs_column_2[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  paragraphs_column_2: prismic.GroupField<
-    Simplify<IntroductionSliceDefaultPrimaryParagraphsColumn2Item>
-  >;
-}
-
-/**
- * Default variation for Introduction Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type IntroductionSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<IntroductionSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Introduction*
- */
-type IntroductionSliceVariation = IntroductionSliceDefault;
-
-/**
- * Introduction Shared Slice
- *
- * - **API ID**: `introduction`
- * - **Description**: Introduction
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type IntroductionSlice = prismic.SharedSlice<
-  "introduction",
-  IntroductionSliceVariation
 >;
 
 /**
@@ -2851,10 +2689,6 @@ declare module "@prismicio/client" {
       ContactSliceDefaultPrimary,
       ContactSliceVariation,
       ContactSliceDefault,
-      HeroSlice,
-      HeroSliceDefaultPrimary,
-      HeroSliceVariation,
-      HeroSliceDefault,
       HeroThreeImageSlice,
       HeroThreeImageSliceDefaultPrimary,
       HeroThreeImageSliceVariation,
@@ -2882,12 +2716,6 @@ declare module "@prismicio/client" {
       InfoListWideImageSliceDefaultPrimary,
       InfoListWideImageSliceVariation,
       InfoListWideImageSliceDefault,
-      IntroductionSlice,
-      IntroductionSliceDefaultPrimaryParagraphsColumn1Item,
-      IntroductionSliceDefaultPrimaryParagraphsColumn2Item,
-      IntroductionSliceDefaultPrimary,
-      IntroductionSliceVariation,
-      IntroductionSliceDefault,
       MainServicesSlice,
       MainServicesSliceDefaultPrimaryServiceItem,
       MainServicesSliceDefaultPrimary,
