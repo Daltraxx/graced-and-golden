@@ -8,6 +8,11 @@
    color: var(--brown-725);
 }
 
+.boundedContainer p,
+.boundedContainer li {
+   color: var(--black-700);
+}
+
 .mainContentContainer {
    display: flex;
    flex-direction: column;
@@ -93,4 +98,47 @@
    justify-content: center;
    align-items: center;
    border-radius: 0 0 5px 5px;
+}
+
+@media only screen and (min-width: 768px) {
+   .mainContentContainer {
+      gap: 2rem;
+   }
+   .row {
+      flex-direction: row;
+   }
+
+   .detailsRow .box {
+      flex-basis: 33%;
+   }
+
+   .boxHeadingContainer {
+      height: 15%;
+   }
+
+   .detailsRow p {
+      text-align: start;
+   }
+
+   .bookingDetailsBox {
+      min-width: 17.625rem;
+   }
+
+   .contactContainer {
+      display: flex;
+      height: fit-content;
+   }
+
+   .contactContainer > div {
+      height: 7rem;
+   }
+
+   .contactHeadingContainer {
+      border-radius: 5px 0 0 5px;
+   }
+
+   .contactButtonContainer {
+      border-radius: 0 5px 5px 0;
+      padding: 0 1rem;
+   }
 }

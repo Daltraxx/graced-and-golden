@@ -55,7 +55,8 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
     >
       <PrismicRichText field={slice.primary.main_heading} components={components} />
       <div className={moduleStyles.mainContentContainer} >
-        <div className={moduleStyles.row} >
+
+        <div className={clsx(moduleStyles.row, moduleStyles.detailsRow)} >
           <section className={moduleStyles.box} >
             <div className={moduleStyles.boxHeadingContainer} >
               <PrismicRichText field={slice.primary.description_heading} components={components} />
@@ -75,6 +76,7 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.additional_details_body} components={components} />
           </section>
         </div>
+
         <div className={moduleStyles.row} >
           <section className={moduleStyles.bookingDetailsContainer} >
             <div className={clsx(moduleStyles.box, moduleStyles.bookingDetailsBox)} >
@@ -93,6 +95,7 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
             </div>
           </section>
         </div>
+
       </div>
     </Bounded>
   );
