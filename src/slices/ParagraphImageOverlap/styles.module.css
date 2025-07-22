@@ -44,3 +44,26 @@
       height: 36.5rem;
    }
 }
+
+@media only screen and (min-width: 500px) {
+   .boundedContainer {
+      padding: 1rem 2rem;
+   }
+
+   .contentContainer {
+      height: 52rem;
+   }
+   
+   .textContainer {
+      width: 60%;
+      position: absolute;
+      left: 5%;
+      opacity: .9;
+   }
+
+   .imageContainer {
+      width: 55%;
+      height: 90%;
+      left: 45%;
+   }
+}
