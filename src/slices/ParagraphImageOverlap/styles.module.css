@@ -1,0 +1,19 @@
+.boundedContainer {
+   background: var(--brown-200);
+}
+
+.textContainer {
+   background: var(--beige-300);
+   padding: 1.5rem 1rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.textContainer strong {
+   color: var(--brown-700);
+}
+
+.imageContainer {
+   background-repeat: no-repeat;
+}

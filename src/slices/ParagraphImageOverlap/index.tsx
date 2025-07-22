@@ -7,7 +7,7 @@ import moduleStyles from '@/slices/ParagraphImageOverlap/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className='' fontDisplay={false} >
+    <Heading as="h3" size="xs" className='' fontDisplay={false} >
       {children}
     </Heading>
   ),
@@ -30,13 +30,14 @@ const ParagraphImageOverlap: FC<ParagraphImageOverlapProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
       <div>
-        <section>
+        <section className={moduleStyles.textContainer} >
           <PrismicRichText field={slice.primary.heading} components={components} />
           <PrismicRichText field={slice.primary.body_text} components={components} />
         </section>
-        <div style={{ backgroundImage: `url(${slice.primary.image.url})`}}></div>
+        <div style={{ backgroundImage: `url(${slice.primary.image.url})`}} className={moduleStyles.imageContainer} ></div>
       </div>
     </Bounded>
   );
