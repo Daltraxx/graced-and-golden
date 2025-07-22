@@ -31,8 +31,10 @@ const ParagraphImageOverlap: FC<ParagraphImageOverlapProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
+      horizontalSpacing={false}
+      verticalPadding={false}
     >
-      <div>
+      <div className={moduleStyles.contentContainer} >
         <section className={moduleStyles.textContainer} >
           <PrismicRichText field={slice.primary.heading} components={components} />
           <PrismicRichText field={slice.primary.body_text} components={components} />
