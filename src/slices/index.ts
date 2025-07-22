@@ -15,6 +15,7 @@ export const components = {
   service_body: dynamic(() => import("./ServiceBody")),
   service_hero: dynamic(() => import("./ServiceHero")),
   services_hero: dynamic(() => import("./ServicesHero")),
+  simple_hero: dynamic(() => import("./SimpleHero")),
   single_column: dynamic(() => import("./SingleColumn")),
   testimonials: dynamic(() => import("./Testimonials")),
   timeline: dynamic(() => import("./Timeline")),

@@ -259,6 +259,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SimpleHeroSlice
   | MainServicesSlice
   | ServicesHeroSlice
   | TimelineSlice
@@ -2014,6 +2015,71 @@ export type ServicesHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SimpleHero → Default → Primary*
+ */
+export interface SimpleHeroSliceDefaultPrimary {
+  /**
+   * Main Heading field in *SimpleHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_hero.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Sub-Heading field in *SimpleHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_hero.default.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+
+  /**
+   * Background Image field in *SimpleHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_hero.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SimpleHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SimpleHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SimpleHero*
+ */
+type SimpleHeroSliceVariation = SimpleHeroSliceDefault;
+
+/**
+ * SimpleHero Shared Slice
+ *
+ * - **API ID**: `simple_hero`
+ * - **Description**: SimpleHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleHeroSlice = prismic.SharedSlice<
+  "simple_hero",
+  SimpleHeroSliceVariation
+>;
+
+/**
  * Primary content in *SingleColumn → Default → Primary*
  */
 export interface SingleColumnSliceDefaultPrimary {
@@ -2733,6 +2799,10 @@ declare module "@prismicio/client" {
       ServicesHeroSliceDefaultPrimary,
       ServicesHeroSliceVariation,
       ServicesHeroSliceDefault,
+      SimpleHeroSlice,
+      SimpleHeroSliceDefaultPrimary,
+      SimpleHeroSliceVariation,
+      SimpleHeroSliceDefault,
       SingleColumnSlice,
       SingleColumnSliceDefaultPrimary,
       SingleColumnSliceVariation,
