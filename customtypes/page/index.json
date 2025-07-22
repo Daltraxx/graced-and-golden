@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "paragraph_image_overlap": {
+              "type": "SharedSlice"
+            },
             "simple_hero": {
               "type": "SharedSlice"
             },

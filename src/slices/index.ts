@@ -12,6 +12,7 @@ export const components = {
   info4_col: dynamic(() => import("./Info4Col")),
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
   main_services: dynamic(() => import("./MainServices")),
+  paragraph_image_overlap: dynamic(() => import("./ParagraphImageOverlap")),
   service_body: dynamic(() => import("./ServiceBody")),
   service_hero: dynamic(() => import("./ServiceHero")),
   services_hero: dynamic(() => import("./ServicesHero")),

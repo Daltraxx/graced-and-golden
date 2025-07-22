@@ -259,6 +259,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ParagraphImageOverlapSlice
   | SimpleHeroSlice
   | MainServicesSlice
   | ServicesHeroSlice
@@ -1698,6 +1699,71 @@ export type MainServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ParagraphImageOverlap → Default → Primary*
+ */
+export interface ParagraphImageOverlapSliceDefaultPrimary {
+  /**
+   * Heading field in *ParagraphImageOverlap → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraph_image_overlap.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body Text field in *ParagraphImageOverlap → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraph_image_overlap.default.primary.body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Image field in *ParagraphImageOverlap → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: paragraph_image_overlap.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ParagraphImageOverlap Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraphImageOverlapSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ParagraphImageOverlapSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ParagraphImageOverlap*
+ */
+type ParagraphImageOverlapSliceVariation = ParagraphImageOverlapSliceDefault;
+
+/**
+ * ParagraphImageOverlap Shared Slice
+ *
+ * - **API ID**: `paragraph_image_overlap`
+ * - **Description**: ParagraphImageOverlap
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ParagraphImageOverlapSlice = prismic.SharedSlice<
+  "paragraph_image_overlap",
+  ParagraphImageOverlapSliceVariation
+>;
+
+/**
  * Primary content in *ServiceBody → Default → Primary*
  */
 export interface ServiceBodySliceDefaultPrimary {
@@ -2787,6 +2853,10 @@ declare module "@prismicio/client" {
       MainServicesSliceDefaultPrimary,
       MainServicesSliceVariation,
       MainServicesSliceDefault,
+      ParagraphImageOverlapSlice,
+      ParagraphImageOverlapSliceDefaultPrimary,
+      ParagraphImageOverlapSliceVariation,
+      ParagraphImageOverlapSliceDefault,
       ServiceBodySlice,
       ServiceBodySliceDefaultPrimary,
       ServiceBodySliceVariation,
