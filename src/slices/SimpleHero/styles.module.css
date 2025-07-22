@@ -1,5 +1,5 @@
 .boundedContainer {
-   background: var(--cream-300)
+   background: var(--beige-300);
 }
 
 .heroContainer {
@@ -16,8 +16,22 @@
    background-position: -50px 0;
 }
 
+.heroContainer h2 {
+   font-size: 1.5rem;
+}
+
 @media only screen and (min-width: 350px) {
    .heroContainer {
       background-position: 0;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+   .heroContainer {
+      margin: 2rem 0;
+   }
+   .heroContainer h2 {
+      max-width: 30rem;
+      font-size: 1.875rem;
    }
 }
