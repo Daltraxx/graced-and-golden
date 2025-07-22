@@ -1,0 +1,96 @@
+.boundedContainer {
+   background: var(--brown-200);
+}
+
+.boundedContainer h2 {
+   text-align: center;
+   margin-bottom: 1.5rem;
+   color: var(--brown-725);
+}
+
+.mainContentContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.row {
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+}
+
+.box {
+   background: var(--beige-300);
+   text-align: center;
+   border-radius: 5px;
+   padding: 1rem;
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.boxHeadingContainer > * {
+   color: var(--brown-700);
+   padding-bottom: 1rem;
+}
+
+.button {
+   width: 7rem;
+}
+
+/* DETAILS ROW */
+.includesBox ul {
+   text-align: start;
+   padding-left: 1rem;
+}
+
+.includesBox li::marker {
+   color: var(--brown-500);
+}
+
+/* BOOKING ROW */
+
+/* -Booking Details */
+
+.bookingDetailsBox {
+   text-align: start;
+}
+
+.bookingDetailsBox strong {
+   color: var(--brown-500);
+}
+
+.bookingDetailsBox p:not(:last-of-type) {
+   margin-bottom: .25rem;
+}
+
+.bookingDetailsContainer a {
+   margin: 1rem auto 0 auto;
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* -Contact/More Info */
+
+.contactContainer {
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.contactHeadingContainer {
+   text-align: center;
+   color: var(--cream-200);
+   background: var(--brown-500);
+   height: 6rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 1rem 1rem;
+   border-radius: 5px 5px 0 0;
+}
+
+.contactButtonContainer {
+   background: var(--beige-300);
+   height: 6rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 0 0 5px 5px;
+}

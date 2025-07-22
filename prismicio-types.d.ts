@@ -333,6 +333,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicePageDocumentDataSlicesSlice =
+  | BridalCtaSlice
   | ServiceBodySlice
   | ServicesHeroSlice
   | TrainingBodySlice

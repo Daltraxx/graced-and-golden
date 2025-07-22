@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "bridal_cta": {
+              "type": "SharedSlice"
+            },
             "service_body": {
               "type": "SharedSlice"
             },
