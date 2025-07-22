@@ -3,7 +3,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage } from "@prismicio/next";
 import moduleStyles from '@/slices/TrainingBody/styles.module.css';
 import clsx from "clsx";
 import Button from "@/components/Button/Button";
