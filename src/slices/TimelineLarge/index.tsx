@@ -5,6 +5,7 @@ import Heading from "@/components/Heading";
 import Bounded from '../../components/Bounded';
 import moduleStyles from '@/slices/TimelineLarge/styles.module.css';
 import Image from 'next/image';
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -64,12 +65,7 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
       
       <div className={moduleStyles.contentContainer} >
         {firstTimelineSection}
-        <div className={moduleStyles.imagesContainer} >
-          <div style={{backgroundImage: `url(${slice.primary.image_1.url})`}} ></div>
-          <div className={moduleStyles.logoImage} ></div>
-          <div style={{backgroundImage: `url(${slice.primary.image_2.url})`}} ></div>
-          <div className={moduleStyles.logoImage} ></div>
-        </div>
+        <div style={{backgroundImage: `url(${slice.primary.graphic.url})`}} className={moduleStyles.graphic} ></div>
         {remainingTimelineSections}
       </div>
       

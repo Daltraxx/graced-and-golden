@@ -48,19 +48,14 @@
             }
           }
         },
-        "image_1": {
+        "graphic": {
           "type": "Image",
           "config": {
-            "label": "Image 1",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "image_2": {
-          "type": "Image",
-          "config": {
-            "label": "Image 2",
-            "constraint": {},
+            "label": "Graphic",
+            "constraint": {
+              "width": 1000,
+              "height": 1000
+            },
             "thumbnails": []
           }
         }

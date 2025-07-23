@@ -2507,24 +2507,14 @@ export interface TimelineLargeSliceDefaultPrimary {
   >;
 
   /**
-   * Image 1 field in *TimelineLarge → Default → Primary*
+   * Graphic field in *TimelineLarge → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: timeline_large.default.primary.image_1
+   * - **API ID Path**: timeline_large.default.primary.graphic
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image_1: prismic.ImageField<never>;
-
-  /**
-   * Image 2 field in *TimelineLarge → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: timeline_large.default.primary.image_2
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_2: prismic.ImageField<never>;
+  graphic: prismic.ImageField<never>;
 }
 
 /**
