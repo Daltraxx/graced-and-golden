@@ -1,0 +1,22 @@
+.boundedContainer {
+   background: var(--beige-300);
+   text-align: center;
+}
+
+.mainHeading {
+   margin-bottom: 1rem;
+}
+
+.sectionHeading {
+   color: var(--gold-700);
+   font-weight: 600;
+   margin-bottom: .25rem;
+}
+
+.contentContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   max-width: 20rem;
+   margin: 0 auto;
+}

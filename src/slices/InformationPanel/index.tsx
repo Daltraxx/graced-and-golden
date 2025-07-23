@@ -7,12 +7,12 @@ import Bounded from "@/components/Bounded";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className="">
+    <Heading as="h3" size="lg" className={moduleStyles.mainHeading} >
       {children}
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h4" size="md" fontDisplay={false} className="">
+    <Heading as="h4" size="xs" fontDisplay={false} className={moduleStyles.sectionHeading} >
       {children}
     </Heading>
   ),
@@ -35,13 +35,14 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
-      <PrismicRichText field={slice.primary.main_heading} />
-      <section>
+      <PrismicRichText field={slice.primary.main_heading} components={components} />
+      <section className={moduleStyles.contentContainer} >
         {slice.primary.info_block.map((item, i) => (
           <section key={`info-section-${i}`}>
-            <PrismicRichText field={item.info_heading} />
-            <PrismicRichText field={item.info_body} />
+            <PrismicRichText field={item.info_heading} components={components} />
+            <PrismicRichText field={item.info_body} components={components} />
           </section>
         ))}
       </section>
