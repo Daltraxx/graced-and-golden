@@ -4,8 +4,6 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Heading from "@/components/Heading";
 import Bounded from '../../components/Bounded';
 import moduleStyles from '@/slices/TimelineLarge/styles.module.css';
-import Image from 'next/image';
-import clsx from "clsx";
 import { PrismicNextImage } from "@prismicio/next";
 
 const components: JSXMapSerializer = {
