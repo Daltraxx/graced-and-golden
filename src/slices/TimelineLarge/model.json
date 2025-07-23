@@ -1,0 +1,71 @@
+{
+  "id": "timeline_large",
+  "type": "SharedSlice",
+  "name": "TimelineLarge",
+  "description": "TimelineLarge",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading2,strong,em"
+          }
+        },
+        "timeline_section": {
+          "type": "Group",
+          "config": {
+            "label": "Timeline Section",
+            "repeat": true,
+            "fields": {
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": "",
+                  "allowTargetBlank": false,
+                  "single": "heading3,strong,em"
+                }
+              },
+              "care_list": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Care List",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "list-item,strong,em"
+                }
+              }
+            }
+          }
+        },
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

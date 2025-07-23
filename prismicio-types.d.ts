@@ -259,6 +259,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TimelineLargeSlice
   | ParagraphImageOverlapSlice
   | SimpleHeroSlice
   | MainServicesSlice
@@ -2455,6 +2456,108 @@ export type TimelineSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *TimelineLarge → Default → Primary → Timeline Section*
+ */
+export interface TimelineLargeSliceDefaultPrimaryTimelineSectionItem {
+  /**
+   * Heading field in *TimelineLarge → Default → Primary → Timeline Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_large.default.primary.timeline_section[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Care List field in *TimelineLarge → Default → Primary → Timeline Section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_large.default.primary.timeline_section[].care_list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  care_list: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *TimelineLarge → Default → Primary*
+ */
+export interface TimelineLargeSliceDefaultPrimary {
+  /**
+   * Main Heading field in *TimelineLarge → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_large.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Timeline Section field in *TimelineLarge → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_large.default.primary.timeline_section[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  timeline_section: prismic.GroupField<
+    Simplify<TimelineLargeSliceDefaultPrimaryTimelineSectionItem>
+  >;
+
+  /**
+   * Image 1 field in *TimelineLarge → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_large.default.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *TimelineLarge → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_large.default.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for TimelineLarge Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineLargeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TimelineLargeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TimelineLarge*
+ */
+type TimelineLargeSliceVariation = TimelineLargeSliceDefault;
+
+/**
+ * TimelineLarge Shared Slice
+ *
+ * - **API ID**: `timeline_large`
+ * - **Description**: TimelineLarge
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineLargeSlice = prismic.SharedSlice<
+  "timeline_large",
+  TimelineLargeSliceVariation
+>;
+
+/**
  * Primary content in *TrainingBody → Default → Primary*
  */
 export interface TrainingBodySliceDefaultPrimary {
@@ -2887,6 +2990,11 @@ declare module "@prismicio/client" {
       TimelineSliceDefaultPrimary,
       TimelineSliceVariation,
       TimelineSliceDefault,
+      TimelineLargeSlice,
+      TimelineLargeSliceDefaultPrimaryTimelineSectionItem,
+      TimelineLargeSliceDefaultPrimary,
+      TimelineLargeSliceVariation,
+      TimelineLargeSliceDefault,
       TrainingBodySlice,
       TrainingBodySliceDefaultPrimary,
       TrainingBodySliceVariation,

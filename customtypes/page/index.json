@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "timeline_large": {
+              "type": "SharedSlice"
+            },
             "paragraph_image_overlap": {
               "type": "SharedSlice"
             },

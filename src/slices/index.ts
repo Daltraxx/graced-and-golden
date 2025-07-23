@@ -20,6 +20,7 @@ export const components = {
   single_column: dynamic(() => import("./SingleColumn")),
   testimonials: dynamic(() => import("./Testimonials")),
   timeline: dynamic(() => import("./Timeline")),
+  timeline_large: dynamic(() => import("./TimelineLarge")),
   training_body: dynamic(() => import("./TrainingBody")),
   tryptich: dynamic(() => import("./Tryptich")),
 };
