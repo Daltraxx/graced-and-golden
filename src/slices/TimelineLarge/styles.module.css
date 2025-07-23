@@ -1,0 +1,33 @@
+.boundedContainer {
+   background: var(--brown-500);
+}
+
+.boundedContainer h2,
+.boundedContainer h3 {
+   text-align: center;
+   color: var(--beige-300);
+   margin-bottom: 1rem;
+}
+
+.contentContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+}
+
+.box {
+   background: var(--beige-300);
+   padding: 1rem;
+   padding-left: 1.5rem;
+   border-radius: 5px;
+}
+
+.box li::marker {
+   color: var(--brown-500);
+}
+
+
+.imagesContainer {
+   display: none;
+   visibility: hidden;
+}

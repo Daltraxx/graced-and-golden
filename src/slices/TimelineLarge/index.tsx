@@ -3,6 +3,7 @@ import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from '../../components/Bounded';
+import moduleStyles from '@/slices/TimelineLarge/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -36,7 +37,7 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
   const firstTimelineSection = slice.primary.timeline_section[0] && (
     <section>
       <PrismicRichText field={slice.primary.timeline_section[0].heading} components={components} />
-      <div>
+      <div className={moduleStyles.box} >
         <PrismicRichText field={slice.primary.timeline_section[0].care_list} components={components} />
       </div>
     </section>
@@ -46,7 +47,7 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
     i !== 0 && (
       <section key={`timeline-section-${i}`} >
         <PrismicRichText field={item.heading} components={components} />
-        <div>
+        <div className={moduleStyles.box} >
           <PrismicRichText field={item.care_list} components={components} />
         </div>
       </section>
@@ -56,12 +57,13 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
       <PrismicRichText field={slice.primary.main_heading} components={components} />
       
-      <div>
+      <div className={moduleStyles.contentContainer} >
         {firstTimelineSection}
-        <div>
+        <div className={moduleStyles.imagesContainer} >
           <div style={{backgroundImage: `url(${slice.primary.image_1.url})`}} ></div>
           <div style={{backgroundImage: `url(${slice.primary.image_2.url})`}} ></div>
         </div>
