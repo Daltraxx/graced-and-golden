@@ -259,6 +259,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | InformationPanelSlice
   | TimelineLargeSlice
   | ParagraphImageOverlapSlice
   | SimpleHeroSlice
@@ -1563,6 +1564,88 @@ type InfoListWideImageSliceVariation = InfoListWideImageSliceDefault;
 export type InfoListWideImageSlice = prismic.SharedSlice<
   "info_list_wide_image",
   InfoListWideImageSliceVariation
+>;
+
+/**
+ * Item in *InformationPanel → Default → Primary → Info Block*
+ */
+export interface InformationPanelSliceDefaultPrimaryInfoBlockItem {
+  /**
+   * Info Heading field in *InformationPanel → Default → Primary → Info Block*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_panel.default.primary.info_block[].info_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  info_heading: prismic.RichTextField;
+
+  /**
+   * Info Body field in *InformationPanel → Default → Primary → Info Block*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_panel.default.primary.info_block[].info_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  info_body: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *InformationPanel → Default → Primary*
+ */
+export interface InformationPanelSliceDefaultPrimary {
+  /**
+   * Main Heading field in *InformationPanel → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_panel.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Info Block field in *InformationPanel → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information_panel.default.primary.info_block[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  info_block: prismic.GroupField<
+    Simplify<InformationPanelSliceDefaultPrimaryInfoBlockItem>
+  >;
+}
+
+/**
+ * Default variation for InformationPanel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InformationPanelSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InformationPanelSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InformationPanel*
+ */
+type InformationPanelSliceVariation = InformationPanelSliceDefault;
+
+/**
+ * InformationPanel Shared Slice
+ *
+ * - **API ID**: `information_panel`
+ * - **Description**: InformationPanel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InformationPanelSlice = prismic.SharedSlice<
+  "information_panel",
+  InformationPanelSliceVariation
 >;
 
 /**
@@ -2941,6 +3024,11 @@ declare module "@prismicio/client" {
       InfoListWideImageSliceDefaultPrimary,
       InfoListWideImageSliceVariation,
       InfoListWideImageSliceDefault,
+      InformationPanelSlice,
+      InformationPanelSliceDefaultPrimaryInfoBlockItem,
+      InformationPanelSliceDefaultPrimary,
+      InformationPanelSliceVariation,
+      InformationPanelSliceDefault,
       MainServicesSlice,
       MainServicesSliceDefaultPrimaryServiceItem,
       MainServicesSliceDefaultPrimary,

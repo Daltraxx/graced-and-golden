@@ -11,6 +11,7 @@ export const components = {
   info3_col: dynamic(() => import("./Info3Col")),
   info4_col: dynamic(() => import("./Info4Col")),
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
+  information_panel: dynamic(() => import("./InformationPanel")),
   main_services: dynamic(() => import("./MainServices")),
   paragraph_image_overlap: dynamic(() => import("./ParagraphImageOverlap")),
   service_body: dynamic(() => import("./ServiceBody")),

@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "information_panel": {
+              "type": "SharedSlice"
+            },
             "timeline_large": {
               "type": "SharedSlice"
             },

@@ -1,0 +1,55 @@
+{
+  "id": "information_panel",
+  "type": "SharedSlice",
+  "name": "InformationPanel",
+  "description": "InformationPanel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,strong,em"
+          }
+        },
+        "info_block": {
+          "type": "Group",
+          "config": {
+            "label": "Info Block",
+            "repeat": true,
+            "fields": {
+              "info_heading": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Info Heading",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "heading4,strong,em"
+                }
+              },
+              "info_body": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Info Body",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
