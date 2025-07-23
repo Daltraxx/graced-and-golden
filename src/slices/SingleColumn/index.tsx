@@ -2,7 +2,6 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
-import styles from '@/styles/styles.module.css';
 import moduleStyles from '@/slices/SingleColumn/styles.module.css';
 import Heading from "@/components/Heading";
 import Button from "@/components/Button/Button";
