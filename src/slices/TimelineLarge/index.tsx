@@ -6,6 +6,7 @@ import Bounded from '../../components/Bounded';
 import moduleStyles from '@/slices/TimelineLarge/styles.module.css';
 import Image from 'next/image';
 import clsx from "clsx";
+import { PrismicNextImage } from "@prismicio/next";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -37,7 +38,7 @@ export type TimelineLargeProps =
 const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
 
   const firstTimelineSection = slice.primary.timeline_section[0] && (
-    <section>
+    <section className={moduleStyles.timelineSection} >
       <PrismicRichText field={slice.primary.timeline_section[0].heading} components={components} />
       <div className={moduleStyles.box} >
         <PrismicRichText field={slice.primary.timeline_section[0].care_list} components={components} />
@@ -47,7 +48,7 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
 
   const remainingTimelineSections = slice.primary.timeline_section.map((item, i) => (
     i !== 0 && (
-      <section key={`timeline-section-${i}`} >
+      <section key={`timeline-section-${i}`} className={moduleStyles.timelineSection} >
         <PrismicRichText field={item.heading} components={components} />
         <div className={moduleStyles.box} >
           <PrismicRichText field={item.care_list} components={components} />
@@ -65,7 +66,7 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
       
       <div className={moduleStyles.contentContainer} >
         {firstTimelineSection}
-        <div style={{backgroundImage: `url(${slice.primary.graphic.url})`}} className={moduleStyles.graphic} ></div>
+        <PrismicNextImage field={slice.primary.graphic} className={moduleStyles.graphic} />
         {remainingTimelineSections}
       </div>
       

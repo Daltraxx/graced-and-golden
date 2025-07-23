@@ -33,11 +33,33 @@
 }
 
 @media only screen and (min-width: 768px) {
+   .contentContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      justify-content: center;
+      column-gap: 3rem;
+   }
+
+   .timelineSection:nth-of-type(-n + 2) .box {
+      height: 9.5rem;
+   }
+
+   .box {
+      border-radius: 0;
+      max-width: 30rem;
+      justify-self: center;
+   }
+
    .graphic {
       display: block;
       visibility: visible;
-      height: 30rem;
-      width: 30rem;
       background-size: contain;
+      background-repeat: no-repeat;
+      width: 28.5rem;
+      grid-row-start: 2;
+      grid-row-end: 4;
+      justify-self: center;
+      align-self: end;
    }
 }
