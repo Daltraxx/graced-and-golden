@@ -40,7 +40,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
       <PrismicRichText field={slice.primary.main_heading} components={components} />
       <section className={moduleStyles.contentContainer} >
         {slice.primary.info_block.map((item, i) => (
-          <section key={`info-section-${i}`}>
+          <section key={`info-section-${i}`} className={moduleStyles.sectionContainer} >
             <PrismicRichText field={item.info_heading} components={components} />
             <PrismicRichText field={item.info_body} components={components} />
           </section>

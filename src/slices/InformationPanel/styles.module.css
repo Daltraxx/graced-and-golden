@@ -5,6 +5,7 @@
 
 .mainHeading {
    margin-bottom: 1rem;
+   color: var(--brown-500)
 }
 
 .sectionHeading {
@@ -17,6 +18,27 @@
    display: flex;
    flex-direction: column;
    gap: 2rem;
+}
+
+.sectionContainer {
    max-width: 20rem;
    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+   .mainHeading {
+      margin-bottom: 2rem;
+   }
+   .contentContainer {
+      text-align: start;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      column-gap: 4rem;
+      margin: 0;
+   }
+
+   .sectionContainer {
+      max-width: 30rem;
+   }
 }
