@@ -9,7 +9,10 @@ import Button from "@/components/Button/Button";
 
 const components : JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="md" className="my-4">{children}</Heading>
+    <Heading as="h2" size="sm" className="my-4">{children}</Heading>
+  ),
+  heading3: ({children}) => (
+    <Heading as="h3" size="sm" className="my-4" >{children}</Heading>
   ),
   paragraph: ({children}) => (
     <p className="">{children}</p>
@@ -26,17 +29,17 @@ export type SingleColumnProps = SliceComponentProps<Content.SingleColumnSlice>;
  */
 const SingleColumn: FC<SingleColumnProps> = ({ slice }) => {
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={`${styles.backgroundCream300}`} horizontalSpacing={false}>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={moduleStyles.boundedContainer} horizontalSpacing={false}>
       <div className={`${moduleStyles.container}`}>
         <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={`${moduleStyles.contentContainer} `}>
           <PrismicRichText field={slice.primary.heading} components={components}/>
           <PrismicRichText field={slice.primary.body} components={components}/>
           <ul className={`${moduleStyles.buttonContainer}`}>
             <li>
-              <Button field={slice.primary.link_left} className={`${styles.buttonCream200} ${moduleStyles.button}`} />
+              <Button field={slice.primary.link_left} className={`${moduleStyles.button}`} color="brown-200" />
             </li>
             <li>
-              <Button field={slice.primary.link_right} className={`${styles.buttonCream200} ${moduleStyles.button}`} />
+              <Button field={slice.primary.link_right} className={`${moduleStyles.button}`} color="brown-500" />
             </li>
           </ul>
         </div>

@@ -259,6 +259,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SingleColumnSlice
   | InformationPanelSlice
   | TimelineLargeSlice
   | ParagraphImageOverlapSlice
