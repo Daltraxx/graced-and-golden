@@ -279,6 +279,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               className={moduleStyles.inquiryField}
               // onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
               aria-describedby="name-error"
+              autoComplete="name"
             />
             <div id="name-error" aria-live="polite" aria-atomic >
               {name.errors.map((errorMessage, i) => (
@@ -297,6 +298,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               className={moduleStyles.inquiryField}
               onChange={handlePhoneNumberChange}
               aria-describedby="phone-number-error"
+              autoComplete="tel"
             />
             <div id="phone-number-error" aria-live="polite" aria-atomic >
               {phoneNumber.errors.map((errorMessage, i) => (
@@ -315,6 +317,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               className={moduleStyles.inquiryField}
               onChange={handleEmailChange}
               aria-describedby="email-error"
+              autoComplete="email"
             />
             <div id="email-error" aria-live="polite" aria-atomic >
               {email.errors.map((errorMessage, i) => (
