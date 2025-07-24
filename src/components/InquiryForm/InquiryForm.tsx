@@ -281,7 +281,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               aria-describedby="name-error"
               autoComplete="name"
             />
-            <div id="name-error" aria-live="polite" aria-atomic >
+            <div id="name-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {name.errors.map((errorMessage, i) => (
                 <p key={`name-error-${i}`}>{errorMessage}</p>
               ))}
@@ -300,7 +300,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               aria-describedby="phone-number-error"
               autoComplete="tel"
             />
-            <div id="phone-number-error" aria-live="polite" aria-atomic >
+            <div id="phone-number-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {phoneNumber.errors.map((errorMessage, i) => (
                 <p key={`phone-error-${i}`}>{errorMessage}</p>
               ))}
@@ -319,7 +319,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               aria-describedby="email-error"
               autoComplete="email"
             />
-            <div id="email-error" aria-live="polite" aria-atomic >
+            <div id="email-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {email.errors.map((errorMessage, i) => (
                 <p key={`email-error-${i}`}>{errorMessage}</p>
               ))}
@@ -338,7 +338,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               onChange={handleBirthdayChange}
               aria-describedby="birthday-error"
             />
-            <div id="birthday-error" aria-live="polite" aria-atomic >
+            <div id="birthday-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {birthday.errors.map((errorMessage, i) => (
                 <p key={`birthday-error-${i}`}>{errorMessage}</p>
               ))}
@@ -356,7 +356,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               onChange={handleInstagramChange}
               aria-describedby="instagram-error"
             />
-            <div id="instagram-error" aria-live="polite" aria-atomic >
+            <div id="instagram-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {instagram.errors.map((errorMessage, i) => (
                 <p key={`instagram-error-${i}`}>{errorMessage}</p>
               ))}
@@ -373,7 +373,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               onChange={handleOccasionChange}
               aria-describedby="occasion-error"
             />
-            <div id="occasion-error" aria-live="polite" aria-atomic >
+            <div id="occasion-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {occasion.errors.map((errorMessage, i) => (
                 <p key={`occasion-error-${i}`}>{errorMessage}</p>
               ))}
@@ -390,7 +390,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               onChange={handleHowFoundChange}
               aria-describedby="how-found-error"
             />
-            <div id="how-found-error" aria-live="polite" aria-atomic >
+            <div id="how-found-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {howFound.errors.map((errorMessage, i) => (
                 <p key={`how-found-error-${i}`}>{errorMessage}</p>
               ))}
@@ -407,7 +407,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               onChange={handleTanHistoryChange}
               aria-describedby="tan-history-error"
             />
-            <div id="tan-history-error" aria-live="polite" aria-atomic >
+            <div id="tan-history-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {tanHistory.errors.map((errorMessage, i) => (
                 <p key={`history-error-${i}`}>{errorMessage}</p>
               ))}
@@ -424,7 +424,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               onChange={handleDesiredResultsChange}
               aria-describedby="desired-results-error"
             />
-            <div id="desired-results-error" aria-live="polite" aria-atomic >
+            <div id="desired-results-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {desiredResults.errors.map((errorMessage, i) => (
                 <p key={`results-error-${i}`}>{errorMessage}</p>
               ))}
@@ -441,13 +441,13 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               onChange={handleQuestionsConcernsChange}
               aria-describedby="questions-concerns-error"
             />
-            <div id="questions-concerns-error" aria-live="polite" aria-atomic >
+            <div id="questions-concerns-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {questionsConcerns.errors.map((errorMessage, i) => (
                 <p key={`questions-error-${i}`}>{errorMessage}</p>
               ))}
             </div>
          </div>
-         <div id="form-error" aria-live="polite" aria-atomic>
+         <div id="form-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic>
             {inquiryState.message && <p>{inquiryState.message}</p>}
          </div>
          <button

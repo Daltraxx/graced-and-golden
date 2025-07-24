@@ -11,15 +11,24 @@
 }
 
 .inquiryField {
-   background-color: var(--cream-350);
-   border-radius: 2px;
-   border: 1px solid var(--brown-300);
+   border-bottom: 1px solid var(--brown-500);
 }
 
 textarea.inquiryField {
    width: 30rem;
+   height: 5rem;
    padding: .3rem;
    font-size: .875rem;
+   border: 1px solid var(--brown-500);
+}
+
+textarea.inquiryField:focus {
+   border: 2px solid var(--brown-300);
+   outline: none;
+}
+
+.errorContainer {
+   color: var(--gold-700);
 }
 
 .submitButton {
