@@ -54,16 +54,15 @@ textarea.inquiryField:focus-within {
 }
 
 .submitButton {
-   display: block;
-   background: var(--brown-500);
-   color: var(--beige-300);
-   width: fit-content;
-   text-align: center;
-   font-weight: 500;
-   border-radius: 100px;
-   padding: .6rem 1rem;
+   margin: 0 auto;
 }
 
 .submitButton:hover {
    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+   .submitButton {
+      margin: 0;
+   }
 }

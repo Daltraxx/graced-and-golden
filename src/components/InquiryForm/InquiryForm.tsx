@@ -453,7 +453,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          <button
             type='submit'
             disabled={!formValidated}
-            className={clsx(buttonStyles.button, buttonStyles.buttonBrown500)}
+            className={clsx(moduleStyles.submitButton, buttonStyles.button, buttonStyles.buttonBrown500)}
          >
          Submit Inquiry
          </button>

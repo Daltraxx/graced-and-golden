@@ -45,6 +45,7 @@ const Contact: FC<ContactProps> = async({ slice }) => {
       data-slice-type={slice.slice_type} 
       data-slice-variation={slice.variation} 
       className={moduleStyles.boundedContainer}
+      verticalPadding={false}
     >
       <div className={moduleStyles.mainContentContainer} >
 
@@ -52,30 +53,37 @@ const Contact: FC<ContactProps> = async({ slice }) => {
           <PrismicRichText field={slice.primary.form_heading} components={components} />
           <InquiryForm slice={slice} index={0} slices={[]} context={undefined} />
         </section>
-        <section className={clsx(moduleStyles.box, moduleStyles.contactContainer)} >
-          <PrismicRichText field={slice.primary.contact_info_heading} components={components} />
-          <PrismicRichText field={slice.primary.contact_info_body} components={components} />
-          <div className={moduleStyles.infoText} >
-            <p><strong>Email:</strong><span>{' '}{data.email}</span></p>
-            {/* Add accessibility */}
-            <p><strong>Instagram:</strong>{' '}<a href={`${data.instagram_link}`} target="_blank" >{data.instagram_handle}</a></p>
-          </div>
-        </section>
 
-        <section className={clsx(moduleStyles.box, moduleStyles.locationContainer)} > 
-          <PrismicRichText field={slice.primary.location_and_hours_heading} components={components} />
-          <div className={moduleStyles.infoText} >
-            <PrismicRichText field={slice.primary.location_description} components={components} />
-          </div>
-          <iframe
-            src={data.google_maps_embed_url || defaultGoogleMapsUrl}
-            className={moduleStyles.googleMapsIFrame}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <PrismicRichText field={slice.primary.location_addendum} components={components} />
-        </section>
+        <div className={moduleStyles.rightColumn} >
+          <section className={clsx(moduleStyles.contactContainer)} >
+            <PrismicRichText field={slice.primary.contact_info_heading} components={components} />
+            <div className={moduleStyles.box}>
+              <PrismicRichText field={slice.primary.contact_info_body} components={components} />
+              <div className={moduleStyles.infoText} >
+                <p><strong>Email:</strong><span>{' '}{data.email}</span></p>
+                {/* Add accessibility */}
+                <p><strong>Instagram:</strong>{' '}<a href={`${data.instagram_link}`} target="_blank" >{data.instagram_handle}</a></p>
+              </div>
+            </div>
+          </section>
+
+          <section className={clsx(moduleStyles.locationContainer)} > 
+            <PrismicRichText field={slice.primary.location_and_hours_heading} components={components} />
+            <div className={moduleStyles.box} >
+              <div className={moduleStyles.infoText} >
+                <PrismicRichText field={slice.primary.location_description} components={components} />
+              </div>
+              <iframe
+                src={data.google_maps_embed_url || defaultGoogleMapsUrl}
+                className={moduleStyles.googleMapsIFrame}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <PrismicRichText field={slice.primary.location_addendum} components={components} />
+            </div>
+          </section>
+        </div>
 
       </div>
     </Bounded>
