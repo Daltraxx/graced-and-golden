@@ -18,7 +18,7 @@ const FormSchema = z.object({
   phoneNumber: z.string({
     required_error: "Phone number is required",
     invalid_type_error: "Phone number must be a string"
-    }).regex(/^$|\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/, {
+    }).regex(/^(\d{11}|\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4})$/, {
       message: "Please enter a valid phone number."
     }).min(10, {
       message: "Phone number must be at least 10 digits long"
