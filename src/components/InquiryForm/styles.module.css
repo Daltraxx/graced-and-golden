@@ -10,21 +10,34 @@
    display: block;
 }
 
+.fieldContainer:focus-within input,
+.fieldContainer:focus-within textarea {
+   outline: none;
+}
+
+.fieldContainer:focus-within label {
+   text-decoration: underline;
+}
+
 .inquiryField {
    border-bottom: 1px solid var(--brown-500);
 }
 
+.fieldContainer:focus-within .inquiryField {
+   border-bottom: 1px solid var(--brown-700);
+}
+
 textarea.inquiryField {
-   width: 30rem;
+   width: 90%;
    height: 5rem;
    padding: .3rem;
    font-size: .875rem;
    border: 1px solid var(--brown-500);
 }
 
-textarea.inquiryField:focus {
+textarea.inquiryField:focus-within {
    border: 2px solid var(--brown-300);
-   outline: none;
+
 }
 
 .errorContainer {
