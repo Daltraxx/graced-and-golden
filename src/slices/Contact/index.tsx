@@ -35,8 +35,12 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 const Contact: FC<ContactProps> = ({ slice }) => {
 
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} >
-      <section>
+    <Bounded 
+      data-slice-type={slice.slice_type} 
+      data-slice-variation={slice.variation} 
+      className={moduleStyles.boundedContainer}
+    >
+      <section className={moduleStyles.formContainer} >
         <PrismicRichText field={slice.primary.form_heading} components={components} />
         <InquiryForm slice={slice} index={0} slices={[]} context={undefined} />
       </section>

@@ -298,7 +298,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
               className={moduleStyles.inquiryField}
               onChange={handlePhoneNumberChange}
               aria-describedby="phone-number-error"
-              autoComplete="tel"
+              autoComplete="tel-national"
             />
             <div id="phone-number-error" className={moduleStyles.errorContainer} aria-live="polite" aria-atomic >
               {phoneNumber.errors.map((errorMessage, i) => (

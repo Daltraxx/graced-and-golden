@@ -10,6 +10,11 @@
    display: block;
 }
 
+.fieldContainer label {
+   color: var(--brown-750);
+   font-weight: 500;
+}
+
 .fieldContainer:focus-within input,
 .fieldContainer:focus-within textarea {
    outline: none;
@@ -20,7 +25,10 @@
 }
 
 .inquiryField {
+   color: var(--black-700);
+   font-weight: 500;
    border-bottom: 1px solid var(--brown-500);
+   width: 100%;
 }
 
 .fieldContainer:focus-within .inquiryField {
@@ -28,8 +36,9 @@
 }
 
 textarea.inquiryField {
-   width: 90%;
+   width: 100%;
    height: 5rem;
+   background: var(--cream-200);
    padding: .3rem;
    font-size: .875rem;
    border: 1px solid var(--brown-500);
