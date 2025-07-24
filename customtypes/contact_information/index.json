@@ -1,0 +1,46 @@
+{
+  "format": "custom",
+  "id": "contact_information",
+  "label": "Contact Information",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": ""
+        }
+      },
+      "locaton_address": {
+        "type": "Text",
+        "config": {
+          "label": "Locaton Address",
+          "placeholder": ""
+        }
+      },
+      "instagram_handle": {
+        "type": "Text",
+        "config": {
+          "label": "Instagram Handle",
+          "placeholder": ""
+        }
+      },
+      "instagram_link": {
+        "type": "Text",
+        "config": {
+          "label": "Instagram Link",
+          "placeholder": ""
+        }
+      },
+      "google_maps_embed_url": {
+        "type": "Text",
+        "config": {
+          "label": "Google Maps Embed URL",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

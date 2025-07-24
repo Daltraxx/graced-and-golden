@@ -5,6 +5,82 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Content for Contact Information documents
+ */
+interface ContactInformationDocumentData {
+  /**
+   * Email field in *Contact Information*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_information.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Locaton Address field in *Contact Information*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_information.locaton_address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  locaton_address: prismic.KeyTextField;
+
+  /**
+   * Instagram Handle field in *Contact Information*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_information.instagram_handle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  instagram_handle: prismic.KeyTextField;
+
+  /**
+   * Instagram Link field in *Contact Information*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_information.instagram_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  instagram_link: prismic.KeyTextField;
+
+  /**
+   * Google Maps Embed URL field in *Contact Information*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_information.google_maps_embed_url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  google_maps_embed_url: prismic.KeyTextField;
+}
+
+/**
+ * Contact Information document from Prismic
+ *
+ * - **API ID**: `contact_information`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactInformationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ContactInformationDocumentData>,
+    "contact_information",
+    Lang
+  >;
+
+/**
  * Content for Footer documents
  */
 interface FooterDocumentData {
@@ -461,6 +537,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | ContactInformationDocument
   | FooterDocument
   | HeaderDocument
   | HomepageDocument
@@ -2964,6 +3041,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ContactInformationDocument,
+      ContactInformationDocumentData,
       FooterDocument,
       FooterDocumentData,
       HeaderDocument,
