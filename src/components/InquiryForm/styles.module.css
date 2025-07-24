@@ -1,0 +1,38 @@
+.inquiryForm button:disabled {
+   background-color: gray;
+}
+
+.fieldContainer {
+   margin-bottom: 1rem;
+}
+
+.fieldContainer > * {
+   display: block;
+}
+
+.inquiryField {
+   background-color: var(--cream-350);
+   border-radius: 2px;
+   border: 1px solid var(--brown-300);
+}
+
+textarea.inquiryField {
+   width: 30rem;
+   padding: .3rem;
+   font-size: .875rem;
+}
+
+.submitButton {
+   display: block;
+   background: var(--brown-500);
+   color: var(--beige-300);
+   width: fit-content;
+   text-align: center;
+   font-weight: 500;
+   border-radius: 100px;
+   padding: .6rem 1rem;
+}
+
+.submitButton:hover {
+   cursor: pointer;
+}
