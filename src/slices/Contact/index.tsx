@@ -44,6 +44,15 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         <PrismicRichText field={slice.primary.form_heading} components={components} />
         <InquiryForm slice={slice} index={0} slices={[]} context={undefined} />
       </section>
+      <section>
+        <PrismicRichText field={slice.primary.contact_info_heading} components={components} />
+        <PrismicRichText field={slice.primary.contact_info_body} components={components} />
+      </section>
+      <section>
+        <PrismicRichText field={slice.primary.location_and_hours_heading} components={components} />
+        <PrismicRichText field={slice.primary.location_description} components={components} />
+        <PrismicRichText field={slice.primary.location_addendum} components={components} />
+      </section>
     </Bounded>
   );
 };

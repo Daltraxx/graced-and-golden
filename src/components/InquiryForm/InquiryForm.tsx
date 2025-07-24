@@ -269,7 +269,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
       <form action={formAction} className={`${moduleStyles.inquiryForm}`} aria-describedby="form-error" >
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="name-field">{slice.primary.name_prompt}*</label>
+            <label htmlFor="name-field">{slice.primary.name_prompt + '*'}</label>
             <input
               type="text"
               name="name"
@@ -289,7 +289,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt}*</label>
+            <label htmlFor="phone-number-field">{slice.primary.phone_number_prompt + '*'}</label>
             <input
               type="tel"
               name="phoneNumber"
@@ -308,7 +308,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="email-field">{slice.primary.email_prompt}*</label>
+            <label htmlFor="email-field">{slice.primary.email_prompt + '*'}</label>
             <input
               type="email"
               name="email"
@@ -327,7 +327,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="birthday-field">{slice.primary.birthday_prompt}*</label>
+            <label htmlFor="birthday-field">{slice.primary.birthday_prompt + '*'}</label>
             <input
               type="date"
               name="birthday"
@@ -346,7 +346,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="instagram-field">{slice.primary.instagram_prompt}*</label>
+            <label htmlFor="instagram-field">{slice.primary.instagram_prompt + '*'}</label>
             <input
               type="text"
               name="instagram"
@@ -364,7 +364,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="occasion-field">{slice.primary.occasion_prompt}*</label>
+            <label htmlFor="occasion-field">{slice.primary.occasion_prompt + '*'}</label>
             <textarea
               name="occasion"
               id="occasion-field"
@@ -381,7 +381,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt}*</label>
+            <label htmlFor="how-found-field">{slice.primary.how_you_found_us_prompt + '*'}</label>
             <textarea
               name="howFound"
               id="how-found-field"
@@ -398,7 +398,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt}*</label>
+            <label htmlFor="tan-history-field">{slice.primary.tan_history_prompt + '*'}</label>
             <textarea
               name="tanHistory"
               id="tan-history-field"
@@ -415,7 +415,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          </div>
 
          <div className={moduleStyles.fieldContainer}>
-            <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt}*</label>
+            <label htmlFor="desired-results-field">{slice.primary.desired_results_prompt + '*'}</label>
             <textarea
               name="desiredResults"
               id="desired-results-field"

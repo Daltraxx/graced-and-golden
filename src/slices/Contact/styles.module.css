@@ -2,10 +2,6 @@
    background: var(--beige-300);
 }
 
-.formContainer {
-   padding: .5rem;
-}
-
 .formContainer h3 {
    text-align: center;
    color: var(--brown-725);
