@@ -1016,6 +1016,16 @@ export interface ContactSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   location_addendum: prismic.RichTextField;
+
+  /**
+   * Hours Description field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.hours_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hours_description: prismic.RichTextField;
 }
 
 /**

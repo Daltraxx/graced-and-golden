@@ -135,6 +135,15 @@
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em"
           }
+        },
+        "hours_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hours Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
         }
       },
       "items": {}

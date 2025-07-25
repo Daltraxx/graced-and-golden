@@ -72,6 +72,7 @@ const Contact: FC<ContactProps> = async({ slice }) => {
             <div className={moduleStyles.box} >
               <div className={moduleStyles.infoText} >
                 <PrismicRichText field={slice.primary.location_description} components={components} />
+                <PrismicRichText field={slice.primary.hours_description} />
               </div>
               <iframe
                 src={data.google_maps_embed_url || defaultGoogleMapsUrl}

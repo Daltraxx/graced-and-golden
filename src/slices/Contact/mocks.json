@@ -118,6 +118,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "angle",
 				"type": "Text"
+			},
+			"hours_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris Lorem cillum anim laborum deserunt officia sint qui ipsum ea laboris."
+						}
+					}
+				]
 			}
 		},
 		"items": []
