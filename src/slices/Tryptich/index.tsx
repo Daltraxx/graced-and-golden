@@ -43,7 +43,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
             <div className='animated-element'><PrismicRichText field={slice.primary.heading} components={components} /></div>
             <div className='animated-element'><PrismicRichText field={slice.primary.body} components={components} /></div>
             <div className='animated-element'><PrismicNextLink field={slice.primary.link} className={`${moduleStyles.bodyTextLink}`}/></div>
-            <PrismicNextImage field={slice.primary.body_image} width={418} height={177} className='animated-element'/>
+            <PrismicNextImage field={slice.primary.body_image} width={610} height={380} className='animated-element'/>
           </section>
         </div>
         <div style={{ backgroundImage: `url(${slice.primary.image_right.url})`}} className={`${moduleStyles.bgImageContainer} animated-element`}></div>
