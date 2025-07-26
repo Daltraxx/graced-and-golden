@@ -116,6 +116,10 @@
    text-align: center;
 }
 
+.linksRow .box {
+   margin: 0 auto;
+}
+
 .linksRow p:nth-of-type(n + 2) {
    margin-top: .25rem;
 }
