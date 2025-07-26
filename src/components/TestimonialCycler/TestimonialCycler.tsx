@@ -18,7 +18,7 @@ export default function TestimonialCycler({ testimonials }: { testimonials: JSX.
           index: nextIndex
         };
       });
-    }, 4000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [testimonials]);
