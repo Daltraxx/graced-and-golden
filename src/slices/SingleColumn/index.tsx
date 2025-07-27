@@ -5,6 +5,7 @@ import Bounded from "@/components/Bounded";
 import moduleStyles from '@/slices/SingleColumn/styles.module.css';
 import Heading from "@/components/Heading";
 import Button from "@/components/Button/Button";
+import clsx from "clsx";
 
 const components : JSXMapSerializer = {
   heading2: ({children}) => (
@@ -27,10 +28,11 @@ export type SingleColumnProps = SliceComponentProps<Content.SingleColumnSlice>;
  * Component for "SingleColumn" Slices.
  */
 const SingleColumn: FC<SingleColumnProps> = ({ slice }) => {
+  console.log(slice.primary.heading)
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={moduleStyles.boundedContainer} horizontalSpacing={false}>
       <div className={`${moduleStyles.container}`}>
-        <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={`${moduleStyles.contentContainer} `}>
+        <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={clsx(moduleStyles.contentContainer, !slice.primary.heading.length && moduleStyles.noHeading)}>
           <PrismicRichText field={slice.primary.heading} components={components}/>
           <PrismicRichText field={slice.primary.body} components={components}/>
           <ul className={`${moduleStyles.buttonContainer}`}>

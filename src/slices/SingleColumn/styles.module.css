@@ -39,6 +39,12 @@
    }
 }
 
+@media only screen and (min-width: 800px) {
+   .noHeading p {
+      font-size: 1.5rem;
+   }
+}
+
 @media only screen and (min-width: 1300px) {
    .contentContainer {
       height: 20rem;
