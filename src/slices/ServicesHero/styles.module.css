@@ -1,7 +1,7 @@
 .boundedContainer {
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: -50px;
+   background-position: 50% 0;
 }
 
 .heroContainer {
@@ -47,13 +47,13 @@
    }
 }
 
-@media only screen and (min-width: 600px) {
-   .boundedContainer {
-      background-position: 0 0;
-   }
-}
+
 
 @media only screen and (min-width: 768px) {
+   .boundedContainer {
+      background-position: 50% 50%;
+   }
+   
    .heroContainer {
       display: grid;
       grid-template-columns: 1fr 1fr;
