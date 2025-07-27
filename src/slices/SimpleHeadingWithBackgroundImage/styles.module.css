@@ -1,0 +1,33 @@
+.headingContainer {
+   height: 20rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
+.heading {
+   text-align: center;
+   color: var(--cream-200);
+   font-size: 2rem;
+   width: 90%;
+   max-width: 24.25rem;
+}
+
+@media only screen and (min-width: 350px) {
+   .headingContainer {
+      background-position: 50% 20%;
+   }
+}
+
+@media only screen and (min-width: 1024px) {
+   .headingContainer {
+      height: 30rem;
+   }
+
+   .heading {
+      font-size: 3rem;
+      max-width: 36rem;
+   }
+}

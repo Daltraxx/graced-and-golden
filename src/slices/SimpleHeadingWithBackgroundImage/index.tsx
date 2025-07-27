@@ -4,17 +4,16 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
-import moduleStyles from '@/slices/ServiceHero/styles.module.css';
-import clsx from "clsx";
+import moduleStyles from '@/slices/SimpleHeadingWithBackgroundImage/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <Heading as="h1" size="lg" className='' >
+    <Heading as="h1" size="manual" className={moduleStyles.heading} >
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="lg" className='' >
+    <Heading as="h2" size="manual" className={moduleStyles.heading} >
       {children}
     </Heading>
   )
@@ -29,17 +28,19 @@ export type SimpleHeadingWithBackgroundImageProps =
 /**
  * Component for "SimpleHeadingWithBackgroundImage" Slices.
  */
-const SimpleHeadingWithBackgroundImage: FC<
-  SimpleHeadingWithBackgroundImageProps
-> = ({ slice }) => {
+const SimpleHeadingWithBackgroundImage: FC<SimpleHeadingWithBackgroundImageProps> = ({ slice }) => {
+  // allow background image to be overriden by prismic if one is provided
+  const bgImageURL = slice.primary.background_image.url || '/grace-jen-upscale-mod-dark-min.jpg';
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       horizontalSpacing={false}
       verticalPadding={false}
+      className={moduleStyles.boundedContainer}
     >
-      <div style={{backgroundImage: `url(${slice.primary.background_image.url})`}}>
+      <div style={{backgroundImage: `url(${bgImageURL})`}} className={moduleStyles.headingContainer}>
         <PrismicRichText field={slice.primary.heading} components={components} />
       </div>
     </Bounded>
