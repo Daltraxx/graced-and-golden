@@ -53,6 +53,10 @@ textarea.inquiryField:focus-within {
    color: var(--gold-700);
 }
 
+.errorContainer p {
+   padding-bottom: 1rem;
+}
+
 .submitButton {
    margin: 0 auto;
 }
