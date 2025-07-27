@@ -1,6 +1,5 @@
-.heroContainer {
+.boundedContainer {
    height: 36rem;
-   background-image: url('/couple-beach-pose-mod-dark-min.jpg');
    background-size: cover;
    background-repeat: no-repeat;
    background-position: 50% 0;
@@ -66,7 +65,7 @@
 }
 
 @media only screen and (min-width: 800px) {
-   .heroContainer {
+   .boundedContainer {
       background-position: 50% 10%;
    }
    .row {

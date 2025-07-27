@@ -48,9 +48,12 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
     }
   }
 
+  const bgImageURLDefault = slice.primary.background_image?.url || '/couple-beach-pose-mod-dark-min.jpg';
+  const bgImageURLAlt = slice.primary.background_image?.url || '/couple-beach-kiss-crop-upscale-dark-min.jpg';
+
   if (slice.variation === 'default') {
     return (
-      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${defaultStyles.heroContainer}`}>
+      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${defaultStyles.boundedContainer}`} style={{backgroundImage: `url(${bgImageURLDefault})`}}>
         <div ref={containerRef}>
           <div className={`${defaultStyles.row} ${defaultStyles.empty}`}></div>
           <div className={`${defaultStyles.row} ${defaultStyles.headingRow} animated-element`}>
@@ -71,7 +74,7 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
     );
   } else {
     return (
-      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${altStyles.boundedContainer}`}>
+      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${altStyles.boundedContainer}`} style={{backgroundImage: `url(${bgImageURLAlt})`}}>
         <div ref={containerRef} className={altStyles.heroContainer}>
           <div className={`${altStyles.textRow} animated-element`}>
             <PrismicRichText field={slice.primary.main_heading} components={components}/>
