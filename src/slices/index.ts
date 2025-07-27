@@ -15,8 +15,10 @@ export const components = {
   main_services: dynamic(() => import("./MainServices")),
   paragraph_image_overlap: dynamic(() => import("./ParagraphImageOverlap")),
   service_body: dynamic(() => import("./ServiceBody")),
-  service_hero: dynamic(() => import("./ServiceHero")),
   services_hero: dynamic(() => import("./ServicesHero")),
+  simple_heading_with_background_image: dynamic(
+    () => import("./SimpleHeadingWithBackgroundImage"),
+  ),
   simple_hero: dynamic(() => import("./SimpleHero")),
   single_column: dynamic(() => import("./SingleColumn")),
   testimonials: dynamic(() => import("./Testimonials")),

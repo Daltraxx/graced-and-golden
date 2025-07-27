@@ -190,6 +190,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | SimpleHeadingWithBackgroundImageSlice
   | MainServicesSlice
   | TimelineSlice
   | Info4ColSlice
@@ -267,6 +268,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type MainServicesPageDocumentDataSlicesSlice =
+  | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
   | MainServicesSlice
   | ServicesHeroSlice;
@@ -335,6 +337,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SimpleHeadingWithBackgroundImageSlice
   | SingleColumnSlice
   | InformationPanelSlice
   | TimelineLargeSlice
@@ -413,11 +416,11 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicePageDocumentDataSlicesSlice =
+  | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
   | ServiceBodySlice
   | ServicesHeroSlice
-  | TrainingBodySlice
-  | ServiceHeroSlice;
+  | TrainingBodySlice;
 
 /**
  * Content for Service Page documents
@@ -2113,71 +2116,6 @@ export type ServiceBodySlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *ServiceHero → Default → Primary*
- */
-export interface ServiceHeroSliceDefaultPrimary {
-  /**
-   * Background Image field in *ServiceHero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_hero.default.primary.background_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  background_image: prismic.ImageField<never>;
-
-  /**
-   * Main Heading field in *ServiceHero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_hero.default.primary.main_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  main_heading: prismic.RichTextField;
-
-  /**
-   * Sub-Heading field in *ServiceHero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_hero.default.primary.sub_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  sub_heading: prismic.RichTextField;
-}
-
-/**
- * Default variation for ServiceHero Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ServiceHeroSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ServiceHeroSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *ServiceHero*
- */
-type ServiceHeroSliceVariation = ServiceHeroSliceDefault;
-
-/**
- * ServiceHero Shared Slice
- *
- * - **API ID**: `service_hero`
- * - **Description**: ServiceHero
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ServiceHeroSlice = prismic.SharedSlice<
-  "service_hero",
-  ServiceHeroSliceVariation
->;
-
-/**
  * Primary content in *ServicesHero → Default → Primary*
  */
 export interface ServicesHeroSliceDefaultPrimary {
@@ -2250,6 +2188,63 @@ type ServicesHeroSliceVariation = ServicesHeroSliceDefault;
 export type ServicesHeroSlice = prismic.SharedSlice<
   "services_hero",
   ServicesHeroSliceVariation
+>;
+
+/**
+ * Primary content in *SimpleHeadingWithBackgroundImage → Default → Primary*
+ */
+export interface SimpleHeadingWithBackgroundImageSliceDefaultPrimary {
+  /**
+   * Heading field in *SimpleHeadingWithBackgroundImage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_heading_with_background_image.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Background Image field in *SimpleHeadingWithBackgroundImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_heading_with_background_image.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SimpleHeadingWithBackgroundImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleHeadingWithBackgroundImageSliceDefault =
+  prismic.SharedSliceVariation<
+    "default",
+    Simplify<SimpleHeadingWithBackgroundImageSliceDefaultPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *SimpleHeadingWithBackgroundImage*
+ */
+type SimpleHeadingWithBackgroundImageSliceVariation =
+  SimpleHeadingWithBackgroundImageSliceDefault;
+
+/**
+ * SimpleHeadingWithBackgroundImage Shared Slice
+ *
+ * - **API ID**: `simple_heading_with_background_image`
+ * - **Description**: SimpleHeadingWithBackgroundImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleHeadingWithBackgroundImageSlice = prismic.SharedSlice<
+  "simple_heading_with_background_image",
+  SimpleHeadingWithBackgroundImageSliceVariation
 >;
 
 /**
@@ -3132,14 +3127,14 @@ declare module "@prismicio/client" {
       ServiceBodySliceDefaultPrimary,
       ServiceBodySliceVariation,
       ServiceBodySliceDefault,
-      ServiceHeroSlice,
-      ServiceHeroSliceDefaultPrimary,
-      ServiceHeroSliceVariation,
-      ServiceHeroSliceDefault,
       ServicesHeroSlice,
       ServicesHeroSliceDefaultPrimary,
       ServicesHeroSliceVariation,
       ServicesHeroSliceDefault,
+      SimpleHeadingWithBackgroundImageSlice,
+      SimpleHeadingWithBackgroundImageSliceDefaultPrimary,
+      SimpleHeadingWithBackgroundImageSliceVariation,
+      SimpleHeadingWithBackgroundImageSliceDefault,
       SimpleHeroSlice,
       SimpleHeroSliceDefaultPrimary,
       SimpleHeroSliceVariation,

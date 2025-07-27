@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "simple_heading_with_background_image": {
+              "type": "SharedSlice"
+            },
             "bridal_cta": {
               "type": "SharedSlice"
             },
@@ -27,9 +30,6 @@
               "type": "SharedSlice"
             },
             "training_body": {
-              "type": "SharedSlice"
-            },
-            "service_hero": {
               "type": "SharedSlice"
             }
           }

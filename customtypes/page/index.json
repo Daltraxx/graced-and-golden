@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "simple_heading_with_background_image": {
+              "type": "SharedSlice"
+            },
             "single_column": {
               "type": "SharedSlice"
             },
