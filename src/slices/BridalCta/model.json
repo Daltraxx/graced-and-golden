@@ -16,7 +16,10 @@
           "type": "Image",
           "config": {
             "label": "Image Left",
-            "constraint": {},
+            "constraint": {
+              "width": 500,
+              "height": 500
+            },
             "thumbnails": []
           }
         },
@@ -53,7 +56,10 @@
           "type": "Image",
           "config": {
             "label": "Image Right",
-            "constraint": {},
+            "constraint": {
+              "width": 500,
+              "height": 500
+            },
             "thumbnails": []
           }
         }
