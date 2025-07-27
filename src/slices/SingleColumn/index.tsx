@@ -30,21 +30,20 @@ export type SingleColumnProps = SliceComponentProps<Content.SingleColumnSlice>;
 const SingleColumn: FC<SingleColumnProps> = ({ slice }) => {
   console.log(slice.primary.heading)
   return (
-    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={moduleStyles.boundedContainer} horizontalSpacing={false}>
-      <div className={`${moduleStyles.container}`}>
-        <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={clsx(moduleStyles.contentContainer, !slice.primary.heading.length && moduleStyles.noHeading)}>
-          <PrismicRichText field={slice.primary.heading} components={components}/>
-          <PrismicRichText field={slice.primary.body} components={components}/>
-          <ul className={`${moduleStyles.buttonContainer}`}>
-            <li>
-              <Button field={slice.primary.link_left} className={`${moduleStyles.button}`} color="brown-200" />
-            </li>
-            <li>
-              <Button field={slice.primary.link_right} className={`${moduleStyles.button}`} color="brown-500" />
-            </li>
-          </ul>
-        </div>
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={moduleStyles.boundedContainer} horizontalSpacing={false} verticalPadding={false}>
+      <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={clsx(moduleStyles.contentContainer, !slice.primary.heading.length && moduleStyles.noHeading)}>
+        <PrismicRichText field={slice.primary.heading} components={components}/>
+        <PrismicRichText field={slice.primary.body} components={components}/>
+        <ul className={`${moduleStyles.buttonContainer}`}>
+          <li>
+            <Button field={slice.primary.link_left} className={`${moduleStyles.button}`} color="brown-200" />
+          </li>
+          <li>
+            <Button field={slice.primary.link_right} className={`${moduleStyles.button}`} color="brown-500" />
+          </li>
+        </ul>
       </div>
+      
     </Bounded>
   );
 };
