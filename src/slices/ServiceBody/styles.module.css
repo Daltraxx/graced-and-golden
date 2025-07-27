@@ -43,6 +43,10 @@
 }
 
 /* DETAILS ROW */
+.detailsRow p:not(:last-of-type) {
+   margin-bottom: .5rem;
+}
+
 .includesBox ul {
    text-align: start;
    padding-left: 1rem;
