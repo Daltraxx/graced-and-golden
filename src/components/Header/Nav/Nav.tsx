@@ -13,19 +13,19 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    const serviceMenuRef = useRef<HTMLLIElement>(null);
 
    const setNavClosed = () => setNavOpen(false);
-   const handleLinkClick = ({ target } : MouseEvent) => {
-      const nodeTarget = target as Node;
-
-      if (
-         navButtonRef.current && !navButtonRef.current.contains(nodeTarget) &&
-         serviceMenuRef.current && !serviceMenuRef.current.contains(nodeTarget)
-      ) {
-         setNavClosed();
-      }
-   }
 
    // Have Nav Menu close (mobile) if link is clicked
    useEffect(() => {
+      const handleLinkClick = ({ target } : MouseEvent) => {
+         const nodeTarget = target as Node;
+
+         if (
+            navButtonRef.current && !navButtonRef.current.contains(nodeTarget) &&
+            serviceMenuRef.current && !serviceMenuRef.current.contains(nodeTarget)
+         ) {
+            setNavClosed();
+         }
+      }
 
       window.addEventListener('mousedown', handleLinkClick);
 

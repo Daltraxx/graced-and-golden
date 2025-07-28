@@ -12,23 +12,22 @@ export default function ServicesMenu({ text, servicePageLinks, setNavClosedActio
    const servicesMenuToggleRef = useRef<HTMLButtonElement>(null);
    const servicesMenuRef = useRef<HTMLUListElement>(null);
 
-   const handleClickOutsideServicesMenu = ({ target }: MouseEvent) => {
-      const nodeTarget = target as Node;
-      
-      if (
-         servicesMenuToggleRef.current &&
-         !servicesMenuToggleRef.current.contains(nodeTarget) &&
-         servicesMenuRef.current &&
-         !servicesMenuRef.current.contains(nodeTarget) &&
-         navButtonRef.current &&
-         !navButtonRef.current.contains(nodeTarget)
-      ) {
-         setServicesOpen(false);
-      }
-   }
-
    // Have services menu close if it is open and user clicks away from it
    useEffect(() => {
+      const handleClickOutsideServicesMenu = ({ target }: MouseEvent) => {
+         const nodeTarget = target as Node;
+         
+         if (
+            servicesMenuToggleRef.current &&
+            !servicesMenuToggleRef.current.contains(nodeTarget) &&
+            servicesMenuRef.current &&
+            !servicesMenuRef.current.contains(nodeTarget) &&
+            navButtonRef.current &&
+            !navButtonRef.current.contains(nodeTarget)
+         ) {
+            setServicesOpen(false);
+         }
+      }
 
       window.addEventListener('mousedown', handleClickOutsideServicesMenu);
 
@@ -36,12 +35,12 @@ export default function ServicesMenu({ text, servicePageLinks, setNavClosedActio
          window.removeEventListener('mousedown', handleClickOutsideServicesMenu);
       };
       
-   }, [servicesOpen])
+   }, [servicesOpen, navButtonRef])
 
    const handleServicesToggle = () => {
       setServicesOpen(prev => !prev);
    }
-   
+
    const servicesDropdownListItems = servicePageLinks.map((link, i) => (
       <li key={`service-dropdown-link-${i}`} onClick={setNavClosedAction} >
          <PrismicNextLink field={link} className={moduleStyles.serviceLink} />
