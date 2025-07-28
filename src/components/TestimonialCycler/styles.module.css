@@ -1,9 +1,9 @@
 .animation1 {
-   animation: 6000ms ease-in-out fade-in-and-out-1 forwards;
+   animation: 10000ms ease-in-out fade-in-and-out-1 forwards;
 }
 
 .animation2 {
-   animation: 6000ms ease-in-out fade-in-and-out-2 forwards;
+   animation: 10000ms ease-in-out fade-in-and-out-2 forwards;
 }
 
 @keyframes fade-in-and-out-1 {
@@ -11,11 +11,11 @@
       opacity: 0;
    }
 
-   20% {
+   10% {
       opacity: 1;
    }
 
-   80% {
+   90% {
       opacity: 1;
    }
 
@@ -29,11 +29,11 @@
       opacity: 0;
    }
 
-   20% {
+   10% {
       opacity: 1;
    }
 
-   80% {
+   90% {
       opacity: 1;
    }
 
