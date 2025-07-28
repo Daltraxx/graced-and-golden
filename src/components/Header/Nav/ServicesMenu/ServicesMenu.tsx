@@ -1,12 +1,12 @@
 'use client';
 
 import { PrismicNextLink } from "@prismicio/next";
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import moduleStyles from '@/components/Header/Nav/ServicesMenu/styles.module.css'
 import clsx from "clsx";
 import { LinkField } from "@prismicio/client";
 
-export default function ServicesMenu({ text, servicePageLinks, setNavClosedAction }: { text: string, servicePageLinks: LinkField[], setNavClosedAction: () => void  }) {
+export default function ServicesMenu({ text, servicePageLinks, setNavClosedAction, navButtonRef }: { text: string, servicePageLinks: LinkField[], setNavClosedAction: () => void, navButtonRef: RefObject<HTMLButtonElement | null> }) {
    const [servicesOpen, setServicesOpen] = useState(false);
 
    const servicesMenuToggleRef = useRef<HTMLButtonElement>(null);
@@ -19,7 +19,9 @@ export default function ServicesMenu({ text, servicePageLinks, setNavClosedActio
          servicesMenuToggleRef.current &&
          !servicesMenuToggleRef.current.contains(nodeTarget) &&
          servicesMenuRef.current &&
-         !servicesMenuRef.current.contains(nodeTarget)
+         !servicesMenuRef.current.contains(nodeTarget) &&
+         navButtonRef.current &&
+         !navButtonRef.current.contains(nodeTarget)
       ) {
          setServicesOpen(false);
       }
@@ -39,20 +41,12 @@ export default function ServicesMenu({ text, servicePageLinks, setNavClosedActio
    const handleServicesToggle = () => {
       setServicesOpen(prev => !prev);
    }
-
-
-   // close Nav Menu when service link is clicked
-   const serviceLinkRefs = useRef<HTMLLIElement[]>([]);
    
    const servicesDropdownListItems = servicePageLinks.map((link, i) => (
-      <li key={`service-dropdown-link-${i}`} ref={(element) => { serviceLinkRefs.current[i] = element!; }} >
+      <li key={`service-dropdown-link-${i}`} onClick={setNavClosedAction} >
          <PrismicNextLink field={link} className={moduleStyles.serviceLink} />
       </li>
    ))
-
-   serviceLinkRefs.current.forEach((listItem) => {
-      listItem.addEventListener('click', setNavClosedAction);
-   })
 
 
    return (
