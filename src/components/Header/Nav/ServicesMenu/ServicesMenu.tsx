@@ -14,14 +14,14 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
 
    const handleClickOutsideServicesMenu = ({ target }: MouseEvent) => {
       const nodeTarget = target as Node;
-          if (
-            servicesMenuToggleRef.current &&
-            !servicesMenuToggleRef.current.contains(nodeTarget) &&
-            servicesMenuRef.current &&
-            !servicesMenuRef.current.contains(nodeTarget)
-          ) {
-            setServicesOpen(false);
-         }
+      if (
+         servicesMenuToggleRef.current &&
+         !servicesMenuToggleRef.current.contains(nodeTarget) &&
+         servicesMenuRef.current &&
+         !servicesMenuRef.current.contains(nodeTarget)
+      ) {
+         setServicesOpen(false);
+      }
    }
 
    // Have services menu close if it is open and user clicks away from it
