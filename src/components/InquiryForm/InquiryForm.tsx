@@ -122,7 +122,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          questionsConcerns
       ]
    );
-   const fieldStateSetters = [
+   const fieldStateSetters = useMemo(() => [
       setName,
       setPhoneNumber,
       setEmail,
@@ -133,7 +133,18 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
       setTanHistory,
       setDesiredResults,
       setQuestionsConcerns
-   ];
+   ], [
+      setName,
+      setPhoneNumber,
+      setEmail,
+      setBirthday,
+      setInstagram,
+      setOccasion,
+      setHowFound,
+      setTanHistory,
+      setDesiredResults,
+      setQuestionsConcerns
+   ]);
 
    useEffect(() => {
       const allFieldsValidated = fieldStates.every((fieldState) => fieldState.valid);
@@ -147,7 +158,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          const setter = fieldStateSetters[i];
          if (state.value) state.validationHandler(state.value, setter);
       });
-   }, []);
+   }, [fieldStates, fieldStateSetters]);
 
    // Handle input changes, validation, and session storage
    const debounceDelay = 300;
