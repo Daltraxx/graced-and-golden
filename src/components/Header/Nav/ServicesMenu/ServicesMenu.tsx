@@ -6,7 +6,7 @@ import moduleStyles from '@/components/Header/Nav/ServicesMenu/styles.module.css
 import clsx from "clsx";
 import { LinkField } from "@prismicio/client";
 
-export default function ServicesMenu({ text, servicePageLinks }: { text: string, servicePageLinks: LinkField[] }) {
+export default function ServicesMenu({ text, servicePageLinks, setNavClosedAction }: { text: string, servicePageLinks: LinkField[], setNavClosedAction: () => void  }) {
    const [servicesOpen, setServicesOpen] = useState(false);
 
    const servicesMenuToggleRef = useRef<HTMLButtonElement>(null);
@@ -14,6 +14,7 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
 
    const handleClickOutsideServicesMenu = ({ target }: MouseEvent) => {
       const nodeTarget = target as Node;
+      
       if (
          servicesMenuToggleRef.current &&
          !servicesMenuToggleRef.current.contains(nodeTarget) &&
@@ -39,11 +40,20 @@ export default function ServicesMenu({ text, servicePageLinks }: { text: string,
       setServicesOpen(prev => !prev);
    }
 
+
+   // close Nav Menu when service link is clicked
+   const serviceLinkRefs = useRef<HTMLLIElement[]>([]);
+   
    const servicesDropdownListItems = servicePageLinks.map((link, i) => (
-      <li key={`service-dropdown-link-${i}`} >
+      <li key={`service-dropdown-link-${i}`} ref={(element) => { serviceLinkRefs.current[i] = element!; }} >
          <PrismicNextLink field={link} className={moduleStyles.serviceLink} />
       </li>
    ))
+
+   serviceLinkRefs.current.forEach((listItem) => {
+      listItem.addEventListener('click', setNavClosedAction);
+   })
+
 
    return (
       <>

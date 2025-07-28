@@ -43,7 +43,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
             <li key={`nav-link-${i}`} ref={serviceMenuRef}>
-               <ServicesMenu text={link.text} servicePageLinks={servicePageLinks} />
+               <ServicesMenu text={link.text} servicePageLinks={servicePageLinks} setNavClosedAction={setNavClosed} />
             </li>
          );
       } else {
