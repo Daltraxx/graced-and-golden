@@ -1,0 +1,45 @@
+.boundedContainer {
+   background: var(--brown-500);
+   color: var(--cream-200);
+}
+
+.boundedContainer h1 {
+   text-align: center;
+}
+
+.contentContainer {
+   display: flex;
+   flex-direction: column;
+}
+
+.textContainer {
+   padding: 0 1rem;
+   text-align: center;
+   order: 2;
+}
+
+.paragraphsContainer {
+   margin: 1rem 0;
+}
+
+.paragraphColumn:not(:last-of-type) {
+   margin-bottom: 1rem;
+}
+
+.paragraphColumn p:not(:last-of-type) {
+   margin-bottom: 1rem;
+}
+
+.button {
+   margin: 1rem auto 0 auto;
+}
+
+.imageContainer {
+   padding: 0 1rem;
+   margin: 1rem 0;
+   order: 1;
+}
+
+.imageContainer img {
+   max-width: 50%;
+}

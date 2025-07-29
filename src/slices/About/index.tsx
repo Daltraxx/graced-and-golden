@@ -5,6 +5,7 @@ import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button/Button";
 import { PrismicNextImage } from "@prismicio/next";
+import moduleStyles from '@/slices/About/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
@@ -13,7 +14,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="lg" className='' >
+    <Heading as="h2" size="sm" className='' >
       {children}
     </Heading>
   ),
@@ -41,22 +42,23 @@ const About: FC<AboutProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       horizontalSpacing={false}
+      className={moduleStyles.boundedContainer}
     >
       <PrismicRichText field={slice.primary.main_heading} components={components} />
-      <div>
-        <section>
+      <div className={moduleStyles.contentContainer} >
+        <section className={moduleStyles.textContainer} >
           <PrismicRichText field={slice.primary.text_heading} components={components} />
-          <div>
-            <div>
+          <div className={moduleStyles.paragraphsContainer}>
+            <div className={moduleStyles.paragraphColumn} >
               <PrismicRichText field={slice.primary.text_column_1} components={components} />
             </div>
-            <div>
+            <div className={moduleStyles.paragraphColumn} >
               <PrismicRichText field={slice.primary.text_column_2} components={components} />
-              <Button field={slice.primary.link} color="cream-200" />
+              <Button field={slice.primary.link} color="cream-200" className={moduleStyles.button} />
             </div>
           </div>
         </section>
-        <div>
+        <div className={moduleStyles.imageContainer} >
           <PrismicNextImage field={slice.primary.front_image} />
           <PrismicNextImage field={slice.primary.back_image} />
         </div>
