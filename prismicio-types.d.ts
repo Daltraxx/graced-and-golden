@@ -337,6 +337,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | AboutSlice
   | SimpleHeadingWithBackgroundImageSlice
   | SingleColumnSlice
   | InformationPanelSlice
@@ -548,6 +549,108 @@ export type AllDocumentTypes =
   | PageDocument
   | ServicePageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *About → Default → Primary*
+ */
+export interface AboutSliceDefaultPrimary {
+  /**
+   * Main Heading field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Text Heading field in *About → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.text_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_heading: prismic.TitleField;
+
+  /**
+   * Text Column 1 field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.text_column_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_column_1: prismic.RichTextField;
+
+  /**
+   * Text Column 2 field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.text_column_2
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_column_2: prismic.RichTextField;
+
+  /**
+   * Link field in *About → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Front Image field in *About → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.front_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  front_image: prismic.ImageField<never>;
+
+  /**
+   * Back Image field in *About → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.back_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  back_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for About Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *About*
+ */
+type AboutSliceVariation = AboutSliceDefault;
+
+/**
+ * About Shared Slice
+ *
+ * - **API ID**: `about`
+ * - **Description**: About
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
  * Primary content in *BridalCta → Default → Primary*
@@ -3087,6 +3190,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      AboutSlice,
+      AboutSliceDefaultPrimary,
+      AboutSliceVariation,
+      AboutSliceDefault,
       BridalCtaSlice,
       BridalCtaSliceDefaultPrimary,
       BridalCtaSliceLightPrimary,
