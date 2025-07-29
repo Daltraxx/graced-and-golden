@@ -5,6 +5,9 @@
 
 .boundedContainer h1 {
    text-align: center;
+   padding: 0 1rem;
+   max-width: 30.25rem;
+   margin: 0 auto;
 }
 
 .contentContainer {
@@ -38,8 +41,19 @@
    padding: 0 1rem;
    margin: 1rem 0;
    order: 1;
+   display: flex;
+   align-items: center;
+   margin-left: 10%;
 }
 
-.imageContainer img {
-   max-width: 50%;
+.frontImage {
+   z-index: 1;
+   max-width: 40%;
+}
+
+.backImage {
+   position: relative;
+   z-index: 0;
+   left: -10%;
+   max-width: 60%;
 }

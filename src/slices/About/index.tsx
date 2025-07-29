@@ -59,8 +59,8 @@ const About: FC<AboutProps> = ({ slice }) => {
           </div>
         </section>
         <div className={moduleStyles.imageContainer} >
-          <PrismicNextImage field={slice.primary.front_image} />
-          <PrismicNextImage field={slice.primary.back_image} />
+          <PrismicNextImage field={slice.primary.front_image} className={moduleStyles.frontImage} />
+          <PrismicNextImage field={slice.primary.back_image} className={moduleStyles.backImage} />
         </div>
       </div>
     </Bounded>
