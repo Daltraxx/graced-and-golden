@@ -17,6 +17,8 @@
 
 .textContainer {
    padding: 0 1rem;
+   max-width: 40rem;
+   margin: 0 auto;
    text-align: center;
    order: 2;
 }
@@ -81,6 +83,8 @@
    .textContainer {
       order: 1;
       text-align: start;
+      max-width: inherit;
+      margin: inherit;
       width: 55%;
       margin-top: 3rem;
    }
