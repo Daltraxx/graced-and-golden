@@ -4,6 +4,7 @@ import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismic
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button/Button";
+import moduleStyles from '@/slices/SimpleColumnWLink/styles.module.css';
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -35,8 +36,9 @@ const SimpleColumnWLink: FC<SimpleColumnWLinkProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={moduleStyles.boundedContainer}
     >
-      <div>
+      <div className={moduleStyles.contentContainer} >
         <PrismicRichText field={slice.primary.heading} components={components} />
         <PrismicRichText field={slice.primary.body_text} components={components} />
         <Button field={slice.primary.link} color="brown-500" />

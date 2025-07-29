@@ -1,0 +1,23 @@
+.boundedContainer {
+   background: var(--beige-300);
+}
+
+.contentContainer {
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 2rem auto;
+   gap: 1.5rem;
+}
+
+.contentContainer h2,
+.contentContainer h3 {
+   color: var(--brown-700);
+}
+
+.contentContainer p {
+   font-style: italic;
+   max-width: 32.75rem;
+}
