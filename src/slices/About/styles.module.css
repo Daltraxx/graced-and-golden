@@ -62,3 +62,12 @@
    max-width: 18.0713rem;
    max-height: 22.34375rem;
 }
+
+@media only screen and (min-width: 768px) {
+   .imageContainer {
+      margin-left: 4rem;
+   }
+   .backImage {
+      left: -4rem;
+   }
+}
