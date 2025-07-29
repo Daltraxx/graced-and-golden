@@ -17,6 +17,7 @@ export const components = {
   paragraph_image_overlap: dynamic(() => import("./ParagraphImageOverlap")),
   service_body: dynamic(() => import("./ServiceBody")),
   services_hero: dynamic(() => import("./ServicesHero")),
+  simple_column_w_link: dynamic(() => import("./SimpleColumnWLink")),
   simple_heading_with_background_image: dynamic(
     () => import("./SimpleHeadingWithBackgroundImage"),
   ),

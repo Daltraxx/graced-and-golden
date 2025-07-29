@@ -190,6 +190,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | MainServicesSlice
   | TimelineSlice
@@ -268,6 +269,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type MainServicesPageDocumentDataSlicesSlice =
+  | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
   | MainServicesSlice
@@ -337,6 +339,7 @@ export type MainServicesPageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SimpleColumnWLinkSlice
   | AboutSlice
   | SimpleHeadingWithBackgroundImageSlice
   | SingleColumnSlice
@@ -417,6 +420,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicePageDocumentDataSlicesSlice =
+  | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
   | ServiceBodySlice
@@ -2314,6 +2318,71 @@ export type ServicesHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SimpleColumnWLink → Default → Primary*
+ */
+export interface SimpleColumnWLinkSliceDefaultPrimary {
+  /**
+   * Heading field in *SimpleColumnWLink → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_column_w_link.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body Text field in *SimpleColumnWLink → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_column_w_link.default.primary.body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Link field in *SimpleColumnWLink → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_column_w_link.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for SimpleColumnWLink Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleColumnWLinkSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SimpleColumnWLinkSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SimpleColumnWLink*
+ */
+type SimpleColumnWLinkSliceVariation = SimpleColumnWLinkSliceDefault;
+
+/**
+ * SimpleColumnWLink Shared Slice
+ *
+ * - **API ID**: `simple_column_w_link`
+ * - **Description**: SimpleColumnWLink
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleColumnWLinkSlice = prismic.SharedSlice<
+  "simple_column_w_link",
+  SimpleColumnWLinkSliceVariation
+>;
+
+/**
  * Primary content in *SimpleHeadingWithBackgroundImage → Default → Primary*
  */
 export interface SimpleHeadingWithBackgroundImageSliceDefaultPrimary {
@@ -3258,6 +3327,10 @@ declare module "@prismicio/client" {
       ServicesHeroSliceDefaultPrimary,
       ServicesHeroSliceVariation,
       ServicesHeroSliceDefault,
+      SimpleColumnWLinkSlice,
+      SimpleColumnWLinkSliceDefaultPrimary,
+      SimpleColumnWLinkSliceVariation,
+      SimpleColumnWLinkSliceDefault,
       SimpleHeadingWithBackgroundImageSlice,
       SimpleHeadingWithBackgroundImageSliceDefaultPrimary,
       SimpleHeadingWithBackgroundImageSliceVariation,
