@@ -16,6 +16,11 @@
    background-color: var(--gray-200);
 }
 
+.bgImageContainer, 
+.bodyContainer {
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .bodyText {
    padding: 1rem;
 }
