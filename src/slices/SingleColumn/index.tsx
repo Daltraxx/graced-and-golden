@@ -28,7 +28,6 @@ export type SingleColumnProps = SliceComponentProps<Content.SingleColumnSlice>;
  * Component for "SingleColumn" Slices.
  */
 const SingleColumn: FC<SingleColumnProps> = ({ slice }) => {
-  console.log(slice.primary.heading)
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className={moduleStyles.boundedContainer} horizontalSpacing={false} verticalPadding={false}>
       <div style={{ backgroundImage: `url(${slice.primary.background_image.url})`}} className={clsx(moduleStyles.contentContainer, !slice.primary.heading.length && moduleStyles.noHeading)}>
