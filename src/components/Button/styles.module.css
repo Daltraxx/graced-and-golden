@@ -5,6 +5,7 @@
    font-weight: 500;
    border-radius: 100px;
    padding: .6rem 1rem;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .button:hover {
