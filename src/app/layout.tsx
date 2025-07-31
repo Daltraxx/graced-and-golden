@@ -7,6 +7,7 @@ import { asImageSrc } from "@prismicio/client";
 import { PrismicPreview } from "@prismicio/next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import businessJsonLd from "./lib/structuredData/businessJsonLd";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -30,6 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${clsx(barlow.variable, aboreto.variable)} antialiased`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+        />
         <Header />
         {children}
         <Footer />
