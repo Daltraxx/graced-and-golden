@@ -158,7 +158,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
          const setter = fieldStateSetters[i];
          if (state.value) state.validationHandler(state.value, setter);
       });
-   }, [fieldStates, fieldStateSetters]);
+   }, []);
 
    // Handle input changes, validation, and session storage
    const debounceDelay = 300;
