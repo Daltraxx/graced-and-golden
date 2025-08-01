@@ -18,7 +18,7 @@ export default async function Header() {
          <div className={`${moduleStyles.headerContainer}`}>
             <div className={moduleStyles.headerSideCol} >
                <Link href='/'>
-                  <Image src='/logo-full-header.png' width={188} height={100} alt='Graced and Golden logo'/>
+                  <Image src='/logo-full-header.png' width={188} height={100} alt='Graced and Golden logo' fetchPriority="high"/>
                </Link>
             </div>
             {/* &#9776; hamburger menu icon */}

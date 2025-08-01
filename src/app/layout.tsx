@@ -31,14 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${clsx(barlow.variable, aboreto.variable)} antialiased`}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
-        />
         <Header />
         {children}
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+        />
       </body>
     </html>
   );
