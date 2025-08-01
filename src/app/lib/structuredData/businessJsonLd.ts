@@ -4,8 +4,9 @@ import { createClient } from "@/prismicio";
 async function getData() {
    const client = createClient();
    const contactInformation = await client.getSingle("contact_information")
-      .catch(() => {
-         throw new Error("Error fetching contact information");
+      .catch((error) => {
+         console.error('Error fetching contact information:\n', error);
+         return { data: { email: 'inquiries@gracedandgolden.com' } };
       });
    
    return contactInformation.data;
