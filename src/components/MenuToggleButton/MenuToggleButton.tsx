@@ -4,7 +4,7 @@ import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 
 type MenuToggleButtonProps =  {
    displayText: string;
-   navOpen: boolean;
+   menuOpen: boolean;
    setNavOpen: Dispatch<SetStateAction<boolean>>;
    buttonToggleRef: RefObject<HTMLButtonElement | null>;
    ariaControlsId: string;
@@ -14,7 +14,7 @@ type MenuToggleButtonProps =  {
 
 export default function MenuToggleButton({
    displayText,
-   navOpen,
+   menuOpen,
    setNavOpen,
    buttonToggleRef,
    ariaControlsId
@@ -43,8 +43,8 @@ export default function MenuToggleButton({
             className={clsx(
                moduleStyles.menuArrow,
                moduleStyles.navMenuArrow,
-               navOpen && moduleStyles.menuArrowDown,
-               !navOpen && moduleStyles.menuArrowUp
+               menuOpen && moduleStyles.menuArrowDown,
+               !menuOpen && moduleStyles.menuArrowUp
             )}
          ></span>
       </button>
