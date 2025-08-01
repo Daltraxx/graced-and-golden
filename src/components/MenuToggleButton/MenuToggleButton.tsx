@@ -8,12 +8,12 @@ export default function MenuToggleButton({
    displayText,
    navOpen,
    setNavOpen,
-   navButtonRef,
+   buttonToggleRef,
 }: {
    displayText: string;
    navOpen: boolean;
    setNavOpen: Dispatch<SetStateAction<boolean>>;
-   navButtonRef: RefObject<HTMLButtonElement | null>;
+   buttonToggleRef: RefObject<HTMLButtonElement | null>;
 }) {
    const handleNavToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       const target = event.currentTarget;
@@ -28,7 +28,7 @@ export default function MenuToggleButton({
          onClick={handleNavToggleClick}
          type="button"
          className={moduleStyles.navToggle}
-         ref={navButtonRef}
+         ref={buttonToggleRef}
          aria-label="toggle navigation menu"
          aria-pressed="false"
       >
