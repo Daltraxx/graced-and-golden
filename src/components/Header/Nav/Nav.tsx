@@ -6,6 +6,7 @@ import moduleStyles from '@/components/Header/Nav/styles.module.css'
 import { PrismicNextLink } from "@prismicio/next";
 import { LinkField } from "@prismicio/client";
 import ServicesMenu from "./ServicesMenu/ServicesMenu";
+import MenuToggle from "@/components/MenuToggle/MenuToggle";
 
 export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkField[], servicePageLinks: LinkField[] }) {
    const [navOpen, setNavOpen] = useState(false);
@@ -59,25 +60,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
 
    return (
       <nav className={moduleStyles.navContainer}>
-          <button
-            onClick={handleNavToggleClick}
-            type="button"
-            className={moduleStyles.navToggle}
-            ref={navButtonRef}
-            aria-label="toggle navigation menu"
-            aria-pressed='false'
-          >
-            MENU
-            <span
-               className={clsx(
-               moduleStyles.menuArrow,
-               moduleStyles.navMenuArrow,
-               navOpen && moduleStyles.menuArrowDown,
-               !navOpen && moduleStyles.menuArrowUp
-               )}
-            >
-            </span>
-         </button>
+          <MenuToggle displayText='MENU' navOpen={navOpen} setNavOpen={setNavOpen} navButtonRef={navButtonRef} />
          <ul className={clsx(moduleStyles.linksContainer, navOpen && moduleStyles.linksDisplayed, !navOpen && moduleStyles.linksHidden)}>
             {navListItems}
          </ul>

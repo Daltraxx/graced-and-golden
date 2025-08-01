@@ -5,10 +5,12 @@ import moduleStyles from '@/components/MenuToggle/styles.module.css';
 
 
 export default function MenuToggle({
+   displayText,
    navOpen,
    setNavOpen,
    navButtonRef,
 }: {
+   displayText: string;
    navOpen: boolean;
    setNavOpen: Dispatch<SetStateAction<boolean>>;
    navButtonRef: RefObject<HTMLButtonElement | null>;
@@ -30,7 +32,7 @@ export default function MenuToggle({
          aria-label="toggle navigation menu"
          aria-pressed="false"
       >
-         MENU
+         {displayText}
          <span
             className={clsx(
                moduleStyles.menuArrow,

@@ -1,40 +1,8 @@
-.menuArrow {
-   position: absolute;
-   display: inline-block;
-   width: 0;
-   height: 0;
-   vertical-align: middle;
-   border-right: .4rem solid transparent;
-   border-left: .4rem solid transparent;
-   border-bottom: .6rem solid #000;
-}
-
-.menuArrowUp {
-   transform: rotate(-360deg);
-   transition: transform 0.3s;
-}
-
-.menuArrowDown {
-   transform: rotate(-180deg);
-   transition: transform 0.3s;
-}
-
-/* Nav Menu Button */
+/* Nav Menu Button Container */
 
 .navContainer {
    text-align: center;
    padding: 1rem 0;
-}
-
-.navToggle {
-   position: relative;
-   font-size: 1.25rem;
-}
-
-.navMenuArrow {
-   top: .625rem;
-   right: -1.2rem;
-   border-bottom: .6rem solid var(--brown-500);
 }
 
 /* Nav Links Dropdown */

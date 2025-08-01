@@ -1,0 +1,43 @@
+.menuArrow {
+   position: absolute;
+   display: inline-block;
+   width: 0;
+   height: 0;
+   vertical-align: middle;
+   border-right: .4rem solid transparent;
+   border-left: .4rem solid transparent;
+   border-bottom: .6rem solid #000;
+}
+
+.menuArrowUp {
+   transform: rotate(-360deg);
+   transition: transform 0.3s;
+}
+
+.menuArrowDown {
+   transform: rotate(-180deg);
+   transition: transform 0.3s;
+}
+
+.navToggle {
+   position: relative;
+   font-size: 1.25rem;
+}
+
+.navMenuArrow {
+   top: .625rem;
+   right: -1.2rem;
+   border-bottom: .6rem solid var(--brown-500);
+}
+
+@media only screen and (min-width: 674px) {
+   .menuArrow {
+      display: none;
+      visibility: hidden;
+   }
+
+   .navToggle {
+      display: none;
+      visibility: hidden;
+   }
+}
