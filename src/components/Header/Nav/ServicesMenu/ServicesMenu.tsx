@@ -60,7 +60,6 @@ export default function ServicesMenu({ text, servicePageLinks, setNavClosedActio
                servicesOpen && moduleStyles.mainServiceButtonOpenState,
                !servicesOpen && moduleStyles.mainServiceButtonClosedState
             )}
-            aria-haspopup='menu'
             aria-expanded={servicesOpen}
             aria-controls='services-menu'
          >
