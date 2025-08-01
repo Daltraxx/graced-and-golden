@@ -2,6 +2,14 @@ import { Dispatch, RefObject, SetStateAction } from "react";
 import clsx from "clsx";
 import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 
+type MenuToggleButtonProps =  {
+   displayText: string;
+   navOpen: boolean;
+   setNavOpen: Dispatch<SetStateAction<boolean>>;
+   buttonToggleRef: RefObject<HTMLButtonElement | null>;
+   ariaControlsId: string;
+}
+
 
 
 export default function MenuToggleButton({
@@ -10,13 +18,8 @@ export default function MenuToggleButton({
    setNavOpen,
    buttonToggleRef,
    ariaControlsId
-}: {
-   displayText: string;
-   navOpen: boolean;
-   setNavOpen: Dispatch<SetStateAction<boolean>>;
-   buttonToggleRef: RefObject<HTMLButtonElement | null>;
-   ariaControlsId: string;
-}) {
+}: MenuToggleButtonProps
+) {
    const handleNavToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       const target = event.currentTarget;
       target.ariaExpanded === "true"
