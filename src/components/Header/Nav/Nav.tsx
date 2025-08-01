@@ -6,7 +6,7 @@ import moduleStyles from '@/components/Header/Nav/styles.module.css'
 import { PrismicNextLink } from "@prismicio/next";
 import { LinkField } from "@prismicio/client";
 import ServicesMenu from "./ServicesMenu/ServicesMenu";
-import MenuToggle from "@/components/MenuToggle/MenuToggle";
+import MenuToggleButton from "@/components/MenuToggleButton/MenuToggleButton";
 
 export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkField[], servicePageLinks: LinkField[] }) {
    const [navOpen, setNavOpen] = useState(false);
@@ -35,12 +35,6 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       };
    }, [navOpen])
 
-   const handleNavToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-      const target = event.currentTarget;
-      target.ariaPressed === 'true' ? target.ariaPressed = 'false' : target.ariaPressed = 'true';
-      setNavOpen(prev => !prev);
-   }
-
    const navListItems = navLinks.map((link, i) => {
       // consider changing comparison to be based on something else such as slug or uid
       if (link.text && link.text.toLowerCase() === 'services') {
@@ -60,7 +54,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
 
    return (
       <nav className={moduleStyles.navContainer}>
-          <MenuToggle displayText='MENU' navOpen={navOpen} setNavOpen={setNavOpen} navButtonRef={navButtonRef} />
+          <MenuToggleButton displayText='MENU' navOpen={navOpen} setNavOpen={setNavOpen} navButtonRef={navButtonRef} />
          <ul className={clsx(moduleStyles.linksContainer, navOpen && moduleStyles.linksDisplayed, !navOpen && moduleStyles.linksHidden)}>
             {navListItems}
          </ul>

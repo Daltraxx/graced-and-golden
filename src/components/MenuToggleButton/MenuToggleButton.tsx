@@ -1,10 +1,10 @@
 import { Dispatch, RefObject, SetStateAction } from "react";
 import clsx from "clsx";
-import moduleStyles from '@/components/MenuToggle/styles.module.css';
+import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 
 
 
-export default function MenuToggle({
+export default function MenuToggleButton({
    displayText,
    navOpen,
    setNavOpen,
