@@ -54,8 +54,8 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
 
    return (
       <nav className={moduleStyles.navContainer}>
-         <MenuToggleButton displayText='MENU' navOpen={navOpen} setNavOpen={setNavOpen} buttonToggleRef={navButtonRef} />
-         <ul className={clsx(moduleStyles.linksContainer, navOpen && moduleStyles.linksDisplayed, !navOpen && moduleStyles.linksHidden)}>
+         <MenuToggleButton displayText='MENU' navOpen={navOpen} setNavOpen={setNavOpen} buttonToggleRef={navButtonRef} ariaControlsId="nav-menu" />
+         <ul id="nav-menu" className={clsx(moduleStyles.linksContainer, navOpen && moduleStyles.linksDisplayed, !navOpen && moduleStyles.linksHidden)}>
             {navListItems}
          </ul>
       </nav>
