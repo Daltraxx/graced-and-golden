@@ -34,7 +34,9 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       };
    }, [navOpen])
 
-   const handleNavToggleClick = () => {
+   const handleNavToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      const target = event.currentTarget;
+      target.ariaPressed === 'true' ? target.ariaPressed = 'false' : target.ariaPressed = 'true';
       setNavOpen(prev => !prev);
    }
 
@@ -57,7 +59,14 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
 
    return (
       <nav className={moduleStyles.navContainer}>
-         <button onClick={handleNavToggleClick} type="button" className={moduleStyles.navToggle} ref={navButtonRef}>
+          <button
+            onClick={handleNavToggleClick}
+            type="button"
+            className={moduleStyles.navToggle}
+            ref={navButtonRef}
+            aria-label="toggle navigation menu"
+            aria-pressed='false'
+          >
             MENU
             <span
                className={clsx(
