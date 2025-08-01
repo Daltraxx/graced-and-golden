@@ -19,18 +19,37 @@
    transition: transform 0.3s;
 }
 
-.navToggle {
+.menuTogglePrimary {
    position: relative;
    font-size: 1.25rem;
 }
 
-.navMenuArrow {
+.menuToggleSecondary {
+   position: relative;
+   padding: .5625rem;
+}
+
+.menuArrowPrimary {
    top: .625rem;
    right: -1.2rem;
    border-bottom: .6rem solid var(--brown-500);
 }
 
+.menuArrowSecondary {
+   top: 1rem;
+   right: -.4rem;
+   border-right: .3rem solid transparent;
+   border-left: .3rem solid transparent;
+   border-bottom: .45rem solid var(--brown-750);
+
+}
+
 @media only screen and (min-width: 674px) {
+   .hideOnBiggerScreens {
+      display: none;
+      visibility: hidden;
+   }
+   
    .menuArrow {
       display: none;
       visibility: hidden;

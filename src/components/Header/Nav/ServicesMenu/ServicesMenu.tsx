@@ -5,8 +5,9 @@ import { RefObject, useEffect, useRef, useState } from "react";
 import moduleStyles from '@/components/Header/Nav/ServicesMenu/styles.module.css'
 import clsx from "clsx";
 import { LinkField } from "@prismicio/client";
+import MenuToggleButton from "@/components/MenuToggleButton/MenuToggleButton";
 
-export default function ServicesMenu({ text, servicePageLinks, setNavClosedAction, navButtonRef }: { text: string, servicePageLinks: LinkField[], setNavClosedAction: () => void, navButtonRef: RefObject<HTMLButtonElement | null> }) {
+export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNavClosedAction, navButtonRef }: { linkDisplayText: string, servicePageLinks: LinkField[], setNavClosedAction: () => void, navButtonRef: RefObject<HTMLButtonElement | null> }) {
    const [servicesOpen, setServicesOpen] = useState(false);
 
    const servicesMenuToggleRef = useRef<HTMLButtonElement>(null);
@@ -37,10 +38,6 @@ export default function ServicesMenu({ text, servicePageLinks, setNavClosedActio
       
    }, [servicesOpen, navButtonRef])
 
-   const handleServicesToggle = () => {
-      setServicesOpen(prev => !prev);
-   }
-
    const servicesDropdownListItems = servicePageLinks.map((link, i) => (
       <li key={`service-dropdown-link-${i}`} onClick={setNavClosedAction} >
          <PrismicNextLink field={link} className={moduleStyles.serviceLink} />
@@ -51,28 +48,21 @@ export default function ServicesMenu({ text, servicePageLinks, setNavClosedActio
    return (
       <>
          {/* Dropdown Menu Toggle */}
-         <button
-            type="button"
-            onClick={handleServicesToggle}
-            ref={servicesMenuToggleRef}
+         <MenuToggleButton
+            displayText={linkDisplayText}
+            menuOpen={servicesOpen}
+            setMenuOpen={setServicesOpen}
+            buttonToggleRef={servicesMenuToggleRef}
+            ariaControlsId="services-menu"
+            precedence="secondary"
+            onlyMobile={false}
             className={clsx(
                moduleStyles.mainServiceButton,
                servicesOpen && moduleStyles.mainServiceButtonOpenState,
                !servicesOpen && moduleStyles.mainServiceButtonClosedState
             )}
-            aria-expanded={servicesOpen}
-            aria-controls='services-menu'
-         >
-            {text}
-            <span
-               className={clsx(
-                  moduleStyles.menuArrow,
-                  moduleStyles.serviceMenuArrow,
-                  servicesOpen && moduleStyles.menuArrowDown,
-                  !servicesOpen && moduleStyles.menuArrowUp
-               )}
-            />
-         </button>
+         />
+         
          {/* Dropdown Menu */}
          <div
             className={clsx(

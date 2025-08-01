@@ -40,7 +40,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
             <li key={`nav-link-${i}`} ref={serviceMenuRef}>
-               <ServicesMenu text={link.text} servicePageLinks={servicePageLinks} setNavClosedAction={setNavClosed} navButtonRef={navButtonRef}/>
+               <ServicesMenu linkDisplayText={link.text} servicePageLinks={servicePageLinks} setNavClosedAction={setNavClosed} navButtonRef={navButtonRef}/>
             </li>
          );
       } else {
@@ -54,7 +54,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
 
    return (
       <nav className={moduleStyles.navContainer}>
-         <MenuToggleButton displayText='MENU' menuOpen={navMenuOpen} setMenuOpen={setNavMenuOpen} buttonToggleRef={navButtonRef} ariaControlsId="nav-menu" />
+         <MenuToggleButton displayText='MENU' menuOpen={navMenuOpen} setMenuOpen={setNavMenuOpen} buttonToggleRef={navButtonRef} ariaControlsId="nav-menu" precedence="primary" />
          <ul id="nav-menu" className={clsx(moduleStyles.linksContainer, navMenuOpen && moduleStyles.linksDisplayed, !navMenuOpen && moduleStyles.linksHidden)}>
             {navListItems}
          </ul>

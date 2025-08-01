@@ -8,6 +8,9 @@ type MenuToggleButtonProps =  {
    setMenuOpen: Dispatch<SetStateAction<boolean>>;
    buttonToggleRef: RefObject<HTMLButtonElement | null>;
    ariaControlsId: string;
+   precedence: 'primary' | 'secondary';
+   onlyMobile?: boolean;
+   className?: string;
 }
 
 
@@ -17,10 +20,13 @@ export default function MenuToggleButton({
    menuOpen,
    setMenuOpen,
    buttonToggleRef,
-   ariaControlsId
+   ariaControlsId,
+   precedence,
+   onlyMobile = true,
+   className
 }: MenuToggleButtonProps
 ) {
-   const handleNavToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+   const handleMenuToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       const target = event.currentTarget;
       target.ariaExpanded === "true"
          ? (target.ariaExpanded = "false")
@@ -30,9 +36,14 @@ export default function MenuToggleButton({
 
    return (
       <button
-         onClick={handleNavToggleClick}
+         onClick={handleMenuToggleClick}
          type="button"
-         className={moduleStyles.navToggle}
+         className={clsx(
+            precedence === 'primary' && moduleStyles.menuTogglePrimary,
+            precedence === 'secondary' && moduleStyles.menuToggleSecondary,
+            onlyMobile && moduleStyles.hideOnBiggerScreens,
+            className
+         )}
          ref={buttonToggleRef}
          aria-label="toggle navigation menu"
          aria-controls={ariaControlsId}
@@ -42,7 +53,8 @@ export default function MenuToggleButton({
          <span
             className={clsx(
                moduleStyles.menuArrow,
-               moduleStyles.navMenuArrow,
+               precedence === 'primary' && moduleStyles.menuArrowPrimary,
+               precedence === 'secondary' && moduleStyles.menuArrowSecondary,
                menuOpen && moduleStyles.menuArrowDown,
                !menuOpen && moduleStyles.menuArrowUp
             )}

@@ -1,32 +1,3 @@
-/* Could clean up menu arrow repeated styles from parent component */
-.menuArrow {
-   position: absolute;
-   display: inline-block;
-   width: 0;
-   height: 0;
-   vertical-align: middle;
-   border-right: .4rem solid transparent;
-   border-left: .4rem solid transparent;
-   border-bottom: .6rem solid #000;
-}
-
-.menuArrowUp {
-   transform: rotate(-360deg);
-   transition: transform 0.3s;
-}
-
-.menuArrowDown {
-   transform: rotate(-180deg);
-   transition: transform 0.3s;
-}
-
-/* Services Menu Toggle */
-
-.mainServiceButton {
-   position: relative;
-   padding: .5625rem;
-}
-
 .mainServiceButtonOpenState {
    color: var(--brown-750);
    text-decoration: underline;
@@ -35,14 +6,6 @@
 .mainServiceButtonClosedState {
    color: inherit;
    text-decoration: none;
-}
-
-.serviceMenuArrow {
-   top: 1rem;
-   right: -.4rem;
-   border-right: .3rem solid transparent;
-   border-left: .3rem solid transparent;
-   border-bottom: .45rem solid var(--brown-750);
 }
 
 /* Services Dropdown Menu */
@@ -83,11 +46,6 @@
 }
 
 @media only screen and (min-width: 674px) {
-   .menuArrow {
-      display: none;
-      visibility: hidden;
-   }
-
    .mainServiceButton:hover {
       cursor: pointer;
       color: var(--brown-500);
