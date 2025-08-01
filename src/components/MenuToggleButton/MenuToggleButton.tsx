@@ -5,7 +5,7 @@ import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 type MenuToggleButtonProps =  {
    displayText: string;
    menuOpen: boolean;
-   setNavOpen: Dispatch<SetStateAction<boolean>>;
+   setMenuOpen: Dispatch<SetStateAction<boolean>>;
    buttonToggleRef: RefObject<HTMLButtonElement | null>;
    ariaControlsId: string;
 }
@@ -15,7 +15,7 @@ type MenuToggleButtonProps =  {
 export default function MenuToggleButton({
    displayText,
    menuOpen,
-   setNavOpen,
+   setMenuOpen,
    buttonToggleRef,
    ariaControlsId
 }: MenuToggleButtonProps
@@ -25,7 +25,7 @@ export default function MenuToggleButton({
       target.ariaExpanded === "true"
          ? (target.ariaExpanded = "false")
          : (target.ariaExpanded = "true");
-      setNavOpen((prev) => !prev);
+      setMenuOpen((prev) => !prev);
    };
 
    return (

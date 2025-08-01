@@ -9,11 +9,11 @@ import ServicesMenu from "./ServicesMenu/ServicesMenu";
 import MenuToggleButton from "@/components/MenuToggleButton/MenuToggleButton";
 
 export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkField[], servicePageLinks: LinkField[] }) {
-   const [navOpen, setNavOpen] = useState(false);
+   const [navMenuOpen, setNavMenuOpen] = useState(false);
    const navButtonRef = useRef<HTMLButtonElement>(null);
    const serviceMenuRef = useRef<HTMLLIElement>(null);
 
-   const setNavClosed = () => setNavOpen(false);
+   const setNavClosed = () => setNavMenuOpen(false);
 
    // Have Nav Menu close (mobile) if link is clicked
    useEffect(() => {
@@ -33,7 +33,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       return () => {
          window.removeEventListener('mousedown', handleLinkClick);
       };
-   }, [navOpen])
+   }, [navMenuOpen])
 
    const navListItems = navLinks.map((link, i) => {
       // consider changing comparison to be based on something else such as slug or uid
@@ -54,8 +54,8 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
 
    return (
       <nav className={moduleStyles.navContainer}>
-         <MenuToggleButton displayText='MENU' menuOpen={navOpen} setNavOpen={setNavOpen} buttonToggleRef={navButtonRef} ariaControlsId="nav-menu" />
-         <ul id="nav-menu" className={clsx(moduleStyles.linksContainer, navOpen && moduleStyles.linksDisplayed, !navOpen && moduleStyles.linksHidden)}>
+         <MenuToggleButton displayText='MENU' menuOpen={navMenuOpen} setMenuOpen={setNavMenuOpen} buttonToggleRef={navButtonRef} ariaControlsId="nav-menu" />
+         <ul id="nav-menu" className={clsx(moduleStyles.linksContainer, navMenuOpen && moduleStyles.linksDisplayed, !navMenuOpen && moduleStyles.linksHidden)}>
             {navListItems}
          </ul>
       </nav>
