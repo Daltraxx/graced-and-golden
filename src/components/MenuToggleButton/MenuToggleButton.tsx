@@ -28,9 +28,12 @@ export default function MenuToggleButton({
 ) {
    const handleMenuToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       const target = event.currentTarget;
-      target.ariaExpanded === "true"
-         ? (target.ariaExpanded = "false")
-         : (target.ariaExpanded = "true");
+      if (target.ariaExpanded === "true"){
+         target.ariaExpanded = "false"
+      } else {
+         target.ariaExpanded = "true"
+      }
+      
       setMenuOpen((prev) => !prev);
    };
 
