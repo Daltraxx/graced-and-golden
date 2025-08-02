@@ -39,19 +39,24 @@ export default function TestimonialCycler({
     };
   };
 
-  let interval: NodeJS.Timeout;
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  
   useEffect(() => {
     if (cyclerActive) {
-      interval = setInterval(() => {
+      intervalRef.current = setInterval(() => {
         setTestimonial((prev) => {
           return getNextTestimonialState(prev);
         });
       }, 10000);
     }
 
-    return () => clearInterval(interval);
-  }, [testimonials]);
-
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    };
+  }, [testimonials, cyclerActive]);
+  
   const testimonialRef = useRef<HTMLQuoteElement>(null);
 
   useEffect(() => {
@@ -91,7 +96,7 @@ export default function TestimonialCycler({
   const handleArrowClick = (direction: "left" | "right") => {
     if (cyclerActive) {
       setCyclerActive(false);
-      clearInterval(interval);
+      if (intervalRef.current) clearInterval(intervalRef.current);
       if (testimonialRef.current) {
         testimonialRef.current.classList.remove(moduleStyles.animation1);
         testimonialRef.current.classList.remove(moduleStyles.animation2);
@@ -109,12 +114,18 @@ export default function TestimonialCycler({
         {testimonial.text}
       </blockquote>
       <div className={moduleStyles.buttonsContainer}>
-        <button onClick={() => handleArrowClick("left")}>
+        <button
+          onClick={() => handleArrowClick("left")}
+          aria-label="Previous Testimonial"
+        >
           <ArrowIcon
             className={clsx(moduleStyles.arrowIcon, moduleStyles.arrowIconLeft)}
           />
         </button>
-        <button onClick={() => handleArrowClick("right")}>
+        <button
+          onClick={() => handleArrowClick("right")}
+          aria-label="Next Testimonial"
+        >
           <ArrowIcon
             className={clsx(
               moduleStyles.arrowIcon,
