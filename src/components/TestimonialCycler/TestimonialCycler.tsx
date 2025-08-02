@@ -13,7 +13,12 @@ export default function TestimonialCycler({ testimonials }: { testimonials: JSX.
 
   const [cyclerActive, setCyclerActive] = useState(true);
 
-  const setNextTestimonial = (prevTestimonialState: { text: JSX.Element; index: number }) => {
+  type TestimonialState = {
+    text: JSX.Element,
+    index: number
+  }
+
+  const setNextTestimonial = (prevTestimonialState: TestimonialState) => {
     const nextIndex = (prevTestimonialState.index + 1) % testimonials.length;
     return {
       text: testimonials[nextIndex],
