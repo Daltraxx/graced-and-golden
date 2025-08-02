@@ -13,6 +13,7 @@
 }
 
 .sliceHalfContainer {
+   position: relative;
    height: 20rem;
    margin: 0 1rem;
    display: flex;

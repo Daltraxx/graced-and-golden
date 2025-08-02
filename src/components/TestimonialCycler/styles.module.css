@@ -1,3 +1,41 @@
+
+
+.buttonsContainer {
+   position: absolute;
+   top: 19.5rem;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   gap: 2rem;
+
+}
+
+.arrowIcon {
+   height: 2rem;
+   width: 2rem;
+}
+
+.arrowIcon:hover {
+   cursor: pointer;
+}
+
+.arrowIcon:hover path {
+   fill: var(--gold-700);
+}
+
+.arrowIconLeft {
+   transform: rotate(-135deg);
+}
+
+.arrowIconRight {
+   transform: rotate(45deg);
+}
+
+
+
+/* CYCLE TRANSITIONS */
 .animation1 {
    animation: 10000ms ease-in-out fade-in-and-out-1 forwards;
 }

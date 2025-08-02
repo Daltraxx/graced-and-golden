@@ -2,6 +2,8 @@
 
 import { JSX, useEffect, useRef, useState } from "react";
 import moduleStyles from '@/components/TestimonialCycler/styles.module.css';
+import clsx from "clsx";
+import ArrowIcon from "../ArrowIcon";
 
 export default function TestimonialCycler({ testimonials }: { testimonials: JSX.Element[] }) {
    const [testimonial, setTestimonial] = useState({
@@ -39,8 +41,18 @@ export default function TestimonialCycler({ testimonials }: { testimonials: JSX.
   }, [testimonial])
 
   return (
-   <blockquote ref={testimonialRef}>
-      {testimonial.text}
-   </blockquote>
+    <div className={moduleStyles.sectionContainer} >
+      <blockquote ref={testimonialRef} className={moduleStyles.quoteContainer} >
+        {testimonial.text}
+      </blockquote>
+      <div className={moduleStyles.buttonsContainer} >
+        <button>
+          <ArrowIcon className={clsx(moduleStyles.arrowIcon, moduleStyles.arrowIconLeft)} />
+        </button>
+        <button>
+          <ArrowIcon className={clsx(moduleStyles.arrowIcon, moduleStyles.arrowIconRight)} />
+        </button>
+       </div>
+    </div>
   );
 }
