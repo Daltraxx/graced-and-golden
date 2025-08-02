@@ -2,7 +2,7 @@
 
 .buttonsContainer {
    position: absolute;
-   bottom: 1rem;
+   bottom: 10%;
    left: 50%;
    transform: translateX(-50%);
    display: flex;
@@ -31,19 +31,11 @@
    transform: rotate(45deg);
 }
 
-@media only screen and (min-width: 425px) {
+@media only screen and (min-width: 1150px) {
    .buttonsContainer {
-      bottom: 2rem;
+      bottom: 20%;
    }
 }
-
-@media only screen and (min-width: 800px) {
-   .buttonsContainer {
-      bottom: 0rem;
-   }
-}
-
-
 
 /* CYCLE TRANSITIONS */
 .animation1 {

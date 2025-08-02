@@ -96,14 +96,12 @@
 
 @media only screen and (min-width: 800px) {
    .container {
-      height: 30rem;
-      min-height: 30rem;
-      max-height: 30rem;
       flex-direction: row;
       background: linear-gradient(to right, var(--beige-300) 50%, var(--brown-200) 50%); 
    }
 
    .sliceHalfContainer {
+      min-height: 29rem;
       width: 50%;
    }
 
@@ -139,10 +137,8 @@
 }
 
 @media only screen and (min-width: 1150px) {
-   .container {
-      height: 32rem;
+   .sliceHalfContainer {
       min-height: 32rem;
-      max-height: 32rem;
    }
 
    .centerImage {
