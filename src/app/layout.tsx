@@ -8,6 +8,7 @@ import { PrismicPreview } from "@prismicio/next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import businessJsonLd from "./lib/structuredData/businessJsonLd";
+import Script from "next/script";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -35,10 +36,13 @@ export default function RootLayout({
         {children}
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
-        <script
+        <Script
+          id="business-json-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
-        />
+          strategy="afterInteractive"
+        >
+          {JSON.stringify(businessJsonLd)}
+        </Script>
       </body>
     </html>
   );
