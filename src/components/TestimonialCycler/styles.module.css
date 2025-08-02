@@ -2,7 +2,7 @@
 
 .buttonsContainer {
    position: absolute;
-   top: 19.5rem;
+   bottom: 1rem;
    left: 50%;
    transform: translateX(-50%);
    display: flex;
@@ -29,6 +29,18 @@
 
 .arrowIconRight {
    transform: rotate(45deg);
+}
+
+@media only screen and (min-width: 425px) {
+   .buttonsContainer {
+      bottom: 2rem;
+   }
+}
+
+@media only screen and (min-width: 800px) {
+   .buttonsContainer {
+      bottom: 0rem;
+   }
 }
 
 
