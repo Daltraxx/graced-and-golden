@@ -7,11 +7,9 @@
    transform: translateX(-50%);
    display: flex;
    justify-content: center;
-   align-items: flex-end;
    gap: 2rem;
 
 }
-
 .arrowIcon {
    height: 2rem;
    width: 2rem;
@@ -42,6 +40,14 @@
 
 .animation2 {
    animation: 10000ms ease-in-out fade-in-and-out-2 forwards;
+}
+
+.animationPermanent1 {
+   animation: 1s ease-in fade-in-1 forwards;
+}
+
+.animationPermanent2 {
+   animation: 1s ease-in fade-in-2 forwards;
 }
 
 @keyframes fade-in-and-out-1 {
@@ -77,5 +83,25 @@
 
    100% {
       opacity: 0;
+   }
+}
+
+@keyframes fade-in-1 {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+@keyframes fade-in-2 {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
    }
 }

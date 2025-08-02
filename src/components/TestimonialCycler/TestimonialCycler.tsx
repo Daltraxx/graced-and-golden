@@ -6,38 +6,67 @@ import clsx from "clsx";
 import ArrowIcon from "../ArrowIcon";
 
 export default function TestimonialCycler({ testimonials }: { testimonials: JSX.Element[] }) {
-   const [testimonial, setTestimonial] = useState({
-       text: testimonials[0],
-       index: 0
-   });
+  const [testimonial, setTestimonial] = useState({
+    text: testimonials[0],
+    index: 0
+  });
 
+  const [cyclerActive, setCyclerActive] = useState(true);
+
+  const setNextTestimonial = (prevTestimonialState: { text: JSX.Element; index: number }) => {
+    const nextIndex = (prevTestimonialState.index + 1) % testimonials.length;
+    return {
+      text: testimonials[nextIndex],
+      index: nextIndex
+    };
+  }
+
+  let interval: NodeJS.Timeout;
   useEffect(() => {
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
       setTestimonial(prev => {
-        const nextIndex = (prev.index + 1) % testimonials.length;
-        return {
-          text: testimonials[nextIndex],
-          index: nextIndex
-        };
+        return setNextTestimonial(prev);
       });
     }, 10000);
 
     return () => clearInterval(interval);
   }, [testimonials]);
 
+  const handleArrowClick = () => {
+    if (cyclerActive) {
+      setCyclerActive(false);
+      clearInterval(interval);
+    }
+
+    setTestimonial(prev => setNextTestimonial(prev));
+  }
+
   const testimonialRef = useRef<HTMLQuoteElement>(null);
 
   useEffect(() => {
-   const testimonialElement = testimonialRef.current;
-   if (testimonialElement) {
-      if (testimonialElement.classList.contains(moduleStyles.animation1)) {
-         testimonialElement.classList.remove(moduleStyles.animation1);
-         testimonialElement.classList.add(moduleStyles.animation2);
-      } else {
-         testimonialElement.classList.remove(moduleStyles.animation2);
-         testimonialElement.classList.add(moduleStyles.animation1);
+    const testimonialContainer = testimonialRef.current;
+
+    if (cyclerActive) {
+      if (testimonialContainer) {
+        if (testimonialContainer.classList.contains(moduleStyles.animation1)) {
+          testimonialContainer.classList.remove(moduleStyles.animation1);
+          testimonialContainer.classList.add(moduleStyles.animation2);
+        } else {
+          testimonialContainer.classList.remove(moduleStyles.animation2);
+          testimonialContainer.classList.add(moduleStyles.animation1);
+        }
       }
-   }
+    } else {
+      if (testimonialContainer) {
+        if (testimonialContainer.classList.contains(moduleStyles.animationPermanent1)) {
+          testimonialContainer.classList.remove(moduleStyles.animationPermanent1);
+          testimonialContainer.classList.add(moduleStyles.animationPermanent2);
+        } else {
+          testimonialContainer.classList.remove(moduleStyles.animationPermanent2);
+          testimonialContainer.classList.add(moduleStyles.animationPermanent1);
+        }
+      }
+    }
   }, [testimonial])
 
   return (
@@ -49,7 +78,7 @@ export default function TestimonialCycler({ testimonials }: { testimonials: JSX.
         <button>
           <ArrowIcon className={clsx(moduleStyles.arrowIcon, moduleStyles.arrowIconLeft)} />
         </button>
-        <button>
+        <button onClick={handleArrowClick}>
           <ArrowIcon className={clsx(moduleStyles.arrowIcon, moduleStyles.arrowIconRight)} />
         </button>
        </div>
