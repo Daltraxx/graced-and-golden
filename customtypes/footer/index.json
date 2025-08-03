@@ -16,6 +16,21 @@
           "allowText": true,
           "repeat": true
         }
+      },
+      "award_image": {
+        "type": "Image",
+        "config": {
+          "label": "Award Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "award_link": {
+        "type": "Text",
+        "config": {
+          "label": "Award Link",
+          "placeholder": ""
+        }
       }
     }
   }

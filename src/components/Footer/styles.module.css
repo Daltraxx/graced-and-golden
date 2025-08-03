@@ -17,7 +17,7 @@
    flex-basis: 33.3333%;
 }
 
-.rowContainer > a > img {
+.logo {
    margin: 0 auto;
    width: 6.25rem;
    height: 3.375rem;
@@ -29,6 +29,11 @@
    gap: 1rem;
    justify-content: flex-end;
    align-items: center;
+}
+
+.awardImage {
+   width: 6.5rem;
+   height: auto;
 }
 
 .linksContainer a {
