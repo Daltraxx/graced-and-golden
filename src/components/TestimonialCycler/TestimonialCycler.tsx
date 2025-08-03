@@ -91,7 +91,7 @@ export default function TestimonialCycler({
         }
       }
     }
-  }, [testimonial]);
+  }, [testimonial, cyclerActive]);
 
   const handleArrowClick = (direction: "left" | "right") => {
     if (cyclerActive) {
@@ -103,9 +103,11 @@ export default function TestimonialCycler({
       }
     }
 
-    direction === "left"
-      ? setTestimonial((prev) => getPrevTestimonialState(prev))
-      : setTestimonial((prev) => getNextTestimonialState(prev));
+    if (direction === 'left') {
+      setTestimonial((prev) => getPrevTestimonialState(prev))
+    } else {
+      setTestimonial((prev) => getNextTestimonialState(prev))
+    }
   };
 
   return (
