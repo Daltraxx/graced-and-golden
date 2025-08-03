@@ -16,41 +16,58 @@ export default async function Footer() {
          as="footer"
          className={moduleStyles.container}
       >
-         <div className={moduleStyles.rowContainer}>
+          <div className={moduleStyles.rowContainer}>
             <small>Graced and Golden © {new Date().getFullYear()}</small>
-            <Link href="/" className={moduleStyles.logoContainer} >
+            <Link
+               href="/"
+               className={moduleStyles.logoContainer}
+               aria-label="Go to homepage"
+            >
                <Image
-                  src="/logo-full-header.png"
-                  width={100}
-                  height={54}
-                  alt="Graced and Golden logo"
-                  className={moduleStyles.logo}
+                 src="/logo-full-header.png"
+                 width={100}
+                 height={54}
+                 alt="Graced and Golden logo"
+                 className={moduleStyles.logo}
                />
             </Link>
             <ul className={moduleStyles.linksContainer}>
                <li key="award_image">
-                  <a
-                     href={footer.data.award_link || 'https://2024.sandiegobestof.com/health-and-body/best-spray-tan'}
-                     target="_blank"
-                  >
-                  <PrismicNextImage field={footer.data.award_image} className={moduleStyles.awardImage} />
-                  </a>
+                 <a
+                   href={footer.data.award_link || 'https://2024.sandiegobestof.com/health-and-body/best-spray-tan'}
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="View award details"
+                 >
+                   <PrismicNextImage
+                     field={footer.data.award_image}
+                     className={moduleStyles.awardImage}
+                   />
+                 </a>
                </li>
                {footer.data.nav_link.map((link) => (
-                  <li key={link.key}>
-                     <PrismicNextLink key={link.key} field={link} />
-                  </li>
+                 <li key={link.key}>
+                   <PrismicNextLink
+                     key={link.key}
+                     field={link}
+                     aria-label={"Footer navigation link"}
+                   />
+                 </li>
                ))}
                <li key="footer-ig-link">
-                  <a
-                     href="https://www.instagram.com/gracedandgolden/"
-                     target="_blank"
-                  >
-                     <FontAwesomeIcon
+                 <a
+                   href="https://www.instagram.com/gracedandgolden/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Visit Graced and Golden Instagram"
+                 >
+                   <FontAwesomeIcon
                      icon={faInstagram}
                      className={moduleStyles.instagramIcon}
-                     />
-                  </a>
+                     title="Instagram"
+                     aria-hidden="true"
+                   />
+                 </a>
                </li>
             </ul>
          </div>

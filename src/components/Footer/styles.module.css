@@ -10,7 +10,6 @@
    gap: 1rem;
    justify-content: space-between;
    align-items: center;
-
 }
 
 .rowContainer > * {
@@ -19,6 +18,7 @@
 
 .logoContainer {
    max-width: 6.25rem;
+   flex: 0 0 auto; /* occupy only its intrinsic width */
 }
 
 .logo {
@@ -40,12 +40,8 @@
    height: auto;
 }
 
-.linksContainer a {
+.linksContainer li:not(:first-child) a {
    padding: .5rem;
-}
-
-.linksContainer li:first-child a {
-   padding: 0;
 }
 
 .linksContainer a:focus {
