@@ -1,149 +1,25 @@
-/* 
-****** LAYOUT
- */
-
- .grid2Col {
-   display: grid;
-   gap: 1rem;
- }
-
-.flexRow {
-   display: flex;
-   flex-direction: column;
-   place-items: center;
-}
-
- @media only screen and (min-width: 775px) {
-   .grid2Col {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-   }
-   
- }
-
- @media only screen and (min-width: 1050px) {
-   .flexRow {
-      flex-direction: row;
-      justify-content: center;
-   }
-
-   .flexRow > * {
-      flex-basis: 30%;
-   }
- }
-
-  @media only screen and (min-width: 1200px) {
-   .flexRow {
-      justify-content: space-between;
-   }
- } 
-
-
-
 
 /* 
 ****** COLORS
  */
 
- .backgroundBeige300 {
+.backgroundBeige300 {
    background: var(--beige-300);
- }
-
-.backgroundCream200 {
-   background: var(--cream-200);
 }
+
 
 .backgroundCream300 {
    background: var(--cream-300);
-}
-
-.backgroundCream350 {
-   background: var(--cream-350);
-}
-
-.backgroundCream400 {
-   background: var(--cream-400);
-}
-
-.backgroundGray200 {
-   background: var(--gray-200);
-}
-
-.backgroundGray300 {
-   background: var(--gray-300);
-}
-
-.backgroundBlack700 {
-   background: var(--black-700);
-}
-
-.backgroundBrown100 {
-   background: var(--brown-100);
 }
 
 .backgroundBrown200 {
    background: var(--brown-200);
 }
 
-.backgroundBrown300 {
-   background: var(--brown-300);
-}
-
-.backgroundBrown400 {
-   background: var(--brown-400);
-}
-
 .backgroundBrown500 {
    background: var(--brown-500);
-}
-
-.backgroundBrown700 {
-   background: var(--brown-700);
-}
-
-.backgroundBrown750 {
-   background: var(--brown-750);
-}
-
-.backgroundBrown800 {
-   background: var(--brown-800);
-}
-
-.backgroundGold700 {
-   background: var(--gold-700);
-}
-
-.textBrown {
-   color: var(--brown-800);
 }
 
 .textCream200 {
    color: var(--cream-200);
 }
-
- /* 
-****** Images
- */
-
- .heroImage {
-   border-radius: 5px;
-   height: 24rem;
-   width: auto;
- }
-
- .serviceImage {
-   border-radius: 5px;
-   height: 26rem;
-   width: 16rem;
- }
-
-/* 
-****** TEXT CONTENT
- */
-
-
-
-/* .flexRow2Col {
-   display: flex;
-   justify-content: center;
-} */
