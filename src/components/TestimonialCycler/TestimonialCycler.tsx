@@ -110,6 +110,8 @@ export default function TestimonialCycler({
     }
   };
 
+  const arrowIconFill = "#7B5C4B";
+
   return (
     <div className={moduleStyles.sectionContainer}>
       <blockquote ref={testimonialRef} className={moduleStyles.quoteContainer}>
@@ -122,6 +124,7 @@ export default function TestimonialCycler({
         >
           <ArrowIcon
             className={clsx(moduleStyles.arrowIcon, moduleStyles.arrowIconLeft)}
+            fill={arrowIconFill}
           />
         </button>
         <button
@@ -133,6 +136,7 @@ export default function TestimonialCycler({
               moduleStyles.arrowIcon,
               moduleStyles.arrowIconRight
             )}
+            fill={arrowIconFill}
           />
         </button>
       </div>
