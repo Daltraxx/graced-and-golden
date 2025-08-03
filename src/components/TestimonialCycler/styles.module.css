@@ -15,7 +15,6 @@
    width: 2rem;
 }
 
-
 @media (hover: hover) {
    .arrowButton:hover {
       cursor: pointer;
