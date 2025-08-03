@@ -120,6 +120,7 @@ export default function TestimonialCycler({
       <div className={moduleStyles.buttonsContainer}>
         <button
           onClick={() => handleArrowClick("left")}
+          className={moduleStyles.arrowButton}
           aria-label="Previous Testimonial"
         >
           <ArrowIcon
@@ -129,6 +130,7 @@ export default function TestimonialCycler({
         </button>
         <button
           onClick={() => handleArrowClick("right")}
+          className={moduleStyles.arrowButton}
           aria-label="Next Testimonial"
         >
           <ArrowIcon

@@ -10,16 +10,23 @@
    gap: 2rem;
 
 }
-.arrowIcon {
+.arrowButton {
    height: 2rem;
    width: 2rem;
 }
 
-.arrowIcon:hover {
-   cursor: pointer;
+
+@media (hover: hover) {
+   .arrowButton:hover {
+      cursor: pointer;
+   }
+
+   .arrowButton:hover path {
+      fill: var(--brown-700);
+   }
 }
 
-.arrowIcon:hover path {
+.arrowButton:active path {
    fill: var(--gold-700);
 }
 
