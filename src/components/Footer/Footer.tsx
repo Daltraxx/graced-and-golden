@@ -12,10 +12,13 @@ export default async function Footer() {
    const footer = await client.getSingle('footer');
 
    return (
-     <Bounded as="footer" className={moduleStyles.container}>
+      <Bounded
+         as="footer"
+         className={moduleStyles.container}
+      >
          <div className={moduleStyles.rowContainer}>
             <small>Graced and Golden © {new Date().getFullYear()}</small>
-            <Link href="/">
+            <Link href="/" className={moduleStyles.logoContainer} >
                <Image
                   src="/logo-full-header.png"
                   width={100}

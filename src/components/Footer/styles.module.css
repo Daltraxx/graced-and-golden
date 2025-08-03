@@ -14,7 +14,11 @@
 }
 
 .rowContainer > * {
-   flex-basis: 33.3333%;
+   flex-basis: 35%;
+}
+
+.logoContainer {
+   max-width: 6.25rem;
 }
 
 .logo {
@@ -38,6 +42,10 @@
 
 .linksContainer a {
    padding: .5rem;
+}
+
+.linksContainer li:first-child a {
+   padding: 0;
 }
 
 .linksContainer a:focus {
@@ -65,7 +73,7 @@
    }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1440px) {
    .rowContainer {
       flex-direction: row;
    }
