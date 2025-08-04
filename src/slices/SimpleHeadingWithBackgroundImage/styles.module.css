@@ -1,10 +1,13 @@
+.boundedContainer {
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
 .headingContainer {
    height: 20rem;
    display: flex;
    align-items: center;
    justify-content: center;
-   background-size: cover;
-   background-position: 50% 50%;
 }
 
 .heading {
@@ -16,7 +19,7 @@
 }
 
 @media only screen and (min-width: 350px) {
-   .headingContainer {
+   .boundedContainer {
       background-position: 50% 20%;
    }
 }
