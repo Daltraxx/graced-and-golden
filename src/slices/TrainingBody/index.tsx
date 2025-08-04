@@ -1,4 +1,6 @@
-import { FC } from "react";
+'use client';
+
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
@@ -7,6 +9,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import moduleStyles from '@/slices/TrainingBody/styles.module.css';
 import clsx from "clsx";
 import Button from "@/components/Button/Button";
+import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -43,20 +46,28 @@ export type TrainingBodyProps = SliceComponentProps<Content.TrainingBodySlice>;
  * Component for "TrainingBody" Slices.
  */
 const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
+  const containerRef = useRef<HTMLElement>(null);
+  useAddAnimation(containerRef);
+  
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
+      ref={containerRef}
     >
-      <PrismicRichText field={slice.primary.main_heading} components={components} />
+      <div className="animated-element">
+        <PrismicRichText field={slice.primary.main_heading} components={components} />
+      </div>
       <section className={clsx(moduleStyles.row, moduleStyles.introRow)} >
         <div className={clsx(moduleStyles.box, moduleStyles.introBox)} >
           <PrismicRichText field={slice.primary.intro_paragraph_1} components={components} />
           <div className={moduleStyles.divider} ></div>
           <PrismicRichText field={slice.primary.intro_paragraph_2} components={components} />
         </div>
-        <PrismicNextImage field={slice.primary.image} className="" height={778} width={778} />
+        <div className={clsx(moduleStyles.imageContainer)} >
+          <PrismicNextImage field={slice.primary.image} className="" height={778} width={778} />
+        </div>
       </section>
 
       <section className={clsx(moduleStyles.row, moduleStyles.includesRow)} >

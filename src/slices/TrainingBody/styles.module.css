@@ -49,6 +49,7 @@
 
 .introRow img {
    border-radius: 10px;
+   margin: 0 auto;
 }
 
 .divider {
@@ -142,6 +143,12 @@ ul.linksList {
    }
 }
 
+@media only screen and (min-width: 500px) {
+   .introRow img {
+      width: 29.25rem;
+   }
+}
+
 @media only screen and (min-width: 768px) {
    .row {
       flex-direction: row;
@@ -150,7 +157,7 @@ ul.linksList {
 
    /* INTRO ROW */
    .introRow {
-      max-height: 20rem;
+      max-height: 18rem;
    }
 
    .introBox {
@@ -161,8 +168,8 @@ ul.linksList {
    }
 
    .introRow img {
-      max-height: 20rem;
-      max-width: 20rem;
+      max-height: 18rem;
+      max-width: 18rem;
    }
 
    /* INCLUDES ROW */
