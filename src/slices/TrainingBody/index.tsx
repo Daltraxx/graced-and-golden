@@ -57,62 +57,164 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
       ref={containerRef}
     >
       <div className="animated-element">
-        <PrismicRichText field={slice.primary.main_heading} components={components} />
+        <PrismicRichText
+          field={slice.primary.main_heading}
+          components={components}
+        />
       </div>
-      <section className={clsx(moduleStyles.row, moduleStyles.introRow)} >
-        <div className={clsx(moduleStyles.box, moduleStyles.introBox)} >
-          <PrismicRichText field={slice.primary.intro_paragraph_1} components={components} />
-          <div className={moduleStyles.divider} ></div>
-          <PrismicRichText field={slice.primary.intro_paragraph_2} components={components} />
+      <section className={clsx(moduleStyles.row, moduleStyles.introRow)}>
+        <div
+          className={clsx(
+            moduleStyles.box,
+            moduleStyles.introBox,
+            "animated-element"
+          )}
+        >
+          <PrismicRichText
+            field={slice.primary.intro_paragraph_1}
+            components={components}
+          />
+          <div className={moduleStyles.divider}></div>
+          <PrismicRichText
+            field={slice.primary.intro_paragraph_2}
+            components={components}
+          />
         </div>
-        <div className={clsx(moduleStyles.imageContainer)} >
-          <PrismicNextImage field={slice.primary.image} className="" height={778} width={778} />
+        <div className={clsx(moduleStyles.imageContainer, "animated-element")}>
+          <PrismicNextImage
+            field={slice.primary.image}
+            className=""
+            height={778}
+            width={778}
+          />
         </div>
       </section>
 
-      <section className={clsx(moduleStyles.row, moduleStyles.includesRow)} >
-        <section className={clsx(moduleStyles.box, moduleStyles.includesMainBody)} >
-          <PrismicRichText field={slice.primary.includes_heading} components={components} />
-          <PrismicRichText field={slice.primary.includes_list} components={components} />
+      <section
+        className={clsx(
+          moduleStyles.row,
+          moduleStyles.includesRow,
+          "animated-element"
+        )}
+      >
+        <section
+          className={clsx(moduleStyles.box, moduleStyles.includesMainBody)}
+        >
+          <PrismicRichText
+            field={slice.primary.includes_heading}
+            components={components}
+          />
+          <PrismicRichText
+            field={slice.primary.includes_list}
+            components={components}
+          />
         </section>
-        <section className={clsx(moduleStyles.box, moduleStyles.includesSideBar)}>
-          <PrismicRichText field={slice.primary.includes_sidebar_heading} components={components} />
-          <div className={moduleStyles.includesSideBarBodyText} >
-            <PrismicRichText field={slice.primary.includes_sidebar_body} components={components} />
+        <section
+          className={clsx(moduleStyles.box, moduleStyles.includesSideBar)}
+        >
+          <PrismicRichText
+            field={slice.primary.includes_sidebar_heading}
+            components={components}
+          />
+          <div className={moduleStyles.includesSideBarBodyText}>
+            <PrismicRichText
+              field={slice.primary.includes_sidebar_body}
+              components={components}
+            />
           </div>
         </section>
       </section>
 
-      <div className={clsx(moduleStyles.row, moduleStyles.detailsRow)} >
-        <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
-          <PrismicRichText field={slice.primary.requirements_heading} components={components} />
-          <div >
-            <PrismicRichText field={slice.primary.requirements_body} components={components} />
+      <div className={clsx(moduleStyles.row, moduleStyles.detailsRow)}>
+        <section
+          className={clsx(
+            moduleStyles.box,
+            moduleStyles.detailsBox,
+            "animated-element"
+          )}
+        >
+          <PrismicRichText
+            field={slice.primary.requirements_heading}
+            components={components}
+          />
+          <div>
+            <PrismicRichText
+              field={slice.primary.requirements_body}
+              components={components}
+            />
           </div>
         </section>
-        <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
-          <PrismicRichText field={slice.primary.format_and_location_heading} components={components} />
-          <div className={moduleStyles.detailsBody} >
-            <PrismicRichText field={slice.primary.format_and_location_details_list} components={components} />
+        <section
+          className={clsx(
+            moduleStyles.box,
+            moduleStyles.detailsBox,
+            "animated-element"
+          )}
+        >
+          <PrismicRichText
+            field={slice.primary.format_and_location_heading}
+            components={components}
+          />
+          <div className={moduleStyles.detailsBody}>
+            <PrismicRichText
+              field={slice.primary.format_and_location_details_list}
+              components={components}
+            />
           </div>
         </section>
-        <section className={clsx(moduleStyles.box, moduleStyles.detailsBox)} >
-          <PrismicRichText field={slice.primary.booking_and_availability_heading} components={components} />
-          <div className={moduleStyles.detailsBody} >
-            <PrismicRichText field={slice.primary.booking_and_availability_body} components={components} />
+        <section
+          className={clsx(
+            moduleStyles.box,
+            moduleStyles.detailsBox,
+            "animated-element"
+          )}
+        >
+          <PrismicRichText
+            field={slice.primary.booking_and_availability_heading}
+            components={components}
+          />
+          <div className={moduleStyles.detailsBody}>
+            <PrismicRichText
+              field={slice.primary.booking_and_availability_body}
+              components={components}
+            />
           </div>
         </section>
       </div>
 
-      <section className={clsx(moduleStyles.row, moduleStyles.linksRow)} >
-        <div className={clsx(moduleStyles.box)} >
-          <PrismicRichText field={slice.primary.link_box_heading} components={components} />
-          <PrismicRichText field={slice.primary.link_box_body} components={components} />
-          <ul className={moduleStyles.linksList} >
+      <section
+        className={clsx(
+          moduleStyles.row,
+          moduleStyles.linksRow,
+          "animated-element"
+        )}
+      >
+        <div className={clsx(moduleStyles.box)}>
+          <PrismicRichText
+            field={slice.primary.link_box_heading}
+            components={components}
+          />
+          <PrismicRichText
+            field={slice.primary.link_box_body}
+            components={components}
+          />
+          <ul className={moduleStyles.linksList}>
             {slice.primary.link.map((link, i) => (
               <li key={link.key}>
-                {i % 2 === 0 && <Button field={link} color="brown-300" className={moduleStyles.button} />}
-                {i % 2 !== 0 && <Button field={link} color="brown-700" className={moduleStyles.button} />}
+                {i % 2 === 0 && (
+                  <Button
+                    field={link}
+                    color="brown-300"
+                    className={moduleStyles.button}
+                  />
+                )}
+                {i % 2 !== 0 && (
+                  <Button
+                    field={link}
+                    color="brown-700"
+                    className={moduleStyles.button}
+                  />
+                )}
               </li>
             ))}
           </ul>
