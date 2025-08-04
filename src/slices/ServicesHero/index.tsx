@@ -28,12 +28,13 @@ export type ServicesHeroProps = SliceComponentProps<Content.ServicesHeroSlice>;
  * Component for "ServicesHero" Slices.
  */
 const ServicesHero: FC<ServicesHeroProps> = ({ slice }) => {
+  const backgroundImageURL = slice.primary.background_image.url || "/post-its-mod-min.webp";
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
-      style={{ backgroundImage: `url(${slice.primary.background_image.url})` }}
+      style={{ backgroundImage: `url(${backgroundImageURL})` }}
     >
       <div className={moduleStyles.heroContainer} >
         <PrismicNextImage field={slice.primary.main_image} className={moduleStyles.mainImage} />
