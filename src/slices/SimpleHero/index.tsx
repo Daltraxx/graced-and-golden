@@ -27,13 +27,15 @@ export type SimpleHeroProps = SliceComponentProps<Content.SimpleHeroSlice>;
  * Component for "SimpleHero" Slices.
  */
 const SimpleHero: FC<SimpleHeroProps> = ({ slice }) => {
+  const backgroundImageURL =
+    slice.primary.background_image.url || "/bridal-mags-reduce-dark-min.webp";
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
     >
-      <div style={{backgroundImage: `url(${slice.primary.background_image.url})`}} className={moduleStyles.heroContainer} >
+      <div style={{backgroundImage: `url(${backgroundImageURL})`}} className={moduleStyles.heroContainer} >
         <PrismicRichText field={slice.primary.main_heading} components={components} />
         <PrismicRichText field={slice.primary.sub_heading} components={components} />
       </div>
