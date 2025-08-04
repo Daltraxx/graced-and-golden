@@ -1,13 +1,15 @@
 import clsx from "clsx";
+import { RefObject } from "react";
 
 type BoundedProps = {
-   as?: React.ElementType;
-   className?: string;
-   children: React.ReactNode;
-   verticalPadding?: boolean;
-   horizontalSpacing?: boolean;
-   style?: { backgroundImage: string };
-}
+  as?: React.ElementType;
+  className?: string;
+  ref?: RefObject<HTMLElement | null>;
+  children: React.ReactNode;
+  verticalPadding?: boolean;
+  horizontalSpacing?: boolean;
+  style?: { backgroundImage: string };
+};
 
 export default function Bounded({
    as: Comp = 'section',
