@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from "react";
 
-const useAddAnimation = (containerRef: RefObject<HTMLElement | null>, observerThreshold: number = .25) => {
+const useAddAnimation = (containerRef: RefObject<HTMLElement | null>, observerThreshold: number = .4) => {
    useEffect(() => {
       if (!containerRef.current) return;
    
