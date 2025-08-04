@@ -48,8 +48,8 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
     }
   }
 
-  const bgImageURLDefault = slice.primary.background_image?.url || '/couple-beach-pose-mod-dark-min.jpg';
-  const bgImageURLAlt = slice.primary.background_image?.url || '/couple-beach-kiss-crop-upscale-dark-min.jpg';
+  const bgImageURLDefault = slice.primary.background_image?.url || '/couple-beach-pose-mod-dark-min.webp';
+  const bgImageURLAlt = slice.primary.background_image?.url || '/couple-beach-kiss-crop-upscale-dark-min.webp';
 
   if (slice.variation === 'default') {
     return (

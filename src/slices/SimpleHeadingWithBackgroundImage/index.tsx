@@ -30,7 +30,7 @@ export type SimpleHeadingWithBackgroundImageProps =
  */
 const SimpleHeadingWithBackgroundImage: FC<SimpleHeadingWithBackgroundImageProps> = ({ slice }) => {
   // allow background image to be overriden by prismic if one is provided
-  const bgImageURL = slice.primary.background_image.url || '/grace-jen-upscale-mod-dark-min.jpg';
+  const bgImageURL = slice.primary.background_image.url || '/grace-jen-upscale-mod-dark-min.webp';
 
   return (
     <Bounded

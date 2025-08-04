@@ -24,7 +24,7 @@ export default async function Footer() {
                aria-label="Go to homepage"
             >
                <Image
-                 src="/logo-full-header.png"
+                 src="/logo-full-header.webp"
                  width={100}
                  height={54}
                  alt="Graced and Golden logo"

@@ -37,7 +37,7 @@ const businessJsonLd : WithContext<LocalBusiness> = {
    "description": "Get a flawless, sun-kissed glow without the harmful UV rays. Located in San Diego, our custom spray tans provide a natural-looking, long-lasting tan.",
    "email": `${email}`,
    "url": "https://gracedandgolden.com",
-   "logo": "https://gracedandgolden.com/logo.png",
+   "logo": "https://gracedandgolden.com/logo.webp",
    "openingHours": [
       "Mo-Fr 16:30-20:00"
    ],
