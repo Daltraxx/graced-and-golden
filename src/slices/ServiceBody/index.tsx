@@ -50,7 +50,7 @@ export type ServiceBodyProps = SliceComponentProps<Content.ServiceBodySlice>;
  * Component for "ServiceBody" Slices.
  */
 const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
   
   return (
