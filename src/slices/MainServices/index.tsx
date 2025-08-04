@@ -1,10 +1,14 @@
-import { FC } from "react";
+'use client';
+
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import moduleStyles from '@/slices/MainServices/styles.module.css';
 import Button from "@/components/Button/Button";
+import useAddAnimation from "@/utilities/addAnimation";
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -33,17 +37,22 @@ export type MainServicesProps = SliceComponentProps<Content.MainServicesSlice>;
  * Component for "MainServices" Slices.
  */
 const MainServices: FC<MainServicesProps> = ({ slice }) => {
-
+  const containerRef = useRef<HTMLDivElement>(null);
+  useAddAnimation(containerRef);
+  
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
+      ref={containerRef}
     >
-      <PrismicRichText field={slice.primary.main_header} components={components} />
+      <div className="animated-element">
+        <PrismicRichText field={slice.primary.main_header} components={components} />
+      </div>
       <section className={moduleStyles.servicesContainer} >
         {slice.primary.service.map((item, i) => (
-          <section key={`service-section-${i}`} >
+          <section key={`service-section-${i}`} className="animated-element">
             <div className={moduleStyles.serviceBody} >
               <PrismicRichText field={item.service_name} components={components} />
               <PrismicRichText field={item.service_body_text} components={components} />
@@ -70,7 +79,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           </section>
         ))}
       </section>
-      <section className={moduleStyles.cancellationPolicyContainer} >
+      <section className={clsx(moduleStyles.cancellationPolicyContainer, 'animated-element')} >
         <PrismicRichText field={slice.primary.cancellation_policy_header} components={components} />
         <PrismicRichText field={slice.primary.cancellation_policy_body} components={components} />
       </section>
