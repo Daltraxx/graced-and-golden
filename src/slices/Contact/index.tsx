@@ -77,6 +77,7 @@ const Contact: FC<ContactProps> = async({ slice }) => {
               <iframe
                 src={data.google_maps_embed_url || defaultGoogleMapsUrl}
                 className={moduleStyles.googleMapsIFrame}
+                title="Google Maps I-Frame of Santee Lakes Area in Santee, San Diego, California"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
