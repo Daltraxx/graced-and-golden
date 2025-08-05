@@ -62,7 +62,7 @@ const Contact: FC<ContactProps> = async({ slice }) => {
               <div className={moduleStyles.infoText} >
                 <p><strong>Email:</strong><span>{' '}{data.email}</span></p>
                 {/* Add accessibility */}
-                <p><strong>Instagram:</strong>{' '}<a href={`${data.instagram_link}`} target="_blank" >{data.instagram_handle}</a></p>
+                <p><strong>Instagram:</strong>{' '}<a href={`${data.instagram_link}`} target="_blank" rel="noopener noreferrer" aria-label={`Instagram profile of ${data.instagram_handle}`}>{data.instagram_handle}</a></p> 
               </div>
             </div>
           </section>
