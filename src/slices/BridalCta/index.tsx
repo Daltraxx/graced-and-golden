@@ -32,7 +32,7 @@ export type BridalCtaProps = SliceComponentProps<Content.BridalCtaSlice>;
  * Component for "BridalCta" Slices.
  */
 const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef, .5);
   
   return (
@@ -41,23 +41,37 @@ const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={clsx(
         moduleStyles.container,
-        slice.variation === 'default' && styles.backgroundBrown500,
-        slice.variation === 'light' && styles.backgroundBeige300
+        slice.variation === "default" && styles.backgroundBrown500,
+        slice.variation === "light" && styles.backgroundBeige300
       )}
       horizontalSpacing={false}
+      ref={containerRef}
     >
-      <div className={`${moduleStyles.rowContainer}`} ref={containerRef}>
-        <PrismicNextImage field={slice.primary.image_left} className={`${moduleStyles.ctaImage} ${moduleStyles.box} animated-element`}/>
-        <div className={clsx(
+      <div className={`${moduleStyles.rowContainer}`}>
+        <PrismicNextImage
+          field={slice.primary.image_left}
+          className={`${moduleStyles.ctaImage} ${moduleStyles.box} animated-element`}
+        />
+        <div
+          className={clsx(
             moduleStyles.ctaContentContainer,
-            slice.variation === 'default' && moduleStyles.ctaContentContainerDefault,
-            slice.variation === 'light' && moduleStyles.ctaContentContainerLight,
+            slice.variation === "default" &&
+              moduleStyles.ctaContentContainerDefault,
+            slice.variation === "light" &&
+              moduleStyles.ctaContentContainerLight,
             moduleStyles.box,
-            'animated-element'
-          )}>
+            "animated-element"
+          )}
+        >
           <div className={`${moduleStyles.ctaTextContentContainer}`}>
-            <PrismicRichText field={slice.primary.heading} components={components}/>
-            <PrismicRichText field={slice.primary.body} components={components}/>
+            <PrismicRichText
+              field={slice.primary.heading}
+              components={components}
+            />
+            <PrismicRichText
+              field={slice.primary.body}
+              components={components}
+            />
             <Button
               field={slice.primary.bridal_page_link}
               color="cream-200"
@@ -68,7 +82,10 @@ const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
             />
           </div>
         </div>
-        <PrismicNextImage field={slice.primary.image_right} className={`${moduleStyles.ctaImage} ${moduleStyles.box} animated-element`}/>
+        <PrismicNextImage
+          field={slice.primary.image_right}
+          className={`${moduleStyles.ctaImage} ${moduleStyles.box} animated-element`}
+        />
       </div>
     </Bounded>
   );
