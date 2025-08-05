@@ -62,6 +62,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           components={components}
         />
       </div>
+      
       <section className={clsx(moduleStyles.row, moduleStyles.introRow)}>
         <div
           className={clsx(
