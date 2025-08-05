@@ -34,7 +34,7 @@ export type ServicesHeroProps = SliceComponentProps<Content.ServicesHeroSlice>;
 const ServicesHero: FC<ServicesHeroProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
-  const backgroundImageURL = slice.primary.background_image.url || "/post-its-mod-min.webp";
+  const backgroundImageURL = slice.primary.background_image.url || "/post-its-mod2-min.webp";
   return (
     <Bounded
       data-slice-type={slice.slice_type}

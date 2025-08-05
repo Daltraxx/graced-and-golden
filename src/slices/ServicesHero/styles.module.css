@@ -51,7 +51,7 @@
 
 @media only screen and (min-width: 768px) {
    .boundedContainer {
-      background-position: 50% 50%;
+      background-position: 50% 0;
    }
    
    .heroContainer {
@@ -79,32 +79,14 @@
    }
 }
 
-@media only screen and (min-width: 1400px) {
-   .boundedContainer {
-      background-position: 0 -100px;
-   }
-}
-
 @media only screen and (min-width: 1600px) {
    .boundedContainer {
-      background-position: 0 -150px;
+      background-position: 50% 10%;
    }
 }
 
 @media only screen and (min-width: 1800px) {
    .boundedContainer {
-      background-position: 0 -200px;
-   }
-}
-
-@media only screen and (min-width: 1900px) {
-   .boundedContainer {
-      background-position: 0 -300px;
-   }
-}
-
-@media only screen and (min-width: 2100px) {
-   .boundedContainer {
-      background-position: 0 -350px;
+      background-position: 50% 14%;
    }
 }
