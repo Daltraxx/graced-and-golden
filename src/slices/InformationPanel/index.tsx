@@ -36,7 +36,7 @@ export type InformationPanelProps =
  */
 const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
-  useAddAnimation(containerRef, 0.3);
+  useAddAnimation(containerRef, 0.1);
   
   return (
     <Bounded

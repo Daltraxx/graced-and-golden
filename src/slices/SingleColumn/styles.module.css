@@ -23,6 +23,14 @@
    max-width: 46rem;
 }
 
+.noHeading p {
+   font-size: 1.1rem;
+}
+
+.contentContainer p:first-of-type {
+   margin-bottom: .25rem;
+}
+
 .buttonContainer {
    margin-top: 1rem;
    display: flex;
