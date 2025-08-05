@@ -3,6 +3,18 @@
 }
 
 .heroContainer {
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   display: flex;
+   justify-content: center;
+}
+
+.textContainer h2 {
+   font-size: 1.5rem;
+}
+
+.textContainer {
    padding: 3rem;
    color: var(--cream-200);
    display: flex;
@@ -11,23 +23,18 @@
    align-items: center;
    gap: 1rem;
    text-align: center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: 50% 50%;
-}
-
-.heroContainer h2 {
-   font-size: 1.5rem;
 }
 
 @media only screen and (min-width: 768px) {
    .heroContainer {
-      height: 16.5rem;
       background-position: 0 50%;
       margin: 2rem 0;
    }
+   .textContainer {
+      height: 16.5rem;
+   }
    
-   .heroContainer h2 {
+   .textContainer h2 {
       max-width: 30rem;
       font-size: 1.875rem;
    }
