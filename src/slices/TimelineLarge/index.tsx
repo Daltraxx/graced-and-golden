@@ -1,10 +1,14 @@
-import { FC } from "react";
+'use client';
+
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from '../../components/Bounded';
 import moduleStyles from '@/slices/TimelineLarge/styles.module.css';
 import { PrismicNextImage } from "@prismicio/next";
+import useAddAnimation from "@/utilities/addAnimation";
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -34,9 +38,11 @@ export type TimelineLargeProps =
  * Component for "TimelineLarge" Slices.
  */
 const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
+  const containerRef = useRef<HTMLElement>(null);
+  useAddAnimation(containerRef);
 
   const firstTimelineSection = slice.primary.timeline_section[0] && (
-    <section className={moduleStyles.timelineSection} >
+    <section className={clsx(moduleStyles.timelineSection, "animated-element")} >
       <PrismicRichText field={slice.primary.timeline_section[0].heading} components={components} />
       <div className={moduleStyles.box} >
         <PrismicRichText field={slice.primary.timeline_section[0].care_list} components={components} />
@@ -46,7 +52,7 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
 
   const remainingTimelineSections = slice.primary.timeline_section.map((item, i) => (
     i !== 0 && (
-      <section key={`timeline-section-${i}`} className={moduleStyles.timelineSection} >
+      <section key={`timeline-section-${i}`} className={clsx(moduleStyles.timelineSection, "animated-element")} >
         <PrismicRichText field={item.heading} components={components} />
         <div className={moduleStyles.box} >
           <PrismicRichText field={item.care_list} components={components} />
@@ -59,15 +65,22 @@ const TimelineLarge: FC<TimelineLargeProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
+      ref={containerRef}
     >
-      <PrismicRichText field={slice.primary.main_heading} components={components} />
-      
-      <div className={moduleStyles.contentContainer} >
+      <div className="animated-element">
+        <PrismicRichText
+          field={slice.primary.main_heading}
+          components={components}
+        />
+      </div>
+      <div className={moduleStyles.contentContainer}>
         {firstTimelineSection}
-        <PrismicNextImage field={slice.primary.graphic} className={moduleStyles.graphic} />
+        <PrismicNextImage
+          field={slice.primary.graphic}
+          className={clsx(moduleStyles.graphic, "animated-element")}
+        />
         {remainingTimelineSections}
       </div>
-      
     </Bounded>
   );
 };
