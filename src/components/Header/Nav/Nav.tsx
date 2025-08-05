@@ -39,9 +39,14 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
       // consider changing comparison to be based on something else such as slug or uid
       if (link.text && link.text.toLowerCase() === 'services') {
          return (
-            <li key={`nav-link-${i}`} ref={serviceMenuRef}>
-               <ServicesMenu linkDisplayText={link.text} servicePageLinks={servicePageLinks} setNavClosedAction={setNavClosed} navButtonRef={navButtonRef}/>
-            </li>
+           <li key={`nav-link-${i}`} ref={serviceMenuRef}>
+             <ServicesMenu
+               linkDisplayText={link.text}
+               servicePageLinks={servicePageLinks}
+               setNavClosedAction={setNavClosed}
+               navButtonRef={navButtonRef}
+             />
+           </li>
          );
       } else {
          return (
@@ -53,11 +58,25 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    })
 
    return (
-      <nav className={moduleStyles.navContainer}>
-         <MenuToggleButton displayText='MENU' menuOpen={navMenuOpen} setMenuOpen={setNavMenuOpen} buttonToggleRef={navButtonRef} ariaControlsId="nav-menu" precedence="primary" />
-         <ul id="nav-menu" className={clsx(moduleStyles.linksContainer, navMenuOpen && moduleStyles.linksDisplayed, !navMenuOpen && moduleStyles.linksHidden)}>
-            {navListItems}
-         </ul>
-      </nav>
-   )
+     <nav className={moduleStyles.navContainer}>
+       <MenuToggleButton
+         displayText="MENU"
+         menuOpen={navMenuOpen}
+         setMenuOpen={setNavMenuOpen}
+         buttonToggleRef={navButtonRef}
+         ariaControlsId="nav-menu"
+         precedence="primary"
+       />
+       <ul
+         id="nav-menu"
+         className={clsx(
+           moduleStyles.linksContainer,
+           navMenuOpen && moduleStyles.linksDisplayed,
+           !navMenuOpen && moduleStyles.linksHidden
+         )}
+       >
+         {navListItems}
+       </ul>
+     </nav>
+   );
 }
