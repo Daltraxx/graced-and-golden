@@ -42,10 +42,15 @@ export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNav
       setServicesOpen(false);
       setNavClosedAction();
    }
-
    const servicesDropdownListItems = servicePageLinks.map((link, i) => (
-      <li key={`service-dropdown-link-${i}`} onClick={handleServiceLinkClick} >
-         <PrismicNextLink field={link} className={moduleStyles.serviceLink} />
+      <li key={`service-dropdown-link-${i}`} onClick={handleServiceLinkClick}>
+         <PrismicNextLink
+            field={link}
+            className={moduleStyles.serviceLink}
+            tabIndex={i}
+            role="navigation"
+            aria-label={`Navigation link to ${link.text}`}
+         />
       </li>
    ))
 
