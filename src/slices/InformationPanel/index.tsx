@@ -1,9 +1,13 @@
-import { FC } from "react";
+'use client';
+
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import moduleStyles from '@/slices/InformationPanel/styles.module.css';
 import Bounded from "@/components/Bounded";
+import useAddAnimation from "@/utilities/addAnimation";
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
@@ -31,17 +35,32 @@ export type InformationPanelProps =
  * Component for "InformationPanel" Slices.
  */
 const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
+  const containerRef = useRef<HTMLElement>(null);
+  useAddAnimation(containerRef, 0.3);
+  
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
+      ref={containerRef}
     >
-      <PrismicRichText field={slice.primary.main_heading} components={components} />
-      <section className={moduleStyles.contentContainer} >
+      <div className="animated-element">
+        <PrismicRichText
+          field={slice.primary.main_heading}
+          components={components}
+        />
+      </div>
+      <section className={moduleStyles.contentContainer}>
         {slice.primary.info_block.map((item, i) => (
-          <section key={`info-section-${i}`} className={moduleStyles.sectionContainer} >
-            <PrismicRichText field={item.info_heading} components={components} />
+          <section
+            key={`info-section-${i}`}
+            className={clsx(moduleStyles.sectionContainer, "animated-element")}
+          >
+            <PrismicRichText
+              field={item.info_heading}
+              components={components}
+            />
             <PrismicRichText field={item.info_body} components={components} />
           </section>
         ))}
