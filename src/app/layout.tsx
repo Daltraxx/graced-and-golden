@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { barlow, aboreto} from "@/app/fonts";
+import { barlow, herr} from "@/app/fonts";
 import clsx from "clsx";
 import "./globals.css";
 import { createClient, repositoryName } from "@/prismicio";
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${clsx(barlow.variable, aboreto.variable)} antialiased`}>
+    <html lang="en" className={`${clsx(barlow.variable, herr.variable)} antialiased`}>
       <body>
         <Header />
         {children}
