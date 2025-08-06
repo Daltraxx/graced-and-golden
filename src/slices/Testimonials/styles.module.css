@@ -31,14 +31,6 @@
    flex-direction: column;
 }
 
-.linksSection h3 {
-   margin-bottom: .5rem;
-}
-
-.linksSection h3 {
-   margin-top: 1rem;
-}
-
 .linksRow {
    display: flex;
    align-items: center;
@@ -46,7 +38,10 @@
 }
 
 .heading {
-   font-size: 1.375rem;
+   font-size: 2rem;
+   max-width: 30rem;
+   color: var(--brown-800);
+   margin: 1rem auto .5rem auto;
 }
 
 .button {
@@ -79,7 +74,7 @@
 
 @media only screen and (min-width: 400px) {
    .heading {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
    }
 
    .testimonial {

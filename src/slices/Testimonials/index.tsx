@@ -13,7 +13,7 @@ import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className={moduleStyles.heading}>
+    <Heading as="h3" size="manual" className={moduleStyles.heading}>
       {children}
     </Heading>
   ),
@@ -57,20 +57,40 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
       verticalPadding={false}
     >
       <div className={moduleStyles.container} ref={containerRef}>
-        <section className={clsx(`${moduleStyles.sliceHalfContainer} animated-element`)}>
-          <section className={`${moduleStyles.linksSection}`} >
-            <PrismicRichText field={slice.primary.text_1} components={components} />
-            <ul className={moduleStyles.linksRow}>
-              {links}
-            </ul>
+        <section
+          className={clsx(
+            `${moduleStyles.sliceHalfContainer} animated-element`
+          )}
+        >
+          <section className={`${moduleStyles.linksSection}`}>
+            <PrismicRichText
+              field={slice.primary.text_1}
+              components={components}
+            />
+            <ul className={moduleStyles.linksRow}>{links}</ul>
           </section>
-          <section className={`${moduleStyles.linksSection}`} >
-            <PrismicRichText field={slice.primary.text_2} components={components} />
-            <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
+          <section className={`${moduleStyles.linksSection}`}>
+            <PrismicRichText
+              field={slice.primary.text_2}
+              components={components}
+            />
+            <Button
+              field={slice.primary.links_2}
+              color="brown-300"
+              className={moduleStyles.button}
+            />
           </section>
         </section>
-        <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={clsx(moduleStyles.centerImage, "animated-element")}></div>
-        <section className={clsx(moduleStyles.sliceHalfContainer, "animated-element")}>
+        <div
+          style={{ backgroundImage: `url(${slice.primary.center_image.url})` }}
+          className={clsx(
+            moduleStyles.centerImage,
+            "animated-element"
+          )}
+        ></div>
+        <section
+          className={clsx(moduleStyles.sliceHalfContainer, "animated-element")}
+        >
           <TestimonialCycler testimonials={testimonials} />
         </section>
       </div>
