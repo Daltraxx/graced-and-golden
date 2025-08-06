@@ -25,6 +25,10 @@
    align-items: center;
 }
 
+.headingRow h1 {
+   font-size: 4rem;
+} 
+
 .linksRow {
    display: flex;
    flex-direction: column;
