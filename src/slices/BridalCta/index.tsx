@@ -50,7 +50,7 @@ const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
       <div className={`${moduleStyles.rowContainer}`}>
         <PrismicNextImage
           field={slice.primary.image_left}
-          className={`${moduleStyles.ctaImage} ${moduleStyles.box} animated-element`}
+          className={clsx(moduleStyles.ctaImage, moduleStyles.box, "animated-element")}
         />
         <div
           className={clsx(
@@ -63,7 +63,7 @@ const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
             "animated-element"
           )}
         >
-          <div className={`${moduleStyles.ctaTextContentContainer}`}>
+          <div className={moduleStyles.ctaTextContentContainer}>
             <PrismicRichText
               field={slice.primary.heading}
               components={components}
@@ -84,7 +84,7 @@ const BridalCta: FC<BridalCtaProps> = ({ slice }) => {
         </div>
         <PrismicNextImage
           field={slice.primary.image_right}
-          className={`${moduleStyles.ctaImage} ${moduleStyles.box} animated-element`}
+          className={clsx(moduleStyles.ctaImage, moduleStyles.box, "animated-element")}
         />
       </div>
     </Bounded>
