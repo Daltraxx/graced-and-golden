@@ -9,6 +9,7 @@ import moduleStyles from '@/slices/Testimonials/styles.module.css';
 import Button from "@/components/Button/Button";
 import TestimonialCycler from "@/components/TestimonialCycler/TestimonialCycler";
 import useAddAnimation from "@/utilities/addAnimation";
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
@@ -56,7 +57,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
       verticalPadding={false}
     >
       <div className={moduleStyles.container} ref={containerRef}>
-        <section className={`${moduleStyles.sliceHalfContainer} animated-element`}>
+        <section className={clsx(`${moduleStyles.sliceHalfContainer} animated-element`)}>
           <section className={`${moduleStyles.linksSection}`} >
             <PrismicRichText field={slice.primary.text_1} components={components} />
             <ul className={moduleStyles.linksRow}>
@@ -68,8 +69,8 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
             <Button field={slice.primary.links_2} color="brown-300" className={moduleStyles.button} />
           </section>
         </section>
-        <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={`${moduleStyles.centerImage} animated-element`}></div>
-        <section className={`${moduleStyles.sliceHalfContainer} animated-element`}>
+        <div style={{ backgroundImage: `url(${slice.primary.center_image.url})` }} className={clsx(moduleStyles.centerImage, "animated-element")}></div>
+        <section className={clsx(moduleStyles.sliceHalfContainer, "animated-element")}>
           <TestimonialCycler testimonials={testimonials} />
         </section>
       </div>
