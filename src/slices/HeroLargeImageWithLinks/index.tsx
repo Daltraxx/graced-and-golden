@@ -9,10 +9,11 @@ import Button from "@/components/Button/Button";
 import defaultStyles from '@/slices/HeroLargeImageWithLinks/defaultStyles.module.css';
 import altStyles from '@/slices/HeroLargeImageWithLinks/altStyles.module.css';
 import useAddAnimation from "@/utilities/addAnimation";
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading1: ({children}) => (
-    <Heading as="h1" size="lg" className="text-center">
+    <Heading as="h1" size="manual" className="">
       {children}
     </Heading>
   ),
@@ -53,19 +54,43 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
 
   if (slice.variation === 'default') {
     return (
-      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${defaultStyles.boundedContainer}`} style={{backgroundImage: `url(${bgImageURLDefault})`}}>
+      <Bounded
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        verticalPadding={false}
+        className={`${defaultStyles.boundedContainer}`}
+        style={{ backgroundImage: `url(${bgImageURLDefault})` }}
+      >
         <div ref={containerRef}>
-          <div className={`${defaultStyles.row} ${defaultStyles.empty}`}></div>
-          <div className={`${defaultStyles.row} ${defaultStyles.headingRow} animated-element`}>
-            <PrismicRichText field={slice.primary.main_heading} components={components}/>
+          <div className={clsx(defaultStyles.row, defaultStyles.empty)}></div>
+          <div
+            className={clsx(
+              defaultStyles.row,
+              defaultStyles.headingRow,
+              "animated-element"
+            )}
+          >
+            <PrismicRichText
+              field={slice.primary.main_heading}
+              components={components}
+            />
           </div>
-          <section className={`${defaultStyles.row} ${defaultStyles.linksRow}`}>
+          <section className={clsx(defaultStyles.row, defaultStyles.linksRow)}>
             <div className="animated-element">
-              <PrismicRichText field={slice.primary.short_text} components={components}/>
+              <PrismicRichText
+                field={slice.primary.short_text}
+                components={components}
+              />
             </div>
             <ul className={`${defaultStyles.links}`}>
               {slice.primary.link.map((link, i) => (
-                <li key={link.key} className="animated-element"><Button field={link} color={getButtonColor(i)} className={`${defaultStyles.button}`} /></li>
+                <li key={link.key} className="animated-element">
+                  <Button
+                    field={link}
+                    color={getButtonColor(i)}
+                    className={defaultStyles.button}
+                  />
+                </li>
               ))}
             </ul>
           </section>
@@ -74,24 +99,40 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
     );
   } else {
     return (
-      <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation} verticalPadding={false} className={`${altStyles.boundedContainer}`} style={{backgroundImage: `url(${bgImageURLAlt})`}}>
+      <Bounded
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        verticalPadding={false}
+        className={`${altStyles.boundedContainer}`}
+        style={{ backgroundImage: `url(${bgImageURLAlt})` }}
+      >
         <div ref={containerRef} className={altStyles.heroContainer}>
-          <div className={`${altStyles.textRow} animated-element`}>
-            <PrismicRichText field={slice.primary.main_heading} components={components}/>
+          <div className={clsx(altStyles.textRow, "animated-element")}>
+            <PrismicRichText
+              field={slice.primary.main_heading}
+              components={components}
+            />
           </div>
-          <div className={`${altStyles.textRow} animated-element`}>
-            <PrismicRichText field={slice.primary.body_text} components={components}/>
+          <div className={clsx(altStyles.textRow, "animated-element")}>
+            <PrismicRichText
+              field={slice.primary.body_text}
+              components={components}
+            />
           </div>
           <ul className={`${altStyles.links}`}>
             {slice.primary.link.map((link, i) => (
-              <li key={link.key} className="animated-element" >
-                <Button field={link} color={getButtonColor(i)} className={`${altStyles.button}`} />
+              <li key={link.key} className="animated-element">
+                <Button
+                  field={link}
+                  color={getButtonColor(i)}
+                  className={`${altStyles.button}`}
+                />
               </li>
             ))}
           </ul>
         </div>
       </Bounded>
-    )
+    );
   }
   
 };
