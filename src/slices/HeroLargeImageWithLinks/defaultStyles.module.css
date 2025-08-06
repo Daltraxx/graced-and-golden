@@ -20,13 +20,14 @@
 }
 
 .headingRow {
-   margin: 0 auto;
+   margin: 0 auto 1rem auto;
    max-width: 90%;
    align-items: center;
 }
 
 .headingRow h1 {
-   font-size: 4rem;
+   text-align: center;
+   font-size: 3.25rem;
 } 
 
 .linksRow {
@@ -60,6 +61,10 @@
    .empty {
       height: 12rem;
    }
+
+   .headingRow h1 {
+      font-size: 4rem;
+   } 
 
    .links {
       flex-direction: row;
