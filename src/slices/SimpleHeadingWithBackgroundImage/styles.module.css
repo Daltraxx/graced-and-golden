@@ -3,6 +3,11 @@
    background-position: 50% 50%;
 }
 
+.boundedContainerCenteredImage {
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
 .headingContainer {
    height: 20rem;
    display: flex;
@@ -18,9 +23,9 @@
    max-width: 24.25rem;
 }
 
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 425px) {
    .boundedContainer {
-      background-position: 50% 20%;
+      background-position: 50% 0;
    }
 }
 

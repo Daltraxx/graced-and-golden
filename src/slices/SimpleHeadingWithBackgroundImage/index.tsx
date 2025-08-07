@@ -35,9 +35,6 @@ export type SimpleHeadingWithBackgroundImageProps =
 const SimpleHeadingWithBackgroundImage: FC<SimpleHeadingWithBackgroundImageProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
-  
-  // allow background image to be overriden by prismic if one is provided
-  const bgImageURL = slice.primary.background_image.url || '/grace-jen-upscale-mod-dark-min.webp';
 
   return (
     <Bounded
@@ -45,11 +42,14 @@ const SimpleHeadingWithBackgroundImage: FC<SimpleHeadingWithBackgroundImageProps
       data-slice-variation={slice.variation}
       horizontalSpacing={false}
       verticalPadding={false}
-      style={{ backgroundImage: `url(${bgImageURL})` }}
-      className={moduleStyles.boundedContainer}
+      style={{ backgroundImage: `url(${slice.primary.background_image.url})` }}
+      className={clsx(
+        slice.variation === 'default' && moduleStyles.boundedContainer,
+        slice.variation === 'centeredImage' && moduleStyles.boundedContainerCenteredImage
+      )}
       ref={containerRef}
     >
-      <div className={clsx(moduleStyles.headingContainer, 'animated-element')}>
+      <div className={clsx(moduleStyles.headingContainer, "animated-element")}>
         <PrismicRichText
           field={slice.primary.heading}
           components={components}

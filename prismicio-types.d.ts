@@ -2444,10 +2444,50 @@ export type SimpleHeadingWithBackgroundImageSliceDefault =
   >;
 
 /**
+ * Primary content in *SimpleHeadingWithBackgroundImage → Centered Image → Primary*
+ */
+export interface SimpleHeadingWithBackgroundImageSliceCenteredImagePrimary {
+  /**
+   * Heading field in *SimpleHeadingWithBackgroundImage → Centered Image → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_heading_with_background_image.centeredImage.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Background Image field in *SimpleHeadingWithBackgroundImage → Centered Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_heading_with_background_image.centeredImage.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Centered Image variation for SimpleHeadingWithBackgroundImage Slice
+ *
+ * - **API ID**: `centeredImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleHeadingWithBackgroundImageSliceCenteredImage =
+  prismic.SharedSliceVariation<
+    "centeredImage",
+    Simplify<SimpleHeadingWithBackgroundImageSliceCenteredImagePrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *SimpleHeadingWithBackgroundImage*
  */
 type SimpleHeadingWithBackgroundImageSliceVariation =
-  SimpleHeadingWithBackgroundImageSliceDefault;
+  | SimpleHeadingWithBackgroundImageSliceDefault
+  | SimpleHeadingWithBackgroundImageSliceCenteredImage;
 
 /**
  * SimpleHeadingWithBackgroundImage Shared Slice
@@ -3355,8 +3395,10 @@ declare module "@prismicio/client" {
       SimpleColumnWLinkSliceDefault,
       SimpleHeadingWithBackgroundImageSlice,
       SimpleHeadingWithBackgroundImageSliceDefaultPrimary,
+      SimpleHeadingWithBackgroundImageSliceCenteredImagePrimary,
       SimpleHeadingWithBackgroundImageSliceVariation,
       SimpleHeadingWithBackgroundImageSliceDefault,
+      SimpleHeadingWithBackgroundImageSliceCenteredImage,
       SimpleHeroSlice,
       SimpleHeroSliceDefaultPrimary,
       SimpleHeroSliceVariation,
