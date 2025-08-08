@@ -1,4 +1,4 @@
-import { Barlow, Herr_Von_Muellerhoff } from "next/font/google";
+import { Barlow, Herr_Von_Muellerhoff, Aboreto } from "next/font/google";
 
 export const barlow = Barlow({
   variable: "--font-barlow",
@@ -15,9 +15,9 @@ export const herr = Herr_Von_Muellerhoff({
   display: "swap",
 });
 
-// export const aboreto = Aboreto({
-//   variable: "--font-aboreto",
-//   weight: ["400"],
-//   subsets: ["latin"],
-//   display: "swap",
-// });
+export const aboreto = Aboreto({
+  variable: "--font-aboreto",
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+});

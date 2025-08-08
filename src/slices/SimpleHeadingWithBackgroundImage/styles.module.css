@@ -1,6 +1,6 @@
 .boundedContainer {
    background-size: cover;
-   background-position: 50% 50%;
+   background-position: 50% 0;
 }
 
 .boundedContainerCenteredImage {
@@ -21,12 +21,6 @@
    font-size: 2rem;
    width: 90%;
    max-width: 24.25rem;
-}
-
-@media only screen and (min-width: 425px) {
-   .boundedContainer {
-      background-position: 50% 0;
-   }
 }
 
 @media only screen and (min-width: 1024px) {
