@@ -39,13 +39,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
       const firstLine = headingWordsArray.slice(0, placement).join(" ");
       const secondLine = headingWordsArray.slice(placement).join(" ");
 
-      const headingWithBreak = [
-        firstLine,
-        <br key={"break"} />,
-        secondLine,
-      ];
-
-      return headingWithBreak;
+      return [firstLine, <br key={"break"} />, secondLine];
     }
 
     return text;
@@ -71,7 +65,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
             <p className="mb-2 animated-element">{slice.primary.small_text}</p>
             <div className="animated-element">
               <Heading as="h2" size="md" font="display" className={moduleStyles.heading}>
-                <>{headingWithBreak}</>
+                {headingWithBreak}
               </Heading>
               <div className={moduleStyles.divider}></div>
             </div>
