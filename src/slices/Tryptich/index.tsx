@@ -12,7 +12,7 @@ import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" className="">
+    <Heading as="h2" size="md" font="display" className="">
       {children}
     </Heading>
   ),
@@ -53,6 +53,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
                 field={slice.primary.heading}
                 components={components}
               />
+              <div className={moduleStyles.divider}></div>
             </div>
             <div className="animated-element">
               <PrismicRichText

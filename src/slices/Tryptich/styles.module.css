@@ -26,10 +26,13 @@
 }
 
 .bodyText h2 {
-   font-size: 3rem;
-   border-bottom: 1px solid gray;
    color: var(--gold-700);
-   margin-bottom: 1rem;
+   max-width: 80%;
+}
+
+.divider {
+   border-bottom: 1px solid gray;
+   margin : 1rem 0;
 }
 
 .bodyTextParagraph {
