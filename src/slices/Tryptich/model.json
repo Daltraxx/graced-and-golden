@@ -28,12 +28,10 @@
           }
         },
         "heading": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Heading",
-            "placeholder": "",
-            "allowTargetBlank": false,
-            "single": "heading2"
+            "placeholder": ""
           }
         },
         "body": {

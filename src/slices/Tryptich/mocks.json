@@ -54,17 +54,6 @@
 				"value": "round",
 				"type": "Text"
 			},
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Tower"
-						}
-					}
-				]
-			},
 			"body": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -107,6 +96,11 @@
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "suggest",
+				"type": "Text"
 			}
 		},
 		"items": []

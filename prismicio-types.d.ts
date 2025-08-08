@@ -3201,12 +3201,12 @@ export interface TryptichSliceDefaultPrimary {
   /**
    * Heading field in *Tryptich → Default → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: tryptich.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.TitleField;
+  heading: prismic.KeyTextField;
 
   /**
    * Body field in *Tryptich → Default → Primary*

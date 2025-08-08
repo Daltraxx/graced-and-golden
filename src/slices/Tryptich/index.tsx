@@ -30,9 +30,30 @@ export type TryptichProps = SliceComponentProps<Content.TryptichSlice>;
  * Component for "Tryptich" Slices.
  */
 const Tryptich: FC<TryptichProps> = ({ slice }) => {
-
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef, .5);
+
+  const getHeadingTextWithBreak = (text: string, placement: number = 2) => {
+    if (text.toLowerCase() === 'welcome to graced and golden') {
+      const headingWordsArray = text.split(' ');
+      const firstLine = headingWordsArray.slice(0, placement).join(" ");
+      const secondLine = headingWordsArray.slice(placement).join(" ");
+
+      const headingWithBreak = [
+        firstLine,
+        <br key={"break"} />,
+        secondLine,
+      ];
+
+      return headingWithBreak;
+    }
+
+    return text;
+  }
+
+
+  const heading = slice.primary.heading || "Welcome to Graced and Golden";
+  const headingWithBreak = getHeadingTextWithBreak(heading);
 
   return (
     <Bounded
@@ -49,10 +70,9 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
           <section className={`${moduleStyles.bodyText}`}>
             <p className="mb-2 animated-element">{slice.primary.small_text}</p>
             <div className="animated-element">
-              <PrismicRichText
-                field={slice.primary.heading}
-                components={components}
-              />
+              <Heading as="h2" size="md" font="display" className={moduleStyles.heading}>
+                <>{headingWithBreak}</>
+              </Heading>
               <div className={moduleStyles.divider}></div>
             </div>
             <div className="animated-element">
