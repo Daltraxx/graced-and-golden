@@ -10,7 +10,7 @@ export const barlow = Barlow({
 
 export const herr = Herr_Von_Muellerhoff({
   variable: "--font-herr",
-  weight: ["400"],
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
