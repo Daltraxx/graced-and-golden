@@ -45,13 +45,38 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
     for (let i = 0; i < numberOfSections; i++) {
       infoOpenStateMap.set(i, false);
     }
-
     return infoOpenStateMap;
-  }
+  };
 
   const [infoOpen, setInfoOpen] = useState(
     getInfoOpenStateMap(slice.primary.info_block.length)
   );
+
+  const setDynamicStateOpenSetters = (panelCount: number, functionMap: Map<number, () => void>) => {
+    for (let i = 0; i < panelCount; i++) {
+      const stateSetter = () => {
+        setInfoOpen(prev => {
+          const newStateMap = new Map(prev);
+          const prevOpenState = prev.get(i);
+          newStateMap.set(i, !prevOpenState);
+          return newStateMap;
+        });
+      };
+      functionMap.set(i, stateSetter);
+    }
+  };
+
+  const setMenuOpenMap = new Map();
+  setDynamicStateOpenSetters(slice.primary.info_block.length, setMenuOpenMap);
+
+  // const setInfoOpenByIndex = (index: number) => {
+  //   const prevOpenState = infoOpen.get(index);
+  //   setInfoOpen(prev => {
+  //     const newStateMap = new Map(prev);
+  //     newStateMap.set(index, !prevOpenState);
+  //     return newStateMap;
+  //   })
+  // }
 
   
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>(
@@ -78,15 +103,17 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
             className={clsx(moduleStyles.sectionContainer, "animated-element")}
           >
             <Heading as="h4" size="xs" className={moduleStyles.sectionHeading}>
-              {item.info_heading}
-              {/* <MenuToggleButton
+              <MenuToggleButton
                 displayText={`${item.info_heading}`}
-                ariaControlsId={`Info Details ${i}`}
+                menuOpen={infoOpen.get(i)}
+                setMenuOpen={setMenuOpenMap.get(i)}
                 buttonToggleRef={(el: HTMLButtonElement) => {
                   if (buttonRefs.current) buttonRefs.current[i] = el;
                 }}
-
-              /> */}
+                ariaControlsId={`Info Details ${i}`}
+                precedence="secondary"
+                onlyMobile={false}
+              />
             </Heading>
             <div id={`Info Details ${i}`}>
               <PrismicRichText field={item.info_body} components={components} />
