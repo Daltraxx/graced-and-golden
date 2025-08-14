@@ -1813,12 +1813,12 @@ export interface InformationPanelSliceDefaultPrimaryInfoBlockItem {
   /**
    * Info Heading field in *InformationPanel → Default → Primary → Info Block*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: information_panel.default.primary.info_block[].info_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  info_heading: prismic.RichTextField;
+  info_heading: prismic.KeyTextField;
 
   /**
    * Info Body field in *InformationPanel → Default → Primary → Info Block*

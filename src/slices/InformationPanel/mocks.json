@@ -21,20 +21,6 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"info_heading",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "heading4",
-											"content": {
-												"text": "Paper"
-											}
-										}
-									]
-								}
-							],
-							[
 								"info_body",
 								{
 									"__TYPE__": "StructuredTextContent",
@@ -46,6 +32,14 @@
 											}
 										}
 									]
+								}
+							],
+							[
+								"info_heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fellow",
+									"type": "Text"
 								}
 							]
 						]

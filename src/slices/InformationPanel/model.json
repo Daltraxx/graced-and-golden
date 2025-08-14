@@ -28,12 +28,10 @@
             "repeat": true,
             "fields": {
               "info_heading": {
-                "type": "StructuredText",
+                "type": "Text",
                 "config": {
                   "label": "Info Heading",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "single": "heading4,strong,em"
+                  "placeholder": ""
                 }
               },
               "info_body": {
