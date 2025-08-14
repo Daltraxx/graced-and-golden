@@ -28,18 +28,23 @@
 }
 
 .menuArrowPrimary {
-   top: .625rem;
-   right: -1.2rem;
    border-bottom: .6rem solid var(--brown-500);
 }
 
+.menuArrowPrimaryPositioning {
+   top: .625rem;
+   right: -1.2rem;
+}
+
 .menuArrowSecondary {
-   top: 1rem;
-   right: -.4rem;
    border-right: .3rem solid transparent;
    border-left: .3rem solid transparent;
    border-bottom: .45rem solid var(--brown-750);
+}
 
+.menuArrowSecondaryPositioning {
+   top: 1rem;
+   right: -.4rem;
 }
 
 @media only screen and (min-width: 674px) {

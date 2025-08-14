@@ -13,6 +13,7 @@ type MenuToggleButtonProps = {
    precedence: "primary" | "secondary";
    menuOnlyMobile?: boolean;
    arrowOnlyMobile?: boolean;
+   manualArrowPositioning?: boolean;
    className?: string;
 };
 
@@ -27,6 +28,7 @@ export default function MenuToggleButton({
    precedence,
    menuOnlyMobile = false,
    arrowOnlyMobile = false,
+   manualArrowPositioning = false,
    className
 }: MenuToggleButtonProps
 ) {
@@ -57,14 +59,20 @@ export default function MenuToggleButton({
       >
          {displayText}
          <span
-            className={clsx(
-               moduleStyles.menuArrow,
-               precedence === 'primary' && moduleStyles.menuArrowPrimary,
-               precedence === 'secondary' && moduleStyles.menuArrowSecondary,
-               arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
-               menuOpen && moduleStyles.menuArrowDown,
-               !menuOpen && moduleStyles.menuArrowUp
-            )}
+         className={clsx(
+            moduleStyles.menuArrow,
+            precedence === "primary" && moduleStyles.menuArrowPrimary,
+            !manualArrowPositioning &&
+               precedence === "primary" &&
+               moduleStyles.menuArrowPrimaryPositioning,
+            precedence === "secondary" && moduleStyles.menuArrowSecondary,
+            !manualArrowPositioning &&
+               precedence === "secondary" &&
+               moduleStyles.menuArrowSecondaryPositioning,
+            arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
+            menuOpen && moduleStyles.menuArrowDown,
+            !menuOpen && moduleStyles.menuArrowUp
+         )}
          ></span>
       </button>
    );
