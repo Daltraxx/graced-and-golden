@@ -67,9 +67,9 @@ export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNav
             precedence="secondary"
             onlyMobile={false}
             className={clsx(
-               moduleStyles.mainServiceButton,
-               servicesOpen && moduleStyles.mainServiceButtonOpenState,
-               !servicesOpen && moduleStyles.mainServiceButtonClosedState
+               moduleStyles.menuToggleButton,
+               servicesOpen && moduleStyles.menuToggleButtonOpenState,
+               !servicesOpen && moduleStyles.menuToggleButtonClosedState
             )}
          />
          
