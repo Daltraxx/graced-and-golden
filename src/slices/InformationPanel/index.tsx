@@ -112,7 +112,9 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
                 }}
                 ariaControlsId={`Info Details ${i}`}
                 precedence="secondary"
-                onlyMobile={false}
+                menuOnlyMobile={false}
+                arrowOnlyMobile={false}
+                className={moduleStyles.menuToggleButton}
               />
             </Heading>
             <div id={`Info Details ${i}`}>
