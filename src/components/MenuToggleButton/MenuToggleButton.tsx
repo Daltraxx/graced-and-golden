@@ -42,7 +42,7 @@ export default function MenuToggleButton({
          onClick={handleMenuToggleClick}
          type="button"
          className={clsx(
-            precedence === 'primary' && moduleStyles.menuTogglePrimary,
+            moduleStyles.menuToggle,
             precedence === 'secondary' && moduleStyles.menuToggleSecondary,
             onlyMobile && moduleStyles.hideOnBiggerScreens,
             className
