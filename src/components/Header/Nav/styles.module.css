@@ -5,6 +5,9 @@
    padding: 1rem 0;
 }
 
+.menuToggleButton {
+   font-size: 1.25rem;
+}
 /* Nav Links Dropdown */
 
 .linksContainer {

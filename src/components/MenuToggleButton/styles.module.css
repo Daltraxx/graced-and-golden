@@ -19,13 +19,11 @@
    transition: transform 0.3s;
 }
 
-.menuTogglePrimary {
+.menuToggle {
    position: relative;
-   font-size: 1.25rem;
 }
 
 .menuToggleSecondary {
-   position: relative;
    padding: .5625rem;
 }
 

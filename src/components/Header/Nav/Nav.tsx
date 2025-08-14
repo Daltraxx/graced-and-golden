@@ -66,6 +66,7 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
          buttonToggleRef={navButtonRef}
          ariaControlsId="nav-menu"
          precedence="primary"
+         className={moduleStyles.menuToggleButton}
        />
        <ul
          id="nav-menu"
