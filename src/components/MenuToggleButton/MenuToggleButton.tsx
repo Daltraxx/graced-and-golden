@@ -6,7 +6,7 @@ type MenuToggleButtonProps =  {
    displayText: string;
    menuOpen: boolean;
    setMenuOpen: Dispatch<SetStateAction<boolean>>;
-   buttonToggleRef: RefObject<HTMLButtonElement | null>;
+   buttonToggleRef: RefObject<HTMLButtonElement | null> | ((el: HTMLButtonElement) => void);
    ariaControlsId: string;
    precedence: 'primary' | 'secondary';
    onlyMobile?: boolean;
