@@ -58,26 +58,28 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    })
 
    return (
-     <nav className={moduleStyles.navContainer}>
-       <MenuToggleButton
-         displayText="MENU"
-         menuOpen={navMenuOpen}
-         setMenuOpen={setNavMenuOpen}
-         buttonToggleRef={navButtonRef}
-         ariaControlsId="nav-menu"
-         precedence="primary"
-         className={moduleStyles.menuToggleButton}
-       />
-       <ul
-         id="nav-menu"
-         className={clsx(
-           moduleStyles.linksContainer,
-           navMenuOpen && moduleStyles.linksDisplayed,
-           !navMenuOpen && moduleStyles.linksHidden
-         )}
-       >
-         {navListItems}
-       </ul>
-     </nav>
+      <nav className={moduleStyles.navContainer}>
+         <MenuToggleButton
+            displayText="MENU"
+            menuOpen={navMenuOpen}
+            setMenuOpen={setNavMenuOpen}
+               buttonToggleRef={navButtonRef}
+               menuOnlyMobile={true}
+               arrowOnlyMobile={true}
+            ariaControlsId="nav-menu"
+            precedence="primary"
+            className={moduleStyles.menuToggleButton}
+         />
+         <ul
+            id="nav-menu"
+            className={clsx(
+            moduleStyles.linksContainer,
+            navMenuOpen && moduleStyles.linksDisplayed,
+            !navMenuOpen && moduleStyles.linksHidden
+            )}
+         >
+            {navListItems}
+         </ul>
+      </nav>
    );
 }

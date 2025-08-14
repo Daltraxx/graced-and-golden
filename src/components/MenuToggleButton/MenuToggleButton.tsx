@@ -2,16 +2,19 @@ import { Dispatch, RefObject, SetStateAction } from "react";
 import clsx from "clsx";
 import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 
-type MenuToggleButtonProps =  {
+type MenuToggleButtonProps = {
    displayText: string;
    menuOpen: boolean;
    setMenuOpen: Dispatch<SetStateAction<boolean>>;
-   buttonToggleRef: RefObject<HTMLButtonElement | null> | ((el: HTMLButtonElement) => void);
+   buttonToggleRef:
+      | RefObject<HTMLButtonElement | null>
+      | ((el: HTMLButtonElement) => void);
    ariaControlsId: string;
-   precedence: 'primary' | 'secondary';
-   onlyMobile?: boolean;
+   precedence: "primary" | "secondary";
+   menuOnlyMobile?: boolean;
+   arrowOnlyMobile?: boolean;
    className?: string;
-}
+};
 
 
 
@@ -22,7 +25,8 @@ export default function MenuToggleButton({
    buttonToggleRef,
    ariaControlsId,
    precedence,
-   onlyMobile = true,
+   menuOnlyMobile = false,
+   arrowOnlyMobile = false,
    className
 }: MenuToggleButtonProps
 ) {
@@ -43,7 +47,7 @@ export default function MenuToggleButton({
          type="button"
          className={clsx(
             moduleStyles.menuToggle,
-            onlyMobile && moduleStyles.hideOnBiggerScreens,
+            menuOnlyMobile && moduleStyles.hideOnBiggerScreens,
             className
          )}
          ref={buttonToggleRef}
@@ -57,6 +61,7 @@ export default function MenuToggleButton({
                moduleStyles.menuArrow,
                precedence === 'primary' && moduleStyles.menuArrowPrimary,
                precedence === 'secondary' && moduleStyles.menuArrowSecondary,
+               arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
                menuOpen && moduleStyles.menuArrowDown,
                !menuOpen && moduleStyles.menuArrowUp
             )}
