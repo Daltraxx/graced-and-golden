@@ -23,6 +23,10 @@
    position: relative;
 }
 
+.menuToggle:hover {
+   cursor: pointer;
+}
+
 .menuArrowPrimary {
    top: .625rem;
    right: -1.2rem;
