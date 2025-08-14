@@ -1,3 +1,7 @@
+.menuToggleButton {
+   padding: .5625rem;
+}
+
 .menuToggleButtonOpenState {
    color: var(--brown-750);
    text-decoration: underline;
