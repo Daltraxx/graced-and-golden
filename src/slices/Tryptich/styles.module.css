@@ -30,7 +30,7 @@
 }
 
 .divider {
-   border-bottom: 1px solid gray;
+   border-bottom: 1px solid var(--gray-400, #949494);
    margin : 1rem 0;
 }
 
