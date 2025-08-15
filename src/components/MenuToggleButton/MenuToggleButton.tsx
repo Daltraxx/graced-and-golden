@@ -68,8 +68,7 @@ export default function MenuToggleButton({
             isPrimary
                ? moduleStyles.menuArrowPrimary
                : moduleStyles.menuArrowSecondary,
-            autoPositioning && 
-            (isPrimary
+            autoPositioning && (isPrimary
                ? moduleStyles.menuArrowPrimaryPositioning
                : moduleStyles.menuArrowSecondaryPositioning),
             arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
