@@ -45,10 +45,10 @@ const ServicesHero: FC<ServicesHeroProps> = ({ slice }) => {
     >
       <div className={clsx(moduleStyles.heroContainer, 'animated-element')} >
         <PrismicNextImage field={slice.primary.main_image} className={moduleStyles.mainImage} />
-        <div className={`${moduleStyles.headingContainer} ${moduleStyles.mainHeadingContainer}`} >
+        <div className={clsx(moduleStyles.headingContainer, moduleStyles.mainHeadingContainer)} >
           <PrismicRichText field={slice.primary.heading} components={components} />
         </div>
-        <div className={`${moduleStyles.headingContainer} ${moduleStyles.subHeadingContainer}`} >
+        <div className={clsx(moduleStyles.headingContainer, moduleStyles.subHeadingContainer)} >
           <PrismicRichText field={slice.primary.sub_heading} components={components} />
         </div>
       </div>
