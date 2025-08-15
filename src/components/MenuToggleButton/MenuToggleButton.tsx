@@ -39,34 +39,35 @@ export default function MenuToggleButton({
    const autoPositioning = !manualArrowPositioning;
 
    return (
-     <button
-       onClick={handleMenuToggleClick}
-       type="button"
-       className={clsx(
-         moduleStyles.menuToggle,
-         menuOnlyMobile && moduleStyles.hideOnBiggerScreens,
-         className
-       )}
-       ref={buttonToggleRef}
-       aria-label="toggle navigation menu"
-       aria-controls={ariaControlsId}
-       aria-expanded={menuOpen}
-     >
-       {displayText}
-       <span
+      <button
+         onClick={handleMenuToggleClick}
+         type="button"
          className={clsx(
-            moduleStyles.menuArrow,
-            isPrimary
-               ? moduleStyles.menuArrowPrimary
-               : moduleStyles.menuArrowSecondary,
-            autoPositioning && (isPrimary
-               ? moduleStyles.menuArrowPrimaryPositioning
-               : moduleStyles.menuArrowSecondaryPositioning),
-            arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
-            menuOpen && moduleStyles.menuArrowDown,
-            !menuOpen && moduleStyles.menuArrowUp
+            moduleStyles.menuToggle,
+            menuOnlyMobile && moduleStyles.hideOnBiggerScreens,
+            className
          )}
-       ></span>
-     </button>
+         ref={buttonToggleRef}
+         aria-haspopup="menu"
+         aria-controls={ariaControlsId}
+         aria-expanded={menuOpen}
+      >
+         {displayText}
+         <span
+            className={clsx(
+               moduleStyles.menuArrow,
+               isPrimary
+                  ? moduleStyles.menuArrowPrimary
+                  : moduleStyles.menuArrowSecondary,
+               autoPositioning &&
+                  (isPrimary
+                  ? moduleStyles.menuArrowPrimaryPositioning
+                  : moduleStyles.menuArrowSecondaryPositioning),
+               arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
+               menuOpen && moduleStyles.menuArrowDown,
+               !menuOpen && moduleStyles.menuArrowUp
+            )}
+         ></span>
+      </button>
    );
 }
