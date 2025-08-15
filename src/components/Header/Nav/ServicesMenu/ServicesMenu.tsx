@@ -51,7 +51,6 @@ export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNav
          <PrismicNextLink
             field={link}
             className={moduleStyles.serviceLink}
-            tabIndex={i}
             role="navigation"
             aria-label={`Navigation link to ${link.text}`}
          />
