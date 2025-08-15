@@ -1,4 +1,4 @@
-import { Dispatch, RefObject, SetStateAction } from "react";
+import { Ref } from "react";
 import clsx from "clsx";
 import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 
