@@ -51,6 +51,12 @@
       text-decoration: underline;
    }
 
+   .menuToggleButton:focus-visible {
+      outline: none;
+      color: var(--brown-500);
+      text-decoration: underline;
+   }
+
    .menuToggleButton:active {
       color: var(--gold-700);
    }
