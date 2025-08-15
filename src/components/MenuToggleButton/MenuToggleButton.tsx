@@ -5,7 +5,7 @@ import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 type MenuToggleButtonProps = {
    displayText: string;
    menuOpen: boolean;
-   setMenuOpen: (() => void);
+   setMenuOpen: (index?: number) => void;
    buttonToggleRef:
       | RefObject<HTMLButtonElement | null>
       | ((el: HTMLButtonElement) => void);
