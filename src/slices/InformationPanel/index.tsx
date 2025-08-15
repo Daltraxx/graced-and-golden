@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useRef, useState } from "react";
+import { FC, useCallback, useRef, useState } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
