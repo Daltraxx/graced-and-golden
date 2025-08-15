@@ -32,7 +32,7 @@ export type ServicesHeroProps = SliceComponentProps<Content.ServicesHeroSlice>;
  * Component for "ServicesHero" Slices.
  */
 const ServicesHero: FC<ServicesHeroProps> = ({ slice }) => {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
   useAddAnimation(containerRef);
   const backgroundImageURL = slice.primary.background_image.url || "/post-its-mod-min.webp";
   return (
