@@ -41,7 +41,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
   useAddAnimation(containerRef, 0.1);
 
   const getInfoOpenStateMap = (numberOfSections: number) => {
-    const infoOpenStateMap = new Map();
+    const infoOpenStateMap = new Map<number, boolean>();
     for (let i = 0; i < numberOfSections; i++) {
       infoOpenStateMap.set(i, false);
     }
