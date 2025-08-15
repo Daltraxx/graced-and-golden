@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useRef } from "react";
+import { FC, type ReactNode, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/components/Bounded";
