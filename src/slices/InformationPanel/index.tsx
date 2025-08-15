@@ -66,7 +66,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
     }
   };
 
-  const setMenuOpenMap = new Map();
+  const setMenuOpenMap = new Map<number, () => void>();
   setDynamicStateOpenSetters(slice.primary.info_block.length, setMenuOpenMap);
 
   // const setInfoOpenByIndex = (index: number) => {
