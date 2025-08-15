@@ -44,37 +44,39 @@ export default function MenuToggleButton({
       setMenuOpen();
    };
 
+   const isPrimary = precedence === "primary";
+   const autoPositioning = !manualArrowPositioning;
+
    return (
-      <button
-         onClick={handleMenuToggleClick}
-         type="button"
-         className={clsx(
-            moduleStyles.menuToggle,
-            menuOnlyMobile && moduleStyles.hideOnBiggerScreens,
-            className
-         )}
-         ref={buttonToggleRef}
-         aria-label="toggle navigation menu"
-         aria-controls={ariaControlsId}
-         aria-expanded="false"
-      >
-         {displayText}
-         <span
+     <button
+       onClick={handleMenuToggleClick}
+       type="button"
+       className={clsx(
+         moduleStyles.menuToggle,
+         menuOnlyMobile && moduleStyles.hideOnBiggerScreens,
+         className
+       )}
+       ref={buttonToggleRef}
+       aria-label="toggle navigation menu"
+       aria-controls={ariaControlsId}
+       aria-expanded="false"
+     >
+       {displayText}
+       <span
          className={clsx(
             moduleStyles.menuArrow,
-            precedence === "primary" && moduleStyles.menuArrowPrimary,
-            !manualArrowPositioning &&
-               precedence === "primary" &&
-               moduleStyles.menuArrowPrimaryPositioning,
-            precedence === "secondary" && moduleStyles.menuArrowSecondary,
-            !manualArrowPositioning &&
-               precedence === "secondary" &&
-               moduleStyles.menuArrowSecondaryPositioning,
+            isPrimary
+               ? moduleStyles.menuArrowPrimary
+               : moduleStyles.menuArrowSecondary,
+            autoPositioning && 
+            (isPrimary
+               ? moduleStyles.menuArrowPrimaryPositioning
+               : moduleStyles.menuArrowSecondaryPositioning),
             arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
             menuOpen && moduleStyles.menuArrowDown,
             !menuOpen && moduleStyles.menuArrowUp
          )}
-         ></span>
-      </button>
+       ></span>
+     </button>
    );
 }
