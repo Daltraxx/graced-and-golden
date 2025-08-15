@@ -13,6 +13,7 @@ type MenuToggleButtonProps = {
    precedence: "primary" | "secondary";
    menuOnlyMobile?: boolean;
    arrowOnlyMobile?: boolean;
+   /** When true, disables built-in auto-positioning classes for the arrow and caller is responsible for manual positioning. When false or omitted, component applies automatic positioning. */
    manualArrowPositioning?: boolean;
    className?: string;
 };
