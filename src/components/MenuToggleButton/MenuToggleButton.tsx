@@ -32,13 +32,6 @@ export default function MenuToggleButton({
 }: MenuToggleButtonProps
 ) {
    const handleMenuToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-      const target = event.currentTarget;
-      if (target.ariaExpanded === "true"){
-         target.ariaExpanded = "false"
-      } else {
-         target.ariaExpanded = "true"
-      }
-      
       setMenuOpen();
    };
 
@@ -57,7 +50,7 @@ export default function MenuToggleButton({
        ref={buttonToggleRef}
        aria-label="toggle navigation menu"
        aria-controls={ariaControlsId}
-       aria-expanded="false"
+       aria-expanded={menuOpen}
      >
        {displayText}
        <span
