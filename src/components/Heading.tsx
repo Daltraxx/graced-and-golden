@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-type headingProps = {
+type HeadingProps = {
    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
    size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'manual';
    font?: 'body' | 'display' | 'cursive';
@@ -14,7 +14,7 @@ export default function Heading({
    font = 'display',
    children,
    className
-}: headingProps) {
+}: HeadingProps) {
 
    return (
       <Comp className={clsx(
