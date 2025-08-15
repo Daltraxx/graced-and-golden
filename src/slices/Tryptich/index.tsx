@@ -67,7 +67,7 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
               <Heading as="h2" size="md" font="display" className={moduleStyles.heading}>
                 {headingWithBreak}
               </Heading>
-              <div className={moduleStyles.divider}></div>
+              <div className={moduleStyles.divider} role="separator"></div>
             </div>
             <div className="animated-element">
               <PrismicRichText
