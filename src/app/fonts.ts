@@ -17,7 +17,7 @@ export const herr = Herr_Von_Muellerhoff({
 
 export const aboreto = Aboreto({
   variable: "--font-aboreto",
-  weight: ["400"],
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
