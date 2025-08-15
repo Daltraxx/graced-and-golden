@@ -114,7 +114,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
                 precedence="secondary"
                 menuOnlyMobile={false}
                 arrowOnlyMobile={false}
-                manualArrowPositioning={true}
+                manualArrowPositioning
                 className={moduleStyles.menuToggleButton}
               />
             </Heading>
