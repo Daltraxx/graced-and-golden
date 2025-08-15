@@ -17,12 +17,16 @@ export default function Heading({
    className
 }: HeadingProps) {
 
+   const FONT_TO_CLASS = {
+      body: 'font-body',
+      display: 'font-display',
+      cursive: 'font-cursive',
+   } as const;
+
    return (
       <Comp className={clsx(
          "leading-tight tracking-tight",
-         font === 'display' && 'font-display',
-         font === 'body' && 'font-body',
-         font === 'cursive' && 'font-cursive',
+         FONT_TO_CLASS[font],
          size === 'xl' && 'text-5xl',
          size === 'lg' && 'text-4xl',
          size === 'md' && 'text-3xl',
