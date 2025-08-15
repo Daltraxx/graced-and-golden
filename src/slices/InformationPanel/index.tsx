@@ -103,8 +103,8 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
             <Heading as="h4" size="xs" className={moduleStyles.sectionHeading}>
               <MenuToggleButton
                 displayText={`${item.info_heading}`}
-                menuOpen={infoOpen.get(i)}
-                setMenuOpen={setMenuOpenMap.get(i)}
+                menuOpen={infoOpen.get(i)!}
+                setMenuOpen={setMenuOpenMap.get(i)!}
                 buttonToggleRef={(el: HTMLButtonElement) => {
                   if (buttonRefs.current) buttonRefs.current[i] = el;
                 }}
