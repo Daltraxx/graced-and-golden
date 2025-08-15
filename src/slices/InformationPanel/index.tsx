@@ -9,8 +9,6 @@ import Bounded from "@/components/Bounded";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
 import MenuToggleButton from "@/components/MenuToggleButton/MenuToggleButton";
-import { info } from "console";
-
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
     <Heading as="h3" size="lg" className={moduleStyles.mainHeading} >
