@@ -14,6 +14,10 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    const serviceMenuRef = useRef<HTMLLIElement>(null);
 
    const setNavClosed = () => setNavMenuOpen(false);
+   
+   const toggleNavMenuOpenState = () => {
+      setNavMenuOpen(prev => !prev);
+   }
 
    // Have Nav Menu close (mobile) if link is clicked
    useEffect(() => {
@@ -62,10 +66,10 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
          <MenuToggleButton
             displayText="MENU"
             menuOpen={navMenuOpen}
-            setMenuOpen={setNavMenuOpen}
-               buttonToggleRef={navButtonRef}
-               menuOnlyMobile={true}
-               arrowOnlyMobile={true}
+            setMenuOpen={toggleNavMenuOpenState}
+            buttonToggleRef={navButtonRef}
+            menuOnlyMobile={true}
+            arrowOnlyMobile={true}
             ariaControlsId="nav-menu"
             precedence="primary"
             className={moduleStyles.menuToggleButton}
