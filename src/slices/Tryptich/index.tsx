@@ -12,7 +12,7 @@ import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" font="display" className="">
+    <Heading as="h2" size="md" font="display" >
       {children}
     </Heading>
   ),
