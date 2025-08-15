@@ -48,8 +48,8 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
     return infoOpenStateMap;
   };
 
-  const [infoOpen, setInfoOpen] = useState(
-    getInfoOpenStateMap(slice.primary.info_block.length)
+  const [infoOpen, setInfoOpen] = useState<Map<number, boolean>>(
+    () => getInfoOpenStateMap(slice.primary.info_block.length)
   );
 
   const setDynamicStateOpenSetters = (panelCount: number, functionMap: Map<number, () => void>) => {
