@@ -33,16 +33,17 @@ const Tryptich: FC<TryptichProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef, .5);
 
-  const getHeadingTextWithBreak = (text: string, placement: number = 2) => {
-    if (text.toLowerCase() === 'welcome to graced and golden') {
-      const headingWordsArray = text.split(' ');
+  const getHeadingTextWithBreak = (text: string, placement = 2): ReactNode => {
+    const normalized = text.trim();
+    if (normalized.toLowerCase() === 'welcome to graced and golden') {
+      const headingWordsArray = normalized.split(' ');
       const firstLine = headingWordsArray.slice(0, placement).join(" ");
       const secondLine = headingWordsArray.slice(placement).join(" ");
 
       return [firstLine, <br key={"break"} />, secondLine];
     }
 
-    return text;
+    return normalized;
   }
 
 
