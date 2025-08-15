@@ -12,17 +12,17 @@ import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="md" className="">
+    <Heading as="h2" size="md" >
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className="">
+    <Heading as="h3" size="sm" >
       {children}
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h4" size="md" className="">
+    <Heading as="h4" size="md" >
       {children}
     </Heading>
   )
