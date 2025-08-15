@@ -10,6 +10,10 @@ import MenuToggleButton from "@/components/MenuToggleButton/MenuToggleButton";
 export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNavClosedAction, navButtonRef }: { linkDisplayText: string, servicePageLinks: LinkField[], setNavClosedAction: () => void, navButtonRef: RefObject<HTMLButtonElement | null> }) {
    const [servicesOpen, setServicesOpen] = useState(false);
 
+   const toggleServicesOpenState = () => {
+      setServicesOpen(prev => !prev);
+   }
+
    const servicesMenuToggleRef = useRef<HTMLButtonElement>(null);
    const servicesMenuRef = useRef<HTMLUListElement>(null);
 
@@ -61,7 +65,7 @@ export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNav
          <MenuToggleButton
             displayText={linkDisplayText}
             menuOpen={servicesOpen}
-            setMenuOpen={setServicesOpen}
+            setMenuOpen={toggleServicesOpenState}
             buttonToggleRef={servicesMenuToggleRef}
             ariaControlsId="services-menu"
             precedence="secondary"
