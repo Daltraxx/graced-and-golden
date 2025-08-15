@@ -71,11 +71,7 @@ export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNav
             precedence="secondary"
             menuOnlyMobile={false}
             arrowOnlyMobile={true}
-            className={clsx(
-               moduleStyles.menuToggleButton,
-               servicesOpen && moduleStyles.menuToggleButtonOpenState,
-               !servicesOpen && moduleStyles.menuToggleButtonClosedState
-            )}
+            className={clsx(moduleStyles.menuToggleButton)}
          />
          
          {/* Dropdown Menu */}

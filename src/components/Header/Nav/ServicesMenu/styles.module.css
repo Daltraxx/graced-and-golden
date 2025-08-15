@@ -2,14 +2,9 @@
    padding: .5625rem;
 }
 
-.menuToggleButtonOpenState {
+.menuToggleButton[aria-expanded="true"] {
    color: var(--brown-750);
    text-decoration: underline;
-}
-
-.menuToggleButtonClosedState {
-   color: inherit;
-   text-decoration: none;
 }
 
 /* Services Dropdown Menu */
