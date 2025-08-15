@@ -50,22 +50,13 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
     () => getInfoOpenStateMap(slice.primary.info_block.length)
   );
 
-  const setDynamicStateOpenSetters = (panelCount: number, functionMap: Map<number, () => void>) => {
-    for (let i = 0; i < panelCount; i++) {
-      const stateSetter = () => {
-        setInfoOpen(prev => {
-          const newStateMap = new Map(prev);
-          const prevOpenState = prev.get(i);
-          newStateMap.set(i, !prevOpenState);
-          return newStateMap;
-        });
-      };
-      functionMap.set(i, stateSetter);
-    }
-  };
-
-  const setMenuOpenMap = new Map<number, () => void>();
-  setDynamicStateOpenSetters(slice.primary.info_block.length, setMenuOpenMap);
+  const toggleInfoOpen = useCallback((index: number) => {
+    setInfoOpen(prev => {
+      const newStateMap = new Map(prev);
+      newStateMap.set(index, !prev.get(index));
+      return newStateMap;
+    });
+  }, []);
 
   // const setInfoOpenByIndex = (index: number) => {
   //   const prevOpenState = infoOpen.get(index);
@@ -104,7 +95,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
               <MenuToggleButton
                 displayText={`${item.info_heading}`}
                 menuOpen={infoOpen.get(i)!}
-                setMenuOpen={setMenuOpenMap.get(i)!}
+                setMenuOpen={() => toggleInfoOpen(i)}
                 buttonToggleRef={(el: HTMLButtonElement) => {
                   if (buttonRefs.current) buttonRefs.current[i] = el;
                 }}
