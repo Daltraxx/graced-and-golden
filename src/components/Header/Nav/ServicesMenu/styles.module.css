@@ -1,4 +1,5 @@
-.menuToggleButton {
+.menuToggleButton,
+.serviceLink {
    padding: .5625rem;
 }
 
