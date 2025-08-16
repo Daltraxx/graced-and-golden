@@ -5,7 +5,7 @@ import moduleStyles from '@/components/MenuToggleButton/styles.module.css';
 type MenuToggleButtonProps = {
    displayText: string;
    menuOpen: boolean;
-   setMenuOpen: (index?: number) => void;
+   onToggle: (index?: number) => void;
    buttonToggleRef: Ref<HTMLButtonElement>;
    ariaControlsId: string;
    precedence: "primary" | "secondary";
@@ -21,7 +21,7 @@ type MenuToggleButtonProps = {
 export default function MenuToggleButton({
    displayText,
    menuOpen,
-   setMenuOpen,
+   onToggle,
    buttonToggleRef,
    ariaControlsId,
    precedence,
@@ -32,7 +32,7 @@ export default function MenuToggleButton({
 }: MenuToggleButtonProps
 ) {
    const handleMenuToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-      setMenuOpen();
+      onToggle();
    };
 
    const isPrimary = precedence === "primary";

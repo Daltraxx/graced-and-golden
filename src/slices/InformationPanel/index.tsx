@@ -95,7 +95,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
               <MenuToggleButton
                 displayText={`${item.info_heading}`}
                 menuOpen={infoOpen.get(i)!}
-                setMenuOpen={() => toggleInfoOpen(i)}
+                onToggle={() => toggleInfoOpen(i)}
                 buttonToggleRef={(el: HTMLButtonElement) => {
                   if (buttonRefs.current) buttonRefs.current[i] = el;
                 }}

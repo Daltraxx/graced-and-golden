@@ -64,7 +64,7 @@ export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNav
          <MenuToggleButton
             displayText={linkDisplayText}
             menuOpen={servicesOpen}
-            setMenuOpen={toggleServicesOpenState}
+            onToggle={toggleServicesOpenState}
             buttonToggleRef={servicesMenuToggleRef}
             ariaControlsId="services-menu"
             precedence="secondary"

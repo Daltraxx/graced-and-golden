@@ -62,11 +62,11 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
    })
 
    return (
-      <nav className={moduleStyles.navContainer}>
+      <nav className={moduleStyles.navContainer} aria-label="Main Navigation">
          <MenuToggleButton
             displayText="MENU"
             menuOpen={navMenuOpen}
-            setMenuOpen={toggleNavMenuOpenState}
+            onToggle={toggleNavMenuOpenState}
             buttonToggleRef={navButtonRef}
             menuOnlyMobile={true}
             arrowOnlyMobile={true}
