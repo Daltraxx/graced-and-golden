@@ -89,7 +89,14 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
                 className={moduleStyles.menuToggleButton}
               />
             </Heading>
-            <div id={`Info Details ${i}`}>
+            <div
+              id={`Info Details ${i}`}
+              aria-expanded={infoOpen.get(i)}
+              className={clsx(
+                moduleStyles.infoContent,
+                infoOpen.get(i) && moduleStyles.infoContentOpen
+              )}
+            >
               <PrismicRichText field={item.info_body} components={components} />
             </div>
           </section>
