@@ -1,7 +1,7 @@
 'use client';
 
 import { PrismicNextLink } from "@prismicio/next";
-import { RefObject, useEffect, useRef, useState } from "react";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import moduleStyles from '@/components/Header/Nav/ServicesMenu/styles.module.css'
 import clsx from "clsx";
 import { LinkField } from "@prismicio/client";
@@ -10,9 +10,9 @@ import MenuToggleButton from "@/components/MenuToggleButton/MenuToggleButton";
 export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNavClosedAction, navButtonRef }: { linkDisplayText: string, servicePageLinks: LinkField[], setNavClosedAction: () => void, navButtonRef: RefObject<HTMLButtonElement | null> }) {
    const [servicesOpen, setServicesOpen] = useState(false);
 
-   const toggleServicesOpenState = () => {
+   const toggleServicesOpenState = useCallback(() => {
       setServicesOpen(prev => !prev);
-   }
+   }, []);
 
    const servicesMenuToggleRef = useRef<HTMLButtonElement>(null);
    const servicesMenuRef = useRef<HTMLUListElement>(null);
