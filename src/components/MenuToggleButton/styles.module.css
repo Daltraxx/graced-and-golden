@@ -1,3 +1,11 @@
+.menuToggle {
+   position: relative;
+}
+
+.menuToggle:hover {
+   cursor: pointer;
+}
+
 .menuArrow {
    position: absolute;
    display: inline-block;
