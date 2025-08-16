@@ -54,6 +54,7 @@ export default function MenuToggleButton({
       >
          {displayText}
          <span
+            aria-hidden="true"
             className={clsx(
                moduleStyles.menuArrow,
                isPrimary
