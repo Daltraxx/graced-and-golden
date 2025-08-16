@@ -79,7 +79,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
                 menuOpen={infoOpen.get(i)!}
                 onToggle={() => toggleInfoOpen(i)}
                 buttonToggleRef={(el: HTMLButtonElement) => {
-                  if (buttonRefs.current) buttonRefs.current[i] = el;
+                  buttonRefs.current[i] = el;
                 }}
                 ariaControlsId={`Info Details ${i}`}
                 precedence="secondary"
