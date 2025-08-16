@@ -38,16 +38,8 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef, 0.1);
 
-  const getInfoOpenStateMap = (numberOfSections: number) => {
-    const infoOpenStateMap = new Map<number, boolean>();
-    for (let i = 0; i < numberOfSections; i++) {
-      infoOpenStateMap.set(i, false);
-    }
-    return infoOpenStateMap;
-  };
-
   const [infoOpen, setInfoOpen] = useState<Map<number, boolean>>(
-    () => getInfoOpenStateMap(slice.primary.info_block.length)
+    () => new Map(Array.from({ length: slice.primary.info_block.length }, (_, i) => [i, false]))
   );
 
   const toggleInfoOpen = useCallback((index: number) => {
