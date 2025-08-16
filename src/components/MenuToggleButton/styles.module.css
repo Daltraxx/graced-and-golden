@@ -37,9 +37,9 @@
 }
 
 .menuArrowSecondary {
-   border-right: .3rem solid transparent;
-   border-left: .3rem solid transparent;
-   border-bottom: .45rem solid var(--brown-750, #572c15);
+   border-right: 0.3rem solid transparent;
+   border-left: 0.3rem solid transparent;
+   border-bottom: 0.45rem solid var(--brown-750, #572c15);
 }
 
 .menuArrowSecondaryPositioning {
