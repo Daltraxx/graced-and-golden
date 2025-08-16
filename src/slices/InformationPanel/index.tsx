@@ -49,16 +49,6 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
       return newStateMap;
     });
   }, []);
-
-  // const setInfoOpenByIndex = (index: number) => {
-  //   const prevOpenState = infoOpen.get(index);
-  //   setInfoOpen(prev => {
-  //     const newStateMap = new Map(prev);
-  //     newStateMap.set(index, !prevOpenState);
-  //     return newStateMap;
-  //   })
-  // }
-
   
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>(
     Array(slice.primary.info_block.length).fill(null)
