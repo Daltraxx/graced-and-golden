@@ -19,7 +19,6 @@
 /* same as nav link in parent component */
 .serviceLink {
    font-family: var(--font-body);
-   padding: .5625rem;
    display: inline-block;
 }
 
