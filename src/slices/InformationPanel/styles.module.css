@@ -45,4 +45,8 @@
    .sectionContainer {
       max-width: 30rem;
    }
+
+   .menuToggleButton {
+      text-align: start;
+   }
 }
