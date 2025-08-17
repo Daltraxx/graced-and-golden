@@ -15,16 +15,15 @@
    border-right: .4rem solid transparent;
    border-left: .4rem solid transparent;
    border-bottom: .6rem solid #000;
+   transition: transform 0.3s;
 }
 
 .menuArrowUp {
    transform: rotate(-360deg);
-   transition: transform 0.3s;
 }
 
 .menuArrowDown {
    transform: rotate(-180deg);
-   transition: transform 0.3s;
 }
 
 .menuArrowLargePositioning {
