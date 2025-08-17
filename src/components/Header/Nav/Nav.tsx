@@ -71,7 +71,8 @@ export default function Nav({ navLinks, servicePageLinks }: { navLinks: LinkFiel
             menuOnlyMobile={true}
             arrowOnlyMobile={true}
             ariaControlsId="nav-menu"
-            precedence="primary"
+            arrowSize="large"
+            arrowColor="brown-500"
             className={moduleStyles.menuToggleButton}
          />
          <ul

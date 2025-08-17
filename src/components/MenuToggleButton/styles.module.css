@@ -27,22 +27,12 @@
    transition: transform 0.3s;
 }
 
-.menuArrowPrimary {
-   border-bottom: 0.6rem solid var(--brown-500, #7B5C4B);
-}
-
-.menuArrowPrimaryPositioning {
+.menuArrowLargePositioning {
    top: .625rem;
    right: -1.2rem;
 }
 
-.menuArrowSecondary {
-   border-right: 0.3rem solid transparent;
-   border-left: 0.3rem solid transparent;
-   border-bottom: 0.45rem solid var(--brown-750, #572c15);
-}
-
-.menuArrowSecondaryPositioning {
+.menuArrowSmallPositioning {
    top: 1rem;
    right: -0.4rem;
 }

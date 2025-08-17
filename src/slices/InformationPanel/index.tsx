@@ -82,7 +82,8 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
                   buttonRefs.current[i] = el;
                 }}
                 ariaControlsId={`Info Details ${i}`}
-                precedence="primary"
+                arrowSize="large"
+                arrowColor="gold-700"
                 menuOnlyMobile={false}
                 arrowOnlyMobile={false}
                 manualArrowPositioning

@@ -67,7 +67,8 @@ export default function ServicesMenu({ linkDisplayText, servicePageLinks, setNav
             onToggle={toggleServicesOpenState}
             buttonToggleRef={servicesMenuToggleRef}
             ariaControlsId="services-menu"
-            precedence="secondary"
+            arrowSize="small"
+            arrowColor="brown-750"
             menuOnlyMobile={false}
             arrowOnlyMobile={true}
             className={clsx(moduleStyles.menuToggleButton)}

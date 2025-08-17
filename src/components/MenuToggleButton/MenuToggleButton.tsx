@@ -8,7 +8,8 @@ type MenuToggleButtonProps = {
    onToggle: (index?: number) => void;
    buttonToggleRef: Ref<HTMLButtonElement>;
    ariaControlsId: string;
-   precedence: "primary" | "secondary";
+   arrowSize?: 'large' | 'small';
+   arrowColor?: 'brown-500' | 'brown-750' | 'gold-700';
    menuOnlyMobile?: boolean;
    arrowOnlyMobile?: boolean;
    /** When true, disables built-in auto-positioning classes for the arrow and caller is responsible for manual positioning. When false or omitted, component applies automatic positioning. */
@@ -16,27 +17,36 @@ type MenuToggleButtonProps = {
    className?: string;
 };
 
-
-
 export default function MenuToggleButton({
    displayText,
    menuOpen,
    onToggle,
    buttonToggleRef,
    ariaControlsId,
-   precedence,
+   arrowSize = 'large',
+   arrowColor = "brown-500",
    menuOnlyMobile = false,
    arrowOnlyMobile = false,
    manualArrowPositioning = false,
-   className
-}: MenuToggleButtonProps
-) {
-   const handleMenuToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+   className,
+}: MenuToggleButtonProps) {
+   const handleMenuToggleClick = (
+      event: React.MouseEvent<HTMLButtonElement>
+   ) => {
       onToggle();
    };
 
-   const isPrimary = precedence === "primary";
+   const colorMap = new Map([
+      ["brown-500", "#7B5C4B"],
+      ["brown-750", "#572c15"],
+      ["gold-700", "#a67c00"],
+   ]);
+
+   const isArrowLarge = arrowSize === 'large';
    const autoPositioning = !manualArrowPositioning;
+   const arrowBorderCSS = arrowSize === 'large'
+      ? { borderBottom: `0.6rem solid ${colorMap.get(arrowColor)}` }
+      : { borderLeft: '0.3rem solid transparent', borderRight: '0.3rem solid transparent', borderBottom: `0.45rem solid ${colorMap.get(arrowColor)}` };
 
    return (
       <button
@@ -55,15 +65,13 @@ export default function MenuToggleButton({
          {displayText}
          <span
             aria-hidden="true"
+            style={arrowBorderCSS}
             className={clsx(
                moduleStyles.menuArrow,
-               isPrimary
-                  ? moduleStyles.menuArrowPrimary
-                  : moduleStyles.menuArrowSecondary,
                autoPositioning &&
-                  (isPrimary
-                  ? moduleStyles.menuArrowPrimaryPositioning
-                  : moduleStyles.menuArrowSecondaryPositioning),
+                  (isArrowLarge
+                     ? moduleStyles.menuArrowLargePositioning
+                     : moduleStyles.menuArrowSmallPositioning),
                arrowOnlyMobile && moduleStyles.hideOnBiggerScreens,
                menuOpen && moduleStyles.menuArrowDown,
                !menuOpen && moduleStyles.menuArrowUp
