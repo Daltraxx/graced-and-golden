@@ -47,11 +47,11 @@
    padding: .5rem;
 }
 
-.infoContent[aria-expanded="false"] {
+.infoContent[data-hidden="true"] {
    max-height: 0;
 }
 
-.infoContent[aria-expanded="true"] {
+.infoContent[data-hidden="false"] {
    max-height: 22rem;
 }
 

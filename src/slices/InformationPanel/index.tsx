@@ -73,7 +73,12 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
             key={`info-section-${i}`}
             className={clsx(moduleStyles.sectionContainer, "animated-element")}
           >
-            <Heading as="h4" size="xs" className={moduleStyles.sectionHeading} >
+            <Heading
+              as="h4"
+              size="xs"
+              className={moduleStyles.sectionHeading}
+              id={`info-heading-${i}`}
+            >
               <MenuToggleButton
                 displayText={`${item.info_heading}`}
                 menuOpen={infoOpen.get(i)!}
@@ -92,9 +97,10 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
             </Heading>
             <div
               id={`Info Details ${i}`}
-              className={clsx(
-                moduleStyles.infoContent
-              )}
+              className={clsx(moduleStyles.infoContent)}
+              aria-labelledby={`info-heading-${i}`}
+              aria-hidden={!infoOpen.get(i)}
+              data-hidden={!infoOpen.get(i)}
             >
               <PrismicRichText field={item.info_body} components={components} />
             </div>
