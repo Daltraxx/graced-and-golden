@@ -30,9 +30,7 @@ export default function MenuToggleButton({
    manualArrowPositioning = false,
    className,
 }: MenuToggleButtonProps) {
-   const handleMenuToggleClick = (
-      event: React.MouseEvent<HTMLButtonElement>
-   ) => {
+   const handleMenuToggleClick = () => {
       onToggle();
    };
 
