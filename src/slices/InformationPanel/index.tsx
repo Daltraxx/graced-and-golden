@@ -92,7 +92,6 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
             </Heading>
             <div
               id={`Info Details ${i}`}
-              aria-expanded={infoOpen.get(i)}
               className={clsx(
                 moduleStyles.infoContent
               )}
