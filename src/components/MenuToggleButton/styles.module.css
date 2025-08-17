@@ -27,14 +27,6 @@
    transition: transform 0.3s;
 }
 
-.menuToggle {
-   position: relative;
-}
-
-.menuToggle:hover {
-   cursor: pointer;
-}
-
 .menuArrowPrimary {
    border-bottom: 0.6rem solid var(--brown-500, #7B5C4B);
 }
