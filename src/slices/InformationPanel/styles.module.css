@@ -36,7 +36,7 @@
 
 .infoContent {
    overflow: hidden;
-   transition: max-height 1s ease;
+   transition: max-height 750ms ease;
 }
 
 .infoContent p {
