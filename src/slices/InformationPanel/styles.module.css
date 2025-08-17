@@ -56,7 +56,7 @@
 }
 
 @media only screen and (min-width: 352px) {
-   .infoContent[aria-expanded="true"] {
+   .infoContent[data-hidden="false"] {
       max-height: 19rem;
    }
 }
@@ -76,7 +76,7 @@
 }
 
 @media only screen and (min-width: 1000px) {
-   .infoContent[aria-expanded="true"] {
+   .infoContent[data-hidden="false"] {
       max-height: 15rem;
    }
 }
