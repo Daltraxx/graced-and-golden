@@ -40,6 +40,19 @@
    right: -1.25rem;
 }
 
+.infoContent {
+   overflow: hidden;
+   transition: max-height 1s ease;
+}
+
+.infoContent[aria-expanded="false"] {
+   max-height: 0;
+}
+
+.infoContent[aria-expanded="true"] {
+   max-height: 18rem;
+}
+
 @media only screen and (min-width: 768px) {
    .mainHeading {
       margin-bottom: 2rem;
