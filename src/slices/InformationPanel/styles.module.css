@@ -55,6 +55,12 @@
    max-height: 22rem;
 }
 
+@media only screen and (min-width: 352px) {
+   .infoContent[aria-expanded="true"] {
+      max-height: 19rem;
+   }
+}
+
 @media only screen and (min-width: 768px) {
    .mainHeading {
       margin-bottom: 2rem;
