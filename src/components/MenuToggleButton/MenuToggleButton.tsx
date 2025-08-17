@@ -17,6 +17,12 @@ type MenuToggleButtonProps = {
    className?: string;
 };
 
+export const colorHexByToken = {
+  "brown-500": "#7B5C4B",
+  "brown-750": "#572c15",
+  "gold-700": "#a67c00",
+} as const;
+
 export default function MenuToggleButton({
    displayText,
    menuOpen,
@@ -34,17 +40,11 @@ export default function MenuToggleButton({
       onToggle();
    };
 
-   const colorMap = new Map([
-      ["brown-500", "#7B5C4B"],
-      ["brown-750", "#572c15"],
-      ["gold-700", "#a67c00"],
-   ]);
-
    const isArrowLarge = arrowSize === 'large';
    const autoPositioning = !manualArrowPositioning;
    const arrowBorderCSS = arrowSize === 'large'
-      ? { borderBottom: `0.6rem solid ${colorMap.get(arrowColor)}` }
-      : { borderLeft: '0.3rem solid transparent', borderRight: '0.3rem solid transparent', borderBottom: `0.45rem solid ${colorMap.get(arrowColor)}` };
+      ? { borderBottom: `0.6rem solid ${colorHexByToken[arrowColor]}` }
+      : { borderLeft: '0.3rem solid transparent', borderRight: '0.3rem solid transparent', borderBottom: `0.45rem solid ${colorHexByToken[arrowColor]}` };
 
    return (
       <button
