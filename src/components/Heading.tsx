@@ -5,6 +5,7 @@ type HeadingProps = {
    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
    size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'manual';
    font?: 'body' | 'display' | 'cursive';
+   id?: string;
    applyFontSpacing?: boolean;
    children: ReactNode;
    className?: string;
@@ -16,7 +17,8 @@ export default function Heading({
    font = 'display',
    applyFontSpacing = true,
    children,
-   className
+   className,
+   ...restprops
 }: HeadingProps) {
 
    const FONT_TO_CLASS = {
@@ -35,7 +37,7 @@ export default function Heading({
          size === 'sm' && 'text-2xl',
          size === 'xs' && 'text-base',
          className
-      )}>
+      )} {...restprops}>
          {children}
       </Comp>
    );
