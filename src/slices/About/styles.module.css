@@ -10,6 +10,13 @@
    margin: 0 auto;
 }
 
+/* Reset font size and remove margin(?) in case of font reversion */
+.boundedContainer h2,
+.boundedContainer h3 {
+   margin-top: .5rem;
+   font-size: 2.5rem;
+}
+
 .contentContainer {
    display: flex;
    flex-direction: column;
