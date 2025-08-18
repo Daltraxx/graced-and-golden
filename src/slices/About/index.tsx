@@ -27,10 +27,8 @@ const components: JSXMapSerializer = {
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => (
-    <p>{children}</p>
-  )
-}
+  paragraph: ({ children }) => <p>{children}</p>,
+};
 
 /**
  * Props for `About`.
