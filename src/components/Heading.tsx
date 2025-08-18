@@ -15,7 +15,7 @@ export default function Heading({
    as: Comp = 'h2',
    size = 'lg',
    font = 'display',
-   applyFontSpacing = true,
+   applyFontSpacing = font !== 'cursive',
    children,
    className,
    ...restprops
