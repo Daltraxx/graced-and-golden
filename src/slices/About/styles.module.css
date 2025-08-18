@@ -54,6 +54,7 @@
    width: 40%;
    max-width: 12.0469rem;
    max-height: 18.0625rem;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .backImage {
@@ -63,6 +64,7 @@
    width: 60%;
    max-width: 18.0713rem;
    max-height: 22.34375rem;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 @media only screen and (min-width: 768px) {
