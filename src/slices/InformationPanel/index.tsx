@@ -86,7 +86,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
                 buttonToggleRef={(el: HTMLButtonElement | null) => {
                   buttonRefs.current[i] = el;
                 }}
-                ariaControlsId={`Info Details ${i}`}
+                ariaControlsId={`info-details-${i}`}
                 arrowSize="large"
                 arrowColor="gold-700"
                 menuOnlyMobile={false}
@@ -96,7 +96,7 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
               />
             </Heading>
             <div
-              id={`Info Details ${i}`}
+              id={`info-details-${i}`}
               className={clsx(moduleStyles.infoContent)}
               aria-labelledby={`info-heading-${i}`}
               aria-hidden={!infoOpen.get(i)}
