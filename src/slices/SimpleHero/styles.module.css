@@ -10,6 +10,11 @@
    justify-content: center;
 }
 
+/* Reset font size in case of font reversion */
+.textContainer h1 {
+   font-size: 3.5rem;
+}
+
 .textContainer h2 {
    font-size: 1.5rem;
 }
