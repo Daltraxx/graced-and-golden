@@ -1,14 +1,14 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type HeadingProps = {
-   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+export interface HeadingProps extends ComponentPropsWithoutRef<'h1'> {
+   as?: HeadingLevel;
    size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'manual';
    font?: 'body' | 'display' | 'cursive';
-   id?: string;
    applyFontSpacing?: boolean;
    children: ReactNode;
-   className?: string;
 }
 
 export default function Heading({
