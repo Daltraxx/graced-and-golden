@@ -17,14 +17,12 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="md" className='' font="cursive" >
+    <Heading as="h3" size="md" className="" font="cursive">
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => (
-    <p className="">{children}</p>
-  )
-}
+  paragraph: ({ children }) => <p className="">{children}</p>,
+};
 
 /**
  * Props for `SimpleColumnWLink`.
