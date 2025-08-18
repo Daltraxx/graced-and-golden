@@ -1,5 +1,5 @@
 .boundedContainer {
-   background: var(--beige-300);
+   background: var(--brown-500);
 }
 
 .contentContainer {
@@ -13,8 +13,9 @@
 }
 
 .contentContainer h2,
-.contentContainer h3 {
-   color: var(--brown-700);
+.contentContainer h3,
+.contentContainer p {
+   color: var(--beige-300);
 }
 
 .contentContainer p {
