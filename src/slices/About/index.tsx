@@ -13,22 +13,22 @@ import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <Heading as="h1" size="lg" className='' >
+    <Heading as="h1" size="lg" >
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="sm" className='' >
+    <Heading as="h2" size="sm" >
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className='' >
+    <Heading as="h3" size="sm" >
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="">{children}</p>
+    <p>{children}</p>
   )
 }
 
