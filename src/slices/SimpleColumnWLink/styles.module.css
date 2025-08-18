@@ -12,6 +12,12 @@
    gap: 1.5rem;
 }
 
+/* Remove in case of font reversion */
+.contentContainer h2,
+.contentContainer h3 {
+   font-size: 3rem;
+}
+
 .contentContainer h2,
 .contentContainer h3,
 .contentContainer p {
