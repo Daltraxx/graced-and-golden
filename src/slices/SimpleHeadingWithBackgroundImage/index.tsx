@@ -12,16 +12,26 @@ import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <Heading as="h1" size="manual" className={moduleStyles.heading} >
+    <Heading
+      as="h1"
+      size="manual"
+      className={moduleStyles.heading}
+      font="cursive"
+    >
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="manual" className={moduleStyles.heading} >
+    <Heading
+      as="h2"
+      size="manual"
+      className={moduleStyles.heading}
+      font="cursive"
+    >
       {children}
     </Heading>
-  )
-}
+  ),
+};
 
 /**
  * Props for `SimpleHeadingWithBackgroundImage`.

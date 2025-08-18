@@ -15,10 +15,11 @@
    justify-content: center;
 }
 
+/* Reset font size in case of font reversion */
 .heading {
    text-align: center;
    color: var(--cream-200);
-   font-size: 2rem;
+   font-size: 3.25rem;
    width: 90%;
    max-width: 24.25rem;
 }
@@ -29,7 +30,7 @@
    }
 
    .heading {
-      font-size: 3rem;
+      font-size: 4rem;
       max-width: 36rem;
    }
 }
