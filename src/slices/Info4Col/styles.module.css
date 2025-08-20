@@ -12,9 +12,11 @@
    gap: 1.5rem;
 }
 
+
+/* Reset font size and reapply font weight if reverted from cursive */
 .mainHeading {
    color: var(--brown-500);
-   font-weight: 600;
+   font-size: 3rem;
    margin-bottom: 1rem;
 }
 

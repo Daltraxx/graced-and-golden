@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="lg" className={moduleStyles.mainHeading} >
+    <Heading as="h2" size="manual" className={moduleStyles.mainHeading} font="cursive" >
         {children}
     </Heading>
   ),
