@@ -1,15 +1,15 @@
 .boundedContainer {
-   height: 36rem;
    background-size: cover;
    background-repeat: no-repeat;
    background-position: 50% 0;
    color: var(--cream-200);
+   padding: 1rem;
 }
 
 
 
 .row {
-   height: 12rem;
+   height: 16rem;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -20,7 +20,7 @@
 }
 
 .headingRow {
-   margin: 0 auto 1rem auto;
+   margin: 0 auto;
    max-width: 90%;
    align-items: center;
 }
@@ -34,7 +34,6 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   margin-top: 1rem;
 }
 
 .linksRow p {
