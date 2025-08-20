@@ -50,10 +50,6 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
     });
   }, []);
   
-  const buttonRefs = useRef<(HTMLButtonElement | null)[]>(
-    Array(slice.primary.info_block.length).fill(null)
-  );
-  
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -83,9 +79,6 @@ const InformationPanel: FC<InformationPanelProps> = ({ slice }) => {
                 displayText={`${item.info_heading}`}
                 menuOpen={infoOpen.get(i)!}
                 onToggle={() => toggleInfoOpen(i)}
-                buttonToggleRef={(el: HTMLButtonElement | null) => {
-                  buttonRefs.current[i] = el;
-                }}
                 ariaControlsId={`info-details-${i}`}
                 arrowSize="large"
                 arrowColor="gold-700"

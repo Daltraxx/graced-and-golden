@@ -6,7 +6,7 @@ type MenuToggleButtonProps = {
    displayText: string;
    menuOpen: boolean;
    onToggle: (index?: number) => void;
-   buttonToggleRef: Ref<HTMLButtonElement>;
+   buttonToggleRef?: Ref<HTMLButtonElement>;
    ariaControlsId: string;
    arrowSize?: 'large' | 'small';
    arrowColor?: 'brown-500' | 'brown-750' | 'gold-700';
@@ -27,7 +27,7 @@ export default function MenuToggleButton({
    displayText,
    menuOpen,
    onToggle,
-   buttonToggleRef,
+   buttonToggleRef = null,
    ariaControlsId,
    arrowSize = 'large',
    arrowColor = "brown-500",
