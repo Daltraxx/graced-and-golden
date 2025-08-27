@@ -15,12 +15,12 @@ import Button from "@/components/Button/Button";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
-    <Heading as="h2" size="lg" className={``} >
+    <Heading as="h2" size="lg" >
         {children}
     </Heading>
   ),
   paragraph: ({children}) => (
-    <p className="">{children}</p>
+    <p>{children}</p>
   ),
 }
 
