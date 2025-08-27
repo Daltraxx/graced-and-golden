@@ -90,7 +90,7 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
           <PrismicRichText field={slice.primary.heading} components={components} />
           <PrismicRichText field={slice.primary.name_and_price} components={components} />
           <PrismicRichText field={slice.primary.description} components={components} />
-          <Button field={slice.primary.booking_link} color="cream-200" />
+          <Button field={slice.primary.booking_link} color="cream-200" className={altStyles.bookingButton} />
         </section>
       </Bounded>
     );
