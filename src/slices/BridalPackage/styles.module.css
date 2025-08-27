@@ -22,6 +22,7 @@
 }
 
 .explainerContainer h2 {
+   font-size: 2.25rem;
    text-align: center;
    color: var(--brown-800);
    margin-bottom: 1rem;
