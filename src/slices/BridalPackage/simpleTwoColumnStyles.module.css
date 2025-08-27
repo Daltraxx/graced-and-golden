@@ -15,6 +15,11 @@
    max-width: 17.125rem;
 }
 
+.image {
+   height: auto;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 .infoContainer {
    display: flex;
    flex-direction: column;
@@ -26,7 +31,7 @@
 
 .infoContainer h2 {
    font-family: var(--font-cursive);
-   font-size: 3rem;
+   font-size: clamp(3rem, 9vw, 5rem);
 }
 
 .infoContainer h3 {
@@ -35,4 +40,27 @@
 
 .infoContainer a {
    width: 100%;
+   font-size: 1.25rem;
+   font-family: var(--font-display);
+   font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+   .boundedContainer > div {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10vw;
+   }
+
+   .image  {
+      max-width: none;
+      width: clamp(17.125rem, 40vw, 20rem);
+   }
+
+   .infoContainer {
+      max-width: 18.125rem;
+      text-align: end;
+      align-items: end;
+      gap: 1.5rem;
+   }
 }
