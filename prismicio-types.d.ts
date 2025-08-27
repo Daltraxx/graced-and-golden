@@ -969,9 +969,85 @@ export type BridalPackageSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *BridalPackage → SimpleTwoColumn → Primary*
+ */
+export interface BridalPackageSliceSimpleTwoColumnPrimary {
+  /**
+   * Image field in *BridalPackage → SimpleTwoColumn → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.simpleTwoColumn.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *BridalPackage → SimpleTwoColumn → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.simpleTwoColumn.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Name and Price field in *BridalPackage → SimpleTwoColumn → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.simpleTwoColumn.primary.name_and_price
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name_and_price: prismic.RichTextField;
+
+  /**
+   * Description field in *BridalPackage → SimpleTwoColumn → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.simpleTwoColumn.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Booking Link field in *BridalPackage → SimpleTwoColumn → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bridal_package.simpleTwoColumn.primary.booking_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  booking_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * SimpleTwoColumn variation for BridalPackage Slice
+ *
+ * - **API ID**: `simpleTwoColumn`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BridalPackageSliceSimpleTwoColumn = prismic.SharedSliceVariation<
+  "simpleTwoColumn",
+  Simplify<BridalPackageSliceSimpleTwoColumnPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *BridalPackage*
  */
-type BridalPackageSliceVariation = BridalPackageSliceDefault;
+type BridalPackageSliceVariation =
+  | BridalPackageSliceDefault
+  | BridalPackageSliceSimpleTwoColumn;
 
 /**
  * BridalPackage Shared Slice
@@ -3334,8 +3410,10 @@ declare module "@prismicio/client" {
       BridalPackageSlice,
       BridalPackageSliceDefaultPrimaryBulletPointsItem,
       BridalPackageSliceDefaultPrimary,
+      BridalPackageSliceSimpleTwoColumnPrimary,
       BridalPackageSliceVariation,
       BridalPackageSliceDefault,
+      BridalPackageSliceSimpleTwoColumn,
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,

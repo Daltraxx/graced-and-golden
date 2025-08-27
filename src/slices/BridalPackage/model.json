@@ -102,6 +102,63 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "simpleTwoColumn",
+      "name": "SimpleTwoColumn",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2,strong,em"
+          }
+        },
+        "name_and_price": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Name and Price",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading3,strong,em"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "booking_link": {
+          "type": "Link",
+          "config": {
+            "label": "Booking Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
