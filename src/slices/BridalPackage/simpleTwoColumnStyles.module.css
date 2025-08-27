@@ -9,7 +9,8 @@
    gap: 1rem;
 }
 
-.image {
+.image,
+.infoContainer {
    width: 95%;
    max-width: 17.125rem;
 }
@@ -30,4 +31,8 @@
 
 .infoContainer h3 {
    font-size: 1.25rem;
+}
+
+.infoContainer a {
+   width: 100%;
 }
