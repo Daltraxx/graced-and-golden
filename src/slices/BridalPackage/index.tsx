@@ -14,15 +14,18 @@ import { PrismicNextImage } from "@prismicio/next";
 import Button from "@/components/Button/Button";
 
 const components: JSXMapSerializer = {
-  heading2: ({children}) => (
-    <Heading as="h2" size="manual" >
-        {children}
+  heading2: ({ children }) => (
+    <Heading as="h2" size="manual">
+      {children}
     </Heading>
   ),
-  paragraph: ({children}) => (
-    <p>{children}</p>
+  heading3: ({ children }) => (
+    <Heading as="h3" size="manual">
+      {children}
+    </Heading>
   ),
-}
+  paragraph: ({ children }) => <p>{children}</p>,
+};
 
 /**
  * Props for `BridalPackage`.
@@ -82,12 +85,12 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
         className={altStyles.boundedContainer}
         ref={containerRef}
       >
-        <PrismicNextImage field={slice.primary.image} />
-        <section>
-          <PrismicRichText field={slice.primary.heading} />
-          <PrismicRichText field={slice.primary.name_and_price} />
-          <PrismicRichText field={slice.primary.description} />
-          <Button field={slice.primary.booking_link} color="brown-200" />
+        <PrismicNextImage field={slice.primary.image} className={altStyles.image} />
+        <section className={altStyles.infoContainer} >
+          <PrismicRichText field={slice.primary.heading} components={components} />
+          <PrismicRichText field={slice.primary.name_and_price} components={components} />
+          <PrismicRichText field={slice.primary.description} components={components} />
+          <Button field={slice.primary.booking_link} color="cream-200" />
         </section>
       </Bounded>
     );

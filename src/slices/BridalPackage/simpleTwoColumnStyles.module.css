@@ -1,0 +1,33 @@
+.boundedContainer {
+   background: var(--brown-500);
+}
+
+.boundedContainer > div {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1rem;
+}
+
+.image {
+   width: 95%;
+   max-width: 17.125rem;
+}
+
+.infoContainer {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   align-items: center;
+   color: var(--beige-300);
+   gap: 1rem;
+}
+
+.infoContainer h2 {
+   font-family: var(--font-cursive);
+   font-size: 3rem;
+}
+
+.infoContainer h3 {
+   font-size: 1.25rem;
+}
