@@ -26,8 +26,8 @@
 				]
 			},
 			"link": {
-				"__TYPE__": "LinkContent",
 				"key": "645a719e-71d8-4836-86c3-203346ef5a5c",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com",
@@ -36,5 +36,48 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "aboretoHeading",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Excitement"
+						}
+					}
+				]
+			},
+			"body_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis reprehenderit et ipsum commodo velit est mollit elit non duis."
+						}
+					}
+				]
+			},
+			"link": {
+				"key": "c97e1609-30c3-4317-8f66-f7458643554a",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "riding"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]
