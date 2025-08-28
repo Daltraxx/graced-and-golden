@@ -44,9 +44,23 @@ const SimpleColumnWLink: FC<SimpleColumnWLinkProps> = ({ slice }) => {
       className={moduleStyles.boundedContainer}
       ref={containerRef}
     >
-      <div className={clsx(moduleStyles.contentContainer, 'animated-element')} >
-        <PrismicRichText field={slice.primary.heading} components={components} />
-        <PrismicRichText field={slice.primary.body_text} components={components} />
+      <div
+        className={clsx(
+          moduleStyles.contentContainer,
+          slice.variation === "default"
+            ? moduleStyles.defaultContainerStyles
+            : moduleStyles.altContainerStyles,
+          "animated-element"
+        )}
+      >
+        <PrismicRichText
+          field={slice.primary.heading}
+          components={components}
+        />
+        <PrismicRichText
+          field={slice.primary.body_text}
+          components={components}
+        />
         <Button field={slice.primary.link} color="cream-200" />
       </div>
     </Bounded>
