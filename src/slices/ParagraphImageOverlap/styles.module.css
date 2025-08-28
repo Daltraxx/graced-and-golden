@@ -24,6 +24,11 @@
    gap: 1rem;
 }
 
+.textContainer h3 {
+   
+   font-size: 1.15rem;
+}
+
 .textContainer strong {
    color: var(--brown-700);
 }
