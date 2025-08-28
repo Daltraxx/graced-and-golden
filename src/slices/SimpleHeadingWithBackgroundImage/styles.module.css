@@ -19,20 +19,12 @@
 .heading {
    text-align: center;
    color: var(--cream-200);
-   font-size: 3.25rem;
-   width: 90%;
-   max-width: 24.25rem;
+   font-size: clamp(3.25rem, 10vw, 4rem);
+   max-width: 90%;
 }
 
 @media only screen and (min-width: 800px) {
    .boundedContainer {
       background-position: center 60%;
-   }
-}
-
-@media only screen and (min-width: 1024px) {
-   .heading {
-      font-size: 4rem;
-      max-width: 36rem;
    }
 }
