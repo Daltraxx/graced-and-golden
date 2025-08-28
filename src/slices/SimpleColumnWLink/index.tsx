@@ -1,12 +1,16 @@
-'use client';
+"use client";
 
 import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button/Button";
-import moduleStyles from '@/slices/SimpleColumnWLink/styles.module.css';
+import moduleStyles from "@/slices/SimpleColumnWLink/styles.module.css";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
 
