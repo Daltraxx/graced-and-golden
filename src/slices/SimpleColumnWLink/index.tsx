@@ -14,7 +14,7 @@ import moduleStyles from "@/slices/SimpleColumnWLink/styles.module.css";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
 
-const components: JSXMapSerializer = {
+const defaultComponents: JSXMapSerializer = {
   heading2: ({ children }) => (
     <Heading as="h2" size="md" font="cursive">
       {children}
@@ -22,6 +22,20 @@ const components: JSXMapSerializer = {
   ),
   heading3: ({ children }) => (
     <Heading as="h3" size="md" font="cursive">
+      {children}
+    </Heading>
+  ),
+  paragraph: ({ children }) => <p>{children}</p>,
+};
+
+const altComponents: JSXMapSerializer = {
+  heading2: ({ children }) => (
+    <Heading as="h2" size="md">
+      {children}
+    </Heading>
+  ),
+  heading3: ({ children }) => (
+    <Heading as="h3" size="md">
       {children}
     </Heading>
   ),
@@ -41,6 +55,8 @@ const SimpleColumnWLink: FC<SimpleColumnWLinkProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
 
+  const getRichTextComponents = () => slice.variation === 'default' ? defaultComponents : altComponents;
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -59,11 +75,11 @@ const SimpleColumnWLink: FC<SimpleColumnWLinkProps> = ({ slice }) => {
       >
         <PrismicRichText
           field={slice.primary.heading}
-          components={components}
+          components={getRichTextComponents()}
         />
         <PrismicRichText
           field={slice.primary.body_text}
-          components={components}
+          components={getRichTextComponents()}
         />
         <Button field={slice.primary.link} color="cream-200" />
       </div>
