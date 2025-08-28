@@ -1,6 +1,6 @@
 .boundedContainer {
    background-size: cover;
-   background-position: center top;
+   background-position: center bottom;
 }
 
 .boundedContainerCenteredImage {
@@ -9,7 +9,7 @@
 }
 
 .headingContainer {
-   height: 20rem;
+   height: clamp(20rem, 20vw, 30rem);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -24,11 +24,13 @@
    max-width: 24.25rem;
 }
 
-@media only screen and (min-width: 1024px) {
-   .headingContainer {
-      height: 30rem;
+@media only screen and (min-width: 800px) {
+   .boundedContainer {
+      background-position: center 60%;
    }
+}
 
+@media only screen and (min-width: 1024px) {
    .heading {
       font-size: 4rem;
       max-width: 36rem;
