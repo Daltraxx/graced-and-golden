@@ -13,9 +13,12 @@
 }
 
 /* Remove in case of font reversion */
-.contentContainer h2,
-.contentContainer h3 {
+.defaultHeading {
    font-size: 3rem;
+}
+
+.altHeading {
+   max-width: 40ch;
 }
 
 .contentContainer h2,

@@ -16,12 +16,22 @@ import clsx from "clsx";
 
 const defaultComponents: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="manual" font="cursive">
+    <Heading
+      as="h2"
+      size="manual"
+      font="cursive"
+      className={moduleStyles.defaultHeading}
+    >
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="manual" font="cursive">
+    <Heading
+      as="h3"
+      size="manual"
+      font="cursive"
+      className={moduleStyles.defaultHeading}
+    >
       {children}
     </Heading>
   ),
@@ -30,12 +40,12 @@ const defaultComponents: JSXMapSerializer = {
 
 const altComponents: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="md">
+    <Heading as="h2" size="sm" className={moduleStyles.altHeading} >
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="md">
+    <Heading as="h3" size="sm" className={moduleStyles.altHeading} >
       {children}
     </Heading>
   ),
@@ -64,15 +74,7 @@ const SimpleColumnWLink: FC<SimpleColumnWLinkProps> = ({ slice }) => {
       className={moduleStyles.boundedContainer}
       ref={containerRef}
     >
-      <div
-        className={clsx(
-          moduleStyles.contentContainer,
-          slice.variation === "default"
-            ? moduleStyles.defaultContainerStyles
-            : moduleStyles.altContainerStyles,
-          "animated-element"
-        )}
-      >
+      <div className={clsx(moduleStyles.contentContainer, "animated-element")} >
         <PrismicRichText
           field={slice.primary.heading}
           components={getRichTextComponents()}
