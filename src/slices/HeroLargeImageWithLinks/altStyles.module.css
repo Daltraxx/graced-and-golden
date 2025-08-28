@@ -14,17 +14,17 @@
    height: 44rem;
 }
 
-.textRow {
+.textRow p {
    max-width: 90%;
 }
 
 .textRow h1 {
    text-align: center;
-   font-size: 3.25rem;
+   font-size: 4rem;
 }
 
 .textRow p {
-   font-size: 1.5rem;
+   font-size: 1.25rem;
 }
 
 .links {
@@ -49,7 +49,7 @@
       background-position: 0 -100px;
    }
    
-   .textRow {
+   .textRow p {
       max-width: 60%;
    }
 }
@@ -59,7 +59,7 @@
       background-position: 0 -300px;
    }
 
-   .textRow {
+   .textRow p {
       max-width: 30rem;
    }
 }
