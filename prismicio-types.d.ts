@@ -2464,9 +2464,59 @@ export type SimpleColumnWLinkSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SimpleColumnWLink → Aboreto Heading → Primary*
+ */
+export interface SimpleColumnWLinkSliceAboretoHeadingPrimary {
+  /**
+   * Heading field in *SimpleColumnWLink → Aboreto Heading → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_column_w_link.aboretoHeading.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body Text field in *SimpleColumnWLink → Aboreto Heading → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_column_w_link.aboretoHeading.primary.body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Link field in *SimpleColumnWLink → Aboreto Heading → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_column_w_link.aboretoHeading.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Aboreto Heading variation for SimpleColumnWLink Slice
+ *
+ * - **API ID**: `aboretoHeading`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleColumnWLinkSliceAboretoHeading = prismic.SharedSliceVariation<
+  "aboretoHeading",
+  Simplify<SimpleColumnWLinkSliceAboretoHeadingPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SimpleColumnWLink*
  */
-type SimpleColumnWLinkSliceVariation = SimpleColumnWLinkSliceDefault;
+type SimpleColumnWLinkSliceVariation =
+  | SimpleColumnWLinkSliceDefault
+  | SimpleColumnWLinkSliceAboretoHeading;
 
 /**
  * SimpleColumnWLink Shared Slice
@@ -3469,8 +3519,10 @@ declare module "@prismicio/client" {
       ServicesHeroSliceDefault,
       SimpleColumnWLinkSlice,
       SimpleColumnWLinkSliceDefaultPrimary,
+      SimpleColumnWLinkSliceAboretoHeadingPrimary,
       SimpleColumnWLinkSliceVariation,
       SimpleColumnWLinkSliceDefault,
+      SimpleColumnWLinkSliceAboretoHeading,
       SimpleHeadingWithBackgroundImageSlice,
       SimpleHeadingWithBackgroundImageSliceDefaultPrimary,
       SimpleHeadingWithBackgroundImageSliceCenteredImagePrimary,
