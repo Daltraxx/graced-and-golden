@@ -131,10 +131,6 @@
       margin-bottom: 2rem;
    }
 
-   .paragraphColumn {
-      width: 23rem;
-   }
-
    .imageContainer {
       margin-left: 6rem;
    }
@@ -146,5 +142,11 @@
    .backImage {
       width: 26rem;
       left: -6rem;
+   }
+}
+
+@media only screen and (min-width: 1700px) {
+   .paragraphColumn {
+      width: 23rem;
    }
 }
