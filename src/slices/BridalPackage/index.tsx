@@ -1,11 +1,15 @@
-'use client';
+"use client";
 
 import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Heading from "@/components/Heading";
-import moduleStyles from '@/slices/BridalPackage/styles.module.css';
-import altStyles from '@/slices/BridalPackage/simpleTwoColumnStyles.module.css';
+import moduleStyles from "@/slices/BridalPackage/styles.module.css";
+import altStyles from "@/slices/BridalPackage/simpleTwoColumnStyles.module.css";
 import Bounded from "@/components/Bounded";
 import BridalPackageCard from "@/components/BridalPackageCard/BridalPackageCard";
 import useAddAnimation from "@/utilities/addAnimation";
@@ -39,8 +43,8 @@ export type BridalPackageProps =
 const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
-  
-  if (slice.variation === 'default') {
+
+  if (slice.variation === "default") {
     return (
       <Bounded
         data-slice-type={slice.slice_type}
@@ -85,12 +89,28 @@ const BridalPackage: FC<BridalPackageProps> = ({ slice }) => {
         className={altStyles.boundedContainer}
         ref={containerRef}
       >
-        <PrismicNextImage field={slice.primary.image} className={altStyles.image} />
-        <section className={altStyles.infoContainer} >
-          <PrismicRichText field={slice.primary.heading} components={components} />
-          <PrismicRichText field={slice.primary.name_and_price} components={components} />
-          <PrismicRichText field={slice.primary.description} components={components} />
-          <Button field={slice.primary.booking_link} color="cream-200" className={altStyles.bookingButton} />
+        <PrismicNextImage
+          field={slice.primary.image}
+          className={clsx(altStyles.image, "animated-element")}
+        />
+        <section className={clsx(altStyles.infoContainer, "animated-element")}>
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={components}
+          />
+          <PrismicRichText
+            field={slice.primary.name_and_price}
+            components={components}
+          />
+          <PrismicRichText
+            field={slice.primary.description}
+            components={components}
+          />
+          <Button
+            field={slice.primary.booking_link}
+            color="cream-200"
+            className={altStyles.bookingButton}
+          />
         </section>
       </Bounded>
     );
