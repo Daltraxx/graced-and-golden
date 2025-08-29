@@ -13,7 +13,6 @@
 .sliceHalfContainer {
    position: relative;
    min-height: 22rem;
-   padding: 0 1rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -29,6 +28,7 @@
 .linksSection {
    display: flex;
    flex-direction: column;
+   max-width: 90%;
 }
 
 .linksRow {
@@ -38,8 +38,8 @@
 }
 
 .heading {
-   font-size: clamp(1.5rem, 3.5vw, 1.75rem);
-   max-width: min(30rem, 90%);
+   font-size: clamp(1.25rem, 4vw, 1.5rem);
+   max-width: 30rem;
    color: var(--brown-800);
    margin: 1rem auto .5rem auto;
 }
@@ -98,6 +98,10 @@
    .sliceHalfContainer {
       min-height: 29rem;
       width: 50%;
+   }
+
+   .heading {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
    }
 
    .linksRow {
