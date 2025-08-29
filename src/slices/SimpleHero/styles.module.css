@@ -51,6 +51,6 @@
    .heroContainer {
       max-width: none;
       min-height: clamp(10.125rem, 30vw, 28rem);
-      
+      background-position: center 20%;
    }
 }
