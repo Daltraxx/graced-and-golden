@@ -32,7 +32,7 @@
 
 @media only screen and (min-width: 768px) {
    .heroContainer {
-      background-position: 0 50%;
+      background-position: center 10%;
       margin: 2rem 0;
    }
    .textContainer {
