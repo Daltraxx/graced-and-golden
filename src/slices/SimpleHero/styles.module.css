@@ -1,5 +1,11 @@
 .boundedContainer {
    background: var(--beige-300);
+   padding: 2rem 0;
+}
+
+.boundedContainer > div {
+   display: flex;
+   justify-content: center;
 }
 
 .heroContainer {
@@ -8,6 +14,8 @@
    background-position: center;
    display: flex;
    justify-content: center;
+   align-items: center;
+   max-width: 85%;
 }
 
 /* Reset font size in case of font reversion */
@@ -16,7 +24,8 @@
 }
 
 .textContainer h2 {
-   font-size: 1.25rem;
+   font-size: clamp(1.25rem, 5vw, 1.5rem);
+   max-width: 30rem;
 }
 
 .textContainer {
@@ -30,17 +39,18 @@
    text-align: center;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
+   .boundedContainer {
+      padding: 0;
+   }
+
+   .boundedContainer > div {
+      display: block;
+   }
+
    .heroContainer {
-      background-position: center 10%;
-      margin: 2rem 0;
-   }
-   .textContainer {
-      height: 16.5rem;
-   }
-   
-   .textContainer h2 {
-      max-width: 30rem;
-      font-size: 1.5rem;
+      max-width: none;
+      min-height: clamp(10.125rem, 30vw, 28rem);
+      
    }
 }

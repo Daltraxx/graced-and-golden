@@ -43,6 +43,8 @@ const SimpleHero: FC<SimpleHeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={moduleStyles.boundedContainer}
       ref={containerRef}
+      verticalPadding={false}
+      horizontalSpacing={false}
     >
       <div
         style={{ backgroundImage: `url(${backgroundImageURL})` }}
