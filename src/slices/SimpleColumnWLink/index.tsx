@@ -65,7 +65,7 @@ const SimpleColumnWLink: FC<SimpleColumnWLinkProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
 
-  const getRichTextComponents = () => slice.variation === 'default' ? defaultComponents : altComponents;
+  const components = slice.variation === 'default' ? defaultComponents : altComponents;
 
   return (
     <Bounded
@@ -77,11 +77,11 @@ const SimpleColumnWLink: FC<SimpleColumnWLinkProps> = ({ slice }) => {
       <div className={clsx(moduleStyles.contentContainer, "animated-element")} >
         <PrismicRichText
           field={slice.primary.heading}
-          components={getRichTextComponents()}
+          components={components}
         />
         <PrismicRichText
           field={slice.primary.body_text}
-          components={getRichTextComponents()}
+          components={components}
         />
         <Button field={slice.primary.link} color="cream-200" />
       </div>
