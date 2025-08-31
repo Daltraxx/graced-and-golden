@@ -14,8 +14,9 @@
    height: 44rem;
 }
 
-.textRow p {
-   max-width: 90%;
+.textRow {
+   display: flex;
+   justify-content: center;
 }
 
 .textRow h1 {
@@ -25,6 +26,7 @@
 
 .textRow p {
    font-size: 1.25rem;
+   max-width: 90%;
 }
 
 .links {
