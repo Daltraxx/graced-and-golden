@@ -1444,11 +1444,11 @@ export type HomepageHeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+ * Primary content in *HeroLargeImageWithLinks → With Body Text → Primary*
  */
 export interface HomepageHeroSliceCoupleKissingBackgroundPrimary {
   /**
-   * Main Heading field in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+   * Main Heading field in *HeroLargeImageWithLinks → With Body Text → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -1458,7 +1458,7 @@ export interface HomepageHeroSliceCoupleKissingBackgroundPrimary {
   main_heading: prismic.TitleField;
 
   /**
-   * Body Text field in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+   * Body Text field in *HeroLargeImageWithLinks → With Body Text → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1468,7 +1468,7 @@ export interface HomepageHeroSliceCoupleKissingBackgroundPrimary {
   body_text: prismic.RichTextField;
 
   /**
-   * Link field in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+   * Link field in *HeroLargeImageWithLinks → With Body Text → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -1480,7 +1480,7 @@ export interface HomepageHeroSliceCoupleKissingBackgroundPrimary {
   >;
 
   /**
-   * Background Image field in *HeroLargeImageWithLinks → Couple Kissing Background → Primary*
+   * Background Image field in *HeroLargeImageWithLinks → With Body Text → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1491,7 +1491,7 @@ export interface HomepageHeroSliceCoupleKissingBackgroundPrimary {
 }
 
 /**
- * Couple Kissing Background variation for HeroLargeImageWithLinks Slice
+ * With Body Text variation for HeroLargeImageWithLinks Slice
  *
  * - **API ID**: `coupleKissingBackground`
  * - **Description**: Default
@@ -1505,11 +1505,110 @@ export type HomepageHeroSliceCoupleKissingBackground =
   >;
 
 /**
+ * Primary content in *HeroLargeImageWithLinks → Default Linkless → Primary*
+ */
+export interface HomepageHeroSliceDefaultLinklessPrimary {
+  /**
+   * Main Heading field in *HeroLargeImageWithLinks → Default Linkless → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.defaultLinkless.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.TitleField;
+
+  /**
+   * Short Text field in *HeroLargeImageWithLinks → Default Linkless → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.defaultLinkless.primary.short_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  short_text: prismic.RichTextField;
+
+  /**
+   * Background Image field in *HeroLargeImageWithLinks → Default Linkless → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.defaultLinkless.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default Linkless variation for HeroLargeImageWithLinks Slice
+ *
+ * - **API ID**: `defaultLinkless`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageHeroSliceDefaultLinkless = prismic.SharedSliceVariation<
+  "defaultLinkless",
+  Simplify<HomepageHeroSliceDefaultLinklessPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *HeroLargeImageWithLinks → With Body Text Linkless → Primary*
+ */
+export interface HomepageHeroSliceWithBodyTextLinklessPrimary {
+  /**
+   * Main Heading field in *HeroLargeImageWithLinks → With Body Text Linkless → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.withBodyTextLinkless.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.TitleField;
+
+  /**
+   * Body Text field in *HeroLargeImageWithLinks → With Body Text Linkless → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.withBodyTextLinkless.primary.body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Background Image field in *HeroLargeImageWithLinks → With Body Text Linkless → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.withBodyTextLinkless.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * With Body Text Linkless variation for HeroLargeImageWithLinks Slice
+ *
+ * - **API ID**: `withBodyTextLinkless`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HomepageHeroSliceWithBodyTextLinkless =
+  prismic.SharedSliceVariation<
+    "withBodyTextLinkless",
+    Simplify<HomepageHeroSliceWithBodyTextLinklessPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *HeroLargeImageWithLinks*
  */
 type HomepageHeroSliceVariation =
   | HomepageHeroSliceDefault
-  | HomepageHeroSliceCoupleKissingBackground;
+  | HomepageHeroSliceCoupleKissingBackground
+  | HomepageHeroSliceDefaultLinkless
+  | HomepageHeroSliceWithBodyTextLinkless;
 
 /**
  * HeroLargeImageWithLinks Shared Slice
@@ -3475,9 +3574,13 @@ declare module "@prismicio/client" {
       HomepageHeroSlice,
       HomepageHeroSliceDefaultPrimary,
       HomepageHeroSliceCoupleKissingBackgroundPrimary,
+      HomepageHeroSliceDefaultLinklessPrimary,
+      HomepageHeroSliceWithBodyTextLinklessPrimary,
       HomepageHeroSliceVariation,
       HomepageHeroSliceDefault,
       HomepageHeroSliceCoupleKissingBackground,
+      HomepageHeroSliceDefaultLinkless,
+      HomepageHeroSliceWithBodyTextLinkless,
       Info3ColSlice,
       Info3ColSliceDefaultPrimary,
       Info3ColSliceNoHeadingTextImageTextPrimary,
