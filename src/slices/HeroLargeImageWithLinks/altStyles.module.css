@@ -18,12 +18,12 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  text-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
 }
 
 .textRow h1 {
   font-size: clamp(3.25rem, 10vw, 4rem);
   text-wrap: balance;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .textRow p {
