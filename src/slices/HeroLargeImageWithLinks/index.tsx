@@ -1,13 +1,17 @@
-'use client';
+"use client";
 
 import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button/Button";
-import defaultStyles from '@/slices/HeroLargeImageWithLinks/defaultStyles.module.css';
-import altStyles from '@/slices/HeroLargeImageWithLinks/altStyles.module.css';
+import defaultStyles from "@/slices/HeroLargeImageWithLinks/defaultStyles.module.css";
+import altStyles from "@/slices/HeroLargeImageWithLinks/altStyles.module.css";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
 
@@ -17,12 +21,8 @@ const components: JSXMapSerializer = {
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => (
-    <p>
-      {children}
-    </p>
-  )
-}
+  paragraph: ({ children }) => <p>{children}</p>,
+};
 
 /**
  * Props for `HomepageHero`.
@@ -35,24 +35,28 @@ export type HomepageHeroProps = SliceComponentProps<Content.HomepageHeroSlice>;
 const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef);
-  
+
   const getButtonColor = (index: number) => {
     switch (index) {
       case 0:
-        return 'brown-200';
+        return "brown-200";
       case 1:
-        return 'brown-500';
+        return "brown-500";
       case 2:
-        return 'brown-300';
+        return "brown-300";
       default:
-        return 'brown-200';
+        return "brown-200";
     }
-  }
+  };
 
-  const bgImageURLDefault = slice.primary.background_image?.url || '/couple-beach-pose-mod-dark-min.webp';
-  const bgImageURLAlt = slice.primary.background_image?.url || '/couple-beach-kiss-crop-upscale-dark-min.webp';
+  const bgImageURLDefault =
+    slice.primary.background_image?.url ||
+    "/couple-beach-pose-mod-dark-min.webp";
+  const bgImageURLAlt =
+    slice.primary.background_image?.url ||
+    "/couple-beach-kiss-crop-upscale-dark-min.webp";
 
-  if (slice.variation === 'default' || slice.variation === 'defaultLinkless') {
+  if (slice.variation === "default" || slice.variation === "defaultLinkless") {
     return (
       <Bounded
         data-slice-type={slice.slice_type}
@@ -125,23 +129,22 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
             />
           </div>
           {slice.variation === "coupleKissingBackground" && (
-            <ul className={`${altStyles.links}`}>
-              {slice.primary.link.map((link, i) => (
-                <li key={link.key} className="animated-element">
+            <ul className={altStyles.links}>
+              {(slice.primary.link ?? []).map((link, i) => (
+                <li key={link?.key ?? i} className="animated-element">
                   <Button
                     field={link}
                     color={getButtonColor(i)}
-                    className={`${altStyles.button}`}
+                    className={altStyles.button}
                   />
                 </li>
               ))}
             </ul>
-          )}
+          )}{" "}
         </div>
       </Bounded>
     );
   }
-  
 };
 
 export default HomepageHero;
