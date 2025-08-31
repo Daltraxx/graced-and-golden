@@ -1,7 +1,7 @@
 .boundedContainer {
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: 50% 0;
+   background-position: center top;
    color: var(--cream-200);
    padding: 1rem;
 }
@@ -75,9 +75,6 @@
 }
 
 @media only screen and (min-width: 800px) {
-   .boundedContainer {
-      background-position: 50% 10%;
-   }
    .row {
       flex-direction: row;
       align-items: start;
