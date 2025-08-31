@@ -87,8 +87,6 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
     }
   }, [windowWidth]);
 
-  
-
   return (
     <Bounded
       data-slice-type={slice.slice_type}
