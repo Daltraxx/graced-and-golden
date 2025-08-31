@@ -85,7 +85,7 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
         `${bookingDetailsContainerHeight}px`
       );
     }
-  }, [windowWidth, bookingDetailsContainerRef, contactContainerRef]);
+  }, [windowWidth]);
 
   
 
