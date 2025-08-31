@@ -48,26 +48,43 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
       ref={containerRef}
     >
       <div className="animated-element">
-        <PrismicRichText field={slice.primary.main_header} components={components} />
+        <PrismicRichText
+          field={slice.primary.main_header}
+          components={components}
+        />
       </div>
-      <section className={moduleStyles.servicesContainer} >
+      <section className={moduleStyles.servicesContainer}>
         {slice.primary.service.map((item, i) => (
           <section key={`service-section-${i}`} className="animated-element">
-            <div className={moduleStyles.serviceBody} >
-              <PrismicRichText field={item.service_name} components={components} />
-              <PrismicRichText field={item.service_body_text} components={components} />
-              <div className={moduleStyles.serviceDetails} >
-                <PrismicRichText field={item.price_and_duration} components={components} />
-                <PrismicRichText field={item.addendum} components={components} />
+            <div className={moduleStyles.serviceBody}>
+              <PrismicRichText
+                field={item.service_name}
+                components={components}
+              />
+              <PrismicRichText
+                field={item.service_body_text}
+                components={components}
+              />
+              <div className={moduleStyles.serviceDetails}>
+                <PrismicRichText
+                  field={item.price_and_duration}
+                  components={components}
+                />
+                <PrismicRichText
+                  field={item.addendum}
+                  components={components}
+                />
               </div>
             </div>
-            <div className={moduleStyles.linkContainer} >
+            <div className={moduleStyles.linkContainer}>
               {item.link.length > 1 && (
-                <ul className={moduleStyles.linkList} >
+                <ul className={moduleStyles.linkList}>
                   {item.link.map((link, i) => (
                     <li key={`main-service-link-${i}`}>
-                      {i % 2 === 0 && <Button field={link} color="brown-800" />}
-                      {i % 2 !== 0 && <Button field={link} color="brown-300" />}
+                      <Button
+                        field={link}
+                        color={i % 2 === 0 ? "brown-800" : "brown-300"}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -79,9 +96,20 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           </section>
         ))}
       </section>
-      <section className={clsx(moduleStyles.cancellationPolicyContainer, 'animated-element')} >
-        <PrismicRichText field={slice.primary.cancellation_policy_header} components={components} />
-        <PrismicRichText field={slice.primary.cancellation_policy_body} components={components} />
+      <section
+        className={clsx(
+          moduleStyles.cancellationPolicyContainer,
+          "animated-element"
+        )}
+      >
+        <PrismicRichText
+          field={slice.primary.cancellation_policy_header}
+          components={components}
+        />
+        <PrismicRichText
+          field={slice.primary.cancellation_policy_body}
+          components={components}
+        />
       </section>
     </Bounded>
   );
