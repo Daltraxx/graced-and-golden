@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  min-height: 34rem;
+  min-height: clamp(34rem, 60vh, 40rem);
 }
 
 .textRow {
@@ -23,6 +23,7 @@
 .textRow h1 {
   font-size: clamp(3.25rem, 10vw, 4rem);
   text-wrap: balance;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .textRow p {
