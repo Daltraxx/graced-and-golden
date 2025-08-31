@@ -90,8 +90,8 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
                 />
               </div>
               <ul className={`${defaultStyles.links}`}>
-                {slice.primary.link.map((link, i) => (
-                  <li key={link.key} className="animated-element">
+                {(slice.primary.link ?? []).map((link, i) => (
+                  <li key={link?.key ?? i} className="animated-element">
                     <Button
                       field={link}
                       color={getButtonColor(i)}
