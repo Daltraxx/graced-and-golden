@@ -13,6 +13,10 @@
    color: var(--black-700);
 }
 
+.boundedContainer strong {
+   color: var(--brown-500);
+}
+
 .mainContentContainer {
    display: flex;
    flex-direction: column;
@@ -62,10 +66,6 @@
 
 .bookingDetailsBox {
    text-align: start;
-}
-
-.bookingDetailsBox strong {
-   color: var(--brown-500);
 }
 
 .bookingDetailsBox p:not(:last-of-type) {
