@@ -9,6 +9,7 @@
 .contentContainer {
    display: flex;
    align-items: center;
+   min-height: clamp(400px, 50vh, 600px);
    min-height: clamp(400px, 50svh, 600px);
 }
 
