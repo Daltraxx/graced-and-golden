@@ -23,6 +23,12 @@
    max-width: 46rem;
 }
 
+.contentContainer:not(.buttonContainer) h3,
+.contentContainer:not(.buttonContainer) h4,
+.contentContainer:not(.buttonContainer) p {
+   text-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+}
+
 .noHeading p {
    font-size: 1.1rem;
 }
