@@ -66,14 +66,14 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
                 <ul className={moduleStyles.linkList} >
                   {item.link.map((link, i) => (
                     <li key={`main-service-link-${i}`}>
-                      {i % 2 === 0 && <Button field={link} color="brown-300" />}
-                      {i % 2 !== 0 && <Button field={link} color="brown-800" />}
+                      {i % 2 === 0 && <Button field={link} color="brown-800" />}
+                      {i % 2 !== 0 && <Button field={link} color="brown-300" />}
                     </li>
                   ))}
                 </ul>
               )}
               {item.link.length === 1 && (
-                <Button field={item.link[0]} color="brown-800" />
+                <Button field={item.link[0]} color="brown-300" />
               )}
             </div>
           </section>
