@@ -13,10 +13,6 @@
    color: var(--black-700);
 }
 
-.boundedContainer strong {
-   color: var(--brown-500);
-}
-
 .mainContentContainer {
    display: flex;
    flex-direction: column;
@@ -35,6 +31,10 @@
    border-radius: 5px;
    padding: 1rem;
    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.box strong {
+   color: var(--brown-500);
 }
 
 .boxHeadingContainer > * {
