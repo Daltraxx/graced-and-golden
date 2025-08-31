@@ -1,7 +1,7 @@
 .boundedContainer {
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: 50% 0;
+   background-position: center top;
    color: var(--cream-200);
 }
 
@@ -11,7 +11,7 @@
    justify-content: center;
    align-items: center;
    gap: 2rem;
-   height: 44rem;
+   height: 34rem;
 }
 
 .textRow {
@@ -21,7 +21,8 @@
 
 .textRow h1 {
    text-align: center;
-   font-size: 4rem;
+   font-size: clamp(3.25rem, 10vw,4rem);
+   text-wrap: balance;
 }
 
 .textRow p {
@@ -40,63 +41,20 @@
    font-size: 1.2rem;
 }
 
-@media only screen and (min-width: 400px) {
-   .heroContainer {
-      height: 36rem;
-   }
-}
-
 @media only screen and (min-width: 600px) {
-   .boundedContainer {
-      background-position: 0 -100px;
-   }
-   
    .textRow p {
       max-width: 60%;
    }
 }
 
 @media only screen and (min-width: 800px) {
-   .boundedContainer {
-      background-position: 0 -300px;
-   }
-
    .textRow p {
       max-width: 30rem;
    }
 }
 
-@media only screen and (min-width: 1100px) {
-   .boundedContainer {
-      background-position: 0 -400px;
-   }
-}
-
-@media only screen and (min-width: 1500px) {
-   .boundedContainer {
-      background-position: 0 -500px;
-   }
-}
-
 @media only screen and (min-width: 1800px) {
-   .boundedContainer {
-      background-position: 0 -700px;
-   }
-
    .heroContainer {
-      height: 50rem;
       gap: 3rem;
-   }
-}
-
-@media only screen and (min-width: 2100px) {
-   .boundedContainer {
-      background-position: 0 -800px;
-   }
-}
-
-@media only screen and (min-width: 2450px) {
-   .boundedContainer {
-      background-position: 0 -900px;
    }
 }
