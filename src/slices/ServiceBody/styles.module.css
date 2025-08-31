@@ -130,11 +130,12 @@
 
    .contactContainer {
       display: flex;
-      height: fit-content;
+      max-height: var(--booking-details-height, fit-content);
    }
 
-   .contactContainer > div {
-      height: 7rem;
+   .contactHeadingContainer,
+   .contactButtonContainer {
+      height: 100%;
    }
 
    .contactHeadingContainer {

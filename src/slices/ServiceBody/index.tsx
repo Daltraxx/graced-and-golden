@@ -1,45 +1,43 @@
-'use client';
+"use client";
 
-import { FC, useRef } from "react";
+import { FC, useLayoutEffect, useRef, useState } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button/Button";
-import moduleStyles from '@/slices/ServiceBody/styles.module.css';
-import clsx from 'clsx';
+import moduleStyles from "@/slices/ServiceBody/styles.module.css";
+import clsx from "clsx";
 import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="lg" className='' >
+    <Heading as="h2" size="lg" className="">
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className='' >
+    <Heading as="h3" size="sm" className="">
       {children}
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h4" size="sm" className='' >
+    <Heading as="h4" size="sm" className="">
       {children}
     </Heading>
   ),
   heading5: ({ children }) => (
-    <Heading as="h5" size="sm" className='' >
+    <Heading as="h5" size="sm" className="">
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => (
-    <p>{children}</p>
-  ),
-  list: ({ children }) => (
-    <ul className="list-disc">
-      {children}
-    </ul>
-  )
-}
+  paragraph: ({ children }) => <p>{children}</p>,
+  list: ({ children }) => <ul className="list-disc">{children}</ul>,
+};
 
 /**
  * Props for `ServiceBody`.
@@ -52,7 +50,38 @@ export type ServiceBodyProps = SliceComponentProps<Content.ServiceBodySlice>;
 const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
-  
+
+  const [windowWidth, setWindowWidth] = useState(0);
+  useLayoutEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const bookingDetailsContainerRef = useRef<HTMLDivElement>(null);
+  const contactContainerRef = useRef<HTMLElement>(null);
+  useLayoutEffect(() => {
+    if (
+      windowWidth >= 768 &&
+      bookingDetailsContainerRef.current &&
+      contactContainerRef.current
+    ) {
+      const bookingDetailsContainer = bookingDetailsContainerRef.current;
+      const bookingDetailsContainerHeight =
+        bookingDetailsContainer.offsetHeight;
+      const contactContainer = contactContainerRef.current;
+      contactContainer.style.setProperty(
+        "--booking-details-height",
+        `${bookingDetailsContainerHeight}px`
+      );
+    }
+  }, [windowWidth, bookingDetailsContainerRef, contactContainerRef]);
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -121,6 +150,7 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
           >
             <div
               className={clsx(moduleStyles.box, moduleStyles.bookingDetailsBox)}
+              ref={bookingDetailsContainerRef}
             >
               <PrismicRichText
                 field={slice.primary.price}
@@ -143,6 +173,7 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
           </section>
           <section
             className={clsx(moduleStyles.contactContainer, "animated-element")}
+            ref={contactContainerRef}
           >
             <div className={moduleStyles.contactHeadingContainer}>
               <PrismicRichText
