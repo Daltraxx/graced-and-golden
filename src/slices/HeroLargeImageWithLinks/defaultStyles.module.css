@@ -32,6 +32,11 @@
    text-wrap: balance;
 }
 
+.headingRow h1,
+.linksRow p {
+   text-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+}
+
 .linksRow {
    display: flex;
    flex-direction: column;
