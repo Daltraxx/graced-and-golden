@@ -28,3 +28,4 @@ const useAddAnimation = (containerRef: RefObject<HTMLElement | null>, observerTh
 }
 
 export default useAddAnimation;
+

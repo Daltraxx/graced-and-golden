@@ -82,6 +82,8 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
     }
   }, [windowWidth, bookingDetailsContainerRef, contactContainerRef]);
 
+  
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}

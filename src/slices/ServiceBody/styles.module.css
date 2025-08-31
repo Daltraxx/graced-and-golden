@@ -130,7 +130,8 @@
 
    .contactContainer {
       display: flex;
-      max-height: var(--booking-details-height, fit-content);
+      height: var(--booking-details-height, auto);
+      overflow: auto; /* prevent content clipping when the var is smaller than content */
    }
 
    .contactHeadingContainer,
