@@ -18,7 +18,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className={`text-center`}>
+    <p>
       {children}
     </p>
   )

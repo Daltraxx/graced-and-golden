@@ -17,10 +17,10 @@
 .textRow {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .textRow h1 {
-  text-align: center;
   font-size: clamp(3.25rem, 10vw, 4rem);
   text-wrap: balance;
 }
