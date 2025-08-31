@@ -117,15 +117,6 @@
             "single": "heading1,heading2"
           }
         },
-        "short_text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Short Text",
-            "placeholder": "",
-            "allowTargetBlank": false,
-            "single": "paragraph,strong,em"
-          }
-        },
         "background_image": {
           "type": "Image",
           "config": {

@@ -52,7 +52,7 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
   const bgImageURLDefault = slice.primary.background_image?.url || '/couple-beach-pose-mod-dark-min.webp';
   const bgImageURLAlt = slice.primary.background_image?.url || '/couple-beach-kiss-crop-upscale-dark-min.webp';
 
-  if (slice.variation === 'default') {
+  if (slice.variation === 'default' || slice.variation === 'defaultLinkless') {
     return (
       <Bounded
         data-slice-type={slice.slice_type}
@@ -75,29 +75,34 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
               components={components}
             />
           </div>
-          <section className={clsx(defaultStyles.row, defaultStyles.linksRow)}>
-            <div className="animated-element">
-              <PrismicRichText
-                field={slice.primary.short_text}
-                components={components}
-              />
-            </div>
-            <ul className={`${defaultStyles.links}`}>
-              {slice.primary.link.map((link, i) => (
-                <li key={link.key} className="animated-element">
-                  <Button
-                    field={link}
-                    color={getButtonColor(i)}
-                    className={defaultStyles.button}
-                  />
-                </li>
-              ))}
-            </ul>
-          </section>
+          {slice.variation === "default" && (
+            <section
+              className={clsx(defaultStyles.row, defaultStyles.linksRow)}
+            >
+              <div className="animated-element">
+                <PrismicRichText
+                  field={slice.primary.short_text}
+                  components={components}
+                />
+              </div>
+              <ul className={`${defaultStyles.links}`}>
+                {slice.primary.link.map((link, i) => (
+                  <li key={link.key} className="animated-element">
+                    <Button
+                      field={link}
+                      color={getButtonColor(i)}
+                      className={defaultStyles.button}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </Bounded>
     );
   } else {
+    // With Body Text variations
     return (
       <Bounded
         data-slice-type={slice.slice_type}
@@ -119,17 +124,19 @@ const HomepageHero: FC<HomepageHeroProps> = ({ slice }) => {
               components={components}
             />
           </div>
-          <ul className={`${altStyles.links}`}>
-            {slice.primary.link.map((link, i) => (
-              <li key={link.key} className="animated-element">
-                <Button
-                  field={link}
-                  color={getButtonColor(i)}
-                  className={`${altStyles.button}`}
-                />
-              </li>
-            ))}
-          </ul>
+          {slice.variation === "coupleKissingBackground" && (
+            <ul className={`${altStyles.links}`}>
+              {slice.primary.link.map((link, i) => (
+                <li key={link.key} className="animated-element">
+                  <Button
+                    field={link}
+                    color={getButtonColor(i)}
+                    className={`${altStyles.button}`}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </Bounded>
     );

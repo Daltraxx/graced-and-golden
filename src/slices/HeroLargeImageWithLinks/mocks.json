@@ -153,17 +153,6 @@
 					}
 				]
 			},
-			"short_text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Fugiat duis laborum velit sint labore anim. Ea laboris minim amet exercitation culpa consectetur dolor."
-						}
-					}
-				]
-			},
 			"background_image": {
 				"origin": {
 					"id": "main",

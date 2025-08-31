@@ -1519,16 +1519,6 @@ export interface HomepageHeroSliceDefaultLinklessPrimary {
   main_heading: prismic.TitleField;
 
   /**
-   * Short Text field in *HeroLargeImageWithLinks → Default Linkless → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage_hero.defaultLinkless.primary.short_text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  short_text: prismic.RichTextField;
-
-  /**
    * Background Image field in *HeroLargeImageWithLinks → Default Linkless → Primary*
    *
    * - **Field Type**: Image
