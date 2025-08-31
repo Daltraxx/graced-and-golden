@@ -18,6 +18,11 @@
    max-width: 85%;
 }
 
+.textContainer {
+   
+   text-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+}
+
 /* Reset font size in case of font reversion */
 .textContainer h1 {
    font-size: 4rem;
