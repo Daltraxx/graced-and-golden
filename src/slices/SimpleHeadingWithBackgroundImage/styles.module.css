@@ -21,6 +21,7 @@
    color: var(--cream-200);
    font-size: clamp(3.25rem, 10vw, 4rem);
    max-width: 90%;
+   text-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (min-width: 800px) {
