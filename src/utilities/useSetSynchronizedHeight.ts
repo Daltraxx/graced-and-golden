@@ -8,13 +8,15 @@ export default function useSetSynchronizedHeight(
   minWindowWidth: number = 0
 ) {
   useLayoutEffect(() => {
+    let referenceElement: HTMLElement | null,
+      affectedElement: HTMLElement | null;
     if (
       windowWidthState >= minWindowWidth &&
       referenceElementRef.current &&
       affectedElementRef.current
     ) {
-      const referenceElement = referenceElementRef.current;
-      const affectedElement = affectedElementRef.current;
+      referenceElement = referenceElementRef.current;
+      affectedElement = affectedElementRef.current;
       affectedElement.style.setProperty(
         "--reference-element-height",
         `${referenceElement.offsetHeight}px`
@@ -24,11 +26,11 @@ export default function useSetSynchronizedHeight(
       affectedElementRef.current?.style.removeProperty(
         "--reference-element-height"
       );
-     }
-     
-     return () => {
-       affectedElementRef.current?.style.removeProperty("--reference-element-height");
-     };
+    }
+
+    return () => {
+      affectedElement?.style.removeProperty("--reference-element-height");
+    };
   }, [
     referenceElementRef,
     affectedElementRef,
