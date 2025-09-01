@@ -14,10 +14,14 @@ export default function useSetSynchronizedHeight(
     ) {
       const referenceElement = referenceElementRef.current;
       const affectedElement = affectedElementRef.current;
-      console.log(referenceElement.offsetHeight);
       affectedElement.style.setProperty(
         "--reference-element-height",
         `${referenceElement.offsetHeight}px`
+      );
+    } else {
+      // Clear stale value when below threshold or refs are missing
+      affectedElementRef.current?.style.removeProperty(
+        "--reference-element-height"
       );
     }
   }, [
