@@ -1,41 +1,39 @@
-'use client';
+"use client";
 
 import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import { PrismicNextImage } from "@prismicio/next";
-import moduleStyles from '@/slices/TrainingBody/styles.module.css';
+import moduleStyles from "@/slices/TrainingBody/styles.module.css";
 import clsx from "clsx";
 import Button from "@/components/Button/Button";
 import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="lg" className='' >
+    <Heading as="h2" size="lg" className="">
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className='' >
+    <Heading as="h3" size="sm" className="">
       {children}
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h4" size="xs" className='' >
+    <Heading as="h4" size="xs" className="">
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => (
-    <p>{children}</p>
-  ),
-  list: ({ children }) => (
-    <ul className="list-disc">
-      {children}
-    </ul>
-  )
-}
+  paragraph: ({ children }) => <p>{children}</p>,
+  list: ({ children }) => <ul className="list-disc">{children}</ul>,
+};
 
 /**
  * Props for `TrainingBody`.
@@ -48,7 +46,7 @@ export type TrainingBodyProps = SliceComponentProps<Content.TrainingBodySlice>;
 const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
-  
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -62,12 +60,13 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           components={components}
         />
       </div>
-      
+
       <section className={clsx(moduleStyles.row, moduleStyles.introRow)}>
         <div
           className={clsx(
             moduleStyles.box,
             moduleStyles.introBox,
+            !slice.primary.intro_paragraph_2.length && "text-center md:text-xl",
             "animated-element"
           )}
         >
@@ -75,7 +74,11 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             field={slice.primary.intro_paragraph_1}
             components={components}
           />
-          <div className={moduleStyles.divider}></div>
+          <div
+            className={clsx(
+              slice.primary.intro_paragraph_2.length && moduleStyles.divider
+            )}
+          ></div>
           <PrismicRichText
             field={slice.primary.intro_paragraph_2}
             components={components}
