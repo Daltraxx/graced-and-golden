@@ -23,7 +23,11 @@ export default function useSetSynchronizedHeight(
       affectedElementRef.current?.style.removeProperty(
         "--reference-element-height"
       );
-    }
+     }
+     
+     return () => {
+       affectedElementRef.current?.style.removeProperty("--reference-element-height");
+     };
   }, [
     referenceElementRef,
     affectedElementRef,
