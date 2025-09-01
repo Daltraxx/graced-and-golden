@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useLayoutEffect, useRef, useState } from "react";
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import {
   JSXMapSerializer,
