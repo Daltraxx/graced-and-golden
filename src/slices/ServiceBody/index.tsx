@@ -14,6 +14,7 @@ import moduleStyles from "@/slices/ServiceBody/styles.module.css";
 import clsx from "clsx";
 import useAddAnimation from "@/utilities/addAnimation";
 import useWindowWidth from "@/utilities/useWindowWidth";
+import useSetSynchronizedHeight from "@/utilities/useSetSynchronizedHeight";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -56,22 +57,12 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
 
   const bookingDetailsContainerRef = useRef<HTMLDivElement>(null);
   const contactContainerRef = useRef<HTMLElement>(null);
-  useLayoutEffect(() => {
-    if (
-      windowWidth >= 768 &&
-      bookingDetailsContainerRef.current &&
-      contactContainerRef.current
-    ) {
-      const bookingDetailsContainer = bookingDetailsContainerRef.current;
-      const bookingDetailsContainerHeight =
-        bookingDetailsContainer.offsetHeight;
-      const contactContainer = contactContainerRef.current;
-      contactContainer.style.setProperty(
-        "--booking-details-height",
-        `${bookingDetailsContainerHeight}px`
-      );
-    }
-  }, [windowWidth]);
+  useSetSynchronizedHeight(
+    bookingDetailsContainerRef,
+    contactContainerRef,
+    windowWidth,
+    768
+  );
 
   return (
     <Bounded
