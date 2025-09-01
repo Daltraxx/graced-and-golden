@@ -1,8 +1,9 @@
 import { useLayoutEffect } from "react";
+import type { RefObject } from "react";
 
 export default function useSetSynchronizedHeight(
-  referenceElementRef: React.RefObject<HTMLDivElement | HTMLElement | null>,
-  affectedElementRef: React.RefObject<HTMLDivElement | HTMLElement | null>,
+  referenceElementRef: RefObject<HTMLElement | null>,
+  affectedElementRef: RefObject<HTMLElement | null>,
   windowWidthState: number,
   minWindowWidth: number = 0
 ) {
