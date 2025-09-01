@@ -82,7 +82,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             components={components}
           />
         </div>
-        <div className={"animated-element"}>
+        <div className="animated-element">
           <PrismicNextImage
             field={slice.primary.image}
             height={778}
