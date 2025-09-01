@@ -44,7 +44,7 @@ export type TrainingBodyProps = SliceComponentProps<Content.TrainingBodySlice>;
  * Component for "TrainingBody" Slices.
  */
 const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
   useAddAnimation(containerRef);
 
   return (
