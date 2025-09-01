@@ -152,6 +152,7 @@ ul.linksList {
 
 @media only screen and (min-width: 624px) {
    .introRow {
+      display: flex;
       flex-direction: row;
       margin-top: 2rem;
    }
