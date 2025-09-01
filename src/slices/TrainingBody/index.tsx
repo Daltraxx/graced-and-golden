@@ -17,17 +17,17 @@ import useAddAnimation from "@/utilities/addAnimation";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading as="h2" size="lg" className="">
+    <Heading as="h2" size="lg">
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className="">
+    <Heading as="h3" size="sm">
       {children}
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h4" size="xs" className="">
+    <Heading as="h4" size="xs">
       {children}
     </Heading>
   ),
