@@ -52,6 +52,12 @@
 
 /* INTRO ROW */
 
+.introBox {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
 .introRow img {
    border-radius: 10px;
    margin: 0 auto;
@@ -143,9 +149,10 @@ ul.linksList {
    }
 }
 
-@media only screen and (min-width: 500px) {
-   .introRow img {
-      width: 29.25rem;
+@media only screen and (min-width: 624px) {
+   .introRow {
+      flex-direction: row;
+      margin-top: 2rem;
    }
 }
 
@@ -161,9 +168,6 @@ ul.linksList {
    }
 
    .introBox {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       max-width: 35rem;
    }
 
