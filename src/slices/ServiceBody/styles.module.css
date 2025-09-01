@@ -117,7 +117,7 @@
    }
 
    .boxHeadingContainer {
-      height: 15%;
+      height: 4.5rem;
    }
 
    .detailsRow p {
@@ -146,5 +146,11 @@
    .contactButtonContainer {
       border-radius: 0 5px 5px 0;
       padding: 0 1rem;
+   }
+}
+
+@media only screen and (min-width: 1015px) {
+   .boxHeadingContainer {
+      height: 3.25rem;
    }
 }
