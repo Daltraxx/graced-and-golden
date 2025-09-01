@@ -1,26 +1,30 @@
-'use client';
+"use client";
 
 import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
-import moduleStyles from '@/slices/SimpleHero/styles.module.css';
+import moduleStyles from "@/slices/SimpleHero/styles.module.css";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <Heading as="h1" size="manual" font="cursive" >
+    <Heading as="h1" size="manual" font="cursive">
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="manual" >
+    <Heading as="h2" size="manual">
       {children}
     </Heading>
-  )
-}
+  ),
+};
 
 /**
  * Props for `SimpleHero`.
@@ -36,7 +40,7 @@ const SimpleHero: FC<SimpleHeroProps> = ({ slice }) => {
 
   const backgroundImageURL =
     slice.primary.background_image.url || "/bridal-mags-reduce-dark-min.webp";
-  
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -48,7 +52,10 @@ const SimpleHero: FC<SimpleHeroProps> = ({ slice }) => {
     >
       <div
         style={{ backgroundImage: `url(${backgroundImageURL})` }}
-        className={moduleStyles.heroContainer}
+        className={clsx(
+          moduleStyles.heroContainer,
+          slice.variation === "focusTop" && moduleStyles.focusTop
+        )}
       >
         <div className={clsx(moduleStyles.textContainer, "animated-element")}>
           <PrismicRichText

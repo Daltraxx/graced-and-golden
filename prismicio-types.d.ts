@@ -2765,9 +2765,59 @@ export type SimpleHeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SimpleHero → Focus Top → Primary*
+ */
+export interface SimpleHeroSliceFocusTopPrimary {
+  /**
+   * Main Heading field in *SimpleHero → Focus Top → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_hero.focusTop.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading: prismic.RichTextField;
+
+  /**
+   * Sub-Heading field in *SimpleHero → Focus Top → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_hero.focusTop.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_heading: prismic.RichTextField;
+
+  /**
+   * Background Image field in *SimpleHero → Focus Top → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: simple_hero.focusTop.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Focus Top variation for SimpleHero Slice
+ *
+ * - **API ID**: `focusTop`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SimpleHeroSliceFocusTop = prismic.SharedSliceVariation<
+  "focusTop",
+  Simplify<SimpleHeroSliceFocusTopPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SimpleHero*
  */
-type SimpleHeroSliceVariation = SimpleHeroSliceDefault;
+type SimpleHeroSliceVariation =
+  | SimpleHeroSliceDefault
+  | SimpleHeroSliceFocusTop;
 
 /**
  * SimpleHero Shared Slice
@@ -3624,8 +3674,10 @@ declare module "@prismicio/client" {
       SimpleHeadingWithBackgroundImageSliceCenteredImage,
       SimpleHeroSlice,
       SimpleHeroSliceDefaultPrimary,
+      SimpleHeroSliceFocusTopPrimary,
       SimpleHeroSliceVariation,
       SimpleHeroSliceDefault,
+      SimpleHeroSliceFocusTop,
       SingleColumnSlice,
       SingleColumnSliceDefaultPrimary,
       SingleColumnSliceVariation,
