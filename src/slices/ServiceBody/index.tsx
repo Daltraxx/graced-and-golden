@@ -57,11 +57,12 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
 
   const bookingDetailsContainerRef = useRef<HTMLDivElement>(null);
   const contactContainerRef = useRef<HTMLElement>(null);
+  const BREAKPOINT_WIDTH = 768;
   useSetSynchronizedHeight(
     bookingDetailsContainerRef,
     contactContainerRef,
     windowWidth,
-    768
+    BREAKPOINT_WIDTH
   );
 
   return (
