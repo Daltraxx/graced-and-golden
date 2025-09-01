@@ -36,6 +36,11 @@
    padding: 0 1.25rem;
 }
 
+.box strong,
+.box li::marker {
+   color: var(--brown-500);
+}
+
 .box h3,
 .box h4 {
    margin-bottom: 1rem;
@@ -75,11 +80,6 @@
 
 .includesMainBody {
    background: var(--beige-300);
-}
-
-.includesMainBody strong,
-.includesMainBody li::marker {
-   color: var(--brown-500);
 }
 
 .includesRow .includesMainBody {
