@@ -13,6 +13,7 @@ import Button from "@/components/Button/Button";
 import moduleStyles from "@/slices/ServiceBody/styles.module.css";
 import clsx from "clsx";
 import useAddAnimation from "@/utilities/addAnimation";
+import useWindowWidth from "@/utilities/useWindowWidth";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -51,22 +52,7 @@ const ServiceBody: FC<ServiceBodyProps> = ({ slice }) => {
   const containerRef = useRef<HTMLElement>(null);
   useAddAnimation(containerRef);
 
-  const [windowWidth, setWindowWidth] = useState(0);
-  useLayoutEffect(() => {
-    setWindowWidth(window.innerWidth);
-    let frame = 0;
-    const handleResize = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        setWindowWidth(window.innerWidth);
-      });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(frame);
-    };
-  }, []);
+  const windowWidth = useWindowWidth();
 
   const bookingDetailsContainerRef = useRef<HTMLDivElement>(null);
   const contactContainerRef = useRef<HTMLElement>(null);
