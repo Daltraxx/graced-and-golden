@@ -74,11 +74,9 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             field={slice.primary.intro_paragraph_1}
             components={components}
           />
-          <div
-            className={clsx(
-              slice.primary.intro_paragraph_2.length && moduleStyles.divider
-            )}
-          ></div>
+          {slice.primary.intro_paragraph_2.length > 0 && (
+            <div className={clsx(moduleStyles.divider)}></div>
+          )}
           <PrismicRichText
             field={slice.primary.intro_paragraph_2}
             components={components}
