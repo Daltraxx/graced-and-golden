@@ -14,6 +14,11 @@ export default function TestimonialCycler({
   testimonials,
   className,
 }: TestimonialCyclerProps) {
+  
+  if (testimonials.length === 0) {
+    return null;
+  }
+
   const [testimonial, setTestimonial] = useState({
     text: testimonials[0],
     index: 0,
