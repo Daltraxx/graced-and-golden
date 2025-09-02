@@ -14,7 +14,6 @@ export default function TestimonialCycler({
   testimonials,
   className,
 }: TestimonialCyclerProps) {
-  
   if (testimonials.length === 0) {
     return null;
   }
@@ -112,11 +111,11 @@ export default function TestimonialCycler({
       }
     }
 
-    if (direction === "left") {
-      setTestimonial((prev) => getPrevTestimonialState(prev));
-    } else {
-      setTestimonial((prev) => getNextTestimonialState(prev));
-    }
+    setTestimonial((prev) =>
+      direction === "left"
+        ? getPrevTestimonialState(prev)
+        : getNextTestimonialState(prev)
+    );
   };
 
   const arrowIconFill = "#7B5C4B";
