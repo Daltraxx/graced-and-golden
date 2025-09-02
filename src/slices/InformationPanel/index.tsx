@@ -11,7 +11,7 @@ import clsx from "clsx";
 import MenuToggleButton from "@/components/MenuToggleButton/MenuToggleButton";
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <Heading as="h3" size="lg" className={moduleStyles.mainHeading} >
+    <Heading as="h3" size="manual" className={moduleStyles.mainHeading} >
       {children}
     </Heading>
   ),
