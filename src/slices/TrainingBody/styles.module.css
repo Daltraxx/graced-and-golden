@@ -2,6 +2,10 @@
    background: var(--brown-200);
 }
 
+.boundedContainer h2 {
+   font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
 .boundedContainer h2,
 .boundedContainer h3,
 .boundedContainer h4 {
@@ -145,7 +149,7 @@ ul.linksList {
 }
 
 @media only screen and (min-width: 425px) {
-   .introRow .box {
+   .introBox {
       padding: 1.5rem;
    }
 }
