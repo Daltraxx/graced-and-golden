@@ -16,7 +16,7 @@
 /* Reset font size and reapply font weight if reverted from cursive */
 .mainHeading {
    color: var(--brown-500);
-   font-size: 4rem;
+   font-size: clamp(3rem, 8vw, 4rem);
    margin-bottom: 1rem;
 }
 
