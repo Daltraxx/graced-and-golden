@@ -5,11 +5,15 @@ import moduleStyles from "@/components/TestimonialCycler/styles.module.css";
 import clsx from "clsx";
 import ArrowIcon from "../ArrowIcon";
 
+type TestimonialCyclerProps = {
+  testimonials: JSX.Element[];
+  className?: string;
+};
+
 export default function TestimonialCycler({
   testimonials,
-}: {
-  testimonials: JSX.Element[];
-}) {
+  className,
+}: TestimonialCyclerProps) {
   const [testimonial, setTestimonial] = useState({
     text: testimonials[0],
     index: 0,
@@ -40,7 +44,7 @@ export default function TestimonialCycler({
   };
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  
+
   useEffect(() => {
     if (cyclerActive) {
       intervalRef.current = setInterval(() => {
@@ -52,11 +56,11 @@ export default function TestimonialCycler({
 
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current)
+        clearInterval(intervalRef.current);
       }
     };
   }, [testimonials, cyclerActive]);
-  
+
   const testimonialRef = useRef<HTMLQuoteElement>(null);
 
   useEffect(() => {
@@ -103,17 +107,17 @@ export default function TestimonialCycler({
       }
     }
 
-    if (direction === 'left') {
-      setTestimonial((prev) => getPrevTestimonialState(prev))
+    if (direction === "left") {
+      setTestimonial((prev) => getPrevTestimonialState(prev));
     } else {
-      setTestimonial((prev) => getNextTestimonialState(prev))
+      setTestimonial((prev) => getNextTestimonialState(prev));
     }
   };
 
   const arrowIconFill = "#7B5C4B";
 
   return (
-    <div className={moduleStyles.sectionContainer}>
+    <div className={className}>
       <blockquote ref={testimonialRef} className={moduleStyles.quoteContainer}>
         {testimonial.text}
       </blockquote>
