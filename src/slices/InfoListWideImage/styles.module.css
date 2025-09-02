@@ -24,7 +24,7 @@
 
 .leftContainer h2,
 .leftContainer h3 {
-   font-size: 4rem;
+   font-size: clamp(3rem, 8vw, 4rem);
    text-align: center;
    padding: 1rem;
    text-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
