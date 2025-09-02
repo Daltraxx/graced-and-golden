@@ -1,11 +1,15 @@
-'use client';
+"use client";
 
 import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
-import moduleStyles from '@/slices/Testimonials/styles.module.css';
+import moduleStyles from "@/slices/Testimonials/styles.module.css";
 import Button from "@/components/Button/Button";
 import TestimonialCycler from "@/components/TestimonialCycler/TestimonialCycler";
 import useAddAnimation from "@/utilities/addAnimation";
@@ -21,9 +25,11 @@ const components: JSXMapSerializer = {
     const textWithSurroundingQuotes = [...children];
     textWithSurroundingQuotes.push('"');
     textWithSurroundingQuotes.unshift('"');
-    return <p className={moduleStyles.testimonial}>{textWithSurroundingQuotes}</p>
-  }
-}
+    return (
+      <p className={moduleStyles.testimonial}>{textWithSurroundingQuotes}</p>
+    );
+  },
+};
 
 /**
  * Props for `Testimonials`.
@@ -35,18 +41,35 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
  */
 const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  useAddAnimation(containerRef, .5);
+  useAddAnimation(containerRef, 0.5);
 
   const testimonials = slice.primary.testimonial.map((item, i) => (
-    <PrismicRichText field={item.testimonial} components={components} key={`testimonial-${i}`}/>
+    <PrismicRichText
+      field={item.testimonial}
+      components={components}
+      key={`testimonial-${i}`}
+    />
   ));
 
   const links = slice.primary.links_1.map((link, i) => {
-    return i % 2 === 0 ? 
-       <li key={link.key}><Button field={link} color="brown-200" className={moduleStyles.button} /></li>
-      : <li key={link.key}><Button field={link} color="brown-500" className={moduleStyles.button} /></li>;
-  })
-  
+    return i % 2 === 0 ? (
+      <li key={link.key}>
+        <Button
+          field={link}
+          color="brown-200"
+          className={moduleStyles.button}
+        />
+      </li>
+    ) : (
+      <li key={link.key}>
+        <Button
+          field={link}
+          color="brown-500"
+          className={moduleStyles.button}
+        />
+      </li>
+    );
+  });
 
   return (
     <Bounded
@@ -82,17 +105,22 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
         </section>
         {/* CENTER IMAGE */}
         <div
-          style={{ backgroundImage: `url(${slice.primary.center_image.url})` }}
-          className={clsx(
-            moduleStyles.centerImage,
-            "animated-element"
-          )}
+          aria-hidden="true"
+          style={
+            slice.primary.center_image?.url
+              ? { backgroundImage: `url(${slice.primary.center_image.url})` }
+              : undefined
+          }
+          className={clsx(moduleStyles.centerImage, "animated-element")}
         ></div>
         {/* TESTIMONIALS SECTION */}
         <section
           className={clsx(moduleStyles.sliceHalfContainer, "animated-element")}
         >
-          <TestimonialCycler testimonials={testimonials} className={moduleStyles.testimonialCycler} />
+          <TestimonialCycler
+            testimonials={testimonials}
+            className={moduleStyles.testimonialCycler}
+          />
         </section>
       </div>
     </Bounded>
