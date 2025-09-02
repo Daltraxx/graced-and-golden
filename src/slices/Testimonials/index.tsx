@@ -59,18 +59,16 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
       <div className={moduleStyles.container} ref={containerRef}>
         {/* LINKS SECTION */}
         <section
-          className={clsx(
-            `${moduleStyles.sliceHalfContainer} animated-element`
-          )}
+          className={clsx(moduleStyles.sliceHalfContainer, "animated-element")}
         >
-          <section className={`${moduleStyles.linksSection}`}>
+          <section className={moduleStyles.linksSection}>
             <PrismicRichText
               field={slice.primary.text_1}
               components={components}
             />
             <ul className={moduleStyles.linksRow}>{links}</ul>
           </section>
-          <section className={`${moduleStyles.linksSection}`}>
+          <section className={moduleStyles.linksSection}>
             <PrismicRichText
               field={slice.primary.text_2}
               components={components}
