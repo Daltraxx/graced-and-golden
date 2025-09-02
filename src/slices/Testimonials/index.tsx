@@ -57,6 +57,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
       verticalPadding={false}
     >
       <div className={moduleStyles.container} ref={containerRef}>
+        {/* LINKS SECTION */}
         <section
           className={clsx(
             `${moduleStyles.sliceHalfContainer} animated-element`
@@ -81,6 +82,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
             />
           </section>
         </section>
+        {/* CENTER IMAGE */}
         <div
           style={{ backgroundImage: `url(${slice.primary.center_image.url})` }}
           className={clsx(
@@ -88,6 +90,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
             "animated-element"
           )}
         ></div>
+        {/* TESTIMONIALS SECTION */}
         <section
           className={clsx(moduleStyles.sliceHalfContainer, "animated-element")}
         >
