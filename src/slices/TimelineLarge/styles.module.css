@@ -2,6 +2,14 @@
    background: var(--brown-500);
 }
 
+.boundedContainer h2 {
+   font-size: clamp(1.75rem, 4vw, 2.25rem);
+}
+
+.boundedContainer h3 {
+   font-size: clamp(1.5rem, 3vw, 1.75rem);
+}
+
 .boundedContainer h2,
 .boundedContainer h3 {
    text-align: center;
