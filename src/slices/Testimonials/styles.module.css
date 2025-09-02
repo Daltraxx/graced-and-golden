@@ -66,6 +66,10 @@
 
 
 /* RIGHT/BOTTOM HALF */
+.testimonialCycler {
+   padding: 0 1rem;
+}
+
 .testimonial {
    font-size: 1.125rem;
    color: var(--cream-200);

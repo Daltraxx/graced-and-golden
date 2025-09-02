@@ -91,7 +91,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
         <section
           className={clsx(moduleStyles.sliceHalfContainer, "animated-element")}
         >
-          <TestimonialCycler testimonials={testimonials} />
+          <TestimonialCycler testimonials={testimonials} className={moduleStyles.testimonialCycler} />
         </section>
       </div>
     </Bounded>
