@@ -8,11 +8,11 @@ const fallbackTestimonials: JSX.Element[] = [
     tan in San Diego Grace is your girl. Highly highly recommend Grace!"
   </p>,
   <p>
-    I've been going to Grace for my tans for about a year now and every single
+    "I've been going to Grace for my tans for about a year now and every single
     time my tan has turned out flawless and so natural looking! She will help
     you decide the right tan for you & makes you feel so comfortable. I highly
     recommend grace to anyone looking to get a perfect, natural, long lasting
-    spray tan!
+    spray tan!"
   </p>,
   <p>
     "Grace is amazing! Her tan stayed on for such a long time and looked great!
