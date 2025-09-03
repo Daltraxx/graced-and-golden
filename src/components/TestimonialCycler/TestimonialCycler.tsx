@@ -15,10 +15,10 @@ export default function TestimonialCycler({
   testimonials,
   className,
 }: TestimonialCyclerProps) {
-  if (testimonials.length === 0) testimonials = fallbackTestimonials;
+  const testimonialPs = testimonials.length > 0 ? testimonials : fallbackTestimonials;
 
   const [testimonial, setTestimonial] = useState({
-    text: testimonials[0],
+    text: testimonialPs[0],
     index: 0,
   });
 
@@ -30,18 +30,18 @@ export default function TestimonialCycler({
   };
 
   const getNextTestimonialState = (prevTestimonialState: TestimonialState) => {
-    const nextIndex = (prevTestimonialState.index + 1) % testimonials.length;
+    const nextIndex = (prevTestimonialState.index + 1) % testimonialPs.length;
     return {
-      text: testimonials[nextIndex],
+      text: testimonialPs[nextIndex],
       index: nextIndex,
     };
   };
 
   const getPrevTestimonialState = (prevTestimonialState: TestimonialState) => {
-    const n = testimonials.length;
+    const n = testimonialPs.length;
     const nextIndex = (prevTestimonialState.index - 1 + n) % n;
     return {
-      text: testimonials[nextIndex],
+      text: testimonialPs[nextIndex],
       index: nextIndex,
     };
   };
@@ -62,7 +62,7 @@ export default function TestimonialCycler({
         clearInterval(intervalRef.current);
       }
     };
-  }, [testimonials, cyclerActive]);
+  }, [testimonialPs, cyclerActive]);
 
   const testimonialRef = useRef<HTMLQuoteElement>(null);
 
