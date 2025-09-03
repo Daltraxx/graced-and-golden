@@ -70,7 +70,7 @@
    padding: 0 1rem;
 }
 
-.testimonial {
+.testimonialCycler p {
    font-size: 1.125rem;
    color: var(--cream-200);
 }
@@ -81,7 +81,7 @@
       max-width: 35rem;
    }
 
-   .testimonial {
+   .testimonialCycler p {
       margin: 0 auto;
       max-width: 80%;
    }

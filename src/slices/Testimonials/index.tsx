@@ -26,7 +26,7 @@ const components: JSXMapSerializer = {
     textWithSurroundingQuotes.push('"');
     textWithSurroundingQuotes.unshift('"');
     return (
-      <p className={moduleStyles.testimonial}>{textWithSurroundingQuotes}</p>
+      <p>{textWithSurroundingQuotes}</p>
     );
   },
 };
