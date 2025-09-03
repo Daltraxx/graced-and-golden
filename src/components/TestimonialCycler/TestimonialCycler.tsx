@@ -4,6 +4,7 @@ import { JSX, useEffect, useRef, useState } from "react";
 import moduleStyles from "@/components/TestimonialCycler/styles.module.css";
 import clsx from "clsx";
 import ArrowIcon from "../ArrowIcon";
+import fallbackTestimonials from "./fallbackTestimonials";
 
 type TestimonialCyclerProps = {
   testimonials: JSX.Element[];
@@ -14,7 +15,7 @@ export default function TestimonialCycler({
   testimonials,
   className,
 }: TestimonialCyclerProps) {
-  
+  if (testimonials.length === 0) testimonials = fallbackTestimonials;
 
   const [testimonial, setTestimonial] = useState({
     text: testimonials[0],

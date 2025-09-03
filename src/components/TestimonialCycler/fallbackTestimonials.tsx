@@ -2,7 +2,7 @@ import { JSX } from "react";
 
 const fallbackTestimonials: JSX.Element[] = [
   <p>
-    "Grace is absolutely amazing. By far, the only person I trust with my spray
+    "HeeloGrace is absolutely amazing. By far, the only person I trust with my spray
     tans. It looks so natural and flawless, and she gives you all as long as
     possible, comfortable and welcome and suits your needs. If you need a spray
     tan in San Diego Grace is your girl. Highly highly recommend Grace!"
