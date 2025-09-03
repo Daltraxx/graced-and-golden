@@ -2,7 +2,7 @@ import { JSX } from "react";
 
 const fallbackTestimonials: JSX.Element[] = [
   <p>
-    "HeeloGrace is absolutely amazing. By far, the only person I trust with my spray
+    "Grace is absolutely amazing. By far, the only person I trust with my spray
     tans. It looks so natural and flawless, and she gives you all as long as
     possible, comfortable and welcome and suits your needs. If you need a spray
     tan in San Diego Grace is your girl. Highly highly recommend Grace!"
@@ -19,7 +19,7 @@ const fallbackTestimonials: JSX.Element[] = [
     I got so many compliments saying how natural my tan looked for my bridal
     shower! She makes you feel so comfortable and I will definitely be using her
     again for my wedding and big events!"
-  </p>
+  </p>,
 ];
 
 export default fallbackTestimonials;
