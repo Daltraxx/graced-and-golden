@@ -62,6 +62,7 @@ export default function ServicesMenu({
         className={moduleStyles.serviceLink}
         role="navigation"
         aria-label={`Navigation link to ${link.text}`}
+        scroll={false}
       />
     </li>
   ));

@@ -56,7 +56,7 @@ export default function Nav({
     } else {
       return (
         <li key={`nav-link-${i}`}>
-          <PrismicNextLink field={link} className={moduleStyles.navLink} />
+          <PrismicNextLink field={link} className={moduleStyles.navLink} scroll={false} />
         </li>
       );
     }
