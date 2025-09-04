@@ -108,9 +108,25 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
         ))}
       </section>
       <section>
-        <form action={formAction}>
-          <textarea name="message" id="message" />
-          <button type="submit" disabled={isPending}>Send Request</button>
+        <form action={formAction} method="post" noValidate>
+          <label htmlFor="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            required
+            aria-invalid={Boolean(appointmentRequestState?.errors?.message)}
+            aria-describedby="message-error"
+          />
+          {appointmentRequestState?.errors?.message && (
+           <p id="message-error" role="alert">
+             {Array.isArray(appointmentRequestState.errors.message)
+               ? appointmentRequestState.errors.message.join(", ")
+               : String(appointmentRequestState.errors.message)}
+           </p>
+         )}
+          <button type="submit" disabled={isPending}>
+            Send Request
+          </button>
         </form>
       </section>
       <section
