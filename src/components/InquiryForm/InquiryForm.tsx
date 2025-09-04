@@ -5,7 +5,14 @@ import {
   handleNameValidation,
   handlePhoneNumberValidation,
 } from "@/app/lib/utils/inputValidation";
-import { FC, useActionState, useState, useEffect, useMemo } from "react";
+import {
+  FC,
+  useActionState,
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 import { ContactProps } from "@/slices/Contact";
 import { useDebouncedCallback } from "use-debounce";
 import {
@@ -160,13 +167,16 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
   }, [fieldStates]);
 
   // If values present from session storage upon mounting, handle validation
+  const isInitialMount = useRef(true);
   useEffect(() => {
+    if (!isInitialMount.current) return;
+    isInitialMount.current = false;
     fieldStates.forEach((_, i) => {
       const state = fieldStates[i];
       const setter = fieldStateSetters[i];
       if (state.value) state.validationHandler(state.value, setter);
     });
-  }, []);
+  }, [fieldStates, fieldStateSetters]);
 
   // Handle input changes, validation, and session storage
   const debounceDelay = 300;
@@ -183,9 +193,9 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
   const debouncedNameValidation = useDebouncedCallback(
     handleNameValidation,
     debounceDelay
-   );
-   
-   // Session storage is for name, phone number, and email is handled in below useEffect due to autofill
+  );
+
+  // Session storage is for name, phone number, and email is handled in below useEffect due to autofill
   const handleNameChange = ({ target }: { target: HTMLInputElement }) => {
     setName((prev) => ({
       ...prev,
