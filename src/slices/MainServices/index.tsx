@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useActionState, useRef } from "react";
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
@@ -9,7 +9,7 @@ import moduleStyles from '@/slices/MainServices/styles.module.css';
 import Button from "@/components/Button/Button";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
-import { AppointmentRequestState, sendAppointmentRequest } from "@/app/lib/actions";
+import AppointmentRequestForm from "@/components/AppointmentRequestForm/AppointmentRequestForm";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -29,11 +29,6 @@ const components: JSXMapSerializer = {
   )
 }
 
-const INITIAL_APPT_REQUEST_STATE = {
-  message: "",
-  errors: {},
-} satisfies AppointmentRequestState;
-
 /**
  * Props for `MainServices`.
  */
@@ -45,11 +40,6 @@ export type MainServicesProps = SliceComponentProps<Content.MainServicesSlice>;
 const MainServices: FC<MainServicesProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef);
-
-  const [appointmentRequestState, formAction, isPending] = useActionState(
-    sendAppointmentRequest,
-    INITIAL_APPT_REQUEST_STATE
-  );
 
   return (
     <Bounded
@@ -108,26 +98,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
         ))}
       </section>
       <section>
-        <form action={formAction} method="post" noValidate>
-          <label htmlFor="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            required
-            aria-invalid={Boolean(appointmentRequestState?.errors?.message)}
-            aria-describedby="message-error"
-          />
-          {appointmentRequestState?.errors?.message && (
-           <p id="message-error" role="alert">
-             {Array.isArray(appointmentRequestState.errors.message)
-               ? appointmentRequestState.errors.message.join(", ")
-               : String(appointmentRequestState.errors.message)}
-           </p>
-         )}
-          <button type="submit" disabled={isPending}>
-            Send Request
-          </button>
-        </form>
+        <AppointmentRequestForm />
       </section>
       <section
         className={clsx(
