@@ -112,7 +112,7 @@ export type State = {
    message?: string | null;
 }
 
-const CreateInquiry = FormSchema;
+const CreateInquiry = InquiryFormSchema;
 
 export async function sendInquiryEmail(prevState: State, formData: FormData): Promise<State> {
   const mailgun = new Mailgun(FormData);
