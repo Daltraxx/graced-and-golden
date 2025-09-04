@@ -29,13 +29,7 @@ import {
 import moduleStyles from "@/components/InquiryForm/styles.module.css";
 import buttonStyles from "@/components/Button/styles.module.css";
 import clsx from "clsx";
-
-const getSessionStorageValue = (key: string): string => {
-  if (typeof window !== "undefined" && window.sessionStorage) {
-    return sessionStorage.getItem(key) || "";
-  }
-  return "";
-};
+import getSessionStorageValue from "@/app/lib/utils/getSessionStorageValue";
 
 const InquiryForm: FC<ContactProps> = ({ slice }) => {
   const initialState: InquiryState = { message: null, errors: {} };
