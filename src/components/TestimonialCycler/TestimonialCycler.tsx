@@ -15,7 +15,8 @@ export default function TestimonialCycler({
   testimonials,
   className,
 }: TestimonialCyclerProps) {
-  const testimonialPs = testimonials.length > 0 ? testimonials : fallbackTestimonials;
+  const testimonialPs =
+    testimonials.length > 0 ? testimonials : fallbackTestimonials;
 
   const [testimonial, setTestimonial] = useState({
     text: testimonialPs[0],
@@ -121,7 +122,12 @@ export default function TestimonialCycler({
 
   return (
     <div className={className}>
-      <blockquote ref={testimonialRef} className={moduleStyles.quoteContainer}>
+      <blockquote
+        ref={testimonialRef}
+        className={moduleStyles.quoteContainer}
+        aria-live="polite"
+        aria-atomic="true"
+      >
         {testimonial.text}
       </blockquote>
       <div className={moduleStyles.buttonsContainer}>
