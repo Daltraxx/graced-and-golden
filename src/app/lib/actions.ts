@@ -96,7 +96,7 @@ const FormSchema = z.object({
   })
 });
 
-export type State = {
+export type InquiryState = {
    errors?: {
       name?: string[];
       phoneNumber?: string[];

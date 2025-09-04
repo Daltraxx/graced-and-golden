@@ -1,6 +1,6 @@
 "use client";
 
-import { sendInquiryEmail, State } from "@/app/lib/actions";
+import { sendInquiryEmail, InquiryState } from "@/app/lib/actions";
 import {
   handleNameValidation,
   handlePhoneNumberValidation,
@@ -24,7 +24,7 @@ import buttonStyles from "@/components/Button/styles.module.css";
 import clsx from "clsx";
 
 const InquiryForm: FC<ContactProps> = ({ slice }) => {
-  const initialState: State = { message: null, errors: {} };
+  const initialState: InquiryState = { message: null, errors: {} };
   const [inquiryState, formAction] = useActionState(
     sendInquiryEmail,
     initialState
