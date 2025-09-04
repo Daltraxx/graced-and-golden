@@ -349,7 +349,6 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
           value={name.value}
           onChange={handleNameChange}
           className={moduleStyles.inquiryField}
-          // onChange={event => handleNameChange(event, fieldsValidated, setFieldsValidated)}
           aria-describedby="name-error"
           autoComplete="name"
         />
