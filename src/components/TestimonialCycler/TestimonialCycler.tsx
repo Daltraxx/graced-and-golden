@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useMemo, useRef, useState } from "react";
 import moduleStyles from "@/components/TestimonialCycler/styles.module.css";
 import clsx from "clsx";
 import ArrowIcon from "../ArrowIcon";
@@ -15,8 +15,10 @@ export default function TestimonialCycler({
   testimonials,
   className,
 }: TestimonialCyclerProps) {
-  const testimonialPs =
-    testimonials.length > 0 ? testimonials : fallbackTestimonials;
+  const testimonialPs = useMemo(
+    () => (testimonials.length > 0 ? testimonials : fallbackTestimonials),
+    [testimonials]
+  );
 
   const [testimonial, setTestimonial] = useState({
     text: testimonialPs[0],
