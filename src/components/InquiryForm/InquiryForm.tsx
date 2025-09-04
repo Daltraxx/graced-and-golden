@@ -127,32 +127,19 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
       questionsConcerns,
     ]
   );
-  const fieldStateSetters = useMemo(
-    () => [
-      setName,
-      setPhoneNumber,
-      setEmail,
-      setBirthday,
-      setInstagram,
-      setOccasion,
-      setHowFound,
-      setTanHistory,
-      setDesiredResults,
-      setQuestionsConcerns,
-    ],
-    [
-      setName,
-      setPhoneNumber,
-      setEmail,
-      setBirthday,
-      setInstagram,
-      setOccasion,
-      setHowFound,
-      setTanHistory,
-      setDesiredResults,
-      setQuestionsConcerns,
-    ]
-  );
+  const fieldStateSetters = [
+    setName,
+    setPhoneNumber,
+    setEmail,
+    setBirthday,
+    setInstagram,
+    setOccasion,
+    setHowFound,
+    setTanHistory,
+    setDesiredResults,
+    setQuestionsConcerns,
+  ];
+  
 
   useEffect(() => {
     const allFieldsValidated = fieldStates.every(
