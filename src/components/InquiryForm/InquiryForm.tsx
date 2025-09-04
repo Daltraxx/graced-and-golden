@@ -183,7 +183,9 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
   const debouncedNameValidation = useDebouncedCallback(
     handleNameValidation,
     debounceDelay
-  );
+   );
+   
+   // Session storage is for name, phone number, and email is handled in below useEffect due to autofill
   const handleNameChange = ({ target }: { target: HTMLInputElement }) => {
     setName((prev) => ({
       ...prev,
