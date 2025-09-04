@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useRef } from "react";
+import { FC, useActionState, useRef } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Heading from "@/components/Heading";
@@ -9,6 +9,7 @@ import moduleStyles from '@/slices/MainServices/styles.module.css';
 import Button from "@/components/Button/Button";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
+import { AppointmentRequestState, sendAppointmentRequest } from "@/app/lib/actions";
 
 const components: JSXMapSerializer = {
   heading2: ({children}) => (
@@ -39,7 +40,17 @@ export type MainServicesProps = SliceComponentProps<Content.MainServicesSlice>;
 const MainServices: FC<MainServicesProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef);
-  
+
+  const initialState: AppointmentRequestState = {
+    message: null,
+    errors: {},
+  };
+
+  const [appointmentRequestState, formAction] = useActionState(
+    sendAppointmentRequest,
+    initialState
+  );
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -95,6 +106,12 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
             </div>
           </section>
         ))}
+      </section>
+      <section>
+        <form action={formAction}>
+          <textarea name="message" id="message" />
+          <button type="submit">Send Request</button>
+        </form>
       </section>
       <section
         className={clsx(

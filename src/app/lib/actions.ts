@@ -4,6 +4,7 @@ import Mailgun from "mailgun.js"; // mailgun.js v11.1.0
 import { z } from "zod";
 import generateEmailHtml from "./utils/generateEmailHtml";
 
+// INQUIRY FORM
 const InquiryFormSchema = z.object({
   name: z.string({
     required_error: "Name is required",
@@ -158,6 +159,7 @@ export async function sendInquiryEmail(prevState: InquiryState, formData: FormDa
   }
 }
 
+// APPOINTMENT REQUEST FORM
 const AppointmentRequestSchema = z.object({
   message: z
     .string({
