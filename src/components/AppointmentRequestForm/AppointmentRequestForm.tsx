@@ -7,13 +7,13 @@ const INITIAL_APPT_REQUEST_STATE = {
   errors: {},
 } satisfies AppointmentRequestState;
 
-const AppointmentRequestForm = () => {
+const AppointmentRequestForm = ({ className }: { className?: string }) => {
   const [appointmentRequestState, formAction, isPending] = useActionState(
       sendAppointmentRequest,
       INITIAL_APPT_REQUEST_STATE
     );
   return (
-    <form action={formAction} method="post" noValidate>
+    <form action={formAction} method="post" noValidate className={className}>
       <label htmlFor="message">Message</label>
       <textarea
         name="message"
