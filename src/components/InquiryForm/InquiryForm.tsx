@@ -30,18 +30,20 @@ import moduleStyles from "@/components/InquiryForm/styles.module.css";
 import buttonStyles from "@/components/Button/styles.module.css";
 import clsx from "clsx";
 
+const getSessionValue = (key: string): string => {
+  if (typeof window !== "undefined" && window.sessionStorage) {
+    return sessionStorage.getItem(key) || "";
+  }
+  return "";
+};
+
 const InquiryForm: FC<ContactProps> = ({ slice }) => {
   const initialState: InquiryState = { message: null, errors: {} };
   const [inquiryState, formAction] = useActionState(
     sendInquiryEmail,
     initialState
   );
-  const getSessionValue = (key: string): string => {
-    if (typeof window !== "undefined" && window.sessionStorage) {
-      return sessionStorage.getItem(key) || "";
-    }
-    return "";
-  };
+  
 
   // Field States
   const [name, setName] = useState<FieldState>({
