@@ -29,6 +29,11 @@ const components: JSXMapSerializer = {
   )
 }
 
+const INITIAL_APPT_REQUEST_STATE = {
+  message: "",
+  errors: {},
+} satisfies AppointmentRequestState;
+
 /**
  * Props for `MainServices`.
  */
@@ -41,14 +46,9 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef);
 
-  const initialState: AppointmentRequestState = {
-    message: null,
-    errors: {},
-  };
-
   const [appointmentRequestState, formAction] = useActionState(
     sendAppointmentRequest,
-    initialState
+    INITIAL_APPT_REQUEST_STATE
   );
 
   return (
