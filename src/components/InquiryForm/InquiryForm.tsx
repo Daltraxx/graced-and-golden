@@ -38,8 +38,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
     initialState
   );
   
-
-  // Field States
+  // FIELD STATES
   const [name, setName] = useState<FieldState>({
     value: getSessionStorageValue("name"),
     valid: false,
@@ -191,7 +190,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
     debounceDelay
   );
 
-  // Session storage is for name, phone number, and email is handled in below useEffect due to autofill
+  // Session storage for name, phone number, and email is handled in below useEffect due to autofill
   const handleNameChange = ({ target }: { target: HTMLInputElement }) => {
     setName((prev) => ({
       ...prev,
