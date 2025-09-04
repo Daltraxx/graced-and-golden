@@ -46,7 +46,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef);
 
-  const [appointmentRequestState, formAction] = useActionState(
+  const [appointmentRequestState, formAction, isPending] = useActionState(
     sendAppointmentRequest,
     INITIAL_APPT_REQUEST_STATE
   );
@@ -110,7 +110,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
       <section>
         <form action={formAction}>
           <textarea name="message" id="message" />
-          <button type="submit">Send Request</button>
+          <button type="submit" disabled={isPending}>Send Request</button>
         </form>
       </section>
       <section
