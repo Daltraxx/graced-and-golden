@@ -71,7 +71,7 @@ const InquiryFormSchema = z.object({
       invalid_type_error: "Occasion must be a string",
     })
     .min(2, {
-      message: "Occasion must be at least 2 character long",
+      message: "Occasion must be at least 2 characters long",
     })
     .max(300, {
       message: "Occasion must be at most 300 characters long",
