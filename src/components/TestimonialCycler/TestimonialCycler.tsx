@@ -127,8 +127,9 @@ export default function TestimonialCycler({
       <blockquote
         ref={testimonialRef}
         className={moduleStyles.quoteContainer}
-        aria-live="polite"
+        aria-live={cyclerActive ? "polite" : "off"}
         aria-atomic="true"
+        aria-label="Testimonial"
       >
         {testimonial.text}
       </blockquote>
