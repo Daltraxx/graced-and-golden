@@ -30,7 +30,7 @@ import moduleStyles from "@/components/InquiryForm/styles.module.css";
 import buttonStyles from "@/components/Button/styles.module.css";
 import clsx from "clsx";
 
-const getSessionValue = (key: string): string => {
+const getSessionStorageValue = (key: string): string => {
   if (typeof window !== "undefined" && window.sessionStorage) {
     return sessionStorage.getItem(key) || "";
   }
@@ -47,61 +47,61 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
 
   // Field States
   const [name, setName] = useState<FieldState>({
-    value: getSessionValue("name"),
+    value: getSessionStorageValue("name"),
     valid: false,
     validationHandler: handleNameValidation,
     errors: [],
   });
   const [phoneNumber, setPhoneNumber] = useState<FieldState>({
-    value: getSessionValue("phoneNumber"),
+    value: getSessionStorageValue("phoneNumber"),
     valid: false,
     validationHandler: handlePhoneNumberValidation,
     errors: [],
   });
   const [email, setEmail] = useState<FieldState>({
-    value: getSessionValue("email"),
+    value: getSessionStorageValue("email"),
     valid: false,
     validationHandler: handleEmailValidation,
     errors: [],
   });
   const [birthday, setBirthday] = useState<FieldState>({
-    value: getSessionValue("birthday"),
+    value: getSessionStorageValue("birthday"),
     valid: false,
     validationHandler: handleBirthdayValidation,
     errors: [],
   });
   const [instagram, setInstagram] = useState<FieldState>({
-    value: getSessionValue("instagram"),
+    value: getSessionStorageValue("instagram"),
     valid: false,
     validationHandler: handleInstagramValidation,
     errors: [],
   });
   const [occasion, setOccasion] = useState<FieldState>({
-    value: getSessionValue("occasion"),
+    value: getSessionStorageValue("occasion"),
     valid: false,
     validationHandler: handleOccasionValidation,
     errors: [],
   });
   const [howFound, setHowFound] = useState<FieldState>({
-    value: getSessionValue("howFound"),
+    value: getSessionStorageValue("howFound"),
     valid: false,
     validationHandler: handleHowFoundValidation,
     errors: [],
   });
   const [tanHistory, setTanHistory] = useState<FieldState>({
-    value: getSessionValue("tanHistory"),
+    value: getSessionStorageValue("tanHistory"),
     valid: false,
     validationHandler: handleTanHistoryValidation,
     errors: [],
   });
   const [desiredResults, setDesiredResults] = useState<FieldState>({
-    value: getSessionValue("desiredResults"),
+    value: getSessionStorageValue("desiredResults"),
     valid: false,
     validationHandler: handleDesiredResultsValidation,
     errors: [],
   });
   const [questionsConcerns, setQuestionsConcerns] = useState<FieldState>({
-    value: getSessionValue("questionsConcerns"),
+    value: getSessionStorageValue("questionsConcerns"),
     valid: true,
     validationHandler: handleQuestionsConcernsValidation,
     errors: [],
