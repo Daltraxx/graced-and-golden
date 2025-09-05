@@ -47,6 +47,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
       className={moduleStyles.boundedContainer}
       ref={containerRef}
     >
+      {/* MAIN HEADER */}
       <div className={moduleStyles.contentContainer}>
         {slice.primary.main_header.length > 0 && (
           <div className="animated-element">
@@ -56,6 +57,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
             />
           </div>
         )}
+        {/* SERVICES */}
         <section className={moduleStyles.servicesContainer}>
           {slice.primary.service.map((item, i) => (
             <section key={`service-section-${i}`} className="animated-element">
@@ -99,11 +101,13 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
             </section>
           ))}
         </section>
+        {/* APPOINTMENT REQUEST FORM */}
         <section>
           <AppointmentRequestForm
             className={moduleStyles.appointmentRequestForm}
           />
         </section>
+        {/* CANCELLATION POLICY */}
         <section
           className={clsx(
             moduleStyles.cancellationPolicyContainer,
