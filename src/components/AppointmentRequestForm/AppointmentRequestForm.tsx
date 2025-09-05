@@ -1,6 +1,11 @@
-import { AppointmentRequestState, sendAppointmentRequest } from "@/app/lib/actions";
+import {
+  AppointmentRequestState,
+  sendAppointmentRequest,
+} from "@/app/lib/actions";
+import clsx from "clsx";
 import { useActionState } from "react";
-
+import moduleStyles from "@/components/AppointmentRequestForm/styles.module.css";
+import buttonStyles from '@/components/Button/styles.module.css';
 
 const INITIAL_APPT_REQUEST_STATE = {
   message: "",
@@ -9,19 +14,32 @@ const INITIAL_APPT_REQUEST_STATE = {
 
 const AppointmentRequestForm = ({ className }: { className?: string }) => {
   const [appointmentRequestState, formAction, isPending] = useActionState(
-      sendAppointmentRequest,
-      INITIAL_APPT_REQUEST_STATE
-    );
+    sendAppointmentRequest,
+    INITIAL_APPT_REQUEST_STATE
+  );
   return (
-    <form action={formAction} method="post" noValidate className={className}>
-      <label htmlFor="message">Message</label>
+    <form
+      action={formAction}
+      method="post"
+      noValidate
+      className={clsx(className, moduleStyles.formContainer)}
+    >
+      <label htmlFor="message">
+        Don't see an appointment time that works for you? Send us a message in
+        the below format:
+      </label>
       <textarea
         name="message"
         id="message"
         required
         aria-invalid={Boolean(appointmentRequestState?.errors?.message)}
         aria-describedby="message-error"
-      />
+      >
+        Hi, my name is Jane Doe. I'm looking for an appointment on Thursday,
+        Sept 12th in the afternoon, or Friday, Sept. 13th in the morning. My
+        spray tan is for my engagement photos on Sept 14th. You can reach me at
+        jane@email.com or (000)000-0000.
+      </textarea>
       {appointmentRequestState?.errors?.message && (
         <p id="message-error" role="alert">
           {Array.isArray(appointmentRequestState.errors.message)
@@ -29,11 +47,11 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
             : String(appointmentRequestState.errors.message)}
         </p>
       )}
-      <button type="submit" disabled={isPending}>
+      <button type="submit" disabled={isPending} className={clsx(buttonStyles.button, buttonStyles.buttonBeige300)}>
         Send Request
       </button>
     </form>
   );
-}
+};
 
 export default AppointmentRequestForm;

@@ -98,7 +98,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
         ))}
       </section>
       <section>
-        <AppointmentRequestForm />
+        <AppointmentRequestForm className={moduleStyles.appointmentRequestForm} />
       </section>
       <section
         className={clsx(
