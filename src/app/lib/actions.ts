@@ -196,7 +196,7 @@ export async function sendInquiryEmail(
     return {
       message:
         "Inquiry submitted successfully! We will get back to you as soon as possible.",
-      errors: prevState.errors || {},
+      errors: {},
     };
   } catch (error) {
     console.log(error); //logs any error
@@ -280,7 +280,7 @@ export async function sendAppointmentRequest(
     return {
       message:
         "Appointment request submitted successfully! We will get back to you as soon as possible.",
-      errors: prevState.errors || {},
+      errors: {},
     };
   } catch (error) {
     console.log(error); //logs any error
