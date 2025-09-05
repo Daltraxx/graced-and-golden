@@ -5,7 +5,7 @@ import {
 import clsx from "clsx";
 import { useActionState } from "react";
 import moduleStyles from "@/components/AppointmentRequestForm/styles.module.css";
-import buttonStyles from '@/components/Button/styles.module.css';
+import buttonStyles from "@/components/Button/styles.module.css";
 
 const INITIAL_APPT_REQUEST_STATE = {
   message: "",
@@ -47,7 +47,11 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
             : String(appointmentRequestState.errors.message)}
         </p>
       )}
-      <button type="submit" disabled={isPending} className={clsx(buttonStyles.button, buttonStyles.buttonBeige300)}>
+      <button
+        type="submit"
+        disabled={isPending}
+        className={clsx(buttonStyles.button, buttonStyles.buttonBrown500)}
+      >
         Send Request
       </button>
     </form>

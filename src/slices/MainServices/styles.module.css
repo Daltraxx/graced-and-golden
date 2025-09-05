@@ -54,6 +54,11 @@
    gap: 1rem;
 }
 
+.appointmentRequestForm {
+   margin: 0 auto;
+   background: var(--beige-300);
+}
+
 .cancellationPolicyContainer {
    text-align: center;
    color: var(--cream-200);
