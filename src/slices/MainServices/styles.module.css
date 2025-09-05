@@ -57,6 +57,7 @@
 .appointmentRequestForm {
    margin: 0 auto;
    background: var(--beige-300);
+   max-width: 52rem;
 }
 
 .cancellationPolicyContainer {
