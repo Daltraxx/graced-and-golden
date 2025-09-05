@@ -163,9 +163,7 @@ export async function sendInquiryEmail(
   const mailgun = new Mailgun(FormData);
   const mg = mailgun.client({
     username: "api",
-    key: process.env.MAILGUN_API_KEY || "API_KEY",
-    // When you have an EU-domain, you must specify the endpoint:
-    // url: "https://api.eu.mailgun.net"
+    key: process.env.MAILGUN_API_KEY!,
   });
 
   const rawFormData = Object.fromEntries(formData);
