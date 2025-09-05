@@ -48,73 +48,75 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
       className={moduleStyles.boundedContainer}
       ref={containerRef}
     >
-      <div className="animated-element">
-        <PrismicRichText
-          field={slice.primary.main_header}
-          components={components}
-        />
-      </div>
-      <section className={moduleStyles.servicesContainer}>
-        {slice.primary.service.map((item, i) => (
-          <section key={`service-section-${i}`} className="animated-element">
-            <div className={moduleStyles.serviceBody}>
-              <PrismicRichText
-                field={item.service_name}
-                components={components}
-              />
-              <PrismicRichText
-                field={item.service_body_text}
-                components={components}
-              />
-              <div className={moduleStyles.serviceDetails}>
+      <div className={moduleStyles.contentContainer}>
+        <div className="animated-element">
+          <PrismicRichText
+            field={slice.primary.main_header}
+            components={components}
+          />
+        </div>
+        <section className={moduleStyles.servicesContainer}>
+          {slice.primary.service.map((item, i) => (
+            <section key={`service-section-${i}`} className="animated-element">
+              <div className={moduleStyles.serviceBody}>
                 <PrismicRichText
-                  field={item.price_and_duration}
+                  field={item.service_name}
                   components={components}
                 />
                 <PrismicRichText
-                  field={item.addendum}
+                  field={item.service_body_text}
                   components={components}
                 />
+                <div className={moduleStyles.serviceDetails}>
+                  <PrismicRichText
+                    field={item.price_and_duration}
+                    components={components}
+                  />
+                  <PrismicRichText
+                    field={item.addendum}
+                    components={components}
+                  />
+                </div>
               </div>
-            </div>
-            <div className={moduleStyles.linkContainer}>
-              {item.link.length > 1 && (
-                <ul className={moduleStyles.linkList}>
-                  {item.link.map((link, i) => (
-                    <li key={`main-service-link-${i}`}>
-                      <Button
-                        field={link}
-                        color={i % 2 === 0 ? "brown-800" : "brown-300"}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {item.link.length === 1 && (
-                <Button field={item.link[0]} color="brown-300" />
-              )}
-            </div>
-          </section>
-        ))}
-      </section>
-      <section>
-        <AppointmentRequestForm className={moduleStyles.appointmentRequestForm} />
-      </section>
-      <section
-        className={clsx(
-          moduleStyles.cancellationPolicyContainer,
-          "animated-element"
-        )}
-      >
-        <PrismicRichText
-          field={slice.primary.cancellation_policy_header}
-          components={components}
-        />
-        <PrismicRichText
-          field={slice.primary.cancellation_policy_body}
-          components={components}
-        />
-      </section>
+              <div className={moduleStyles.linkContainer}>
+                {item.link.length > 1 && (
+                  <ul className={moduleStyles.linkList}>
+                    {item.link.map((link, i) => (
+                      <li key={`main-service-link-${i}`}>
+                        <Button
+                          field={link}
+                          color={i % 2 === 0 ? "brown-800" : "brown-300"}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {item.link.length === 1 && (
+                  <Button field={item.link[0]} color="brown-300" />
+                )}
+              </div>
+            </section>
+          ))}
+        </section>
+        <section>
+          <AppointmentRequestForm className={moduleStyles.appointmentRequestForm} />
+        </section>
+        <section
+          className={clsx(
+            moduleStyles.cancellationPolicyContainer,
+            "animated-element"
+          )}
+        >
+          <PrismicRichText
+            field={slice.primary.cancellation_policy_header}
+            components={components}
+          />
+          <PrismicRichText
+            field={slice.primary.cancellation_policy_body}
+            components={components}
+          />
+        </section>
+      </div>
     </Bounded>
   );
 };
