@@ -3,6 +3,7 @@
 import Mailgun from "mailgun.js"; // mailgun.js v11.1.0
 import { z } from "zod";
 import generateEmailHtml from "./utils/generateEmailHtml";
+import generateApptRequestEmailHtml from "./generateApptRequestEmailHtml";
 
 // INQUIRY FORM
 const InquiryFormSchema = z.object({
@@ -265,16 +266,7 @@ export async function sendAppointmentRequest(
       to: ["Grace Burgess <hello@gracedandgolden.com>"],
       subject: `Appointment Request`,
       text: "Graced and Golden Appointment Request",
-      html: validatedFields.data.message.replace(/[&<>"']/g, (match) => {
-        const escapeMap: { [key: string]: string } = {
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;",
-        };
-        return escapeMap[match];
-      }),
+      html: generateApptRequestEmailHtml(validatedFields.data.message),
     });
     console.log(data); // logs response data
     return {
