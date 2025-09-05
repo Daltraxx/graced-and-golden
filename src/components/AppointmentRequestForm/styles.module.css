@@ -18,7 +18,7 @@
   color: var(--black-700);
   border-radius: 3px;
   padding: .5rem;
-  height: clamp(8rem, 46vh - 15vw, 14.5rem);
+  height: clamp(8rem, calc(46vh - 15vw), 14.5rem);
 }
 
 .formContainer textarea:focus {
