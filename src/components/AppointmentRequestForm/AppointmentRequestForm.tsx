@@ -40,6 +40,11 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         spray tan is for my engagement photos on Sept 14th. You can reach me at
         jane@email.com or (000)000-0000.
       </textarea>
+      {appointmentRequestState?.message && (
+        <p id="message" role="alert" className={moduleStyles.successMessage}>
+          {appointmentRequestState.message}
+        </p>
+      )}
       {appointmentRequestState?.errors?.message && (
         <p id="message-error" role="alert">
           {Array.isArray(appointmentRequestState.errors.message)
