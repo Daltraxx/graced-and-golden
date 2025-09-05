@@ -77,7 +77,7 @@ const InquiryFormSchema = z.object({
     .max(300, {
       message: "Occasion must be at most 300 characters long",
     })
-    .regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
         "Occasion can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
     }),
@@ -92,7 +92,7 @@ const InquiryFormSchema = z.object({
     .max(300, {
       message: "How you found us must be at most 300 characters long",
     })
-    .regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
         "How you found us can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
     }),
@@ -107,7 +107,7 @@ const InquiryFormSchema = z.object({
     .max(300, {
       message: "Tanning history must be at most 300 characters long",
     })
-    .regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
         "Tanning history can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
     }),
@@ -122,7 +122,7 @@ const InquiryFormSchema = z.object({
     .max(300, {
       message: "Desired results must be at most 300 characters long",
     })
-    .regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
         "Desired results can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
     }),
@@ -133,7 +133,7 @@ const InquiryFormSchema = z.object({
     .max(300, {
       message: "Questions or concerns must be at most 300 characters long",
     })
-    .regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
         "Questions or concerns can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
     }),
@@ -220,7 +220,7 @@ const AppointmentRequestSchema = z.object({
     .max(500, {
       message: "Message must be at most 500 characters long",
     })
-    .regex(/^$|[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
         "Message may only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
     }),
