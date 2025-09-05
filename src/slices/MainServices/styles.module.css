@@ -58,6 +58,7 @@
    margin: 0 auto;
    background: var(--beige-300);
    max-width: 52rem;
+   border-radius: 3px;
 }
 
 .cancellationPolicyContainer {
@@ -82,6 +83,10 @@
 
    .serviceBody {
       height: 22.875rem;
+      border-radius: 10px;
+   }
+
+   .appointmentRequestForm {
       border-radius: 10px;
    }
 }

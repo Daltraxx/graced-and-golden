@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.25rem;
-  border-radius: 10px;
 }
 
 .formContainer label {
