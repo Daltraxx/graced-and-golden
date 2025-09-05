@@ -40,7 +40,6 @@ export type MainServicesProps = SliceComponentProps<Content.MainServicesSlice>;
 const MainServices: FC<MainServicesProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef);
-
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -49,12 +48,14 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
       ref={containerRef}
     >
       <div className={moduleStyles.contentContainer}>
-        <div className="animated-element">
-          <PrismicRichText
-            field={slice.primary.main_header}
-            components={components}
-          />
-        </div>
+        {slice.primary.main_header.length > 0 && (
+          <div className="animated-element">
+            <PrismicRichText
+              field={slice.primary.main_header}
+              components={components}
+            />
+          </div>
+        )}
         <section className={moduleStyles.servicesContainer}>
           {slice.primary.service.map((item, i) => (
             <section key={`service-section-${i}`} className="animated-element">
@@ -99,7 +100,9 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           ))}
         </section>
         <section>
-          <AppointmentRequestForm className={moduleStyles.appointmentRequestForm} />
+          <AppointmentRequestForm
+            className={moduleStyles.appointmentRequestForm}
+          />
         </section>
         <section
           className={clsx(
