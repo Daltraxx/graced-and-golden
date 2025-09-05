@@ -41,7 +41,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         jane@email.com or (000)000-0000.
       </textarea>
       {appointmentRequestState?.message && (
-        <p id="message" role="alert" className={moduleStyles.successMessage}>
+        <p id="message-success" role="alert" className={moduleStyles.successMessage}>
           {appointmentRequestState.message}
         </p>
       )}
