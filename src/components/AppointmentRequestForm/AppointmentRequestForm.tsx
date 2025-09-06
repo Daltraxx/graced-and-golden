@@ -25,7 +25,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       className={clsx(className, moduleStyles.formContainer)}
     >
       <label htmlFor="message">
-        Don't see an appointment time that works for you? Send us a message in
+        Don&apos;t see an appointment time that works for you? Send us a message in
         the below format:
       </label>
       <textarea
@@ -35,7 +35,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         aria-invalid={Boolean(appointmentRequestState?.errors?.message)}
         aria-describedby="message-error"
       >
-        Hi, my name is Jane Doe. I'm looking for an appointment on Thursday,
+        Hi, my name is Jane Doe. I&apos;m looking for an appointment on Thursday,
         Sept 12th in the afternoon, or Friday, Sept. 13th in the morning. My
         spray tan is for my engagement photos on Sept 14th. You can reach me at
         jane@email.com or (000)000-0000.
