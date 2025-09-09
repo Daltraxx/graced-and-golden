@@ -26,7 +26,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     >
       <label htmlFor="message">
         Don&apos;t see an appointment time that works for you? Send us a message in
-        the below format:
+        the format below:
       </label>
       <textarea
         name="message"
