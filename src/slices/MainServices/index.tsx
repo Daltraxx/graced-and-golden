@@ -1,33 +1,42 @@
-'use client';
+"use client";
 
 import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import {
+  JSXMapSerializer,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
-import moduleStyles from '@/slices/MainServices/styles.module.css';
+import moduleStyles from "@/slices/MainServices/styles.module.css";
 import Button from "@/components/Button/Button";
 import useAddAnimation from "@/utilities/addAnimation";
 import clsx from "clsx";
-import AppointmentRequestForm from "@/components/AppointmentRequestForm/AppointmentRequestForm";
+import dynamic from "next/dynamic";
+
+const AppointmentRequestForm = dynamic(
+  () => import("@/components/AppointmentRequestForm/AppointmentRequestForm"),
+  { ssr: false }
+);
 
 const components: JSXMapSerializer = {
-  heading2: ({children}) => (
-    <Heading as="h2" size="md" >
+  heading2: ({ children }) => (
+    <Heading as="h2" size="md">
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" >
+    <Heading as="h3" size="sm">
       {children}
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h4" size="md" >
+    <Heading as="h4" size="md">
       {children}
     </Heading>
-  )
-}
+  ),
+};
 
 /**
  * Props for `MainServices`.
