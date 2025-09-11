@@ -133,10 +133,11 @@ const InquiryFormSchema = z.object({
     .max(300, {
       message: "Questions or concerns must be at most 300 characters long",
     })
-    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]*$/, {
       message:
         "Questions or concerns can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
-    }),
+    })
+    .optional(),
 });
 
 export type InquiryState = {
