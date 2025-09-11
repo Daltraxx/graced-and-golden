@@ -111,7 +111,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           ))}
         </section>
         {/* APPOINTMENT REQUEST FORM */}
-        <section>
+        <section id="appointment-request" aria-label="Appointment request">
           <AppointmentRequestForm
             className={moduleStyles.appointmentRequestForm}
           />
