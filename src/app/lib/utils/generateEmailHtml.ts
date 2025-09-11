@@ -1,7 +1,7 @@
 type FormInfo = {
    name: string, phoneNumber: string, email: string, birthday: string, instagram: string,
    occasion: string, howFound: string, tanHistory: string, desiredResults: string, 
-   questionsConcerns: string
+   questionsConcerns?: string
 }
 
 export default function generateEmailHtml(formInfo : FormInfo): string {
