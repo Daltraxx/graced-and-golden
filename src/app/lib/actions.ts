@@ -200,7 +200,26 @@ export async function sendInquiryEmail(
       errors: {},
     };
   } catch (error) {
-    console.log(error); //logs any error
+    console.error("Failed to send email:", error);
+
+    // Provide more specific error messages based on error type
+    if (error instanceof Error) {
+      if (
+        error.message.includes("401") ||
+        error.message.includes("Unauthorized")
+      ) {
+        return {
+          message:
+            "Email service authentication failed. Please contact support.",
+        };
+      }
+      if (error.message.includes("timeout")) {
+        return {
+          message: "Request timed out. Please try again.",
+        };
+      }
+    }
+
     return {
       message: "Submission failed. Please try again later.",
     };
