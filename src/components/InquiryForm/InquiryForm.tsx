@@ -37,68 +37,51 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
     sendInquiryEmail,
     initialState
   );
-  
+
   // FIELD STATES
-  const [name, setName] = useState<FieldState>({
-    value: getSessionStorageValue("name"),
-    valid: false,
-    validationHandler: handleNameValidation,
-    errors: [],
-  });
-  const [phoneNumber, setPhoneNumber] = useState<FieldState>({
-    value: getSessionStorageValue("phoneNumber"),
-    valid: false,
-    validationHandler: handlePhoneNumberValidation,
-    errors: [],
-  });
-  const [email, setEmail] = useState<FieldState>({
-    value: getSessionStorageValue("email"),
-    valid: false,
-    validationHandler: handleEmailValidation,
-    errors: [],
-  });
-  const [birthday, setBirthday] = useState<FieldState>({
-    value: getSessionStorageValue("birthday"),
-    valid: false,
-    validationHandler: handleBirthdayValidation,
-    errors: [],
-  });
-  const [instagram, setInstagram] = useState<FieldState>({
-    value: getSessionStorageValue("instagram"),
-    valid: false,
-    validationHandler: handleInstagramValidation,
-    errors: [],
-  });
-  const [occasion, setOccasion] = useState<FieldState>({
-    value: getSessionStorageValue("occasion"),
-    valid: false,
-    validationHandler: handleOccasionValidation,
-    errors: [],
-  });
-  const [howFound, setHowFound] = useState<FieldState>({
-    value: getSessionStorageValue("howFound"),
-    valid: false,
-    validationHandler: handleHowFoundValidation,
-    errors: [],
-  });
-  const [tanHistory, setTanHistory] = useState<FieldState>({
-    value: getSessionStorageValue("tanHistory"),
-    valid: false,
-    validationHandler: handleTanHistoryValidation,
-    errors: [],
-  });
-  const [desiredResults, setDesiredResults] = useState<FieldState>({
-    value: getSessionStorageValue("desiredResults"),
-    valid: false,
-    validationHandler: handleDesiredResultsValidation,
-    errors: [],
-  });
-  const [questionsConcerns, setQuestionsConcerns] = useState<FieldState>({
-    value: getSessionStorageValue("questionsConcerns"),
-    valid: true,
-    validationHandler: handleQuestionsConcernsValidation,
-    errors: [],
-  });
+  const initFieldState = (
+    storageKey: string,
+    validationHandler: (value: string, setter: any) => void,
+    valid: boolean = false
+  ): FieldState => {
+    return {
+      value: getSessionStorageValue(storageKey),
+      valid,
+      validationHandler,
+      errors: [],
+    };
+  };
+
+  const [name, setName] = useState<FieldState>(
+    initFieldState("name", handleNameValidation)
+  );
+  const [phoneNumber, setPhoneNumber] = useState<FieldState>(
+    initFieldState("phoneNumber", handlePhoneNumberValidation)
+  );
+  const [email, setEmail] = useState<FieldState>(
+    initFieldState("email", handleEmailValidation)
+  );
+  const [birthday, setBirthday] = useState<FieldState>(
+    initFieldState("birthday", handleBirthdayValidation)
+  );
+  const [instagram, setInstagram] = useState<FieldState>(
+    initFieldState("instagram", handleInstagramValidation)
+  );
+  const [occasion, setOccasion] = useState<FieldState>(
+    initFieldState("occasion", handleOccasionValidation)
+  );
+  const [howFound, setHowFound] = useState<FieldState>(
+    initFieldState("howFound", handleHowFoundValidation)
+  );
+  const [tanHistory, setTanHistory] = useState<FieldState>(
+    initFieldState("tanHistory", handleTanHistoryValidation)
+  );
+  const [desiredResults, setDesiredResults] = useState<FieldState>(
+    initFieldState("desiredResults", handleDesiredResultsValidation)
+  );
+  const [questionsConcerns, setQuestionsConcerns] = useState<FieldState>(
+    initFieldState("questionsConcerns", handleQuestionsConcernsValidation, true)
+  );
 
   const [formValidated, setFormValidated] = useState(false);
   const fieldStates = useMemo(
@@ -139,7 +122,6 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
     setDesiredResults,
     setQuestionsConcerns,
   ];
-  
 
   useEffect(() => {
     const allFieldsValidated = fieldStates.every(
@@ -326,14 +308,19 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
   };
 
   // Selectively sync some fields to session storage to handle autofill
-  const applyAutofillUpdatesToSessionStorage = (updates: Record<string, string>) => {
+  const applyAutofillUpdatesToSessionStorage = (
+    updates: Record<string, string>
+  ) => {
     if (typeof window !== "undefined" && window.sessionStorage) {
       Object.entries(updates).forEach(([key, value]) => {
         sessionStorage.setItem(key, value);
       });
     }
   };
-  const debouncedAutofillStorage = useDebouncedCallback(applyAutofillUpdatesToSessionStorage, debounceDelay);
+  const debouncedAutofillStorage = useDebouncedCallback(
+    applyAutofillUpdatesToSessionStorage,
+    debounceDelay
+  );
   useEffect(() => {
     debouncedAutofillStorage({
       name: name.value,
