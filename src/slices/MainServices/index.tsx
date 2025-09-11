@@ -68,7 +68,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
         )}
         {/* SERVICES */}
         <section className={moduleStyles.servicesContainer}>
-          {slice.primary.service.map((item, i) => (
+          {(slice.primary.service ?? []).map((item, i) => (
             <section key={`service-section-${i}`} className="animated-element">
               <div className={moduleStyles.serviceBody}>
                 <PrismicRichText
