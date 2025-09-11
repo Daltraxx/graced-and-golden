@@ -58,7 +58,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
     >
       {/* MAIN HEADER */}
       <div className={moduleStyles.contentContainer}>
-        {slice.primary.main_header.length > 0 && (
+        {slice.primary.main_header?.length > 0 && (
           <div className="animated-element">
             <PrismicRichText
               field={slice.primary.main_header}
