@@ -326,12 +326,20 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
   };
 
   // Selectively sync some fields to session storage to handle autofill
-  useEffect(() => {
+  const applyAutofillUpdatesToSessionStorage = (updates: Record<string, string>) => {
     if (typeof window !== "undefined" && window.sessionStorage) {
-      sessionStorage.setItem("name", name.value);
-      sessionStorage.setItem("phoneNumber", phoneNumber.value);
-      sessionStorage.setItem("email", email.value);
+      Object.entries(updates).forEach(([key, value]) => {
+        sessionStorage.setItem(key, value);
+      });
     }
+  };
+  const debouncedAutofillStorage = useDebouncedCallback(applyAutofillUpdatesToSessionStorage, debounceDelay);
+  useEffect(() => {
+    debouncedAutofillStorage({
+      name: name.value,
+      phoneNumber: phoneNumber.value,
+      email: email.value,
+    });
   }, [name, phoneNumber, email]);
 
   return (
