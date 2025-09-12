@@ -79,17 +79,14 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       />
 
       {/* ERROR MESSAGES */}
-      {validationState.errors.map((error, index) => (
-        <p key={`error-${index}`}>{error}</p>
-      ))}
-      {appointmentRequestState?.message && (
-        <p
-          id="message-success"
-          role="alert"
-          className={moduleStyles.successMessage}
-        >
-          {appointmentRequestState.message}
-        </p>
+      {validationState.errors.length > 0 && (
+        <div role="alert" aria-live="polite">
+          {validationState.errors.map((error, index) => (
+            <p key={`validation-error-${index}`} className={moduleStyles.errorMessage}>
+              {error}
+            </p>
+          ))}
+        </div>
       )}
       {appointmentRequestState?.errors?.message && (
         <p id="message-error" role="alert">
