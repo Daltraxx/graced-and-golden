@@ -111,9 +111,9 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           ))}
         </section>
         {/* APPOINTMENT REQUEST FORM */}
-        <section id="appointment-request" aria-label="Appointment request">
+        <section id="appointment-request" aria-label="Appointment request" className="animated-element">
           <AppointmentRequestForm
-            className={moduleStyles.appointmentRequestForm}
+            className={clsx(moduleStyles.appointmentRequestForm)}
           />
         </section>
         {/* CANCELLATION POLICY */}
