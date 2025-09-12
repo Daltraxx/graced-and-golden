@@ -38,7 +38,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       errorMessages.push("Message must be between 150 and 500 characters.");
     }
     if (!validChars) {
-      errorMessages.push("Message contains invalid characters.");
+      errorMessages.push("Please remove uncommon special characters.");
     }
     if (!isChanged) {
       errorMessages.push("Please customize the message before submitting.");
@@ -78,6 +78,11 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         value={requestMessage}
         onChange={handleTextChange}
       />
+
+      {/* ERROR MESSAGES */}
+      {validationState.errors.map((error, index) => (
+        <p key={`error-${index}`}>{error}</p>
+      ))}
       {appointmentRequestState?.message && (
         <p
           id="message-success"
@@ -94,6 +99,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
             : String(appointmentRequestState.errors.message)}
         </p>
       )}
+
       <button
         type="submit"
         disabled={isPending || !validationState.isValid}
