@@ -104,7 +104,12 @@ const createTestResults = (
     },
   };
 
-  if (errorMessages.underage || errorMessages.invalidYear) {
+  // Only run age/year checks when the input passes format and length
+  if (
+    (errorMessages.underage || errorMessages.invalidYear) &&
+    isCorrectChars &&
+    isCorrectLength
+  ) {
     if (ageRequirement === null) {
       throw new Error(
         "Age requirement must be provided when handling birthday validation."
@@ -115,7 +120,8 @@ const createTestResults = (
     let oldEnough = currentYear - birthYear >= ageRequirement;
     // dont use oldEnough validation error if year is greater than or equal to current year
     if (currentYear <= birthYear) oldEnough = true;
-    const validYear = birthYear >= 1925 && birthYear < currentYear;
+    const earliestYear = currentYear - 120; // avoid magic number; supports realistic max age
+    const validYear = birthYear >= earliestYear && birthYear < currentYear;
     testResults.oldEnough = {
       result: oldEnough,
       errorMessage:
@@ -127,7 +133,6 @@ const createTestResults = (
       errorMessage: errorMessages.invalidYear || "Please enter a valid year.",
     };
   }
-
   return testResults;
 };
 
