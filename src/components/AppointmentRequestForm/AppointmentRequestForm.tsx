@@ -3,7 +3,7 @@ import {
   sendAppointmentRequest,
 } from "@/app/lib/actions";
 import clsx from "clsx";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import moduleStyles from "@/components/AppointmentRequestForm/styles.module.css";
 import buttonStyles from "@/components/Button/styles.module.css";
 
@@ -17,6 +17,15 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     sendAppointmentRequest,
     INITIAL_APPT_REQUEST_STATE
   );
+
+  const textAreaDefaultText = `Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept 14th. You can reach me at jane@email.com or (000)000-0000.`;
+
+
+  const [requestMessage, setRequestMessage] = useState(textAreaDefaultText);
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setRequestMessage(e.target.value);
+  }
+
   return (
     <form
       action={formAction}
@@ -24,8 +33,8 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       className={clsx(className, moduleStyles.formContainer)}
     >
       <label htmlFor="message">
-        Don&apos;t see an appointment time that works for you? Send us a message in
-        the format below:
+        Don&apos;t see an appointment time that works for you? Send us a message
+        in the format below:
       </label>
       <textarea
         name="message"
@@ -33,14 +42,15 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         required
         aria-invalid={Boolean(appointmentRequestState?.errors?.message)}
         aria-describedby="message-error"
-      >
-        Hi, my name is Jane Doe. I&apos;m looking for an appointment on Thursday,
-        Sept 12th in the afternoon, or Friday, Sept. 13th in the morning. My
-        spray tan is for my engagement photos on Sept 14th. You can reach me at
-        jane@email.com or (000)000-0000.
-      </textarea>
+        value={requestMessage} // Controlled input to prevent React warning
+        onChange={handleTextChange}
+      />
       {appointmentRequestState?.message && (
-        <p id="message-success" role="alert" className={moduleStyles.successMessage}>
+        <p
+          id="message-success"
+          role="alert"
+          className={moduleStyles.successMessage}
+        >
           {appointmentRequestState.message}
         </p>
       )}
