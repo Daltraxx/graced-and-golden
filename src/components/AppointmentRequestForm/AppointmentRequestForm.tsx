@@ -42,7 +42,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         required
         aria-invalid={Boolean(appointmentRequestState?.errors?.message)}
         aria-describedby="message-error"
-        value={requestMessage} // Controlled input to prevent React warning
+        value={requestMessage}
         onChange={handleTextChange}
       />
       {appointmentRequestState?.message && (
