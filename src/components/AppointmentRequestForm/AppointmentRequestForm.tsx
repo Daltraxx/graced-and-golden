@@ -92,7 +92,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       )}
       <button
         type="submit"
-        disabled={isPending}
+        disabled={isPending || !validationState.isValid}
         className={clsx(buttonStyles.button, buttonStyles.buttonBrown500)}
       >
         Send Request
