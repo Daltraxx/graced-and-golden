@@ -32,6 +32,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       requestMessage.length >= 150 && requestMessage.length <= 500;
     const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
     const validChars = regEx.test(requestMessage);
+    const isChanged = requestMessage !== textAreaDefaultText;
     const errorMessages = [];
     if (!correctLength) {
       errorMessages.push("Message must be between 150 and 500 characters.");
@@ -39,8 +40,11 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     if (!validChars) {
       errorMessages.push("Message contains invalid characters.");
     }
+    if (!isChanged) {
+      errorMessages.push("Please customize the message before submitting.");
+    }
     setValidationState({
-      isValid: correctLength && validChars,
+      isValid: correctLength && validChars && isChanged,
       errors: errorMessages,
     });
   };
