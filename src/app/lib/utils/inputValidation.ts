@@ -119,7 +119,7 @@ const createTestResults = (
     const currentYear = new Date().getFullYear();
     let oldEnough = currentYear - birthYear >= ageRequirement;
     // dont use oldEnough validation error if year is greater than or equal to current year
-    if (currentYear <= birthYear) oldEnough = true;
+    if (birthYear >= currentYear) oldEnough = true;
     const earliestYear = currentYear - 120; // avoid magic number; supports realistic max age
     const validYear = birthYear >= earliestYear && birthYear < currentYear;
     testResults.oldEnough = {
