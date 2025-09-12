@@ -1,13 +1,22 @@
 type FormInfo = {
-   name: string, phoneNumber: string, email: string, birthday: string, instagram: string,
-   occasion: string, howFound: string, tanHistory: string, desiredResults: string, 
-   questionsConcerns?: string
-}
+  name: string;
+  phoneNumber: string;
+  email: string;
+  birthday: string;
+  instagram: string;
+  occasion: string;
+  howFound: string;
+  tanHistory: string;
+  desiredResults: string;
+  questionsConcerns?: string;
+};
 
-export default function generateEmailHtml(formInfo : FormInfo): string {
-   if (!formInfo.questionsConcerns) formInfo.questionsConcerns = 'N/A';
-   
-   const html = `
+export default function generateEmailHtml(formInfo: FormInfo): string {
+  if (!formInfo.questionsConcerns) formInfo.questionsConcerns = "N/A";
+
+  const html = `
+   <!DOCTYPE html>
+   <html><body>
       <h3>Name:</h3>
       <p>${formInfo.name}</p>
       <br>
@@ -37,7 +46,8 @@ export default function generateEmailHtml(formInfo : FormInfo): string {
       <br>
       <h3>List any questions/concerns:</h3>
       <p>${formInfo.questionsConcerns}</p>
+      </body></html>
    `;
 
-   return html;
+  return html;
 }
