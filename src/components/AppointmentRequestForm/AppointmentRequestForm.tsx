@@ -19,8 +19,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     INITIAL_APPT_REQUEST_STATE
   );
 
-  const textAreaDefaultText = `Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept 14th. You can reach me at jane@email.com or (000)000-0000.`;
-
+  const textAreaDefaultText = `Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept. 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept. 14th. You can reach me at jane@email.com or (000)000-0000.`;
   const [requestMessage, setRequestMessage] = useState(textAreaDefaultText);
   const [validationState, setValidationState] = useState({
     isValid: false,
