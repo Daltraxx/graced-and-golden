@@ -3,7 +3,7 @@ import {
   sendAppointmentRequest,
 } from "@/app/lib/actions";
 import clsx from "clsx";
-import { useActionState, useState } from "react";
+import { useActionState, useState, useEffect } from "react";
 import moduleStyles from "@/components/AppointmentRequestForm/styles.module.css";
 import buttonStyles from "@/components/Button/styles.module.css";
 import { useDebouncedCallback } from "use-debounce";
@@ -53,11 +53,18 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     validateAppointmentRequestInput,
     debounceDelay
   );
+
+  useEffect(() => {
+    return () => {
+      debouncedRequestMessageValidation.cancel();
+    };
+  }, [debouncedRequestMessageValidation]);
+
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setRequestMessage(e.target.value);
     debouncedRequestMessageValidation();
   };
-
+  
   return (
     <form
       action={formAction}
