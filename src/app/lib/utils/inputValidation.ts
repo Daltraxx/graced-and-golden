@@ -31,7 +31,19 @@ type ErrorMessages = {
   invalidYear?: string;
 };
 
-const errorMessages: Record<string, ErrorMessages> = {
+type FieldKey =
+  | "name"
+  | "phoneNumber"
+  | "email"
+  | "birthday"
+  | "instagram"
+  | "occasion"
+  | "howFound"
+  | "tanHistory"
+  | "desiredResults"
+  | "questionsConcerns";
+
+const errorMessages: Record<FieldKey, ErrorMessages> = {
   name: {
     incorrectChars: "Please enter a valid first and last name.",
     incorrectLength: "Please enter a name between 4 and 50 characters long.",
