@@ -16,7 +16,7 @@
   background-color: var(--cream-200);
   color: var(--black-700);
   border-radius: 3px;
-  padding: .5rem;
+  padding: 0.5rem;
   resize: vertical;
   min-height: clamp(8rem, calc(46vh - 20vw), 14.5rem);
 }
@@ -37,6 +37,14 @@
 
 .formContainer button:disabled {
   background-color: var(--gray-400);
+  cursor: not-allowed;
+}
+
+.formContainer button:disabled:hover,
+.formContainer button:disabled:active {
+  background-color: var(--gray-400);
+  box-shadow: none;
+  transform: none;
   cursor: not-allowed;
 }
 
