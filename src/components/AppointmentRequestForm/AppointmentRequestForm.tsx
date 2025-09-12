@@ -20,7 +20,6 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
   return (
     <form
       action={formAction}
-      method="post"
       noValidate
       className={clsx(className, moduleStyles.formContainer)}
     >
