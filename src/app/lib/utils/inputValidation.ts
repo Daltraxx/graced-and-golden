@@ -139,7 +139,7 @@ const createTestResults = (
 const createErrorMessagesArray = (testResults: TestResults): string[] => {
   const errors: Set<string> = new Set();
   Object.values(testResults).forEach((testResult) => {
-    if (!testResult.result) errors.add(testResult.errorMessage);
+    if (testResult && !testResult.result) errors.add(testResult.errorMessage);
   });
 
   return [...errors];
