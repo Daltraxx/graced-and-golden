@@ -33,7 +33,11 @@
 
 .formContainer button {
   align-self: center;
+}
 
+.formContainer button:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
 }
 
 .successMessage {
