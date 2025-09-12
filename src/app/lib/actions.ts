@@ -26,9 +26,12 @@ const InquiryFormSchema = z.object({
       required_error: "Phone number is required",
       invalid_type_error: "Phone number must be a string",
     })
-    .regex(/^(\d{11}|\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4})$/, {
-      message: "Please enter a valid phone number.",
-    })
+    .regex(
+      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+      {
+        message: "Please enter a valid phone number.",
+      }
+    )
     .min(10, {
       message: "Phone number must be at least 10 digits long",
     })

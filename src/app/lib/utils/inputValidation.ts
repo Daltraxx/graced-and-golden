@@ -181,7 +181,8 @@ export const handlePhoneNumberValidation = (
 ): void => {
   const phoneNumberVal = value.trim();
   // regex for phone number allowing formatting with parentheses, spaces, dashes, and periods
-  const regEx = /^(\d{11}|\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4})$/;
+  const regEx =
+    /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
   const results = createTestResults(
     phoneNumberVal,
     regEx,
