@@ -82,11 +82,20 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       {validationState.errors.length > 0 && (
         <div role="alert" aria-live="polite">
           {validationState.errors.map((error, index) => (
-            <p key={`validation-error-${index}`} className={moduleStyles.errorMessage}>
+            <p key={`error-${index}`} className={moduleStyles.userMessage}>
               {error}
             </p>
           ))}
         </div>
+      )}
+      {appointmentRequestState?.message && (
+        <p
+          id="message-success"
+          role="alert"
+          className={moduleStyles.userMessage}
+        >
+          {appointmentRequestState.message}
+        </p>
       )}
       {appointmentRequestState?.errors?.message && (
         <p id="message-error" role="alert">
