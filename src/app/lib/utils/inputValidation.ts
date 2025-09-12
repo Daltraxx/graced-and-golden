@@ -77,7 +77,7 @@ const errorMessages: Record<string, ErrorMessages> = {
   questionsConcerns: {
     incorrectChars: "Please remove uncommon special characters.",
     incorrectLength:
-      "Please describe your questions and concerns in less than 300 characters.",
+      "Please describe your questions and concerns in 300 characters or fewer",
   },
 };
 
