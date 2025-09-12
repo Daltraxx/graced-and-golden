@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useActionState, useState } from "react";
 import moduleStyles from "@/components/AppointmentRequestForm/styles.module.css";
 import buttonStyles from "@/components/Button/styles.module.css";
+import { useDebouncedCallback } from "use-debounce";
 
 const INITIAL_APPT_REQUEST_STATE = {
   message: "",
@@ -20,11 +21,39 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
 
   const textAreaDefaultText = `Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept 14th. You can reach me at jane@email.com or (000)000-0000.`;
 
-
   const [requestMessage, setRequestMessage] = useState(textAreaDefaultText);
+  const [validationState, setValidationState] = useState({
+    isValid: false,
+    errors: [] as string[],
+  });
+
+  const validateAppointmentRequestInput = () => {
+    const correctLength =
+      requestMessage.length >= 150 && requestMessage.length <= 500;
+    const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
+    const validChars = regEx.test(requestMessage);
+    const errorMessages = [];
+    if (!correctLength) {
+      errorMessages.push("Message must be between 150 and 500 characters.");
+    }
+    if (!validChars) {
+      errorMessages.push("Message contains invalid characters.");
+    }
+    setValidationState({
+      isValid: correctLength && validChars,
+      errors: errorMessages,
+    });
+  };
+
+  const debounceDelay = 300; // milliseconds
+  const debouncedRequestMessageValidation = useDebouncedCallback(
+    validateAppointmentRequestInput,
+    debounceDelay
+  );
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setRequestMessage(e.target.value);
-  }
+    debouncedRequestMessageValidation();
+  };
 
   return (
     <form
