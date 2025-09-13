@@ -157,6 +157,13 @@ const createErrorMessagesArray = (testResults: TestResults): string[] => {
   return [...errors];
 };
 
+const updateValidationState = (
+  stateSetter: Dispatch<SetStateAction<FieldState>>,
+  errors: string[]
+) => {
+  stateSetter((prev) => ({ ...prev, valid: !errors.length, errors }));
+};
+
 export const handleNameValidation = (
   value: string,
   stateSetter: Dispatch<SetStateAction<FieldState>>
@@ -167,11 +174,7 @@ export const handleNameValidation = (
   const results = createTestResults(nameVal, regEx, 4, 50, errorMessages.name);
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -192,11 +195,7 @@ export const handlePhoneNumberValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -216,11 +215,7 @@ export const handleEmailValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -241,11 +236,7 @@ export const handleBirthdayValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -265,11 +256,7 @@ export const handleInstagramValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -289,11 +276,7 @@ export const handleOccasionValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -313,11 +296,7 @@ export const handleHowFoundValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -337,11 +316,7 @@ export const handleTanHistoryValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -361,11 +336,7 @@ export const handleDesiredResultsValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
 
@@ -385,10 +356,6 @@ export const handleQuestionsConcernsValidation = (
   );
   const errors = createErrorMessagesArray(results);
 
-  stateSetter((prev) => ({
-    ...prev,
-    valid: !errors.length,
-    errors: errors,
-  }));
+  updateValidationState(stateSetter, errors);
   // console.log('state updated');
 };
