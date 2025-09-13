@@ -156,8 +156,8 @@ export type InquiryState = {
     desiredResults?: string[];
     questionsConcerns?: string[];
   };
-  success?: boolean;
-  message?: string | null;
+  success: boolean;
+  message: string | null;
 };
 
 const CreateInquiry = InquiryFormSchema;
