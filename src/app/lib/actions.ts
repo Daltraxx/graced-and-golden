@@ -308,7 +308,7 @@ export async function sendAppointmentRequest(
       success: true,
     };
   } catch (error) {
-    console.log(error); //logs any error
+    console.error("Failed to send appointment request:", error);
     return {
       message: "Submission failed. Please try again later.",
       success: false,
