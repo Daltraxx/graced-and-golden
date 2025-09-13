@@ -335,7 +335,11 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
       phoneNumber: phoneNumber.value,
       email: email.value,
     });
-  }, [name, phoneNumber, email, debouncedAutofillStorage]);
+
+    return () => {
+      debouncedAutofillStorage.cancel();
+    };
+  }, [name.value, phoneNumber.value, email.value, debouncedAutofillStorage]);
 
   return (
     <form
