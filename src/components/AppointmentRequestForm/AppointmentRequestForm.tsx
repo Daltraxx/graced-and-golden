@@ -11,6 +11,7 @@ import { useDebouncedCallback } from "use-debounce";
 const INITIAL_APPT_REQUEST_STATE = {
   message: "",
   errors: {},
+  success: false,
 } satisfies AppointmentRequestState;
 
 const AppointmentRequestForm = ({ className }: { className?: string }) => {

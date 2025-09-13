@@ -253,6 +253,7 @@ export type AppointmentRequestState = {
   errors?: {
     message?: string[];
   };
+  success?: boolean;
   message?: string | null;
 };
 
@@ -278,6 +279,7 @@ export async function sendAppointmentRequest(
     );
     return {
       errors: validatedFields.error.flatten().fieldErrors,
+      success: false,
       message:
         "Form not correctly filled. Please resolve errors before submitting.",
     };
@@ -295,12 +297,14 @@ export async function sendAppointmentRequest(
     return {
       message:
         "Appointment request submitted successfully! We will get back to you as soon as possible.",
+      success: true,
       errors: {},
     };
   } catch (error) {
     console.log(error); //logs any error
     return {
       message: "Submission failed. Please try again later.",
+      success: false,
     };
   }
 }
