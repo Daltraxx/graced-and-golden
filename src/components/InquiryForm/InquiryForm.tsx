@@ -601,7 +601,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
       </div>
       <button
         type="submit"
-        disabled={!formValidated}
+        disabled={!formValidated || inquiryState.success}
         className={clsx(
           moduleStyles.submitButton,
           buttonStyles.button,
