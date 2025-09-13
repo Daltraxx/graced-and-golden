@@ -91,17 +91,19 @@ const Testimonials: FC<TestimonialsProps> = ({ slice }) => {
             />
             <ul className={moduleStyles.linksRow}>{links}</ul>
           </section>
-          <section className={moduleStyles.linksSection}>
-            <PrismicRichText
-              field={slice.primary.text_2}
-              components={components}
-            />
-            <Button
-              field={slice.primary.links_2}
-              color="brown-300"
-              className={moduleStyles.button}
-            />
-          </section>
+          {slice.primary.text_2?.length > 0 && (
+            <section className={moduleStyles.linksSection}>
+              <PrismicRichText
+                field={slice.primary.text_2}
+                components={components}
+              />
+              <Button
+                field={slice.primary.links_2}
+                color="brown-300"
+                className={moduleStyles.button}
+              />
+            </section>
+          )}
         </section>
         {/* CENTER IMAGE */}
         <div
