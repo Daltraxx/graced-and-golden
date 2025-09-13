@@ -203,7 +203,7 @@ export async function sendInquiryEmail(
     return {
       message:
         "Inquiry submitted successfully! We will get back to you as soon as possible.",
-      success: true,
+      success: true
     };
   } catch (error) {
     console.error("Failed to send email:", error);
@@ -213,9 +213,8 @@ export async function sendInquiryEmail(
       const anyErr = error as any;
       const msg = String(error.message || "").toLowerCase();
       if (
-        (typeof anyErr.status === "number" && anyErr.status === 401) ||
-        msg.includes("401") ||
-        msg.includes("unauthorized")
+        error.message.includes("401") ||
+        error.message.includes("Unauthorized")
       ) {
         return {
           message:
@@ -223,7 +222,7 @@ export async function sendInquiryEmail(
           success: false,
         };
       }
-      if (msg.includes("timeout")) {
+      if (error.message.includes("timeout")) {
         return {
           message: "Request timed out. Please try again.",
           success: false,
