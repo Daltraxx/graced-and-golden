@@ -27,8 +27,8 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
   });
 
   const VALIDATION_RULES = {
-    MIN_LENGTH: 150,
-    MAX_LENGTH: 500,
+    MIN_LENGTH: 100,
+    MAX_LENGTH: 750,
     ALLOWED_CHARS_PATTERN: /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/
   } as const;
 
@@ -93,6 +93,11 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         value={requestMessage}
         onChange={handleTextChange}
       />
+      {(requestMessage.length < VALIDATION_RULES.MIN_LENGTH || requestMessage.length > VALIDATION_RULES.MAX_LENGTH) && (
+        <p className={moduleStyles.charCount}>
+          {`Character count: ${requestMessage.length}`}
+        </p>
+      ) }
 
       {/* ERROR MESSAGES */}
       {validationState.errors.length > 0 && (
