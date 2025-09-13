@@ -203,8 +203,7 @@ export async function sendInquiryEmail(
     return {
       message:
         "Inquiry submitted successfully! We will get back to you as soon as possible.",
-      success: true,
-      errors: {},
+      success: true
     };
   } catch (error) {
     console.error("Failed to send email:", error);
@@ -303,8 +302,7 @@ export async function sendAppointmentRequest(
     return {
       message:
         "Appointment request submitted successfully! We will get back to you as soon as possible.",
-      success: true,
-      errors: {},
+      success: true
     };
   } catch (error) {
     console.log(error); //logs any error
