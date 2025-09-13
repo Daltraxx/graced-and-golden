@@ -12,6 +12,7 @@ import {
   useEffect,
   useMemo,
   useRef,
+  useCallback,
   Dispatch,
   SetStateAction,
 } from "react";
@@ -314,15 +315,16 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
   };
 
   // Selectively sync some fields to session storage to handle autofill
-  const applyAutofillUpdatesToSessionStorage = (
-    updates: Record<string, string>
-  ) => {
-    if (typeof window !== "undefined" && window.sessionStorage) {
-      for (const [key, value] of Object.entries(updates)) {
-        sessionStorage.setItem(key, value);
-     }
-    }
-  };
+  const applyAutofillUpdatesToSessionStorage = useCallback(
+    (updates: Record<string, string>) => {
+      if (typeof window !== "undefined" && window.sessionStorage) {
+        for (const [key, value] of Object.entries(updates)) {
+          sessionStorage.setItem(key, value);
+        }
+      }
+    },
+    []
+  );
   const debouncedAutofillStorage = useDebouncedCallback(
     applyAutofillUpdatesToSessionStorage,
     debounceDelay
