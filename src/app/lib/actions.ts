@@ -261,8 +261,8 @@ export type AppointmentRequestState = {
   errors?: {
     message?: string[];
   };
-  success?: boolean;
-  message?: string | null;
+  success: boolean;
+  message: string | null;
 };
 
 const CreateAppointmentRequest = AppointmentRequestSchema;
