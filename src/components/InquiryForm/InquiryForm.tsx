@@ -318,9 +318,9 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
     updates: Record<string, string>
   ) => {
     if (typeof window !== "undefined" && window.sessionStorage) {
-      Object.entries(updates).forEach(([key, value]) => {
+      for (const [key, value] of Object.entries(updates)) {
         sessionStorage.setItem(key, value);
-      });
+     }
     }
   };
   const debouncedAutofillStorage = useDebouncedCallback(
