@@ -210,8 +210,6 @@ export async function sendInquiryEmail(
 
     // Provide more specific error messages based on error type
     if (error instanceof Error) {
-      const anyErr = error as any;
-      const msg = String(error.message || "").toLowerCase();
       if (
         error.message.includes("401") ||
         error.message.includes("Unauthorized")
