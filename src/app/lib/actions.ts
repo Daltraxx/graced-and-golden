@@ -203,16 +203,19 @@ export async function sendInquiryEmail(
     return {
       message:
         "Inquiry submitted successfully! We will get back to you as soon as possible.",
-      success: true
+      success: true,
     };
   } catch (error) {
     console.error("Failed to send email:", error);
 
     // Provide more specific error messages based on error type
     if (error instanceof Error) {
+      const anyErr = error as any;
+      const msg = String(error.message || "").toLowerCase();
       if (
-        error.message.includes("401") ||
-        error.message.includes("Unauthorized")
+        (typeof anyErr.status === "number" && anyErr.status === 401) ||
+        msg.includes("401") ||
+        msg.includes("unauthorized")
       ) {
         return {
           message:
@@ -220,7 +223,7 @@ export async function sendInquiryEmail(
           success: false,
         };
       }
-      if (error.message.includes("timeout")) {
+      if (msg.includes("timeout")) {
         return {
           message: "Request timed out. Please try again.",
           success: false,
@@ -302,7 +305,7 @@ export async function sendAppointmentRequest(
     return {
       message:
         "Appointment request submitted successfully! We will get back to you as soon as possible.",
-      success: true
+      success: true,
     };
   } catch (error) {
     console.log(error); //logs any error
