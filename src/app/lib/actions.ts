@@ -156,6 +156,7 @@ export type InquiryState = {
     desiredResults?: string[];
     questionsConcerns?: string[];
   };
+  success?: boolean;
   message?: string | null;
 };
 
@@ -181,6 +182,7 @@ export async function sendInquiryEmail(
     );
     return {
       errors: validatedFields.error.flatten().fieldErrors,
+      success: false,
       message:
         "Fields are not correctly filled. Please fill all required fields and resolve errors before submitting.",
     };
@@ -201,6 +203,7 @@ export async function sendInquiryEmail(
     return {
       message:
         "Inquiry submitted successfully! We will get back to you as soon as possible.",
+      success: true,
       errors: {},
     };
   } catch (error) {
@@ -215,17 +218,20 @@ export async function sendInquiryEmail(
         return {
           message:
             "Email service authentication failed. Please contact support.",
+          success: false,
         };
       }
       if (error.message.includes("timeout")) {
         return {
           message: "Request timed out. Please try again.",
+          success: false,
         };
       }
     }
 
     return {
       message: "Submission failed. Please try again later.",
+      success: false,
     };
   }
 }

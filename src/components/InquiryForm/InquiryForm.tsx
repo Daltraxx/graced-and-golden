@@ -36,7 +36,7 @@ import clsx from "clsx";
 import getSessionStorageValue from "@/app/lib/utils/getSessionStorageValue";
 
 const InquiryForm: FC<ContactProps> = ({ slice }) => {
-  const initialState: InquiryState = { message: null, errors: {} };
+  const initialState: InquiryState = { message: null, success: false, errors: {} };
   const [inquiryState, formAction] = useActionState(
     sendInquiryEmail,
     initialState
