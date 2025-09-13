@@ -31,7 +31,7 @@ type ErrorMessages = {
   invalidYear?: string;
 };
 
-type FieldKey =
+export type FieldKey =
   | "name"
   | "phoneNumber"
   | "email"

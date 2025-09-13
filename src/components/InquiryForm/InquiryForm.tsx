@@ -12,10 +12,13 @@ import {
   useEffect,
   useMemo,
   useRef,
+  Dispatch,
+  SetStateAction,
 } from "react";
 import { ContactProps } from "@/slices/Contact";
 import { useDebouncedCallback } from "use-debounce";
 import {
+  FieldKey,
   handleEmailValidation,
   handleBirthdayValidation,
   handleInstagramValidation,
@@ -40,13 +43,16 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
 
   // FIELD STATES
   const initFieldState = (
-    storageKey: string,
-    validationHandler: (value: string, setter: any) => void,
-    valid: boolean = false
+    storageKey: FieldKey,
+    validationHandler: (
+      value: string,
+      setter: Dispatch<SetStateAction<FieldState>>
+    ) => void,
+    initialValidity: boolean = false
   ): FieldState => {
     return {
       value: getSessionStorageValue(storageKey),
-      valid,
+      valid: initialValidity,
       validationHandler,
       errors: [],
     };
