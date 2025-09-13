@@ -335,7 +335,7 @@ const InquiryForm: FC<ContactProps> = ({ slice }) => {
       phoneNumber: phoneNumber.value,
       email: email.value,
     });
-  }, [name, phoneNumber, email]);
+  }, [name, phoneNumber, email, debouncedAutofillStorage]);
 
   return (
     <form
