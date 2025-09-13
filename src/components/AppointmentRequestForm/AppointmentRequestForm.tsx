@@ -26,16 +26,24 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     errors: [] as string[],
   });
 
+  const VALIDATION_RULES = {
+    MIN_LENGTH: 150,
+    MAX_LENGTH: 500,
+    ALLOWED_CHARS_PATTERN: /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/
+  } as const;
+
   const validateAppointmentRequestInput = () => {
     const trimmedRequestMessage = requestMessage.trim();
     const correctLength =
-      trimmedRequestMessage.length >= 150 && trimmedRequestMessage.length <= 500;
-    const regEx = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
-    const validChars = regEx.test(trimmedRequestMessage);
+      trimmedRequestMessage.length >= VALIDATION_RULES.MIN_LENGTH &&
+      trimmedRequestMessage.length <= VALIDATION_RULES.MAX_LENGTH;
+    const validChars = VALIDATION_RULES.ALLOWED_CHARS_PATTERN.test(trimmedRequestMessage);
     const isChanged = trimmedRequestMessage !== textAreaDefaultText;
     const errorMessages = [];
     if (!correctLength) {
-      errorMessages.push("Message must be between 150 and 500 characters.");
+      errorMessages.push(
+        `Message must be between ${VALIDATION_RULES.MIN_LENGTH} and ${VALIDATION_RULES.MAX_LENGTH} characters.`
+      );
     }
     if (!validChars) {
       errorMessages.push("Please remove uncommon special characters.");
