@@ -14,13 +14,29 @@ const INITIAL_APPT_REQUEST_STATE = {
   success: false,
 } satisfies AppointmentRequestState;
 
-const AppointmentRequestForm = ({ className }: { className?: string }) => {
+type AppointmentRequestFormProps = {
+  heading: string;
+  placeholderText: string;
+  className?: string;
+};
+
+const AppointmentRequestForm = ({
+  heading,
+  placeholderText,
+  className,
+}: AppointmentRequestFormProps) => {
   const [appointmentRequestState, formAction, isPending] = useActionState(
     sendAppointmentRequest,
     INITIAL_APPT_REQUEST_STATE
   );
 
-  const textAreaDefaultText = `Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept. 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept. 14th. You can reach me at jane@email.com or (000)000-0000.`;
+  const formHeading =
+    heading ||
+    "Don&apos;t see an appointment time that works for you? Send us a message in the format below:";
+
+  const textAreaDefaultText =
+    placeholderText ||
+    `Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept. 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept. 14th. You can reach me at jane@email.com or (000)000-0000.`;
   const [requestMessage, setRequestMessage] = useState(textAreaDefaultText);
   const [validationState, setValidationState] = useState({
     isValid: false,
@@ -30,7 +46,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
   const VALIDATION_RULES = {
     MIN_LENGTH: 100,
     MAX_LENGTH: 750,
-    ALLOWED_CHARS_PATTERN: /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/
+    ALLOWED_CHARS_PATTERN: /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/,
   } as const;
 
   const validateAppointmentRequestInput = () => {
@@ -38,7 +54,9 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     const correctLength =
       trimmedRequestMessage.length >= VALIDATION_RULES.MIN_LENGTH &&
       trimmedRequestMessage.length <= VALIDATION_RULES.MAX_LENGTH;
-    const validChars = VALIDATION_RULES.ALLOWED_CHARS_PATTERN.test(trimmedRequestMessage);
+    const validChars = VALIDATION_RULES.ALLOWED_CHARS_PATTERN.test(
+      trimmedRequestMessage
+    );
     const isChanged = trimmedRequestMessage !== textAreaDefaultText;
     const errorMessages = [];
     if (!correctLength) {
@@ -74,7 +92,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
     setRequestMessage(e.target.value);
     debouncedRequestMessageValidation();
   };
-  
+
   return (
     <form
       action={formAction}
@@ -82,8 +100,7 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
       className={clsx(className, moduleStyles.formContainer)}
     >
       <label htmlFor="message">
-        Don&apos;t see an appointment time that works for you? Send us a message
-        in the format below:
+        {formHeading}
       </label>
       <textarea
         name="message"
@@ -94,11 +111,12 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
         value={requestMessage}
         onChange={handleTextChange}
       />
-      {(requestMessage.length < VALIDATION_RULES.MIN_LENGTH || requestMessage.length > VALIDATION_RULES.MAX_LENGTH) && (
+      {(requestMessage.length < VALIDATION_RULES.MIN_LENGTH ||
+        requestMessage.length > VALIDATION_RULES.MAX_LENGTH) && (
         <p className={moduleStyles.charCount}>
           {`Character count: ${requestMessage.length}`}
         </p>
-      ) }
+      )}
 
       {/* ERROR MESSAGES */}
       {validationState.errors.length > 0 && (
@@ -129,7 +147,11 @@ const AppointmentRequestForm = ({ className }: { className?: string }) => {
 
       <button
         type="submit"
-        disabled={isPending || !validationState.isValid || appointmentRequestState?.success}
+        disabled={
+          isPending ||
+          !validationState.isValid ||
+          appointmentRequestState?.success
+        }
         className={clsx(buttonStyles.button, buttonStyles.buttonBrown500)}
       >
         Send Request

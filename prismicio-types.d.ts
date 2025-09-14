@@ -2137,6 +2137,26 @@ export interface MainServicesSliceDefaultPrimary {
   >;
 
   /**
+   * Appointment Request Form Heading field in *MainServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.appointment_request_form_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  appointment_request_form_heading: prismic.KeyTextField;
+
+  /**
+   * Form Placeholder Text field in *MainServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.default.primary.form_placeholder_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_placeholder_text: prismic.KeyTextField;
+
+  /**
    * Cancellation Policy Header field in *MainServices → Default → Primary*
    *
    * - **Field Type**: Rich Text

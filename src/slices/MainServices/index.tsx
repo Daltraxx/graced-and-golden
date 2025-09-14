@@ -49,6 +49,7 @@ export type MainServicesProps = SliceComponentProps<Content.MainServicesSlice>;
 const MainServices: FC<MainServicesProps> = ({ slice }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useAddAnimation(containerRef);
+  
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -113,6 +114,8 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
         {/* APPOINTMENT REQUEST FORM */}
         <section id="appointment-request" aria-label="Appointment request" className="animated-element">
           <AppointmentRequestForm
+            heading={String(slice.primary.appointment_request_form_heading)}
+            placeholderText={String(slice.primary.form_placeholder_text)}
             className={clsx(moduleStyles.appointmentRequestForm)}
           />
         </section>

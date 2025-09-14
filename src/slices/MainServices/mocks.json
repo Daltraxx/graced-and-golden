@@ -119,6 +119,16 @@
 						}
 					}
 				]
+			},
+			"appointment_request_form_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "greatest",
+				"type": "Text"
+			},
+			"form_placeholder_text": {
+				"__TYPE__": "FieldContent",
+				"value": "crop",
+				"type": "Text"
 			}
 		},
 		"items": []
