@@ -31,12 +31,12 @@ const AppointmentRequestForm = ({
   );
 
   const formHeading =
-    heading ||
-    "Don&apos;t see an appointment time that works for you? Send us a message in the format below:";
+    heading ??
+    "Don't see an appointment time that works for you? Send us a message in the format below:";
 
   const textAreaDefaultText =
-    placeholderText ||
-    `Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept. 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept. 14th. You can reach me at jane@email.com or (000)000-0000.`;
+    placeholderText ??
+    "Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept. 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept. 14th. You can reach me at jane@email.com or (000)000-0000.";
   const [requestMessage, setRequestMessage] = useState(textAreaDefaultText);
   const [validationState, setValidationState] = useState({
     isValid: false,
@@ -99,9 +99,7 @@ const AppointmentRequestForm = ({
       noValidate
       className={clsx(className, moduleStyles.formContainer)}
     >
-      <label htmlFor="message">
-        {formHeading}
-      </label>
+      <label htmlFor="message">{formHeading}</label>
       <textarea
         name="message"
         id="message"
