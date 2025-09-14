@@ -15,8 +15,8 @@ const INITIAL_APPT_REQUEST_STATE = {
 } satisfies AppointmentRequestState;
 
 type AppointmentRequestFormProps = {
-  heading: string;
-  placeholderText: string;
+  heading?: string;
+  placeholderText?: string;
   className?: string;
 };
 
