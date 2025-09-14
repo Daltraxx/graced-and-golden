@@ -114,8 +114,8 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
         {/* APPOINTMENT REQUEST FORM */}
         <section id="appointment-request" aria-label="Appointment request" className="animated-element">
           <AppointmentRequestForm
-            heading={String(slice.primary.appointment_request_form_heading)}
-            placeholderText={String(slice.primary.form_placeholder_text)}
+            heading={String(slice.primary.appointment_request_form_heading) ?? undefined}
+            placeholderText={String(slice.primary.form_placeholder_text) ?? undefined}
             className={clsx(moduleStyles.appointmentRequestForm)}
           />
         </section>
