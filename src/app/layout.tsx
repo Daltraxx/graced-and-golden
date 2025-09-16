@@ -9,6 +9,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import businessJsonLd from "./lib/structuredData/businessJsonLd";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -43,6 +44,7 @@ export default function RootLayout({
         >
           {JSON.stringify(businessJsonLd)}
         </Script>
+        <Analytics />
       </body>
     </html>
   );
