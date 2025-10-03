@@ -27,7 +27,13 @@ You don't have to include this section but interviewers *love* that you can not 
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *wow I actually did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+- Intersection Observer
+- Established comfort with animations and transitions
+- Wider use of custom hooks for things like animations syncing the heights of elements at certain breakpoints
+- Combined two useLayoutEffects for responding to screen resizing and setting a css variable height to synchronize with a reference element into custom hook module
+- requestAnimationFrame to throttle window resize updates in useLayoutEffect and optimize performance
+- Server actions and validation
+- First use of prismic
 
 ## Examples:
 Take a look at these couple examples that I have in my own portfolio:
