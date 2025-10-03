@@ -12,9 +12,11 @@ This is a site built for a spray tanning business which wanted to replace their 
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** Next.js, React, Typescript, Prismic (CMS), CSS, Tailwind (minor, modules preferred), MailGun
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+This project was built with the Next.js framework (bootstrapped with ```create-next-app```) using the App Router. In using ![Prismic](https://prismic.io/) as its headless CMS, components are at minimum broken up into slices which fetch the text and image content for display. Slices can then be rearranged via the Prismic dashboard, so that while the structure and logic of pages is coded as it normally would be, control over when and where these building blocks are displayed is granted to the content manager.
+
+Contact forms are equipped with both client-side and server-side validation. The form data is then used to create a user-friendly email which is sent via MailGun API. Validation is accomplished via Zod and some custom logic. Front end form state is managed via React hooks, which also stores field values in session storage in case the user leaves and comes back. Value changes are debounced using use-debounce. 
 
 ## Optimizations
 *(optional)*
