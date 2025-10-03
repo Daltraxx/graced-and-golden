@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Graced and Golden
+This is a site built for a spray tanning business which wanted to replace their old website with one that could better stand out among its more stylish competitors. It offers:
+- A plethora of information presented in complex but still sensibly designed layouts.
+- Fully responsive pages built with mobile-first design approach
+- Forms for users to easily contact the business via intuitive UI (field values remain saved for the session if the user leaves and comes back).
+- A automatically rotating carousel of testimonials that my client can easily add to and remove from via the CMS. Auto-rotation stop if user manually toggles the next/previous testimonial.
+- Animations that fade in elements as they come into view.
 
-## Getting Started
+**Link to project:** https://www.gracedandgolden.com/
 
-First, run the development server:
+![Homepage screenshot, see above link for view of full site and its features](/public/homepage-preview.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How It's Made:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Tech used:** HTML, CSS, JavaScript, Framework of choice
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Optimizations
+*(optional)*
 
-## Learn More
+You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
 
-To learn more about Next.js, take a look at the following resources:
+## Lessons Learned:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *wow I actually did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Examples:
+Take a look at these couple examples that I have in my own portfolio:
 
-## Deploy on Vercel
+**Palettable:** https://github.com/alecortega/palettable
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Twitter Battle:** https://github.com/alecortega/twitter-battle
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Patch Panel:** https://github.com/alecortega/patch-panel
