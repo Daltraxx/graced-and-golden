@@ -33,6 +33,7 @@ You don't have to include this section but interviewers *love* that you can not 
 - Combined two useLayoutEffects for responding to screen resizing and setting a css variable height to synchronize with a reference element into custom hook module
 - requestAnimationFrame to throttle window resize updates in useLayoutEffect and optimize performance
 - Server actions and validation
+- More creative and effective ways of managing state (map in informationPanel)
 - First use of prismic
 
 ## Examples:
