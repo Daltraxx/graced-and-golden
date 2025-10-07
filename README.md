@@ -3,7 +3,7 @@ This is a site built for a spray tanning business which wanted to replace their 
 - A plethora of information presented in complex but still sensibly designed layouts.
 - Fully responsive pages built with mobile-first design approach
 - Forms for users to easily contact the business via intuitive UI (field values remain saved for the session if the user leaves and comes back).
-- A automatically rotating carousel of testimonials that my client can easily add to and remove from via the CMS. Auto-rotation stop if user manually toggles the next/previous testimonial.
+- An automatically rotating carousel of testimonials that my client can easily add to and remove from via the CMS. Auto-rotation stops if user manually toggles the next/previous testimonial.
 - Animations that fade in elements as they come into view as requested by the client.
 
 **Link to project:** https://www.gracedandgolden.com/
