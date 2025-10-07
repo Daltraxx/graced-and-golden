@@ -21,26 +21,16 @@ Contact forms are equipped with both client-side and server-side validation. The
 The fade-in animations requested by the client which accompany many elements as they come into view is accomplished via a custom useAnimation hook which uses the intersection observer API to attach a class to specified elements as they pass a certain threshold of appearing in the viewport.
 
 ## Optimizations
-*(optional)*
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+This project achieves a highly optimized result (despite its many images) by taking advantage of Next.js's strengths and other features such as strategic lazy loading, etc. It achieves perfect or near perfect Lighthouse Report scores.
 
 ## Lessons Learned:
 
-- Intersection Observer
-- Established comfort with animations and transitions
-- Wider use of custom hooks for things like animations syncing the heights of elements at certain breakpoints
+- Intersection Observer for detecting elements entering the viewport and applying animations
+- Established greater comfort with animations and transitions
+- Wider use of custom hooks for things like animations and syncing the heights of elements at certain breakpoints
 - Combined two useLayoutEffects for responding to screen resizing and setting a css variable height to synchronize with a reference element into custom hook module
 - requestAnimationFrame to throttle window resize updates in useLayoutEffect and optimize performance
 - Server actions and validation
-- More creative and effective ways of managing state (map in informationPanel)
+- More creative and effective ways of managing state (like with map in informationPanel)
 - First use of prismic
-
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel
