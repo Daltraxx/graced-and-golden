@@ -22,7 +22,7 @@ The fade-in animations requested by the client which accompany many elements as 
 
 ## Optimizations
 
-This project achieves a highly optimized result (despite its many images) by taking advantage of Next.js's strengths and other features such as strategic lazy loading, etc. It achieves perfect or near perfect Lighthouse Report scores.
+This project achieves a highly optimized result (despite its many large images) by taking advantage of Next.js's strengths and other features such as strategic lazy loading, etc. It achieves perfect or near perfect Lighthouse Report scores.
 
 ## Lessons Learned:
 
