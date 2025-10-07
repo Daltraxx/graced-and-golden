@@ -38,6 +38,11 @@ body {
   font-family: var(--font-body);
 }
 
+body .main-content-container {
+  min-height: 78vh;
+  background-color: var(--brown-500);
+}
+
 .animated-element {
   opacity: 0;
 }
