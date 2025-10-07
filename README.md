@@ -14,7 +14,7 @@ This is a site built for a spray tanning business which wanted to replace their 
 
 **Tech used:** Next.js, React, Typescript, Prismic (CMS), CSS, Tailwind (minor, modules preferred), MailGun
 
-This project was built with the Next.js framework (bootstrapped with ```create-next-app```) using the App Router. In using ![Prismic](https://prismic.io/) as its headless CMS, components are at minimum broken up into slices which fetch the text and image content for display. Slices can then be rearranged via the Prismic dashboard, so that while the structure and logic of pages is coded as it normally would be, control over when and where these building blocks are displayed is granted to the content manager.
+This project was built with the Next.js framework (bootstrapped with ```create-next-app```) using the App Router. In using [Prismic](https://prismic.io/) as its headless CMS, components are at minimum broken up into slices which fetch the text and image content for display. Slices can then be rearranged via the Prismic dashboard, so that while the structure and logic of pages is coded as it normally would be, control over when and where these building blocks are displayed is granted to the content manager.
 
 Contact forms are equipped with both client-side and server-side validation. The form data is then used to create a user-friendly email which is sent via MailGun API. Validation is accomplished via Zod and some custom logic. Front end form state is managed via React hooks, which also stores field values in session storage in case the user leaves and comes back. Value changes are debounced using use-debounce. 
 
