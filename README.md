@@ -29,7 +29,7 @@ This project achieves a highly optimized result (despite its many images) by tak
 - Intersection Observer for detecting elements entering the viewport and applying animations
 - Established greater comfort with animations and transitions
 - Wider use of custom hooks for things like animations and syncing the heights of elements at certain breakpoints
-- Combined two useLayoutEffects for responding to screen resizing and setting a css variable height to synchronize with a reference element into custom hook module
+- Combined two useLayoutEffects for responding to screen resizing and setting a CSS variable height to synchronize with a reference element into custom hook module
 - requestAnimationFrame to throttle window resize updates in useLayoutEffect and optimize performance
 - Server actions and validation
 - More creative and effective ways of managing state (like with map in informationPanel)
