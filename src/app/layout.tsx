@@ -44,7 +44,7 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        <main className="main-content-container">{children}</main>
+        <main>{children}</main>
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
         <Script
