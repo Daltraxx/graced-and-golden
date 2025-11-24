@@ -210,6 +210,10 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
 
           {/* ADD-ONS SECTION */}
           <section className={addOnsStyles.addOnsContainer}>
+            <PrismicRichText
+              field={slice.primary.add_ons_section_heading}
+              components={components}
+            />
             {(slice.primary.add_on ?? []).map((item, i) => (
               <section key={`add-on-section-${i}`} className="animated-element">
                 <PrismicRichText field={item.name} components={components} />
