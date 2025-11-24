@@ -231,7 +231,13 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           </section>
 
           {/* ADD-ONS SECTION */}
-          <section className={clsx(addOnsStyles.addOnsContainer, moduleStyles.box, "animated-element")}>
+          <section
+            className={clsx(
+              addOnsStyles.addOnsContainer,
+              moduleStyles.box,
+              "animated-element"
+            )}
+          >
             <PrismicRichText
               field={slice.primary.add_ons_section_heading}
               components={components}
