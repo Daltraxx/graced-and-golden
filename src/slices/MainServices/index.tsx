@@ -180,83 +180,86 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
         ref={containerRef}
       >
         <div className={moduleStyles.contentContainer}>
-          {/* SERVICES SECTION */}
-          <section className={moduleStyles.servicesContainer}>
-            {(slice.primary.service ?? []).map((item, i) => (
-              <section
-                key={`service-section-${i}`}
-                className="animated-element"
-              >
-                <div
-                  className={clsx(moduleStyles.serviceBody, moduleStyles.box)}
+          <section className={addOnsStyles.servicesAndAddOns}>
+
+            {/* SERVICES SECTION */}
+            <section className={moduleStyles.servicesContainer}>
+              {(slice.primary.service ?? []).map((item, i) => (
+                <section
+                  key={`service-section-${i}`}
+                  className="animated-element"
+                >
+                  <div
+                    className={clsx(moduleStyles.serviceBody, moduleStyles.box)}
+                  >
+                    <PrismicRichText
+                      field={item.service_name}
+                      components={addOnsComponents}
+                    />
+                    <PrismicRichText
+                      field={item.service_body_text}
+                      components={addOnsComponents}
+                    />
+                    <div className={moduleStyles.serviceDetails}>
+                      <PrismicRichText
+                        field={item.price_and_duration}
+                        components={addOnsComponents}
+                      />
+                      <PrismicRichText
+                        field={item.addendum}
+                        components={addOnsComponents}
+                      />
+                    </div>
+                  </div>
+                  <div className={moduleStyles.linkContainer}>
+                    {item.link.length > 1 && (
+                      <ul className={moduleStyles.linkList}>
+                        {item.link.map((link, i) => (
+                          <li key={`main-service-link-${i}`}>
+                            <Button
+                              field={link}
+                              color={i % 2 === 0 ? "brown-800" : "brown-300"}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {item.link.length === 1 && (
+                      <Button field={item.link[0]} color="brown-300" />
+                    )}
+                  </div>
+                </section>
+              ))}
+            </section>
+  
+            {/* ADD-ONS SECTION */}
+            <section
+              className={clsx(
+                addOnsStyles.addOnsContainer,
+                moduleStyles.box,
+                "animated-element"
+              )}
+            >
+              <PrismicRichText
+                field={slice.primary.add_ons_section_heading}
+                components={components}
+              />
+              {(slice.primary.add_on ?? []).map((item, i) => (
+                <section
+                  key={`add-on-section-${i}`}
+                  className={clsx(addOnsStyles.addOnSection, "animated-element")}
                 >
                   <PrismicRichText
-                    field={item.service_name}
+                    field={item.name}
                     components={addOnsComponents}
                   />
                   <PrismicRichText
-                    field={item.service_body_text}
+                    field={item.description}
                     components={addOnsComponents}
                   />
-                  <div className={moduleStyles.serviceDetails}>
-                    <PrismicRichText
-                      field={item.price_and_duration}
-                      components={addOnsComponents}
-                    />
-                    <PrismicRichText
-                      field={item.addendum}
-                      components={addOnsComponents}
-                    />
-                  </div>
-                </div>
-                <div className={moduleStyles.linkContainer}>
-                  {item.link.length > 1 && (
-                    <ul className={moduleStyles.linkList}>
-                      {item.link.map((link, i) => (
-                        <li key={`main-service-link-${i}`}>
-                          <Button
-                            field={link}
-                            color={i % 2 === 0 ? "brown-800" : "brown-300"}
-                          />
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {item.link.length === 1 && (
-                    <Button field={item.link[0]} color="brown-300" />
-                  )}
-                </div>
-              </section>
-            ))}
-          </section>
-
-          {/* ADD-ONS SECTION */}
-          <section
-            className={clsx(
-              addOnsStyles.addOnsContainer,
-              moduleStyles.box,
-              "animated-element"
-            )}
-          >
-            <PrismicRichText
-              field={slice.primary.add_ons_section_heading}
-              components={components}
-            />
-            {(slice.primary.add_on ?? []).map((item, i) => (
-              <section
-                key={`add-on-section-${i}`}
-                className={clsx(addOnsStyles.addOnSection, "animated-element")}
-              >
-                <PrismicRichText
-                  field={item.name}
-                  components={addOnsComponents}
-                />
-                <PrismicRichText
-                  field={item.description}
-                  components={addOnsComponents}
-                />
-              </section>
-            ))}
+                </section>
+              ))}
+            </section>
           </section>
 
           {/* APPOINTMENT REQUEST FORM */}
