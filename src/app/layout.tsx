@@ -23,6 +23,8 @@ export async function generateMetadata(): Promise<Metadata> {
       "Get a flawless, sun-kissed glow without the harmful UV rays. Located in San Diego, our custom spray tans provide a natural-looking, long-lasting tan. Book your appointment today!",
     openGraph: {
       images: [{ url: asImageSrc(settings.data.og_image) ?? "" }],
+      siteName: settings.data.site_title || "Graced and Golden",
+      url: "https://gracedandgolden.com",
     },
   };
 }
