@@ -220,6 +220,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
               </section>
             ))}
           </section>
+          
           {/* APPOINTMENT REQUEST FORM */}
           <section
             id="appointment-request"
