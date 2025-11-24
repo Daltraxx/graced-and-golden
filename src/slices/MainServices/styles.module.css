@@ -27,7 +27,7 @@
   border-radius: 3px;
 }
 
-.boxHeading {
+.box h3 {
   color: var(--brown-800);
 }
 
@@ -72,6 +72,7 @@
 }
 
 .cancellationPolicyContainer h4 {
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 

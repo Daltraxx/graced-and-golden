@@ -28,7 +28,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className={moduleStyles.boxHeading}>
+    <Heading as="h3" size="sm">
       {children}
     </Heading>
   ),
@@ -46,12 +46,12 @@ const addOnsComponents: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className={moduleStyles.boxHeading}>
+    <Heading as="h3" size="sm">
       {children}
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h4" size="xs">
+    <Heading as="h4" size="manual">
       {children}
     </Heading>
   ),
@@ -183,14 +183,14 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           <section className={addOnsStyles.servicesAndAddOns}>
 
             {/* SERVICES SECTION */}
-            <section className={moduleStyles.servicesContainer}>
+            <section className={addOnsStyles.servicesContainer}>
               {(slice.primary.service ?? []).map((item, i) => (
                 <section
                   key={`service-section-${i}`}
                   className="animated-element"
                 >
                   <div
-                    className={clsx(moduleStyles.serviceBody, moduleStyles.box)}
+                    className={clsx(addOnsStyles.serviceBody, moduleStyles.box)}
                   >
                     <PrismicRichText
                       field={item.service_name}
@@ -200,7 +200,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
                       field={item.service_body_text}
                       components={addOnsComponents}
                     />
-                    <div className={moduleStyles.serviceDetails}>
+                    <div className={addOnsStyles.serviceDetails}>
                       <PrismicRichText
                         field={item.price_and_duration}
                         components={addOnsComponents}
