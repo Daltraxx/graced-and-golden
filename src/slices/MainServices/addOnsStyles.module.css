@@ -45,7 +45,7 @@
   .addOnsContainer {
     justify-content: space-between;
     /* Lines up bottom with bottom of lowest service (51px is the height of the link section) */
-    height: calc(100% - 51px);
+    height: calc(100% - 3.1875rem);
   }
 }
 
