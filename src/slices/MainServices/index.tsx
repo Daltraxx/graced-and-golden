@@ -28,7 +28,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm">
+    <Heading as="h3" size="sm" className={moduleStyles.boxHeading} >
       {children}
     </Heading>
   ),
@@ -46,7 +46,7 @@ const addOnsComponents: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm">
+    <Heading as="h3" size="sm" className={moduleStyles.boxHeading} >
       {children}
     </Heading>
   ),

@@ -27,7 +27,7 @@
    border-radius: 3px;
 }
 
-.serviceBody h3 {
+.boxHeading {
    color: var(--brown-800);
    margin-bottom: 1rem;
 }
