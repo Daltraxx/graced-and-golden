@@ -11,3 +11,7 @@
   flex-direction: column;
   gap: 0.25rem;
 }
+
+.addOnSection h4 {
+  color: var(--gold-700);
+}
