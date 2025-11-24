@@ -243,7 +243,10 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
               components={components}
             />
             {(slice.primary.add_on ?? []).map((item, i) => (
-              <section key={`add-on-section-${i}`} className="animated-element">
+              <section
+                key={`add-on-section-${i}`}
+                className={clsx(addOnsStyles.addOnSection, "animated-element")}
+              >
                 <PrismicRichText
                   field={item.name}
                   components={addOnsComponents}
@@ -273,6 +276,7 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
               className={clsx(moduleStyles.appointmentRequestForm)}
             />
           </section>
+
           {/* CANCELLATION POLICY */}
           <section
             className={clsx(
