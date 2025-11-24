@@ -220,8 +220,8 @@
 									"type": "Link",
 									"value": [
 										{
-											"__TYPE__": "LinkContent",
 											"key": "07620a70-7586-47c8-ac89-8a51deb4dba1",
+											"__TYPE__": "LinkContent",
 											"value": {
 												"__TYPE__": "ExternalLink",
 												"url": "https://slicemachine.dev",
@@ -313,8 +313,8 @@
 									"type": "Link",
 									"value": [
 										{
-											"__TYPE__": "LinkContent",
 											"key": "eeb747b9-2f7f-4821-9f14-1556fac8e974",
+											"__TYPE__": "LinkContent",
 											"value": {
 												"__TYPE__": "AnyLink",
 												"kind": "any",
@@ -322,8 +322,8 @@
 											}
 										},
 										{
-											"__TYPE__": "LinkContent",
 											"key": "0cd8593f-172d-43a9-b1ac-d0fef4c5ae73",
+											"__TYPE__": "LinkContent",
 											"value": {
 												"__TYPE__": "AnyLink",
 												"kind": "any",
@@ -340,7 +340,7 @@
 			"appointment_request_form_heading": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
-				"value": "Don't see an appointment time that works for you? Send us a message in the format below:\n"
+				"value": "Don't see an appointment time that works for you? Send us a message in the format below:"
 			},
 			"form_placeholder_text": {
 				"__TYPE__": "FieldContent",

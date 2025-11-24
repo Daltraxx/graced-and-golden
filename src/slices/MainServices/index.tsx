@@ -39,6 +39,24 @@ const components: JSXMapSerializer = {
   ),
 };
 
+const addOnsComponents: JSXMapSerializer = {
+  heading2: ({ children }) => (
+    <Heading as="h2" size="md">
+      {children}
+    </Heading>
+  ),
+  heading3: ({ children }) => (
+    <Heading as="h3" size="sm">
+      {children}
+    </Heading>
+  ),
+  heading4: ({ children }) => (
+    <Heading as="h4" size="xs">
+      {children}
+    </Heading>
+  ),
+};
+
 /**
  * Props for `MainServices`.
  */
@@ -170,20 +188,20 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
                 <div className={moduleStyles.serviceBody}>
                   <PrismicRichText
                     field={item.service_name}
-                    components={components}
+                    components={addOnsComponents}
                   />
                   <PrismicRichText
                     field={item.service_body_text}
-                    components={components}
+                    components={addOnsComponents}
                   />
                   <div className={moduleStyles.serviceDetails}>
                     <PrismicRichText
                       field={item.price_and_duration}
-                      components={components}
+                      components={addOnsComponents}
                     />
                     <PrismicRichText
                       field={item.addendum}
-                      components={components}
+                      components={addOnsComponents}
                     />
                   </div>
                 </div>
@@ -216,15 +234,15 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
             />
             {(slice.primary.add_on ?? []).map((item, i) => (
               <section key={`add-on-section-${i}`} className="animated-element">
-                <PrismicRichText field={item.name} components={components} />
+                <PrismicRichText field={item.name} components={addOnsComponents} />
                 <PrismicRichText
                   field={item.description}
-                  components={components}
+                  components={addOnsComponents}
                 />
               </section>
             ))}
           </section>
-          
+
           {/* APPOINTMENT REQUEST FORM */}
           <section
             id="appointment-request"
@@ -251,11 +269,11 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           >
             <PrismicRichText
               field={slice.primary.cancellation_policy_header}
-              components={components}
+              components={addOnsComponents}
             />
             <PrismicRichText
               field={slice.primary.cancellation_policy_body}
-              components={components}
+              components={addOnsComponents}
             />
           </section>
         </div>
