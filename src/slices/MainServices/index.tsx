@@ -28,7 +28,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className={moduleStyles.boxHeading} >
+    <Heading as="h3" size="sm" className={moduleStyles.boxHeading}>
       {children}
     </Heading>
   ),
@@ -46,7 +46,7 @@ const addOnsComponents: JSXMapSerializer = {
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className={moduleStyles.boxHeading} >
+    <Heading as="h3" size="sm" className={moduleStyles.boxHeading}>
       {children}
     </Heading>
   ),
@@ -93,7 +93,9 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
                 key={`service-section-${i}`}
                 className="animated-element"
               >
-                <div className={moduleStyles.serviceBody}>
+                <div
+                  className={clsx(moduleStyles.serviceBody, moduleStyles.box)}
+                >
                   <PrismicRichText
                     field={item.service_name}
                     components={components}
@@ -185,7 +187,9 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
                 key={`service-section-${i}`}
                 className="animated-element"
               >
-                <div className={moduleStyles.serviceBody}>
+                <div
+                  className={clsx(moduleStyles.serviceBody, moduleStyles.box)}
+                >
                   <PrismicRichText
                     field={item.service_name}
                     components={addOnsComponents}
@@ -227,14 +231,17 @@ const MainServices: FC<MainServicesProps> = ({ slice }) => {
           </section>
 
           {/* ADD-ONS SECTION */}
-          <section className={addOnsStyles.addOnsContainer}>
+          <section className={clsx(addOnsStyles.addOnsContainer, moduleStyles.box, "animated-element")}>
             <PrismicRichText
               field={slice.primary.add_ons_section_heading}
               components={components}
             />
             {(slice.primary.add_on ?? []).map((item, i) => (
               <section key={`add-on-section-${i}`} className="animated-element">
-                <PrismicRichText field={item.name} components={addOnsComponents} />
+                <PrismicRichText
+                  field={item.name}
+                  components={addOnsComponents}
+                />
                 <PrismicRichText
                   field={item.description}
                   components={addOnsComponents}

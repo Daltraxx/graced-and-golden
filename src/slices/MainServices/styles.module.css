@@ -21,7 +21,7 @@
    align-items: center;
 }
 
-.serviceBody {
+.box {
    background: var(--beige-300);
    padding: 1rem;
    border-radius: 3px;
@@ -81,9 +81,12 @@
       grid-template-columns: 1fr 1fr;
    }
 
+   .box {
+      border-radius: 10px;
+   }
+
    .serviceBody {
       height: 22.875rem;
-      border-radius: 10px;
    }
 
    .appointmentRequestForm {
