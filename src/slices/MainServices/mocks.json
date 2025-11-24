@@ -132,5 +132,420 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "servicesAddons",
+		"primary": {
+			"service": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"service_name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "The G&G Signature",
+												"spans": [
+													{
+														"type": "em",
+														"start": 0,
+														"end": 17
+													}
+												]
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"service_body_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Includes your choice of standard or rapid solution, barrier cream application, full body drying, finishing powder application.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"price_and_duration",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "$55 - 30 minutes",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"addendum",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "$27.50 deposit required for new clients",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "RepeatableContent",
+									"type": "Link",
+									"value": [
+										{
+											"__TYPE__": "LinkContent",
+											"key": "07620a70-7586-47c8-ac89-8a51deb4dba1",
+											"value": {
+												"__TYPE__": "ExternalLink",
+												"url": "https://slicemachine.dev",
+												"text": "BOOK NOW"
+											}
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"service_name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Mobile Spray Tanning",
+												"spans": [
+													{
+														"type": "em",
+														"start": 0,
+														"end": 20
+													}
+												]
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"service_body_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Enjoy a flawless tan without leaving your home. We offer mobile spray tanning for your convenience—perfect for busy schedules, group sessions, or special events. House calls are available for an additional fee and can be scheduled based on location and availability. Contact us to learn more or to book your mobile appointment.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"price_and_duration",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "$100+ - 60+ minutes",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"addendum",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Price & time varies, inquire for more information",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "RepeatableContent",
+									"type": "Link",
+									"value": [
+										{
+											"__TYPE__": "LinkContent",
+											"key": "eeb747b9-2f7f-4821-9f14-1556fac8e974",
+											"value": {
+												"__TYPE__": "AnyLink",
+												"kind": "any",
+												"text": "SEE DETAILS"
+											}
+										},
+										{
+											"__TYPE__": "LinkContent",
+											"key": "0cd8593f-172d-43a9-b1ac-d0fef4c5ae73",
+											"value": {
+												"__TYPE__": "AnyLink",
+												"kind": "any",
+												"text": "BOOK NOW"
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"appointment_request_form_heading": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Don't see an appointment time that works for you? Send us a message in the format below:\n"
+			},
+			"form_placeholder_text": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Hi, my name is Jane Doe. I'm looking for an appointment on Thursday, Sept. 12th in the afternoon, or Friday, Sept. 13th in the morning. My spray tan is for my engagement photos on Sept. 14th. You can reach me at jane@email.com or (000)000-0000."
+			},
+			"cancellation_policy_header": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Cancellation Policy",
+							"spans": [
+								{
+									"type": "em",
+									"start": 0,
+									"end": 19
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"cancellation_policy_body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "If you need to cancel or reschedule your appointment, please do so at least 48 hours in advance. Cancellations made with less than 48 hours notice may be subject to a 50% fee. No-shows or same-day cancellations may be charged the full amount of the service.",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "I understand that life happens, and I always aim to be understanding and flexible. If you have any concerns, please don’t hesitate to reach out.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"add_on": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading4",
+											"content": {
+												"text": "- Hydration Seal (+$10)",
+												"spans": [
+													{
+														"type": "strong",
+														"start": 0,
+														"end": 23
+													}
+												]
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "This add-on provides a post-tan hydration seal designed to lock in moisture. Ideal for dry or mature skin, those with eczema or psoriasis, or anyone looking to extend the longevity of their tan. It also minimizes post-tan odor.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading4",
+											"content": {
+												"text": "- Sweat Resistant Formula (+$10)",
+												"spans": [
+													{
+														"type": "strong",
+														"start": 0,
+														"end": 32
+													}
+												]
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "This add-on is perfect for those who workout regularly, spend a lot of time in h2o, and brides who are worried about bronzer transfer. Can lead to longer lasting tan up to 30% with proper before + after care.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading4",
+											"content": {
+												"text": "- Exfoliation Wipe (+$3)",
+												"spans": [
+													{
+														"type": "strong",
+														"start": 0,
+														"end": 24
+													}
+												]
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "This add-on is the ultimate refresh for unprepared or previously tanned skin. The exfoliating wipe lifts away leftover tanner and buildup, leaving your skin clean, smooth, and ready for a flawless glow.",
+												"spans": []
+											},
+											"direction": "ltr"
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"add_ons_section_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Optional Add-Ons",
+							"spans": [
+								{
+									"type": "em",
+									"start": 0,
+									"end": 16
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

@@ -2111,6 +2111,88 @@ export interface MainServicesSliceDefaultPrimaryServiceItem {
 }
 
 /**
+ * Item in *MainServices → Services - Addons → Primary → Service*
+ */
+export interface MainServicesSliceServicesAddonsPrimaryServiceItem {
+  /**
+   * Service Name field in *MainServices → Services - Addons → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.service[].service_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_name: prismic.RichTextField;
+
+  /**
+   * Service Body Text field in *MainServices → Services - Addons → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.service[].service_body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_body_text: prismic.RichTextField;
+
+  /**
+   * Price and Duration field in *MainServices → Services - Addons → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.service[].price_and_duration
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  price_and_duration: prismic.RichTextField;
+
+  /**
+   * Addendum field in *MainServices → Services - Addons → Primary → Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.service[].addendum
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  addendum: prismic.RichTextField;
+
+  /**
+   * Link field in *MainServices → Services - Addons → Primary → Service*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.service[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Item in *MainServices → Services - Addons → Primary → Add-on*
+ */
+export interface MainServicesSliceServicesAddonsPrimaryAddOnItem {
+  /**
+   * Name field in *MainServices → Services - Addons → Primary → Add-on*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.add_on[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Description field in *MainServices → Services - Addons → Primary → Add-on*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.add_on[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
  * Primary content in *MainServices → Default → Primary*
  */
 export interface MainServicesSliceDefaultPrimary {
@@ -2191,9 +2273,103 @@ export type MainServicesSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MainServices → Services - Addons → Primary*
+ */
+export interface MainServicesSliceServicesAddonsPrimary {
+  /**
+   * Service field in *MainServices → Services - Addons → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.service[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  service: prismic.GroupField<
+    Simplify<MainServicesSliceServicesAddonsPrimaryServiceItem>
+  >;
+
+  /**
+   * Add-ons Section Heading field in *MainServices → Services - Addons → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.add_ons_section_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  add_ons_section_heading: prismic.RichTextField;
+
+  /**
+   * Add-on field in *MainServices → Services - Addons → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.add_on[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  add_on: prismic.GroupField<
+    Simplify<MainServicesSliceServicesAddonsPrimaryAddOnItem>
+  >;
+
+  /**
+   * Appointment Request Form Heading field in *MainServices → Services - Addons → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.appointment_request_form_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  appointment_request_form_heading: prismic.KeyTextField;
+
+  /**
+   * Form Placeholder Text field in *MainServices → Services - Addons → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.form_placeholder_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_placeholder_text: prismic.KeyTextField;
+
+  /**
+   * Cancellation Policy Header field in *MainServices → Services - Addons → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.cancellation_policy_header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cancellation_policy_header: prismic.RichTextField;
+
+  /**
+   * Cancellation Policy Body field in *MainServices → Services - Addons → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_services.servicesAddons.primary.cancellation_policy_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cancellation_policy_body: prismic.RichTextField;
+}
+
+/**
+ * Services - Addons variation for MainServices Slice
+ *
+ * - **API ID**: `servicesAddons`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MainServicesSliceServicesAddons = prismic.SharedSliceVariation<
+  "servicesAddons",
+  Simplify<MainServicesSliceServicesAddonsPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MainServices*
  */
-type MainServicesSliceVariation = MainServicesSliceDefault;
+type MainServicesSliceVariation =
+  | MainServicesSliceDefault
+  | MainServicesSliceServicesAddons;
 
 /**
  * MainServices Shared Slice
@@ -3666,8 +3842,12 @@ declare module "@prismicio/client" {
       MainServicesSlice,
       MainServicesSliceDefaultPrimaryServiceItem,
       MainServicesSliceDefaultPrimary,
+      MainServicesSliceServicesAddonsPrimaryServiceItem,
+      MainServicesSliceServicesAddonsPrimaryAddOnItem,
+      MainServicesSliceServicesAddonsPrimary,
       MainServicesSliceVariation,
       MainServicesSliceDefault,
+      MainServicesSliceServicesAddons,
       ParagraphImageOverlapSlice,
       ParagraphImageOverlapSliceDefaultPrimary,
       ParagraphImageOverlapSliceVariation,
