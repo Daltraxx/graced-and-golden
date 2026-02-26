@@ -137,6 +137,24 @@
             "multi": "paragraph,strong,em"
           }
         },
+        "eligibility_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Eligibility Heading",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "heading4"
+          }
+        },
+        "eligibility_body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Eligibility Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
         "link_box_heading": {
           "type": "StructuredText",
           "config": {

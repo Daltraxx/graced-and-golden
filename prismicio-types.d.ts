@@ -3573,6 +3573,26 @@ export interface TrainingBodySliceDefaultPrimary {
   booking_and_availability_body: prismic.RichTextField;
 
   /**
+   * Eligibility Heading field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.eligibility_heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  eligibility_heading: prismic.TitleField;
+
+  /**
+   * Eligibility Body field in *TrainingBody → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training_body.default.primary.eligibility_body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  eligibility_body: prismic.RichTextField;
+
+  /**
    * Link Box Heading field in *TrainingBody → Default → Primary*
    *
    * - **Field Type**: Rich Text
