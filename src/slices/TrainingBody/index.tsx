@@ -64,6 +64,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
 
       {/* INTRO SECTION */}
       <section className={clsx(moduleStyles.row, moduleStyles.introRow)}>
+        {/* INTRO BOX */}
         <div
           className={clsx(
             moduleStyles.box,
@@ -84,6 +85,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             components={components}
           />
         </div>
+        {/* INTRO IMAGE */}
         <div className="animated-element">
           <PrismicNextImage
             field={slice.primary.image}
@@ -101,6 +103,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           "animated-element",
         )}
       >
+        {/* WHAT'S INCLUDED MAIN BODY */}
         <section
           className={clsx(moduleStyles.box, moduleStyles.includesMainBody)}
         >
@@ -113,6 +116,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             components={components}
           />
         </section>
+        {/* WHAT'S INCLUDED SIDE BAR */}
         <section
           className={clsx(moduleStyles.box, moduleStyles.includesSideBar)}
         >
@@ -131,6 +135,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
 
       {/* DETAILS SECTION */}
       <div className={clsx(moduleStyles.row, moduleStyles.detailsRow)}>
+        {/* COURSE REQUIREMENTS */}
         <section
           className={clsx(
             moduleStyles.box,
@@ -149,6 +154,8 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             />
           </div>
         </section>
+
+        {/* FORMAT AND LOCATION */}
         <section
           className={clsx(
             moduleStyles.box,
@@ -167,6 +174,8 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             />
           </div>
         </section>
+
+        {/* BOOKING AND AVAILABILITY INFO */}
         <section
           className={clsx(
             moduleStyles.box,
