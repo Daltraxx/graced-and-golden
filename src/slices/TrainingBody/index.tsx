@@ -54,6 +54,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
       className={moduleStyles.boundedContainer}
       ref={containerRef}
     >
+      {/* MAIN HEADING */}
       <div className="animated-element">
         <PrismicRichText
           field={slice.primary.main_heading}
@@ -187,14 +188,13 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
       </div>
 
       {/* ELIGIBILITY AND BOOKING SECTION */}
-      <section
+      <div
         className={clsx(
           moduleStyles.row,
           moduleStyles.linksRow,
-          "animated-element"
         )}
       >
-        <div className={clsx(moduleStyles.box)}>
+        <section className={clsx(moduleStyles.box, "animated-element")}>
           <PrismicRichText
             field={slice.primary.link_box_heading}
             components={components}
@@ -223,8 +223,8 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
+        </section>
+      </div>
     </Bounded>
   );
 };
