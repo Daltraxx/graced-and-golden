@@ -61,6 +61,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         />
       </div>
 
+      {/* INTRO SECTION */}
       <section className={clsx(moduleStyles.row, moduleStyles.introRow)}>
         <div
           className={clsx(
@@ -91,6 +92,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         </div>
       </section>
 
+      {/* WHAT'S INCLUDED SECTION */}
       <section
         className={clsx(
           moduleStyles.row,
@@ -126,6 +128,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         </section>
       </section>
 
+      {/* DETAILS SECTION */}
       <div className={clsx(moduleStyles.row, moduleStyles.detailsRow)}>
         <section
           className={clsx(
@@ -183,6 +186,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         </section>
       </div>
 
+      {/* ELIGIBILITY AND BOOKING SECTION */}
       <section
         className={clsx(
           moduleStyles.row,
