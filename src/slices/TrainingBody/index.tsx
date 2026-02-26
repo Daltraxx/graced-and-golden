@@ -69,7 +69,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
             moduleStyles.box,
             moduleStyles.introBox,
             !slice.primary.intro_paragraph_2.length && "text-center md:text-xl",
-            "animated-element"
+            "animated-element",
           )}
         >
           <PrismicRichText
@@ -98,7 +98,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
         className={clsx(
           moduleStyles.row,
           moduleStyles.includesRow,
-          "animated-element"
+          "animated-element",
         )}
       >
         <section
@@ -135,7 +135,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           className={clsx(
             moduleStyles.box,
             moduleStyles.detailsBox,
-            "animated-element"
+            "animated-element",
           )}
         >
           <PrismicRichText
@@ -153,7 +153,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           className={clsx(
             moduleStyles.box,
             moduleStyles.detailsBox,
-            "animated-element"
+            "animated-element",
           )}
         >
           <PrismicRichText
@@ -171,7 +171,7 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
           className={clsx(
             moduleStyles.box,
             moduleStyles.detailsBox,
-            "animated-element"
+            "animated-element",
           )}
         >
           <PrismicRichText
@@ -188,12 +188,20 @@ const TrainingBody: FC<TrainingBodyProps> = ({ slice }) => {
       </div>
 
       {/* ELIGIBILITY AND BOOKING SECTION */}
-      <div
-        className={clsx(
-          moduleStyles.row,
-          moduleStyles.linksRow,
-        )}
-      >
+      <div className={clsx(moduleStyles.row, moduleStyles.linksRow)}>
+        {/* ELIGIBILITY */}
+        <section className={clsx(moduleStyles.box, "animated-element")}>
+          <PrismicRichText
+            field={slice.primary.eligibility_heading}
+            components={components}
+          />
+          <PrismicRichText
+            field={slice.primary.eligibility_body}
+            components={components}
+          />
+        </section>
+
+        {/* BOOKING */}
         <section className={clsx(moduleStyles.box, "animated-element")}>
           <PrismicRichText
             field={slice.primary.link_box_heading}
