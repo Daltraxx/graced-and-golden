@@ -7,6 +7,32 @@ import {
   AppointmentRequestState,
 } from "@/app/lib/schema/AppointmentRequestSchema";
 
+/**
+ * Processes an appointment request form submission, validates input fields, and sends an email
+ * notification via Mailgun when validation succeeds.
+ *
+ * The function:
+ * - Parses raw `FormData` into a plain object.
+ * - Validates the payload against `AppointmentRequestSchema`.
+ * - Returns field-level validation errors when invalid.
+ * - Sends an appointment request email using Mailgun when valid.
+ * - Returns a success/failure state consumable by UI form handlers.
+ *
+ * @param prevState - The previous appointment request state from the form action pipeline.
+ *   This value is accepted for action signature compatibility and is not directly used in processing.
+ * @param formData - The submitted form payload containing appointment request fields.
+ * @returns A promise resolving to an {@link AppointmentRequestState} indicating:
+ * - `success: true` with a confirmation message when email delivery is attempted successfully.
+ * - `success: false` with validation `errors` when schema validation fails.
+ * - `success: false` with a fallback message when email sending fails unexpectedly.
+ *
+ * @remarks
+ * Requires `MAILGUN_API_KEY` in environment configuration for authenticated Mailgun requests.
+ * Falls back to a placeholder key when unset, which will cause delivery failures in production.
+ *
+ * @throws This function does not rethrow operational errors; failures are caught and translated
+ * into a failure state response.
+ */
 export async function sendAppointmentRequest(
   prevState: AppointmentRequestState,
   formData: FormData,
