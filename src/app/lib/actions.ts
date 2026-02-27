@@ -4,8 +4,6 @@ import Mailgun from "mailgun.js"; // mailgun.js v11.1.0
 import generateApptRequestEmailHtml from "./generateApptRequestEmailHtml";
 import { AppointmentRequestSchema, AppointmentRequestState } from "@/app/lib/schema/AppointmentRequestSchema";
 
-const CreateAppointmentRequest = AppointmentRequestSchema;
-
 export async function sendAppointmentRequest(
   prevState: AppointmentRequestState,
   formData: FormData
@@ -17,7 +15,7 @@ export async function sendAppointmentRequest(
   });
 
   const rawFormData = Object.fromEntries(formData);
-  const validatedFields = CreateAppointmentRequest.safeParse(rawFormData);
+  const validatedFields = AppointmentRequestSchema.safeParse(rawFormData);
 
   if (!validatedFields.success) {
     console.error(
