@@ -1,7 +1,5 @@
-import {
-  AppointmentRequestState,
-  sendAppointmentRequest,
-} from "@/app/lib/actions";
+import { sendAppointmentRequest } from "@/app/lib/actions";
+import { AppointmentRequestState } from "@/app/lib/schema/AppointmentRequestSchema";
 import clsx from "clsx";
 import { useActionState, useState, useEffect } from "react";
 import moduleStyles from "@/components/AppointmentRequestForm/styles.module.css";
@@ -27,7 +25,7 @@ const AppointmentRequestForm = ({
 }: AppointmentRequestFormProps) => {
   const [appointmentRequestState, formAction, isPending] = useActionState(
     sendAppointmentRequest,
-    INITIAL_APPT_REQUEST_STATE
+    INITIAL_APPT_REQUEST_STATE,
   );
 
   const formHeading =
@@ -55,13 +53,13 @@ const AppointmentRequestForm = ({
       trimmedRequestMessage.length >= VALIDATION_RULES.MIN_LENGTH &&
       trimmedRequestMessage.length <= VALIDATION_RULES.MAX_LENGTH;
     const validChars = VALIDATION_RULES.ALLOWED_CHARS_PATTERN.test(
-      trimmedRequestMessage
+      trimmedRequestMessage,
     );
     const isChanged = trimmedRequestMessage !== textAreaDefaultText;
     const errorMessages = [];
     if (!correctLength) {
       errorMessages.push(
-        `Message must be between ${VALIDATION_RULES.MIN_LENGTH} and ${VALIDATION_RULES.MAX_LENGTH} characters.`
+        `Message must be between ${VALIDATION_RULES.MIN_LENGTH} and ${VALIDATION_RULES.MAX_LENGTH} characters.`,
       );
     }
     if (!validChars) {
@@ -79,7 +77,7 @@ const AppointmentRequestForm = ({
   const debounceDelay = 300; // milliseconds
   const debouncedRequestMessageValidation = useDebouncedCallback(
     validateAppointmentRequestInput,
-    debounceDelay
+    debounceDelay,
   );
 
   useEffect(() => {
