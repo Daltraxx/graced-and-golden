@@ -1,4 +1,4 @@
-import { sendAppointmentRequest } from "@/app/lib/actions";
+import { sendAppointmentRequest } from "@/app/lib/actions/sendAppointmentRequest";
 import { AppointmentRequestState } from "@/app/lib/schema/AppointmentRequestSchema";
 import clsx from "clsx";
 import { useActionState, useState, useEffect } from "react";

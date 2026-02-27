@@ -1,12 +1,15 @@
 "use server";
 
 import Mailgun from "mailgun.js"; // mailgun.js v11.1.0
-import generateApptRequestEmailHtml from "./generateApptRequestEmailHtml";
-import { AppointmentRequestSchema, AppointmentRequestState } from "@/app/lib/schema/AppointmentRequestSchema";
+import generateApptRequestEmailHtml from "../generateApptRequestEmailHtml";
+import {
+  AppointmentRequestSchema,
+  AppointmentRequestState,
+} from "@/app/lib/schema/AppointmentRequestSchema";
 
 export async function sendAppointmentRequest(
   prevState: AppointmentRequestState,
-  formData: FormData
+  formData: FormData,
 ): Promise<AppointmentRequestState> {
   const mailgun = new Mailgun(FormData);
   const mg = mailgun.client({
@@ -20,7 +23,7 @@ export async function sendAppointmentRequest(
   if (!validatedFields.success) {
     console.error(
       "Validation failed:",
-      validatedFields.error.flatten().fieldErrors
+      validatedFields.error.flatten().fieldErrors,
     );
     return {
       errors: validatedFields.error.flatten().fieldErrors,
