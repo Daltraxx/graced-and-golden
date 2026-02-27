@@ -1,6 +1,7 @@
 "use client";
 
-import { sendInquiryEmail, InquiryState } from "@/app/lib/actions";
+import { sendInquiryEmail } from "@/app/lib/actions/sendInquiryEmail";
+import { InquiryState } from "@/app/lib/schema/InquiryFormSchema";
 import {
   handleNameValidation,
   handlePhoneNumberValidation,
