@@ -76,6 +76,7 @@ export async function sendInquiryEmail(
 
   const html = generateEmailHtml(validatedFields.data);
 
+  // TODO: Consider extracting hardcoded email addresses to environment variables for better flexibility
   try {
     const data = await mg.messages.create("gracedandgolden.com", {
       from: "G&G Inquiries <postmaster@gracedandgolden.com>",
