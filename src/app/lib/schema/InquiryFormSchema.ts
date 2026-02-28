@@ -13,7 +13,8 @@ export const InquiryFormSchema = z.object({
       message: "Name must be at most 50 characters long",
     })
     .regex(/^$|[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/, {
-      message: "Include a first and last name which only contains letters, hyphens, and apostrophes.",
+      message:
+        "Include a first and last name which only contains letters, hyphens, and apostrophes.",
     }),
   phoneNumber: z
     .string({
@@ -68,7 +69,7 @@ export const InquiryFormSchema = z.object({
     .max(30, {
       message: "Instagram handle must be at most 30 characters long",
     })
-    .regex(/^$|[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]+$/i, {
+    .regex(/^[a-z](?!.*\.\.)(?!.*\.$)[a-z0-9_.]*$/i, {
       message:
         "Instagram handle can only contain letters, numbers, underscores, and periods. It must start with a letter and cannot end with a period or contain consecutive periods.",
     }),
