@@ -37,10 +37,19 @@ export async function sendAppointmentRequest(
   prevState: AppointmentRequestState,
   formData: FormData,
 ): Promise<AppointmentRequestState> {
+  const apiKey = process.env.MAILGUN_API_KEY;
+  if (!apiKey) {
+    console.error("Mailgun API key is not properly configured.");
+    return {
+      message: "Please contact support.",
+      success: false,
+    };
+  }
+
   const mailgun = new Mailgun(FormData);
   const mg = mailgun.client({
     username: "api",
-    key: process.env.MAILGUN_API_KEY || "API_KEY",
+    key: apiKey,
   });
 
   const rawFormData = Object.fromEntries(formData);
