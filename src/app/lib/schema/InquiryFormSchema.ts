@@ -76,7 +76,7 @@ export const InquiryFormSchema = z.object({
     })
     .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
-        "Occasion can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
+        "Occasion can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
   howFound: z
     .string({
@@ -91,7 +91,7 @@ export const InquiryFormSchema = z.object({
     })
     .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
-        "How you found us can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
+        "How you found us can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
   tanHistory: z
     .string({
@@ -106,7 +106,7 @@ export const InquiryFormSchema = z.object({
     })
     .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
-        "Tanning history can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
+        "Tanning history can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
   desiredResults: z
     .string({
@@ -121,7 +121,7 @@ export const InquiryFormSchema = z.object({
     })
     .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
-        "Desired results can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
+        "Desired results can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
   questionsConcerns: z
     .string({
@@ -132,7 +132,7 @@ export const InquiryFormSchema = z.object({
     })
     .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]*$/, {
       message:
-        "Questions or concerns can only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
+        "Questions or concerns can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     })
     .optional(),
 });
