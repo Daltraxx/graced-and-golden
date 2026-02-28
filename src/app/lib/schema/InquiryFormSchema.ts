@@ -13,7 +13,7 @@ export const InquiryFormSchema = z.object({
       message: "Name must be at most 50 characters long",
     })
     .regex(/^$|[A-Za-z]+(['-][A-Za-z]+)*(\s+[A-Za-z]+(['-][A-Za-z]+)*)+$/, {
-      message: "Name can only contain letters, hyphens, and apostrophes.",
+      message: "Include a first and last name which only contains letters, hyphens, and apostrophes.",
     }),
   phoneNumber: z
     .string({
