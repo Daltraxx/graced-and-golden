@@ -86,7 +86,10 @@ export async function sendInquiryEmail(
       html,
     });
 
-    console.log(data); // logs response data
+    if (process.env.NODE_ENV === "development") {
+      console.log("Email sent successfully:", data);
+    }
+    
     return {
       message:
         "Inquiry submitted successfully! We will get back to you as soon as possible.",
