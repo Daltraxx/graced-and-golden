@@ -27,10 +27,10 @@ export const InquiryFormSchema = z.object({
       },
     )
     .min(10, {
-      message: "Phone number must be at least 10 digits long",
+      message: "Phone number must be at least 10 characters long",
     })
     .max(15, {
-      message: "Phone number must be at most 15 digits long",
+      message: "Phone number must be at most 15 characters long",
     }),
   email: z
     .string({
