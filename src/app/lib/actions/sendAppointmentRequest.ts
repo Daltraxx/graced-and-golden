@@ -76,7 +76,11 @@ export async function sendAppointmentRequest(
       text: "Graced and Golden Appointment Request",
       html: generateApptRequestEmailHtml(validatedFields.data.message),
     });
-    console.log(data); // logs response data
+
+    if (process.env.NODE_ENV === "development") {
+      console.log("Appointment request email sent successfully:", data);
+    }
+    
     return {
       message:
         "Appointment request submitted successfully! We will get back to you as soon as possible.",
