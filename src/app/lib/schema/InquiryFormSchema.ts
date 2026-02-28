@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+const FREEFORM_TEXT_REGEX = /^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/;
+
 export const InquiryFormSchema = z.object({
   name: z
     .string({
@@ -84,7 +86,7 @@ export const InquiryFormSchema = z.object({
     .max(300, {
       message: "Occasion must be at most 300 characters long",
     })
-    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(FREEFORM_TEXT_REGEX, {
       message:
         "Occasion can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
@@ -99,7 +101,7 @@ export const InquiryFormSchema = z.object({
     .max(300, {
       message: "How you found us must be at most 300 characters long",
     })
-    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(FREEFORM_TEXT_REGEX, {
       message:
         "How you found us can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
@@ -114,7 +116,7 @@ export const InquiryFormSchema = z.object({
     .max(300, {
       message: "Tanning history must be at most 300 characters long",
     })
-    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(FREEFORM_TEXT_REGEX, {
       message:
         "Tanning history can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
@@ -129,7 +131,7 @@ export const InquiryFormSchema = z.object({
     .max(300, {
       message: "Desired results must be at most 300 characters long",
     })
-    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
+    .regex(FREEFORM_TEXT_REGEX, {
       message:
         "Desired results can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
@@ -140,7 +142,7 @@ export const InquiryFormSchema = z.object({
     .max(300, {
       message: "Questions or concerns must be at most 300 characters long",
     })
-    .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]*$/, {
+    .regex(FREEFORM_TEXT_REGEX, {
       message:
         "Questions or concerns can only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     })
