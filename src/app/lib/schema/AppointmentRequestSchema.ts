@@ -14,7 +14,7 @@ export const AppointmentRequestSchema = z.object({
     })
     .regex(/^[a-zA-Z0-9.,'"?:()_@#!&$\-\/ \n\r]+$/, {
       message:
-        "Message may only contain letters, numbers, spaces, and the following special characters: . _ @ # ! & $ - /",
+        "Message may only contain letters, numbers, spaces, and the following special characters: . , ' \" ? : ( ) _ @ # ! & $ - /",
     }),
 });
 
