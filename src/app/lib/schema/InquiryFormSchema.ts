@@ -47,7 +47,16 @@ export const InquiryFormSchema = z.object({
     })
     .regex(/^\d{4}-\d{2}-\d{2}$/, {
       message: "Please enter a valid date.",
-    }),
+    })
+    .refine(
+      (val) => {
+        const date = new Date(val);
+        return (
+          !isNaN(date.getTime()) && val === date.toISOString().split("T")[0]
+        );
+      },
+      { message: "Please enter a valid date." },
+    ),
   instagram: z
     .string({
       required_error: "Instagram handle is required",
