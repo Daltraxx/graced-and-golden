@@ -23,6 +23,7 @@ export const InquiryFormSchema = z.object({
       required_error: "Phone number is required",
       invalid_type_error: "Phone number must be a string",
     })
+    .trim()
     .regex(
       /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
       {
@@ -40,6 +41,7 @@ export const InquiryFormSchema = z.object({
       required_error: "Email is required",
       invalid_type_error: "Email must be a string",
     })
+    .trim()
     .email({
       message: "Please enter a valid email address.",
     }),
