@@ -1,8 +1,37 @@
 "use server";
 
 import { BrevoClient } from "@getbrevo/brevo";
-import { NewsletterSubscriptionSchema, NewsletterSubscriptionState } from "../schema/NewsletterSubscriptionSchema";
+import {
+  NewsletterSubscriptionSchema,
+  NewsletterSubscriptionState,
+} from "../schema/NewsletterSubscriptionSchema";
 
+/**
+ * Subscribes a user to the newsletter via Brevo API
+ *
+ * @param prevState - The previous state of the newsletter subscription form
+ * @param formData - The form data containing the email address to subscribe
+ * @returns A promise resolving to the subscription state with success status and message
+ *
+ * @remarks
+ * - Validates the email address using the NewsletterSubscriptionSchema
+ * - Creates a contact in Brevo and adds them to the newsletter list
+ * - Requires BREVO_API_KEY environment variable to be set
+ * - Uses BREVO_NEWSLETTER_LIST_ID environment variable (defaults to "3" if not set)
+ * - Logs successful subscriptions in development mode
+ *
+ * @example
+ * ```typescript
+ * const formData = new FormData();
+ * formData.append('email', 'user@example.com');
+ * const result = await subscribeToNewsletter({}, formData);
+ * if (result.success) {
+ *   console.log(result.message);
+ * }
+ * ```
+ *
+ * @throws Does not throw errors directly; returns error state object instead
+ */
 export async function subscribeToNewsletter(
   prevState: NewsletterSubscriptionState,
   formData: FormData,
@@ -21,7 +50,7 @@ export async function subscribeToNewsletter(
   const rawFormData = Object.fromEntries(formData);
   const validatedFields = NewsletterSubscriptionSchema.safeParse(rawFormData);
 
-  if (!validatedFields.success) { 
+  if (!validatedFields.success) {
     console.error(
       "Validation failed:",
       validatedFields.error.flatten().fieldErrors,
@@ -46,10 +75,10 @@ export async function subscribeToNewsletter(
     }
 
     return {
-      message: "Successfully subscribed to the newsletter! Thank you for joining.",
+      message:
+        "Successfully subscribed to the newsletter! Thank you for joining.",
       success: true,
     };
-
   } catch (error) {
     console.error("Failed to subscribe to the newsletter:", error);
     return {
