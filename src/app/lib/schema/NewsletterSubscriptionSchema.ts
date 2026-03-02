@@ -6,6 +6,7 @@ export const NewsletterSubscriptionSchema = z.object({
       required_error: "Email is required",
       invalid_type_error: "Email must be a string",
     })
+    .trim()
     .email({
       message: "Please enter a valid email address.",
     }),
