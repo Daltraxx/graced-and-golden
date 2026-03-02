@@ -67,10 +67,12 @@ export async function subscribeToNewsletter(
   // and if exists, ensure they are added to the newsletter list if not already subscribed.
 
   // Create Brevo contact and add to newsletter list
+  const subscriptionListId = parseInt(process.env.BREVO_NEWSLETTER_LIST_ID || "3", 10);
+  
   try {
     const data = await brevoClient.contacts.createContact({
       email: validatedFields.data.email,
-      listIds: [Number(process.env.BREVO_NEWSLETTER_LIST_ID || "3")],
+      listIds: [subscriptionListId],
     });
 
     if (process.env.NODE_ENV === "development") {
