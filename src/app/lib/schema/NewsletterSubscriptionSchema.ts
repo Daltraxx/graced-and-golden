@@ -11,6 +11,10 @@ export const NewsletterSubscriptionSchema = z.object({
     }),
 });
 
-export type NewsletterSubscriptionState = z.infer<
-  typeof NewsletterSubscriptionSchema
->;
+export type NewsletterSubscriptionState = {
+  errors?: {
+    message?: string[];
+  };
+  success: boolean;
+  message: string | null;
+};
