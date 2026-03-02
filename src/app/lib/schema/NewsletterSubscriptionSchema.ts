@@ -13,7 +13,7 @@ export const NewsletterSubscriptionSchema = z.object({
 
 export type NewsletterSubscriptionState = {
   errors?: {
-    message?: string[];
+    email?: string[];
   };
   success: boolean;
   message: string | null;
