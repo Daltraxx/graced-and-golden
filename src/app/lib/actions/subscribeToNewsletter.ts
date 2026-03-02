@@ -63,6 +63,9 @@ export async function subscribeToNewsletter(
     };
   }
 
+  // TODO: Check if contact already exists in Brevo before attempting to create a new one,
+  // and if exists, ensure they are added to the newsletter list if not already subscribed.
+
   // Create Brevo contact and add to newsletter list
   try {
     const data = await brevoClient.contacts.createContact({
@@ -86,4 +89,6 @@ export async function subscribeToNewsletter(
       success: false,
     };
   }
+
+  // TODO: Use Mailgun to send first time subscription email to user and admin notification email
 }
