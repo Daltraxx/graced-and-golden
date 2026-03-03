@@ -31,6 +31,7 @@ const isBrevoError = (error: unknown): error is BrevoError => {
  * @remarks
  * - Validates the email address using the NewsletterSubscriptionSchema
  * - Creates a contact in Brevo and adds them to the newsletter list
+ * - Handles cases where the contact already exists in Brevo and ensures they are added to the newsletter list
  * - Requires BREVO_API_KEY environment variable to be set
  * - Uses BREVO_NEWSLETTER_LIST_ID environment variable (defaults to "3" if not set)
  * - Logs successful subscriptions in development mode
