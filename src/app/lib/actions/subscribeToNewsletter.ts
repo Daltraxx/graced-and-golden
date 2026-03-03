@@ -6,6 +6,21 @@ import {
   NewsletterSubscriptionState,
 } from "../schema/NewsletterSubscriptionSchema";
 
+// TODO: Add status code if found to exist
+type BrevoError = {
+  code: string;
+  message: string;
+};
+
+const isBrevoError = (error: unknown): error is BrevoError => {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    "message" in error
+  );
+};
+
 /**
  * Subscribes a user to the newsletter via Brevo API
  *
@@ -63,12 +78,45 @@ export async function subscribeToNewsletter(
     };
   }
 
-  // TODO: Check if contact already exists in Brevo before attempting to create a new one,
-  // and if exists, ensure they are added to the newsletter list if not already subscribed.
+  const subscriptionListId = parseInt(
+    process.env.BREVO_NEWSLETTER_LIST_ID || "3",
+    10,
+  );
+
+  // Check if contact already exists in Brevo.
+  // If it does, skip creating a new contact and just ensure they are in the newsletter list.
+  try {
+    const contactData = await brevoClient.contacts.getContactInfo({
+      identifier: validatedFields.data.email,
+    });
+
+    const contactsLists = contactData.listIds;
+    if (!contactsLists.includes(subscriptionListId)) {
+      // Add existing contact to newsletter list
+      await brevoClient.contacts.updateContact({
+        identifier: validatedFields.data.email,
+        listIds: [...contactsLists, subscriptionListId],
+      });
+    }
+  } catch (error) {
+    if (isBrevoError(error) && error.code === "document_not_found") {
+      if (process.env.NODE_ENV === "development") {
+        console.log(
+          "Contact not found in Brevo, will create new contact:",
+          validatedFields.data.email,
+        );
+      }
+    } else {
+      console.error("Error checking existing contact in Brevo:", error);
+      return {
+        message:
+          "Failed to subscribe to the newsletter. Please try again later.",
+        success: false,
+      };
+    }
+  }
 
   // Create Brevo contact and add to newsletter list
-  const subscriptionListId = parseInt(process.env.BREVO_NEWSLETTER_LIST_ID || "3", 10);
-  
   try {
     const data = await brevoClient.contacts.createContact({
       email: validatedFields.data.email,
