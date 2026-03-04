@@ -136,6 +136,8 @@ export async function subscribeToNewsletter(
       console.log("Newsletter subscription successful:", data);
     }
 
+    // TODO: Use Mailgun to send first time subscription email to user and admin notification email
+
     return {
       message:
         "Successfully subscribed to the newsletter! Thank you for joining.",
@@ -148,6 +150,4 @@ export async function subscribeToNewsletter(
       success: false,
     };
   }
-
-  // TODO: Use Mailgun to send first time subscription email to user and admin notification email
 }
