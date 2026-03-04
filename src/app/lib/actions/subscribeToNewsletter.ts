@@ -98,6 +98,14 @@ export async function subscribeToNewsletter(
         identifier: validatedFields.data.email,
         listIds: [...contactsLists, subscriptionListId],
       });
+      if (process.env.NODE_ENV === "development") {
+        console.log("Contact already exists, ensured in newsletter list.");
+      }
+      return {
+        message:
+          "Successfully subscribed to the newsletter! Thank you for joining.",
+        success: true,
+      };
     }
   } catch (error) {
     if (isBrevoError(error) && error.code === "document_not_found") {
