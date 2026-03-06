@@ -1,6 +1,10 @@
 import { BrevoClient } from "@getbrevo/brevo";
 
 const FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID = 1;
+const DEFAULT_SENDER = {
+  name: "Graced and Golden",
+  email: "hello@gracedandgolden.com",
+};
 
 /**
  * Sends a welcome email to a first-time subscriber using the Brevo email service.
@@ -31,10 +35,7 @@ export default async function sendFirstTimeSubscriberEmail(
   try {
     await emailerClient.transactionalEmails.sendTransacEmail({
       subject: "Welcome to the Graced and Golden Newsletter!",
-      sender: {
-        name: "Graced and Golden",
-        email: "hello@gracedandgolden.com",
-      },
+      sender: DEFAULT_SENDER,
       to: [{ email }],
       templateId: FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID,
     });
