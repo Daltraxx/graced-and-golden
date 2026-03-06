@@ -1,5 +1,6 @@
 import { BrevoClient } from "@getbrevo/brevo";
 
+const FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID = 1;
 
 /**
  * Sends a welcome email to a first-time subscriber using the Brevo email service.
@@ -34,7 +35,7 @@ export default async function sendFirstTimeSubscriberEmail(
         email: "hello@gracedandgolden.com",
       },
       to: [{ email }],
-      templateId: 1,
+      templateId: FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID,
     });
     return {
       success: true,
