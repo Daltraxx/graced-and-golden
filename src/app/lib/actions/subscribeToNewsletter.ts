@@ -154,12 +154,10 @@ export async function subscribeToNewsletter(
         templateId: 1,
       });
     } catch (emailError) {
-      if (process.env.NODE_ENV === "development") {
-        console.error(
-          "Failed to send subscription confirmation email:",
-          emailError,
-        );
-      }
+      console.error(
+        "Failed to send subscription confirmation email:",
+        emailError,
+      );
       // Not critical to subscription success, so we won't return an error state here
     }
 
