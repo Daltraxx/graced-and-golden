@@ -39,7 +39,7 @@ export default async function CTAModal({ isOpen, onClose }: CTAModalProps) {
               components={components}
             />
           </label>
-          <input type="email" placeholder="Enter your email" />
+          <input type="email" id="email" name="email" />
           <button type="submit">Subscribe</button>
         </form>
       </section>
