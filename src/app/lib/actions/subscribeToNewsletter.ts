@@ -110,10 +110,7 @@ export async function subscribeToNewsletter(
   } catch (error) {
     if (isBrevoError(error) && error.code === "document_not_found") {
       if (process.env.NODE_ENV === "development") {
-        console.log(
-          "Contact not found in Brevo, will create new contact:",
-          validatedFields.data.email,
-        );
+        console.log("Contact not found in Brevo, will create new contact.");
       }
     } else {
       console.error("Error checking existing contact in Brevo:", error);
