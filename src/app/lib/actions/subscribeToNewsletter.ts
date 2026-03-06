@@ -136,7 +136,26 @@ export async function subscribeToNewsletter(
       console.log("Newsletter subscription successful:", data);
     }
 
-    // TODO: Use Mailgun to send first time subscription email to user and admin notification email
+    // Send first time subscription email
+    try {
+      await brevoClient.transactionalEmails.sendTransacEmail({
+        subject: "Welcome to the Graced and Golden Newsletter!",
+        sender: {
+          name: "Graced and Golden",
+          email: "hello@gracedandgolden.com",
+        },
+        to: [{ email: validatedFields.data.email }],
+        templateId: 1,
+      });
+    } catch (emailError) {
+      if (process.env.NODE_ENV === "development") {
+        console.error(
+          "Failed to send subscription confirmation email:",
+          emailError,
+        );
+      }
+      // Not critical to subscription success, so we won't return an error state here
+    }
 
     return {
       message:
