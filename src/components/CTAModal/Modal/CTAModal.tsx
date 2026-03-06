@@ -10,8 +10,13 @@ type CTAModalProps = {
 export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
   return (
     <>
-      <section className={clsx(styles.ctaModal, { [styles.open]: isOpen })}>
-        <Heading as="h2" size="manual" font="display">
+      <section
+        className={clsx(styles.ctaModal, { [styles.open]: isOpen })}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cta-modal-heading"
+      >
+        <Heading as="h2" size="manual" font="display" id="cta-modal-heading">
           Subscribe to our Newsletter
         </Heading>
         <p>
