@@ -26,7 +26,7 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
         <label htmlFor="email" className={styles.emailLabel}>
           Enter your email:
         </label>
-        <input type="email" id="email" name="email" />
+        <input type="email" id="email" name="email" required/>
         <button type="submit">Subscribe</button>
       </form>
     </section>
