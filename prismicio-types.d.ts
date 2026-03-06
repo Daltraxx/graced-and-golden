@@ -360,6 +360,60 @@ export type MainServicesPageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Newsletter CTA documents
+ */
+interface NewsletterCtaDocumentData {
+  /**
+   * Heading field in *Newsletter CTA*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_cta.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body Text field in *Newsletter CTA*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_cta.body_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Email Form Label field in *Newsletter CTA*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_cta.email_form_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  email_form_label: prismic.RichTextField;
+}
+
+/**
+ * Newsletter CTA document from Prismic
+ *
+ * - **API ID**: `newsletter_cta`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsletterCtaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NewsletterCtaDocumentData>,
+    "newsletter_cta",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
   | SimpleColumnWLinkSlice
   | AboutSlice
@@ -572,6 +626,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomepageDocument
   | MainServicesPageDocument
+  | NewsletterCtaDocument
   | PageDocument
   | ServicePageDocument
   | SettingsDocument;
@@ -3793,6 +3848,8 @@ declare module "@prismicio/client" {
       MainServicesPageDocument,
       MainServicesPageDocumentData,
       MainServicesPageDocumentDataSlicesSlice,
+      NewsletterCtaDocument,
+      NewsletterCtaDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

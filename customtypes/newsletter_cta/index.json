@@ -1,0 +1,38 @@
+{
+  "format": "custom",
+  "id": "newsletter_cta",
+  "label": "Newsletter CTA",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Heading",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "heading2,heading3"
+        }
+      },
+      "body_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Body Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "email_form_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Email Form Label",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "paragraph,strong,em"
+        }
+      }
+    }
+  }
+}
