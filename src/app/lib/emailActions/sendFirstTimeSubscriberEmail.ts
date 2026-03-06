@@ -11,6 +11,7 @@ const FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID = 1;
  * @remarks
  * - The email is sent using a predefined transactional email template in Brevo (templateId: 1)
  * - The sender's name and email are set to "Graced and Golden" and "hello@gracedandgolden.com" respectively
+ * - Trusts that the provided email address has already been validated and does not perform additional validation
  * @throws Does not throw, errors are caught and returned in the response object
  *
  * @example
