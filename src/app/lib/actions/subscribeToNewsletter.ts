@@ -161,7 +161,7 @@ export async function subscribeToNewsletter(
     );
     if (!firstTimeEmailResult.success) {
       console.error(firstTimeEmailResult.message);
-      // We won't return an error state here since the subscription itself was successful}
+      // We won't return an error state here since the subscription itself was successful
     }
 
     return {
