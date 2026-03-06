@@ -84,6 +84,14 @@ export async function subscribeToNewsletter(
     10,
   );
 
+  if (isNaN(subscriptionListId)) {
+    console.error("Invalid BREVO_NEWSLETTER_LIST_ID configuration.");
+    return {
+      message: "Failed to subscribe to the newsletter. Please contact support.",
+      success: false,
+    };
+  }
+
   // Check if contact already exists in Brevo.
   // If it does, skip creating a new contact and just ensure they are in the newsletter list.
   try {
@@ -102,7 +110,7 @@ export async function subscribeToNewsletter(
         console.log("Contact already exists, ensured in newsletter list.");
       }
     }
-    // Contact already exists and is in the newsletter list, consider this a successful subscription
+    // Contact already exists and is ensured to be in the newsletter list
     return {
       message:
         "Successfully subscribed to the newsletter! Thank you for joining.",
