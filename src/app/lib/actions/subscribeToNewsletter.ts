@@ -22,6 +22,18 @@ const isBrevoError = (error: unknown): error is BrevoError => {
   );
 };
 
+// Helper function to send welcome email to subscriber and normalize error handling for that action
+const sendWelcomeEmailToSubscriber = async (
+  email: string,
+  brevoClient: BrevoClient,
+) => {
+  const result = await sendFirstTimeSubscriberEmail(email, brevoClient);
+  if (!result.success) {
+    console.error(result.message);
+    // We won't return an error state here since the subscription itself was successful
+  }
+};
+
 /**
  * Subscribes a user to the newsletter via Brevo API
  *
@@ -101,9 +113,11 @@ export async function subscribeToNewsletter(
     });
 
     if (!contactData?.listIds) {
-      throw new Error("Unexpected response from Brevo when checking contact info.");
+      throw new Error(
+        "Unexpected response from Brevo when checking contact info.",
+      );
     }
-    
+
     const contactsLists = contactData.listIds;
     // If contact exists but is not in the newsletter list, add them to it
     if (!contactsLists.includes(subscriptionListId)) {
@@ -117,14 +131,7 @@ export async function subscribeToNewsletter(
       }
       // TODO: Check if user has been in subscription list before and only send welcome email if first time subscribing
       // Send first time subscription email
-      const firstTimeEmailResult = await sendFirstTimeSubscriberEmail(
-        validatedFields.data.email,
-        brevoClient,
-      );
-      if (!firstTimeEmailResult.success) {
-        console.error(firstTimeEmailResult.message);
-        // We won't return an error state here since the subscription itself was successful}
-      }
+      await sendWelcomeEmailToSubscriber(validatedFields.data.email, brevoClient);
     }
     // Contact already exists and is ensured to be in the newsletter list
     return {
@@ -159,14 +166,7 @@ export async function subscribeToNewsletter(
     }
 
     // Send first time subscription email
-    const firstTimeEmailResult = await sendFirstTimeSubscriberEmail(
-      validatedFields.data.email,
-      brevoClient,
-    );
-    if (!firstTimeEmailResult.success) {
-      console.error(firstTimeEmailResult.message);
-      // We won't return an error state here since the subscription itself was successful
-    }
+    await sendWelcomeEmailToSubscriber(validatedFields.data.email, brevoClient);
 
     return {
       message:
