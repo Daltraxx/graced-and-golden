@@ -100,6 +100,10 @@ export async function subscribeToNewsletter(
       identifier: validatedFields.data.email,
     });
 
+    if (!contactData?.listIds) {
+      throw new Error("Unexpected response from Brevo when checking contact info.");
+    }
+    
     const contactsLists = contactData.listIds;
     // If contact exists but is not in the newsletter list, add them to it
     if (!contactsLists.includes(subscriptionListId)) {
