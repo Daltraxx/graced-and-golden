@@ -101,12 +101,13 @@ export async function subscribeToNewsletter(
       if (process.env.NODE_ENV === "development") {
         console.log("Contact already exists, ensured in newsletter list.");
       }
-      return {
-        message:
-          "Successfully subscribed to the newsletter! Thank you for joining.",
-        success: true,
-      };
     }
+    // Contact already exists and is in the newsletter list, consider this a successful subscription
+    return {
+      message:
+        "Successfully subscribed to the newsletter! Thank you for joining.",
+      success: true,
+    };
   } catch (error) {
     if (isBrevoError(error) && error.code === "document_not_found") {
       if (process.env.NODE_ENV === "development") {
