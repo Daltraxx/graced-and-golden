@@ -5,6 +5,7 @@ import {
   NewsletterSubscriptionSchema,
   NewsletterSubscriptionState,
 } from "../schema/NewsletterSubscriptionSchema";
+import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSubscriberEmail";
 
 // TODO: Add status code if found to exist
 type BrevoError = {
@@ -100,6 +101,7 @@ export async function subscribeToNewsletter(
     });
 
     const contactsLists = contactData.listIds;
+    // If contact exists but is not in the newsletter list, add them to it
     if (!contactsLists.includes(subscriptionListId)) {
       // Add existing contact to newsletter list
       await brevoClient.contacts.updateContact({
@@ -108,6 +110,16 @@ export async function subscribeToNewsletter(
       });
       if (process.env.NODE_ENV === "development") {
         console.log("Contact already exists, ensured in newsletter list.");
+      }
+      // TODO: Check if user has been in subscription list before and only send welcome email if first time subscribing
+      // Send first time subscription email
+      const firstTimeEmailResult = await sendFirstTimeSubscriberEmail(
+        validatedFields.data.email,
+        brevoClient,
+      );
+      if (!firstTimeEmailResult.success) {
+        console.error(firstTimeEmailResult.message);
+        // We won't return an error state here since the subscription itself was successful}
       }
     }
     // Contact already exists and is ensured to be in the newsletter list
@@ -143,22 +155,13 @@ export async function subscribeToNewsletter(
     }
 
     // Send first time subscription email
-    try {
-      await brevoClient.transactionalEmails.sendTransacEmail({
-        subject: "Welcome to the Graced and Golden Newsletter!",
-        sender: {
-          name: "Graced and Golden",
-          email: "hello@gracedandgolden.com",
-        },
-        to: [{ email: validatedFields.data.email }],
-        templateId: 1,
-      });
-    } catch (emailError) {
-      console.error(
-        "Failed to send subscription confirmation email:",
-        emailError,
-      );
-      // Not critical to subscription success, so we won't return an error state here
+    const firstTimeEmailResult = await sendFirstTimeSubscriberEmail(
+      validatedFields.data.email,
+      brevoClient,
+    );
+    if (!firstTimeEmailResult.success) {
+      console.error(firstTimeEmailResult.message);
+      // We won't return an error state here since the subscription itself was successful}
     }
 
     return {
