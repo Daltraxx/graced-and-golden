@@ -24,6 +24,16 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
     INITIAL_SUBSCRIPTION_STATE,
   );
 
+  const getSubmitButtonText = () => { 
+    if (isPending) { 
+      return "Submitting...";
+    } else if (subscriptionState.success) {
+      return "Subscribed!";
+    } else {
+      return "Submit";
+    }
+  };
+
   return (
     <Dialog.Root open={isOpen} onOpenChange={onClose}>
       <Dialog.Portal>
@@ -46,7 +56,7 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
               type="submit"
               disabled={isPending}
             >
-              Submit
+              {getSubmitButtonText()}
             </NonPrismicButton>
           </form>
           <Dialog.Close asChild>
