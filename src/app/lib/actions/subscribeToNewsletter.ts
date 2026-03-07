@@ -121,10 +121,14 @@ export async function subscribeToNewsletter(
     const contactsLists = contactData.listIds;
     // If contact exists but is not in the newsletter list, add them to it
     if (contactsLists.includes(subscriptionListId)) {
-      return {
-        message: "Already subscribed to the newsletter, but we appreciate it anyway.",
-        success: true,
+      if (process.env.NODE_ENV === "development") {
+        console.log("Contact exists and is already subscribed.");
       }
+      return {
+        message:
+          "Already subscribed to the newsletter, but we appreciate it anyway.",
+        success: true,
+      };
     } else {
       // Add existing contact to newsletter list
       await brevoClient.contacts.updateContact({
@@ -140,13 +144,13 @@ export async function subscribeToNewsletter(
         validatedFields.data.email,
         brevoClient,
       );
+
+      return {
+        message:
+          "Successfully subscribed to the newsletter! Thank you for joining.",
+        success: true,
+      };
     }
-    // Contact already exists and is ensured to be in the newsletter list
-    return {
-      message:
-        "Successfully subscribed to the newsletter! Thank you for joining.",
-      success: true,
-    };
   } catch (error) {
     if (isBrevoError(error) && error.statusCode === 404) {
       if (process.env.NODE_ENV === "development") {

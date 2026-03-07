@@ -144,3 +144,9 @@
 .buttonOliveBrown700:active {
   background: hsl(46, 24%, 28%);
 }
+
+.buttonOliveBrown700[disabled] {
+   background: var(--olive-brown-700);
+   opacity: 0.5;
+   cursor: not-allowed;
+}
