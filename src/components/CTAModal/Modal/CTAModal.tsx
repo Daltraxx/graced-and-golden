@@ -1,4 +1,6 @@
 import Heading from "@/components/Heading";
+import { Dialog } from "radix-ui";
+import { Cross2Icon } from "@radix-ui/react-icons";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 
@@ -9,26 +11,52 @@ type CTAModalProps = {
 
 export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
   return (
-    <section
-      className={clsx(styles.ctaModal, { [styles.open]: isOpen })}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="cta-modal-heading"
-    >
-      <Heading as="h2" size="manual" font="display" id="cta-modal-heading">
-        Subscribe to our Newsletter
-      </Heading>
-      <p>
-        Updates, exclusive deals, last minute openings & pro tips... straight to
-        your inbox.
-      </p>
-      <form action="">
-        <label htmlFor="email" className={styles.emailLabel}>
-          Enter your email:
-        </label>
-        <input type="email" id="email" name="email" required/>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
+    <Dialog.Root open={isOpen} onOpenChange={onClose}>
+      <Dialog.Portal>
+        <Dialog.Overlay className={styles.Overlay} />
+        <Dialog.Content className={styles.Content}>
+          <Dialog.Title className={styles.Title}>Edit profile</Dialog.Title>
+          <Dialog.Description className={styles.Description}>
+            Make changes to your profile here. Click save when you're done.
+          </Dialog.Description>
+          <fieldset className={styles.Fieldset}>
+            <label className={styles.Label} htmlFor="name">
+              Name
+            </label>
+            <input
+              className={styles.Input}
+              id="name"
+              defaultValue="Pedro Duarte"
+            />
+          </fieldset>
+          <fieldset className={styles.Fieldset}>
+            <label className={styles.Label} htmlFor="username">
+              Username
+            </label>
+            <input
+              className={styles.Input}
+              id="username"
+              defaultValue="@peduarte"
+            />
+          </fieldset>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 25,
+              justifyContent: "flex-end",
+            }}
+          >
+            <Dialog.Close asChild>
+              <button className={`${styles.Button} green`}>Save changes</button>
+            </Dialog.Close>
+          </div>
+          <Dialog.Close asChild>
+            <button className={styles.IconButton} aria-label="Close">
+              <Cross2Icon />
+            </button>
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }
