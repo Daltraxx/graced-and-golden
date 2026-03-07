@@ -1,4 +1,3 @@
-import Heading from "@/components/Heading";
 import { Dialog } from "radix-ui";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import styles from "./styles.module.css";
@@ -6,7 +5,6 @@ import { NonPrismicButton } from "@/components/Button/Button";
 
 import { subscribeToNewsletter } from "@/app/lib/actions/subscribeToNewsletter";
 import { NewsletterSubscriptionState } from "@/app/lib/schema/NewsletterSubscriptionSchema";
-import clsx from "clsx";
 import { useActionState } from "react";
 
 const INITIAL_SUBSCRIPTION_STATE = {
