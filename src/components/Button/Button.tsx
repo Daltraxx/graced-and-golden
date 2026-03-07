@@ -14,6 +14,20 @@ type ButtonProps = PrismicNextLinkProps & {
     | "olive-brown-700";
 };
 
+/**
+ * Renders a styled link button using `PrismicNextLink`.
+ *
+ * Applies a base button class and conditionally appends a color-specific style
+ * class based on the `color` prop. If no color is provided, `"brown-200"` is used.
+ *
+ * @param props - Component props.
+ * @param props.className - Optional additional CSS class names to append.
+ * @param props.color - Visual theme token for the button style.
+ * Supported values: `"cream-200"`, `"brown-200"`, `"brown-300"`, `"brown-500"`,
+ * `"brown-700"`, `"brown-800"`, `"beige-300"`, `"olive-brown-700"`.
+ * @param props.restProps - Remaining props forwarded to `PrismicNextLink`.
+ * @returns A `PrismicNextLink` element styled as a button.
+ */
 export default function Button({
   className,
   color = "brown-200",
@@ -50,6 +64,35 @@ type NonPrismicButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     | "olive-brown-700";
 };
 
+/**
+ * A simple button component with customizable color variants.
+ *
+ * @component
+ * @param {NonPrismicButtonProps} props - The button properties
+ * @param {string} [props.className] - Additional CSS class names to apply to the button
+ * @param {string} [props.color="brown-200"] - The color variant of the button. Supported values are:
+ *   - "cream-200"
+ *   - "brown-200" (default)
+ *   - "brown-300"
+ *   - "brown-500"
+ *   - "brown-700"
+ *   - "brown-800"
+ *   - "beige-300"
+ *   - "olive-brown-700"
+ * @param {React.ButtonHTMLAttributes<HTMLButtonElement>} [props...restProps] - Standard HTML button attributes
+ *
+ * @returns {React.ReactElement} A styled button element with the specified color variant and any additional classes applied
+ *
+ * @example
+ * // Default brown-200 button
+ * <NonPrismicButton>Click me</NonPrismicButton>
+ *
+ * @example
+ * // Cream-colored button with custom class
+ * <NonPrismicButton color="cream-200" className="custom-class">
+ *   Submit
+ * </NonPrismicButton>
+ */
 export function NonPrismicButton({
   className,
   color = "brown-200",
