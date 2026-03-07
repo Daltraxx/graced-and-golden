@@ -9,7 +9,7 @@ import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSu
 
 // TODO: Add status code if found to exist
 type BrevoError = {
-  code: string;
+  statusCode: number;
   message: string;
 };
 
@@ -17,7 +17,7 @@ const isBrevoError = (error: unknown): error is BrevoError => {
   return (
     typeof error === "object" &&
     error !== null &&
-    "code" in error &&
+    "statusCode" in error &&
     "message" in error
   );
 };
@@ -120,7 +120,12 @@ export async function subscribeToNewsletter(
 
     const contactsLists = contactData.listIds;
     // If contact exists but is not in the newsletter list, add them to it
-    if (!contactsLists.includes(subscriptionListId)) {
+    if (contactsLists.includes(subscriptionListId)) {
+      return {
+        message: "Already subscribed to the newsletter, but we appreciate it anyway.",
+        success: true,
+      }
+    } else {
       // Add existing contact to newsletter list
       await brevoClient.contacts.updateContact({
         identifier: validatedFields.data.email,
@@ -131,7 +136,10 @@ export async function subscribeToNewsletter(
       }
       // TODO: Check if user has been in subscription list before and only send welcome email if first time subscribing
       // Send first time subscription email
-      await sendWelcomeEmailToSubscriber(validatedFields.data.email, brevoClient);
+      await sendWelcomeEmailToSubscriber(
+        validatedFields.data.email,
+        brevoClient,
+      );
     }
     // Contact already exists and is ensured to be in the newsletter list
     return {
@@ -140,7 +148,7 @@ export async function subscribeToNewsletter(
       success: true,
     };
   } catch (error) {
-    if (isBrevoError(error) && error.code === "document_not_found") {
+    if (isBrevoError(error) && error.statusCode === 404) {
       if (process.env.NODE_ENV === "development") {
         console.log("Contact not found in Brevo, will create new contact.");
       }
