@@ -54,7 +54,7 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
               color="olive-brown-700"
               className={styles.submitButton}
               type="submit"
-              disabled={isPending}
+              disabled={isPending || subscriptionState.success}
             >
               {getSubmitButtonText()}
             </NonPrismicButton>
