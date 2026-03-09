@@ -5,7 +5,7 @@ import { NonPrismicButton } from "@/components/Button/Button";
 
 import { subscribeToNewsletter } from "@/app/lib/actions/subscribeToNewsletter";
 import { NewsletterSubscriptionState } from "@/app/lib/schema/NewsletterSubscriptionSchema";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 
 const INITIAL_SUBSCRIPTION_STATE = {
   message: "",
@@ -23,6 +23,14 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
     subscribeToNewsletter,
     INITIAL_SUBSCRIPTION_STATE,
   );
+
+  // Automatically close the modal after a successful subscription
+  useEffect(() => {
+    if (subscriptionState.success) {
+      const timeout = setTimeout(onClose, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [subscriptionState.success, onClose]);
 
   const getSubmitButtonText = () => {
     if (isPending) {
