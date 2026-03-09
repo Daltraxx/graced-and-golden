@@ -7,7 +7,6 @@ import {
 } from "../schema/NewsletterSubscriptionSchema";
 import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSubscriberEmail";
 
-// TODO: Add status code if found to exist
 type BrevoError = {
   statusCode: number;
   message: string;
