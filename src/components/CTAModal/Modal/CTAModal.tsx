@@ -45,12 +45,12 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
   return (
     <Dialog.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
-        <Dialog.Overlay className={styles.Overlay} />
-        <Dialog.Content className={styles.Content}>
-          <Dialog.Title className={styles.Title}>
+        <Dialog.Overlay className={styles.overlay} />
+        <Dialog.Content className={styles.content}>
+          <Dialog.Title className={styles.title}>
             First time here? Sign up for $10 off
           </Dialog.Title>
-          <Dialog.Description className={styles.Description}>
+          <Dialog.Description className={styles.description}>
             Updates, exclusive deals, last minute openings & pro tips...
             straight to your inbox.
           </Dialog.Description>
@@ -78,7 +78,7 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
             </NonPrismicButton>
           </form>
           <Dialog.Close asChild>
-            <button className={styles.IconButton} aria-label="Close">
+            <button className={styles.iconButton} aria-label="Close">
               <Cross2Icon />
             </button>
           </Dialog.Close>
