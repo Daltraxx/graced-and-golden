@@ -56,8 +56,16 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
           </Dialog.Description>
 
           <form action={formAction} className={styles.form}>
-            <label htmlFor="subscribe-email">Enter your email:</label>
-            <input type="email" id="subscribe-email" name="email" required />
+            <label htmlFor="subscribe-email" className={styles.label}>
+              Enter your email:
+            </label>
+            <input
+              type="email"
+              id="subscribe-email"
+              name="email"
+              required
+              className={styles.input}
+            />
             {subscriptionState.errors?.email && (
               <span className={styles.error} role="alert">
                 {subscriptionState.errors.email}
