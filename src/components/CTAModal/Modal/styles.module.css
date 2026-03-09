@@ -2,7 +2,14 @@
   background-color: hsla(0, 0%, 0%, 0.3);
   position: fixed;
   inset: 0;
-  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Overlay[data-state="open"] {
+	animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.Overlay[data-state="closed"] {
+	animation: overlayHide 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .Content {
@@ -18,10 +25,17 @@
   max-width: 500px;
   max-height: 85vh;
   padding: 25px;
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
   &:focus {
     outline: none;
   }
+}
+
+.Content[data-state="open"] {
+	animation: contentShow 150ms ease-out;
+}
+
+.Content[data-state="closed"] {
+	animation: contentHide 150ms ease-out;
 }
 
 .Title {
@@ -122,6 +136,11 @@
   }
 }
 
+@keyframes overlayHide {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 @keyframes contentShow {
   from {
     opacity: 0;
@@ -131,6 +150,11 @@
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+}
+
+@keyframes contentHide {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
 }
 
 @media (prefers-reduced-motion: reduce) {
