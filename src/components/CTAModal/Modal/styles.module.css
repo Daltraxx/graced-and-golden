@@ -5,11 +5,11 @@
 }
 
 .overlay[data-state="open"] {
-	animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .overlay[data-state="closed"] {
-	animation: overlayHide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: overlayHide 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .content {
@@ -31,11 +31,11 @@
 }
 
 .content[data-state="open"] {
-	animation: contentShow 150ms ease-out;
+  animation: contentShow 150ms ease-out;
 }
 
 .content[data-state="closed"] {
-	animation: contentHide 150ms ease-out;
+  animation: contentHide 150ms ease-out;
 }
 
 .title {
@@ -53,26 +53,24 @@
 }
 
 .iconButton {
-  all: unset;
-  font-family: inherit;
   border-radius: 100%;
   height: 25px;
   width: 25px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--violet-11);
+  color: var(--olive-brown-700);
   cursor: pointer;
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: var(--gray-3);
   &:hover {
-    background-color: var(--violet-4);
+    background-color: var(--olive-brown-500);
+    color: var(--beige-300);
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px var(--violet-7);
+    box-shadow: 0 0 0 2px var(--olive-brown-700);
   }
 }
 
@@ -94,8 +92,12 @@
 }
 
 @keyframes overlayHide {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes contentShow {
@@ -110,8 +112,14 @@
 }
 
 @keyframes contentHide {
-  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  to { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
