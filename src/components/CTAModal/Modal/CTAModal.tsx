@@ -48,7 +48,9 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content className={styles.content}>
           <Dialog.Title className={styles.title}>
-            First time here? Sign up for $10 off
+            First time here?
+            <br />
+            Sign up for $10 off
           </Dialog.Title>
           <Dialog.Description className={styles.description}>
             Updates, exclusive deals, last minute openings & pro tips...
