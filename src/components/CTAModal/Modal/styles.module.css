@@ -74,14 +74,6 @@
   }
 }
 
-.Fieldset {
-  all: unset;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
 @keyframes overlayShow {
   from {
     opacity: 0;
