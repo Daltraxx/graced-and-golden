@@ -2,19 +2,21 @@ import { PrismicNextLink, PrismicNextLinkProps } from "@prismicio/next";
 import clsx from "clsx";
 import buttonStyles from "@/components/Button/styles.module.css";
 
+type ButtonColor =
+  | "cream-200"
+  | "brown-200"
+  | "brown-300"
+  | "brown-500"
+  | "brown-700"
+  | "brown-800"
+  | "beige-300"
+  | "olive-brown-700";
+
 type ButtonProps = PrismicNextLinkProps & {
-  color?:
-    | "cream-200"
-    | "brown-200"
-    | "brown-300"
-    | "brown-500"
-    | "brown-700"
-    | "brown-800"
-    | "beige-300"
-    | "olive-brown-700";
+  color?: ButtonColor;
 };
 
-const colorClassMap: Record<NonNullable<ButtonProps["color"]>, string> = {
+const colorClassMap: Record<NonNullable<ButtonColor>, string> = {
   "cream-200": buttonStyles.buttonCream200,
   "brown-200": buttonStyles.buttonBrown200,
   "brown-300": buttonStyles.buttonBrown300,
@@ -46,26 +48,14 @@ export default function Button({
 }: ButtonProps) {
   return (
     <PrismicNextLink
-      className={clsx(
-        buttonStyles.button,
-        colorClassMap[color],
-        className,
-      )}
+      className={clsx(buttonStyles.button, colorClassMap[color], className)}
       {...restProps}
     />
   );
 }
 
 type NonPrismicButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  color?:
-    | "cream-200"
-    | "brown-200"
-    | "brown-300"
-    | "brown-500"
-    | "brown-700"
-    | "brown-800"
-    | "beige-300"
-    | "olive-brown-700";
+  color?: ButtonColor;
 };
 
 /**
@@ -106,11 +96,7 @@ export function NonPrismicButton({
   return (
     <button
       type={type}
-      className={clsx(
-        buttonStyles.button,
-        colorClassMap[color],
-        className,
-      )}
+      className={clsx(buttonStyles.button, colorClassMap[color], className)}
       {...restProps}
     />
   );
