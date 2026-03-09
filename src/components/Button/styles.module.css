@@ -138,11 +138,11 @@
 
 .buttonOliveBrown700:focus,
 .buttonOliveBrown700:hover {
-  background: hsl(46, 24%, 20%);
+  background: hsl(46, 24%, 28%);
 }
 
 .buttonOliveBrown700:active {
-  background: hsl(46, 24%, 28%);
+  background: hsl(46, 24%, 20%);
 }
 
 .buttonOliveBrown700[disabled] {
