@@ -96,10 +96,12 @@ type NonPrismicButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export function NonPrismicButton({
   className,
   color = "brown-200",
+  type = "button",
   ...restProps
 }: NonPrismicButtonProps) {
   return (
     <button
+      type={type}
       className={clsx(
         buttonStyles.button,
         color === "cream-200" && buttonStyles.buttonCream200,
