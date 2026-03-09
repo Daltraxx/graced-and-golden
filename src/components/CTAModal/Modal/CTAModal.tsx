@@ -50,6 +50,16 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
           <form action={formAction} className={styles.form}>
             <label htmlFor="subscribe-email">Enter your email:</label>
             <input type="email" id="subscribe-email" name="email" required />
+            {subscriptionState.errors?.email && (
+              <span className={styles.error} role="alert">
+                {subscriptionState.errors.email}
+              </span>
+            )}
+            {subscriptionState.message && (
+              <span className={styles.message} role="alert">
+                {subscriptionState.message}
+              </span>
+            )}
             <NonPrismicButton
               color="olive-brown-700"
               className={styles.submitButton}
