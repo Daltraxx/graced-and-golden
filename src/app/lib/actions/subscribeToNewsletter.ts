@@ -155,6 +155,7 @@ export async function subscribeToNewsletter(
       if (process.env.NODE_ENV === "development") {
         console.log("Contact not found in Brevo, will create new contact.");
       }
+      // Fall through to create new contact below
     } else {
       console.error("Error checking existing contact in Brevo:", error);
       return {
