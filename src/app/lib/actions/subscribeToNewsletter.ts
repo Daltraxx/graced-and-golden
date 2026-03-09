@@ -33,6 +33,8 @@ const sendWelcomeEmailToSubscriber = async (
   }
 };
 
+const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
+
 /**
  * Subscribes a user to the newsletter via Brevo API
  *
@@ -92,7 +94,7 @@ export async function subscribeToNewsletter(
   }
 
   const subscriptionListId = parseInt(
-    process.env.BREVO_NEWSLETTER_LIST_ID || "3",
+    process.env.BREVO_NEWSLETTER_LIST_ID || DEFAULT_NEWSLETTER_LIST_ID,
     10,
   );
 
