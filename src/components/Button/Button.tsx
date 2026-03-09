@@ -14,6 +14,17 @@ type ButtonProps = PrismicNextLinkProps & {
     | "olive-brown-700";
 };
 
+const colorClassMap: Record<NonNullable<ButtonProps["color"]>, string> = {
+  "cream-200": buttonStyles.buttonCream200,
+  "brown-200": buttonStyles.buttonBrown200,
+  "brown-300": buttonStyles.buttonBrown300,
+  "brown-500": buttonStyles.buttonBrown500,
+  "brown-700": buttonStyles.buttonBrown700,
+  "brown-800": buttonStyles.buttonBrown800,
+  "beige-300": buttonStyles.buttonBeige300,
+  "olive-brown-700": buttonStyles.buttonOliveBrown700,
+};
+
 /**
  * Renders a styled link button using `PrismicNextLink`.
  *
@@ -37,14 +48,7 @@ export default function Button({
     <PrismicNextLink
       className={clsx(
         buttonStyles.button,
-        color === "cream-200" && buttonStyles.buttonCream200,
-        color === "brown-200" && buttonStyles.buttonBrown200,
-        color === "brown-300" && buttonStyles.buttonBrown300,
-        color === "brown-500" && buttonStyles.buttonBrown500,
-        color === "brown-700" && buttonStyles.buttonBrown700,
-        color === "brown-800" && buttonStyles.buttonBrown800,
-        color === "beige-300" && buttonStyles.buttonBeige300,
-        color === "olive-brown-700" && buttonStyles.buttonOliveBrown700,
+        colorClassMap[color],
         className,
       )}
       {...restProps}
@@ -104,14 +108,7 @@ export function NonPrismicButton({
       type={type}
       className={clsx(
         buttonStyles.button,
-        color === "cream-200" && buttonStyles.buttonCream200,
-        color === "brown-200" && buttonStyles.buttonBrown200,
-        color === "brown-300" && buttonStyles.buttonBrown300,
-        color === "brown-500" && buttonStyles.buttonBrown500,
-        color === "brown-700" && buttonStyles.buttonBrown700,
-        color === "brown-800" && buttonStyles.buttonBrown800,
-        color === "beige-300" && buttonStyles.buttonBeige300,
-        color === "olive-brown-700" && buttonStyles.buttonOliveBrown700,
+        colorClassMap[color],
         className,
       )}
       {...restProps}
