@@ -24,8 +24,8 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
     INITIAL_SUBSCRIPTION_STATE,
   );
 
-  const getSubmitButtonText = () => { 
-    if (isPending) { 
+  const getSubmitButtonText = () => {
+    if (isPending) {
       return "Submitting...";
     } else if (subscriptionState.success) {
       return "Subscribed!";
@@ -49,7 +49,7 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
 
           <form action={formAction} className={styles.form}>
             <label htmlFor="subscribe-email">Enter your email:</label>
-            <input type="email" id="subscribe-email" name="email" />
+            <input type="email" id="subscribe-email" name="email" required />
             <NonPrismicButton
               color="olive-brown-700"
               className={styles.submitButton}
