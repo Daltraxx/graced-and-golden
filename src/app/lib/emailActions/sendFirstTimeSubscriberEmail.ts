@@ -38,6 +38,9 @@ export default async function sendFirstTimeSubscriberEmail(
       sender: DEFAULT_SENDER,
       to: [{ email }],
       templateId: FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID,
+      params: {
+        email,
+      }
     });
     return {
       success: true,
