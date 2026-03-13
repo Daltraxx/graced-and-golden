@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   color: var(--cream-200);
   text-align: center;
+  justify-content: center;
+  min-height: 60vh;
 }
 
 .heading {
