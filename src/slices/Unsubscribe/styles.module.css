@@ -1,0 +1,16 @@
+.boundedContainer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--cream-200);
+  text-align: center;
+}
+
+.heading {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.paragraph {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}

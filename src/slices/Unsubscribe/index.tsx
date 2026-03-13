@@ -7,16 +7,16 @@ import {
 } from "@prismicio/react";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
-import { PrismicNextLink } from "@prismicio/next";
 import Button from "@/components/Button/Button";
+import styles from "@/slices/Unsubscribe/styles.module.css";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <Heading font="display" size="manual">
+    <Heading font="display" size="manual" className={styles.heading}>
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => <p>{children}</p>,
+  paragraph: ({ children }) => <p className={styles.paragraph}>{children}</p>,
 };
 
 /**
@@ -32,6 +32,7 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={styles.boundedContainer}
     >
       <PrismicRichText field={slice.primary.heading} components={components} />
       <PrismicRichText field={slice.primary.body} components={components} />
