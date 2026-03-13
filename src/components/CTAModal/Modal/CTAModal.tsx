@@ -25,8 +25,10 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
   );
 
   // Automatically close the modal after a successful subscription
+  // and set a flag in localStorage to prevent it from showing again for a while
   useEffect(() => {
     if (subscriptionState.success) {
+      localStorage.setItem("newsletterSubscribed", "true");
       const timeout = setTimeout(onClose, 2000);
       return () => clearTimeout(timeout);
     }

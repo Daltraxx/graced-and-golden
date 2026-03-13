@@ -13,7 +13,14 @@ export default function CTAModalProvider({
     setIsOpen(false);
     localStorage.setItem("ctaModalClosed", Date.now().toString());
   };
+
+  // Check localStorage to determine if the modal should be shown
   useEffect(() => {
+    const subscribed = localStorage.getItem("newsletterSubscribed");
+    if (subscribed) {
+      return; // Don't show the modal if the user has already subscribed
+    }
+
     const ctaModalClosed = localStorage.getItem("ctaModalClosed");
     if (ctaModalClosed) {
       const timeSinceClosed = Date.now() - parseInt(ctaModalClosed, 10);
