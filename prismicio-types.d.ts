@@ -415,6 +415,7 @@ export type NewsletterCtaDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | UnsubscribeSlice
   | SimpleColumnWLinkSlice
   | AboutSlice
   | SimpleHeadingWithBackgroundImageSlice
@@ -3815,6 +3816,73 @@ export type TryptichSlice = prismic.SharedSlice<
   TryptichSliceVariation
 >;
 
+/**
+ * Primary content in *Unsubscribe → Default → Primary*
+ */
+export interface UnsubscribeSliceDefaultPrimary {
+  /**
+   * Heading field in *Unsubscribe → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unsubscribe.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *Unsubscribe → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unsubscribe.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Page Link field in *Unsubscribe → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unsubscribe.default.primary.page_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  page_link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Default variation for Unsubscribe Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UnsubscribeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UnsubscribeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Unsubscribe*
+ */
+type UnsubscribeSliceVariation = UnsubscribeSliceDefault;
+
+/**
+ * Unsubscribe Shared Slice
+ *
+ * - **API ID**: `unsubscribe`
+ * - **Description**: Unsubscribe
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UnsubscribeSlice = prismic.SharedSlice<
+  "unsubscribe",
+  UnsubscribeSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -3982,6 +4050,10 @@ declare module "@prismicio/client" {
       TryptichSliceDefaultPrimary,
       TryptichSliceVariation,
       TryptichSliceDefault,
+      UnsubscribeSlice,
+      UnsubscribeSliceDefaultPrimary,
+      UnsubscribeSliceVariation,
+      UnsubscribeSliceDefault,
     };
   }
 }

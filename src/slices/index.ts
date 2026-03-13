@@ -28,4 +28,5 @@ export const components = {
   timeline_large: dynamic(() => import("./TimelineLarge")),
   training_body: dynamic(() => import("./TrainingBody")),
   tryptich: dynamic(() => import("./Tryptich")),
+  unsubscribe: dynamic(() => import("./Unsubscribe")),
 };
