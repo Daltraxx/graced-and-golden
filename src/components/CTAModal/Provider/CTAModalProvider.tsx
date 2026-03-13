@@ -11,10 +11,18 @@ export default function CTAModalProvider({
   const [isOpen, setIsOpen] = useState(false);
   const handleClose = () => {
     setIsOpen(false);
-    // TODO: Consider setting a cookie or localStorage item here 
-    // to prevent showing the modal again for a certain period of time
+    localStorage.setItem("ctaModalClosed", Date.now().toString());
   };
   useEffect(() => {
+    const ctaModalClosed = localStorage.getItem("ctaModalClosed");
+    if (ctaModalClosed) {
+      const timeSinceClosed = Date.now() - parseInt(ctaModalClosed, 10);
+      const twoWeeks = 24 * 60 * 60 * 14 * 1000; // 14 days in milliseconds
+      if (timeSinceClosed < twoWeeks) {
+        return; // Don't show the modal if it was closed within the last two weeks
+      }
+    }
+
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 5000); // Open after 5 seconds
