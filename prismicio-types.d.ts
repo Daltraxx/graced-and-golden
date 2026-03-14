@@ -3848,8 +3848,12 @@ export interface UnsubscribeSliceDefaultPrimary {
    * - **API ID Path**: unsubscribe.default.primary.page_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  page_link: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
   >;
 }
 

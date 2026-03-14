@@ -26,19 +26,13 @@
 				]
 			},
 			"page_link": {
-				"__TYPE__": "RepeatableContent",
-				"type": "Link",
-				"value": [
-					{
-						"__TYPE__": "LinkContent",
-						"key": "8897516f-733d-4b22-9bae-4ff2b6b76d39",
-						"value": {
-							"__TYPE__": "ExternalLink",
-							"url": "https://prismic.io",
-							"text": "substance"
-						}
-					}
-				]
+				"__TYPE__": "LinkContent",
+				"key": "7af4b64b-2522-461c-a268-ce039bad8c00",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "oil"
+				}
 			}
 		},
 		"items": []
