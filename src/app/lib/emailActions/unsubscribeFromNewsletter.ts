@@ -12,6 +12,19 @@ export type UnsubscribeResult = {
 const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
 const DEFAULT_UNSUBSCRIBED_LIST_ID = "4"; // Default Brevo unsubscribed list ID
 
+/**
+ * Unsubscribes a user from the newsletter by removing their email from the newsletter list
+ * and adding it to the unsubscribed list using the Brevo API.
+ *
+ * Validates the email address, checks required environment variables, and handles errors gracefully.
+ * Returns a result indicating success or failure, along with a user-friendly message.
+ *
+ * @param email - The email address of the user to unsubscribe.
+ * @returns A promise that resolves to an `UnsubscribeResult` indicating the outcome.
+ *
+ * @throws Will log errors to the console if environment variables are misconfigured,
+ *         the email is invalid, or if Brevo API calls fail.
+ */
 export default async function unsubscribeFromNewsletter(
   email: string,
 ): Promise<UnsubscribeResult> {
@@ -68,7 +81,7 @@ export default async function unsubscribeFromNewsletter(
       listId: subscriptionListId,
       body: { emails: [validatedEmail.data] },
     });
-    
+
     // Then, add the contact to the unsubscribed list
     await brevoClient.contacts.updateContact({
       identifier: validatedEmail.data,
