@@ -6,20 +6,7 @@ import {
   NewsletterSubscriptionState,
 } from "../schema/NewsletterSubscriptionSchema";
 import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSubscriberEmail";
-
-type BrevoError = {
-  statusCode: number;
-  message: string;
-};
-
-const isBrevoError = (error: unknown): error is BrevoError => {
-  return (
-    typeof error === "object" &&
-    error !== null &&
-    "statusCode" in error &&
-    "message" in error
-  );
-};
+import { isBrevoError } from "../types/BrevoError";
 
 // Helper function to send welcome email to subscriber and normalize error handling for that action
 const sendWelcomeEmailToSubscriber = async (
