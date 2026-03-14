@@ -29,9 +29,18 @@ const components: JSXMapSerializer = {
  * Props for `Unsubscribe`.
  */
 export type UnsubscribeProps = SliceComponentProps<Content.UnsubscribeSlice>;
-
 /**
- * Component for "Unsubscribe" Slices.
+ * Unsubscribe Slice component for handling newsletter unsubscription flow.
+ *
+ * @param slice - Prismic slice data containing heading, body, and page link.
+ * @returns Renders a bounded container with rich text content, an unsubscribe button,
+ *          and a message indicating the result of the unsubscription attempt.
+ *
+ * The component:
+ * - Retrieves the user's email from URL search parameters.
+ * - Handles the unsubscribe action via `unsubscribeFromNewsletter`.
+ * - Displays a success button or an unsubscribe button based on the result.
+ * - Shows a message if the unsubscription fails or succeeds.
  */
 const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
   const [unsubscribedState, setUnsubscribedState] = useState<UnsubscribeResult>(
