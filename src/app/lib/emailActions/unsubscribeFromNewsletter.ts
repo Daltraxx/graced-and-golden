@@ -51,9 +51,7 @@ export default async function unsubscribeFromNewsletter(
     if (isNaN(subscriptionListId)) {
       console.error("Invalid BREVO_NEWSLETTER_LIST_ID configuration.");
     } else {
-      console.error(
-        "Invalid BREVO_UNSUBSCRIBED_LIST_ID configuration.",
-      );
+      console.error("Invalid BREVO_UNSUBSCRIBED_LIST_ID configuration.");
     }
     return {
       message:
@@ -64,50 +62,36 @@ export default async function unsubscribeFromNewsletter(
 
   // Make API calls to Brevo to update the contact's subscription status
   const brevoClient = new BrevoClient({ apiKey });
-  try { 
-    const contactData = await brevoClient.contacts.getContactInfo({
-      identifier: validatedEmail.data,
+  try {
+    // First, remove the contact from the newsletter list
+    await brevoClient.contacts.removeContactFromList({
+      listId: subscriptionListId,
+      body: { emails: [validatedEmail.data] },
     });
-    if (!contactData?.id) {
-      console.error(
-        "Contact not found in Brevo when attempting to unsubscribe.",
-      );
-      return {
-        success: false,
-        message: "Email address not found in our subscription list.",
-      };
-    }
-    const lists = contactData.listIds || [];
-    if (lists.includes(subscriptionListId)) { 
-      const updatedLists = lists.filter((id) => id !== subscriptionListId);
-      updatedLists.push(unsubscribedListId);
-      await brevoClient.contacts.updateContact({
-        identifier: validatedEmail.data,
-        listIds: updatedLists,
-      });
-      return {
-        success: true,
-        message: "Successfully unsubscribed from the newsletter.",
-      };
-    } else {
-      return {
-        success: false,
-        message: "Email address is not subscribed to the newsletter.",
-      };
-    }
+    
+    // Then, add the contact to the unsubscribed list
+    await brevoClient.contacts.updateContact({
+      identifier: validatedEmail.data,
+      listIds: [unsubscribedListId],
+    });
+    return {
+      success: true,
+      message: "Successfully unsubscribed from the newsletter.",
+    };
   } catch (error) {
     console.error("Error occurred while unsubscribing from newsletter:", error);
     if (isBrevoError(error)) {
-      if (error.statusCode === 400) { 
+      if (error.statusCode === 400) {
         return {
           success: false,
-          message: "No contact found with the provided email address.",
+          message: "No subscribed users found with the provided email address.",
         };
       }
     }
     return {
       success: false,
-      message: "Failed to unsubscribe from the newsletter. Please contact support.",
+      message:
+        "Failed to unsubscribe from the newsletter. Please contact support.",
     };
   }
 }
