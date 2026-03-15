@@ -75,36 +75,50 @@ export default async function unsubscribeFromNewsletter(
 
   // Make API calls to Brevo to update the contact's subscription status
   const brevoClient = new BrevoClient({ apiKey });
+
+  // First, remove the contact from the newsletter list
   try {
-    // First, remove the contact from the newsletter list
     await brevoClient.contacts.removeContactFromList({
       listId: subscriptionListId,
       body: { emails: [validatedEmail.data] },
     });
-
-    // Then, add the contact to the unsubscribed list
-    await brevoClient.contacts.updateContact({
-      identifier: validatedEmail.data,
-      listIds: [unsubscribedListId],
-    });
-    return {
-      success: true,
-      message: "Successfully unsubscribed from the newsletter.",
-    };
   } catch (error) {
-    console.error("Error occurred while unsubscribing from newsletter:", error);
     if (isBrevoError(error)) {
       if (error.statusCode === 400) {
         return {
           success: false,
           message: "No subscribed users found with the provided email address.",
         };
+      } else {
+        console.error("Error removing contact from newsletter list:", error);
+        return {
+          success: false,
+          message:
+            "Failed to unsubscribe from the newsletter. Please contact support.",
+        };
       }
     }
-    return {
-      success: false,
-      message:
-        "Failed to unsubscribe from the newsletter. Please contact support.",
-    };
+
+    // Then, add the contact to the unsubscribed list
+    try {
+      await brevoClient.contacts.updateContact({
+        identifier: validatedEmail.data,
+        listIds: [unsubscribedListId],
+      });
+      return {
+        success: true,
+        message: "Successfully unsubscribed from the newsletter.",
+      };
+    } catch (error) {
+      console.error(
+        "Error occurred when updating contact to unsubscribed list:",
+        error,
+      );
+      // Even if adding to the unsubscribed list fails, we consider the unsubscription successful
+      return {
+        success: true,
+        message: "Successfully unsubscribed from the newsletter.",
+      };
+    }
   }
 }
