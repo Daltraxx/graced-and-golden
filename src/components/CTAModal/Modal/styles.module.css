@@ -160,8 +160,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .Overlay,
-  .Content {
+  .overlay,
+  .content {
     animation: none;
   }
 }
