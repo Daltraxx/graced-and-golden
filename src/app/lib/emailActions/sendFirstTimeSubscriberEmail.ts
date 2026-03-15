@@ -1,9 +1,12 @@
 import { BrevoClient } from "@getbrevo/brevo";
 
-const FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID = 1;
+const FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID = Number(
+  process.env.BREVO_FIRST_TIME_SUBSCRIBER_TEMPLATE_ID ?? "1"
+);
+
 const DEFAULT_SENDER = {
-  name: "Graced and Golden",
-  email: "hello@gracedandgolden.com",
+  name: process.env.BREVO_SENDER_NAME ?? "Graced and Golden",
+  email: process.env.BREVO_SENDER_EMAIL ?? "hello@gracedandgolden.com",
 };
 
 /**
@@ -13,8 +16,8 @@ const DEFAULT_SENDER = {
  * @param emailerClient - The Brevo client instance used to send transactional emails
  * @returns A promise that resolves to an object indicating the success status and an optional message in case of failure
  * @remarks
- * - The email is sent using a predefined transactional email template in Brevo (templateId: 1)
- * - The sender's name and email are set to "Graced and Golden" and "hello@gracedandgolden.com" respectively
+ * - The email is sent using a predefined transactional email template in Brevo (templateId: FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID)
+ * - The sender's name and email are set to DEFAULT_SENDER.name and DEFAULT_SENDER.email respectively
  * - Trusts that the provided email address has already been validated and does not perform additional validation
  * @throws Does not throw, errors are caught and returned in the response object
  *
