@@ -21,6 +21,7 @@ const sendWelcomeEmailToSubscriber = async (
 };
 
 const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
+const DEFAULT_UNSUBSCRIBED_LIST_ID = "4"; // Default Brevo unsubscribed list ID
 
 /**
  * Subscribes a user to the newsletter via Brevo API
@@ -35,6 +36,7 @@ const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
  * - Handles cases where the contact already exists in Brevo and ensures they are added to the newsletter list
  * - Requires BREVO_API_KEY environment variable to be set
  * - Uses BREVO_NEWSLETTER_LIST_ID environment variable (defaults to "3" if not set)
+ * - Uses BREVO_UNSUBSCRIBED_LIST_ID environment variable (defaults to "4" if not set)
  * - Logs successful subscriptions in development mode
  *
  * @example
@@ -128,18 +130,33 @@ export async function subscribeToNewsletter(
       if (process.env.NODE_ENV === "development") {
         console.log("Contact already exists, ensured in newsletter list.");
       }
-      // TODO: Check if user has been in subscription list before and only send welcome email if first time subscribing
-      // Send first time subscription email
-      await sendWelcomeEmailToSubscriber(
-        validatedFields.data.email,
-        brevoClient,
-      );
 
+      const unsubscribedListId = parseInt(
+        process.env.BREVO_UNSUBSCRIBED_LIST_ID || DEFAULT_UNSUBSCRIBED_LIST_ID,
+        10,
+      );
+      const hasSubscribedBefore = contactsLists.includes(unsubscribedListId);
+      if (!hasSubscribedBefore) {
+        // Send welcome email for first time subscribers only
+        await sendWelcomeEmailToSubscriber(
+          validatedFields.data.email,
+          brevoClient,
+        );
+
+        return {
+          message:
+            "Successfully subscribed to the newsletter! Thank you for joining.",
+          success: true,
+        };
+      }
+
+      // Don't send welcome email if they had previously unsubscribed, but still return success
       return {
         message:
-          "Successfully subscribed to the newsletter! Thank you for joining.",
+          "Welcome back! You've been re-subscribed to the newsletter.",
         success: true,
       };
+      
     }
   } catch (error) {
     if (isBrevoError(error) && error.statusCode === 404) {
