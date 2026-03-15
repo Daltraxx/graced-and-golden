@@ -46,12 +46,24 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
   const [unsubscribedState, setUnsubscribedState] = useState<UnsubscribeResult>(
     { success: false, message: "" },
   );
+  const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
   const handleClick = async () => {
     if (email) {
-      const result = await unsubscribeFromNewsletter(email);
-      setUnsubscribedState(result);
+      setIsLoading(true);
+      try {
+        const result = await unsubscribeFromNewsletter(email);
+        setUnsubscribedState(result);
+      } catch (error) {
+        setUnsubscribedState({
+          success: false,
+          message:
+            "An error occurred while unsubscribing. Please try again later.",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     } else {
       setUnsubscribedState({
         success: false,
@@ -75,9 +87,12 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
           Unsubscribe
         </NonPrismicButton>
       )}
-      {unsubscribedState.message && (
-        <p className={styles.paragraph}>{unsubscribedState.message}</p>
-      )}
+      <div className={styles.messageContainer}>
+        {isLoading && <p className={styles.paragraph}>Unsubscribing...</p>}
+        {unsubscribedState.message && !isLoading && (
+          <p className={styles.paragraph}>{unsubscribedState.message}</p>
+        )}
+      </div>
     </Bounded>
   );
 };
