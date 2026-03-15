@@ -98,27 +98,27 @@ export default async function unsubscribeFromNewsletter(
         };
       }
     }
-
-    // Then, add the contact to the unsubscribed list
-    try {
-      await brevoClient.contacts.updateContact({
-        identifier: validatedEmail.data,
-        listIds: [unsubscribedListId],
-      });
-      return {
-        success: true,
-        message: "Successfully unsubscribed from the newsletter.",
-      };
-    } catch (error) {
-      console.error(
-        "Error occurred when updating contact to unsubscribed list:",
-        error,
-      );
-      // Even if adding to the unsubscribed list fails, we consider the unsubscription successful
-      return {
-        success: true,
-        message: "Successfully unsubscribed from the newsletter.",
-      };
-    }
+  }
+  
+  // Then, add the contact to the unsubscribed list
+  try {
+    await brevoClient.contacts.updateContact({
+      identifier: validatedEmail.data,
+      listIds: [unsubscribedListId],
+    });
+    return {
+      success: true,
+      message: "Successfully unsubscribed from the newsletter.",
+    };
+  } catch (error) {
+    console.error(
+      "Error occurred when updating contact to unsubscribed list:",
+      error,
+    );
+    // Even if adding to the unsubscribed list fails, we consider the unsubscription successful
+    return {
+      success: true,
+      message: "Successfully unsubscribed from the newsletter.",
+    };
   }
 }
