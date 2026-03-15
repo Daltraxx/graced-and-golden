@@ -31,9 +31,6 @@
   overflow-y: auto;
   max-height: 85vh;
   padding: 25px;
-  &:focus {
-    outline: none;
-  }
 }
 
 .content[data-state="open"] {
