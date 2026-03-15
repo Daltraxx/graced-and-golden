@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import CTAModal from "../Modal/CTAModal";
 
 export default function CTAModalProvider({
@@ -9,10 +9,10 @@ export default function CTAModalProvider({
   children: React.ReactNode;
   }) {
   const [isOpen, setIsOpen] = useState(false);
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsOpen(false);
     localStorage.setItem("ctaModalClosed", Date.now().toString());
-  };
+  }, []);
 
   // Check localStorage to determine if the modal should be shown
   useEffect(() => {
