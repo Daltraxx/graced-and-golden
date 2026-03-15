@@ -16,7 +16,7 @@ type ButtonProps = PrismicNextLinkProps & {
   color?: ButtonColor;
 };
 
-const colorClassMap: Record<NonNullable<ButtonColor>, string> = {
+const colorClassMap: Record<ButtonColor, string> = {
   "cream-200": buttonStyles.buttonCream200,
   "brown-200": buttonStyles.buttonBrown200,
   "brown-300": buttonStyles.buttonBrown300,
