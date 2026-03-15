@@ -69,9 +69,13 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
               name="email"
               required
               className={styles.input}
+              aria-describedby={
+                subscriptionState.errors?.email ? "email-error" : undefined
+              }
+              aria-invalid={!!subscriptionState.errors?.email}
             />
             {subscriptionState.errors?.email && (
-              <span className={styles.error} role="alert">
+              <span id="email-error" className={styles.error} role="alert">
                 {subscriptionState.errors.email}
               </span>
             )}
