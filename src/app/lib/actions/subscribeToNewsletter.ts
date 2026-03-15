@@ -68,10 +68,12 @@ export async function subscribeToNewsletter(
   const validatedFields = NewsletterSubscriptionSchema.safeParse(rawFormData);
 
   if (!validatedFields.success) {
-    console.error(
-      "Validation failed:",
-      validatedFields.error.flatten().fieldErrors,
-    );
+    if (process.env.NODE_ENV === "development") {
+      console.error(
+        "Validation failed:",
+        validatedFields.error.flatten().fieldErrors,
+      );
+    }
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       success: false,
