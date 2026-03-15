@@ -40,13 +40,15 @@ export default async function sendFirstTimeSubscriberEmail(
       templateId: FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID,
       params: {
         email,
-      }
+      },
     });
     return {
       success: true,
     };
   } catch (error) {
-    console.error("Failed to send subscription confirmation email:", error);
+    if (process.env.NODE_ENV === "development") {
+      console.error("Failed to send subscription confirmation email:", error);
+    }
     return {
       message: "Failed to send subscription confirmation email.",
       success: false,
