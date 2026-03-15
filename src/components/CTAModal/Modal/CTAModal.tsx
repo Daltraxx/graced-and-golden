@@ -68,6 +68,7 @@ export default function CTAModal({ isOpen, onClose }: CTAModalProps) {
               id="subscribe-email"
               name="email"
               required
+              autoComplete="email"
               className={styles.input}
               aria-describedby={
                 subscriptionState.errors?.email ? "email-error" : undefined
