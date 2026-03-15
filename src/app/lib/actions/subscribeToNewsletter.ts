@@ -148,7 +148,9 @@ export async function subscribeToNewsletter(
       }
       // Fall through to create new contact below
     } else {
-      console.error("Error checking existing contact in Brevo:", error);
+      if (process.env.NODE_ENV === "development") {
+        console.error("Error checking existing contact in Brevo:", error);
+      }
       return {
         message:
           "Failed to subscribe to the newsletter. Please try again later.",
@@ -177,7 +179,9 @@ export async function subscribeToNewsletter(
       success: true,
     };
   } catch (error) {
-    console.error("Failed to subscribe to the newsletter:", error);
+    if (process.env.NODE_ENV === "development") {
+      console.error("Failed to subscribe to the newsletter:", error);
+    }
     return {
       message: "Failed to subscribe to the newsletter. Please try again later.",
       success: false,
