@@ -100,12 +100,14 @@ export default async function unsubscribeFromNewsletter(
     }
   }
   
-  // Then, add the contact to the unsubscribed list
+  // Then, add the contact to the unsubscribed list and mark as blacklisted to prevent future campaign emails
   try {
     await brevoClient.contacts.updateContact({
       identifier: validatedEmail.data,
       listIds: [unsubscribedListId],
+      emailBlacklisted: true,
     });
+
     return {
       success: true,
       message: "Successfully unsubscribed from the newsletter.",
