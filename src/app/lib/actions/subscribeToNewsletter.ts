@@ -104,6 +104,29 @@ export async function subscribeToNewsletter(
       identifier: validatedFields.data.email,
     });
 
+    // If on blacklist, has unsubscribed using the Brevo unsubscribe link. Must unblock before resubscribing.
+    const emailBlacklisted = contactData.emailBlacklisted;
+    if (emailBlacklisted) {
+      try {
+        await brevoClient.contacts.updateContact({
+          identifier: validatedFields.data.email,
+          emailBlacklisted: false,
+        });
+      } catch (error) {
+        if (process.env.NODE_ENV === "development") {
+          console.error(
+            "Error removing contact from blacklist in Brevo:",
+            error,
+          );
+        }
+        return {
+          message:
+            "Error removing contact from unsubscribed list. Please contact support to resolve this issue.",
+          success: false,
+        };
+      }
+    }
+
     if (!contactData?.listIds) {
       throw new Error(
         "Unexpected response from Brevo when checking contact info.",
@@ -135,8 +158,9 @@ export async function subscribeToNewsletter(
         process.env.BREVO_UNSUBSCRIBED_LIST_ID || DEFAULT_UNSUBSCRIBED_LIST_ID,
         10,
       );
+
       const hasSubscribedBefore = contactsLists.includes(unsubscribedListId);
-      if (!hasSubscribedBefore) {
+      if (!hasSubscribedBefore && !emailBlacklisted) {
         // Send welcome email for first time subscribers only
         await sendWelcomeEmailToSubscriber(
           validatedFields.data.email,
@@ -152,11 +176,9 @@ export async function subscribeToNewsletter(
 
       // Don't send welcome email if they had previously unsubscribed, but still return success
       return {
-        message:
-          "Welcome back! You've been re-subscribed to the newsletter.",
+        message: "Welcome back! You've been re-subscribed to the newsletter.",
         success: true,
       };
-      
     }
   } catch (error) {
     if (isBrevoError(error) && error.statusCode === 404) {
