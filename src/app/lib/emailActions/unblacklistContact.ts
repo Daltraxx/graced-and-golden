@@ -1,0 +1,42 @@
+import { BrevoClient } from "@getbrevo/brevo";
+
+/**
+ * Removes a contact from the email blacklist in Brevo.
+ *
+ * @param email - The email address of the contact to unblacklist.
+ * @param brevoClient - The Brevo client instance used to communicate with the Brevo API.
+ * @returns A promise that resolves to an object containing:
+ *   - `success`: A boolean indicating whether the operation succeeded.
+ *   - `message`: An optional error message if the operation failed.
+ *   - `error`: The error object if the operation failed.
+ *
+ * @example
+ * const result = await unblacklistContact('user@example.com', brevoClient);
+ * if (result.success) {
+ *   console.log('Contact unblacklisted successfully');
+ * } else {
+ *   console.error(result.message, result.error);
+ * }
+ */
+const unblacklistContact = async (email: string, brevoClient: BrevoClient) => {
+  try {
+    await brevoClient.contacts.updateContact({
+      identifier: email,
+      emailBlacklisted: false,
+    });
+    return {
+      success: true,
+    };
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("Error removing contact from blacklist in Brevo:", error);
+    }
+    return {
+      success: false,
+      message: "Error removing contact from blacklist.",
+      error,
+    };
+  }
+};
+
+export default unblacklistContact;

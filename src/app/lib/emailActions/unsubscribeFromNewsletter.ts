@@ -12,6 +12,8 @@ export type UnsubscribeResult = {
 const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
 const DEFAULT_UNSUBSCRIBED_LIST_ID = "4"; // Default Brevo unsubscribed list ID
 
+// ORGANIZE
+
 /**
  * Unsubscribes a user from the newsletter by removing their email from the newsletter list
  * and adding it to the unsubscribed list using the Brevo API.

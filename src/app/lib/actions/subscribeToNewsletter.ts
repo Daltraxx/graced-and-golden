@@ -6,7 +6,8 @@ import {
   NewsletterSubscriptionState,
 } from "../schema/NewsletterSubscriptionSchema";
 import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSubscriberEmail";
-import { isBrevoError } from "../types/BrevoError";
+import { isBrevoError } from "@/app/lib/types/BrevoError";
+import unblacklistContact from "@/app/lib/emailActions/unblacklistContact";
 
 // Helper function to send welcome email to subscriber and normalize error handling for that action
 const sendWelcomeEmailToSubscriber = async (
@@ -107,18 +108,8 @@ export async function subscribeToNewsletter(
     // If on blacklist, has unsubscribed using the Brevo unsubscribe link. Must unblock before resubscribing.
     const emailBlacklisted = contactData.emailBlacklisted;
     if (emailBlacklisted) {
-      try {
-        await brevoClient.contacts.updateContact({
-          identifier: validatedFields.data.email,
-          emailBlacklisted: false,
-        });
-      } catch (error) {
-        if (process.env.NODE_ENV === "development") {
-          console.error(
-            "Error removing contact from blacklist in Brevo:",
-            error,
-          );
-        }
+      const unblockResult = await unblacklistContact(validatedFields.data.email, brevoClient);
+      if (!unblockResult.success) {
         return {
           message:
             "Error removing contact from unsubscribed list. Please contact support to resolve this issue.",
@@ -126,6 +117,7 @@ export async function subscribeToNewsletter(
         };
       }
     }
+     
 
     if (!contactData?.listIds) {
       throw new Error(
