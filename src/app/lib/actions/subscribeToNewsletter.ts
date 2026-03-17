@@ -8,6 +8,7 @@ import {
 import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSubscriberEmail";
 import { isBrevoError } from "@/app/lib/types/BrevoError";
 import unblacklistContact from "@/app/lib/emailActions/unblacklistContact";
+import createContact from "@/app/lib/emailActions/createContact";
 
 // Helper function to send welcome email to subscriber and normalize error handling for that action
 const sendWelcomeEmailToSubscriber = async (
@@ -98,8 +99,7 @@ export async function subscribeToNewsletter(
     };
   }
 
-  // Check if contact already exists in Brevo.
-  // If it does, skip creating a new contact and just ensure they are in the newsletter list.
+  // LOGIC FOR EXISTING CONTACTS:
   try {
     const contactData = await brevoClient.contacts.getContactInfo({
       identifier: validatedFields.data.email,
@@ -108,7 +108,10 @@ export async function subscribeToNewsletter(
     // If on blacklist, has unsubscribed using the Brevo unsubscribe link. Must unblock before resubscribing.
     const emailBlacklisted = contactData.emailBlacklisted;
     if (emailBlacklisted) {
-      const unblockResult = await unblacklistContact(validatedFields.data.email, brevoClient);
+      const unblockResult = await unblacklistContact(
+        validatedFields.data.email,
+        brevoClient,
+      );
       if (!unblockResult.success) {
         return {
           message:
@@ -117,20 +120,16 @@ export async function subscribeToNewsletter(
         };
       }
     }
-     
 
     if (!contactData?.listIds) {
       throw new Error(
         "Unexpected response from Brevo when checking contact info.",
       );
     }
-
     const contactsLists = contactData.listIds;
-    // If contact exists but is not in the newsletter list, add them to it
+
     if (contactsLists.includes(subscriptionListId)) {
-      if (process.env.NODE_ENV === "development") {
-        console.log("Contact exists and is already subscribed.");
-      }
+      // If contact already exists and is already in the newsletter list, return success without trying to add again
       return {
         message:
           "Already subscribed to the newsletter, but we appreciate it anyway.",
@@ -190,32 +189,32 @@ export async function subscribeToNewsletter(
     }
   }
 
-  // Create Brevo contact and add to newsletter list
-  try {
-    const data = await brevoClient.contacts.createContact({
-      email: validatedFields.data.email,
+  // LOGIC FOR NEW CONTACTS:
+  const createContactResult = await createContact(
+    validatedFields.data.email,
+    brevoClient,
+    {
       listIds: [subscriptionListId],
-    });
+    },
+  );
 
-    if (process.env.NODE_ENV === "development") {
-      console.log("Newsletter subscription successful:", data);
-    }
-
-    // Send first time subscription email
-    await sendWelcomeEmailToSubscriber(validatedFields.data.email, brevoClient);
-
-    return {
-      message:
-        "Successfully subscribed to the newsletter! Thank you for joining.",
-      success: true,
-    };
-  } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Failed to subscribe to the newsletter:", error);
-    }
+  if (!createContactResult.success) {
+    console.error(
+      "Error creating contact in Brevo:",
+      createContactResult.error,
+    );
     return {
       message: "Failed to subscribe to the newsletter. Please try again later.",
       success: false,
     };
   }
+
+  // Send first time subscription email
+  await sendWelcomeEmailToSubscriber(validatedFields.data.email, brevoClient);
+
+  return {
+    message:
+      "Successfully subscribed to the newsletter! Thank you for joining.",
+    success: true,
+  };
 }
