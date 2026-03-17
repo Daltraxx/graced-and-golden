@@ -83,7 +83,7 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
       {unsubscribedState.success ? (
         <Button field={slice.primary.page_link} color="cream-200" />
       ) : (
-        <NonPrismicButton color="cream-200" type="button" onClick={handleClick}>
+        <NonPrismicButton color="cream-200" type="button" onClick={handleClick} disabled={isLoading}>
           Unsubscribe
         </NonPrismicButton>
       )}
