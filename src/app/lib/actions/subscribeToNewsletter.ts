@@ -130,9 +130,11 @@ export async function subscribeToNewsletter(
   }
 
   // LOGIC FOR NEW CONTACTS:
+  const NEWSLETTER_LIST_ID = parseInt(process.env.BREVO_NEWSLETTER_LIST_ID || "3", 10); // Brevo list ID for newsletter subscribers - add to this list upon contact creation so we know they signed up from the newsletter CTA
   const createContactResult = await createContact(
     validatedFields.data.email,
     brevoClient,
+    { listIds: [NEWSLETTER_LIST_ID] }, // Add to newsletter list upon creation so we know they signed up from CTA
   );
 
   if (!createContactResult.success) {
