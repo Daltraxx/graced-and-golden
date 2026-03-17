@@ -39,9 +39,7 @@ const createContact = async (
 
     return { success: true, message: "Contact created successfully." };
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Error creating contact in Brevo:", error);
-    }
+    console.error("Error creating contact in Brevo:", error);
     return {
       success: false,
       message: "Error creating contact in Brevo.",
