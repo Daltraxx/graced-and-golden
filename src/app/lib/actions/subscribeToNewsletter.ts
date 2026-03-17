@@ -24,13 +24,13 @@ const sendWelcomeEmailToSubscriber = async (
 
 /**
  * Subscribes a user to the newsletter via Brevo email service.
- * 
+ *
  * @async
  * @function subscribeToNewsletter
  * @param {NewsletterSubscriptionState} prevState - The previous state of the newsletter subscription form
  * @param {FormData} formData - The form data containing the email to subscribe
  * @returns {Promise<NewsletterSubscriptionState>} The result state containing success status and message
- * 
+ *
  * @description
  * This function handles the complete newsletter subscription workflow:
  * - Validates the email input against the NewsletterSubscriptionSchema
@@ -38,9 +38,9 @@ const sendWelcomeEmailToSubscriber = async (
  * - For existing contacts: removes them from blacklist if necessary (re-subscription)
  * - For existing non-blacklisted contacts: returns already subscribed message
  * - For new contacts: creates a new contact and sends a welcome email
- * 
+ *
  * @throws Does not throw errors; returns error states in the response object
- * 
+ *
  * @example
  * const formData = new FormData();
  * formData.append('email', 'user@example.com');
@@ -95,11 +95,21 @@ export async function subscribeToNewsletter(
     };
   }
 
-  const contactExists =
-    getContactDataResult.success && getContactDataResult.data;
+  const contactExists = getContactDataResult.success;
 
   if (contactExists) {
     const contactData = getContactDataResult.data;
+    if (!contactData) {
+      console.error(
+        "Unexpected error: Contact data is missing despite successful retrieval.",
+      );
+      return {
+        message:
+          "Failed to subscribe to the newsletter. Please try again later.",
+        success: false,
+      };
+    }
+
     const { emailBlacklisted } = contactData;
     // If on blacklist, must remove from blacklist to effectively re-subscribe them
     if (emailBlacklisted) {
@@ -130,7 +140,10 @@ export async function subscribeToNewsletter(
   }
 
   // LOGIC FOR NEW CONTACTS:
-  const NEWSLETTER_LIST_ID = parseInt(process.env.BREVO_NEWSLETTER_LIST_ID || "3", 10); // Brevo list ID for newsletter subscribers - add to this list upon contact creation so we know they signed up from the newsletter CTA
+  const NEWSLETTER_LIST_ID = parseInt(
+    process.env.BREVO_NEWSLETTER_LIST_ID || "3",
+    10,
+  ); // Brevo list ID for newsletter subscribers - add to this list upon contact creation so we know they signed up from the newsletter CTA
   const createContactResult = await createContact(
     validatedFields.data.email,
     brevoClient,

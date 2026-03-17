@@ -10,5 +10,4 @@ export type BrevoActionResponse = {
   success: boolean;
   message: string;
   code?: number;
-  data?: unknown;
 };
