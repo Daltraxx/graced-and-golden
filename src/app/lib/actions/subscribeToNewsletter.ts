@@ -9,6 +9,7 @@ import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSu
 import unblacklistContact from "@/app/lib/emailActions/unblacklistContact";
 import createContact from "@/app/lib/emailActions/createContact";
 import getBrevoContactData from "@/app/lib/emailActions/getBrevoContactData";
+import addContactToNewsletter from "../emailActions/addContactToNewsletter";
 
 // Helper function to send welcome email to subscriber and normalize error handling for that action
 const sendWelcomeEmailToSubscriber = async (
@@ -142,12 +143,12 @@ export async function subscribeToNewsletter(
       };
     } else {
       // Add existing contact to newsletter list
-      await brevoClient.contacts.updateContact({
-        identifier: validatedFields.data.email,
-        listIds: [...listIds, subscriptionListId],
-      });
-      if (process.env.NODE_ENV === "development") {
-        console.log("Contact already exists, ensured in newsletter list.");
+      const addContactToNewsletterResult = await addContactToNewsletter(validatedFields.data.email, brevoClient);
+      if (!addContactToNewsletterResult.success) {
+        return {
+          message: "Failed to subscribe to the newsletter. Please try again later.",
+          success: false,
+        };
       }
 
       const unsubscribedListId = parseInt(
