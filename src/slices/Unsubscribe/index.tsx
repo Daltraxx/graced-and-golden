@@ -87,7 +87,7 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
           Unsubscribe
         </NonPrismicButton>
       )}
-      <div className={styles.messageContainer}>
+      <div className={styles.messageContainer} aria-live="polite">
         {isLoading && <p className={styles.paragraph}>Unsubscribing...</p>}
         {unsubscribedState.message && !isLoading && (
           <p className={styles.paragraph}>{unsubscribedState.message}</p>
