@@ -4,11 +4,11 @@ import { BrevoClient } from "@getbrevo/brevo";
 import {
   NewsletterSubscriptionSchema,
   NewsletterSubscriptionState,
-} from "../schema/NewsletterSubscriptionSchema";
+} from "@/app/lib/schema/NewsletterSubscriptionSchema";
 import sendFirstTimeSubscriberEmail from "@/app/lib/emailActions/sendFirstTimeSubscriberEmail";
-import { isBrevoError } from "@/app/lib/types/BrevoError";
 import unblacklistContact from "@/app/lib/emailActions/unblacklistContact";
 import createContact from "@/app/lib/emailActions/createContact";
+import getBrevoContactData from "@/app/lib/emailActions/getBrevoContactData";
 
 // Helper function to send welcome email to subscriber and normalize error handling for that action
 const sendWelcomeEmailToSubscriber = async (
@@ -100,13 +100,29 @@ export async function subscribeToNewsletter(
   }
 
   // LOGIC FOR EXISTING CONTACTS:
-  try {
-    const contactData = await brevoClient.contacts.getContactInfo({
-      identifier: validatedFields.data.email,
-    });
+  const getContactDataResult = await getBrevoContactData(
+    validatedFields.data.email,
+    brevoClient,
+  );
 
+  if (!getContactDataResult.success && getContactDataResult.code !== 404) {
+    console.error(
+      "Error checking existing contact in Brevo:",
+      getContactDataResult.error,
+    );
+    return {
+      message: "Failed to subscribe to the newsletter. Please try again later.",
+      success: false,
+    };
+  }
+  
+  const contactExists =
+    getContactDataResult.success && getContactDataResult.data;
+
+  if (contactExists) {
+    const contactData = getContactDataResult.data;
+    const { emailBlacklisted, listIds } = contactData;
     // If on blacklist, has unsubscribed using the Brevo unsubscribe link. Must unblock before resubscribing.
-    const emailBlacklisted = contactData.emailBlacklisted;
     if (emailBlacklisted) {
       const unblockResult = await unblacklistContact(
         validatedFields.data.email,
@@ -121,14 +137,7 @@ export async function subscribeToNewsletter(
       }
     }
 
-    if (!contactData?.listIds) {
-      throw new Error(
-        "Unexpected response from Brevo when checking contact info.",
-      );
-    }
-    const contactsLists = contactData.listIds;
-
-    if (contactsLists.includes(subscriptionListId)) {
+    if (listIds.includes(subscriptionListId)) {
       // If contact already exists and is already in the newsletter list, return success without trying to add again
       return {
         message:
@@ -139,7 +148,7 @@ export async function subscribeToNewsletter(
       // Add existing contact to newsletter list
       await brevoClient.contacts.updateContact({
         identifier: validatedFields.data.email,
-        listIds: [...contactsLists, subscriptionListId],
+        listIds: [...listIds, subscriptionListId],
       });
       if (process.env.NODE_ENV === "development") {
         console.log("Contact already exists, ensured in newsletter list.");
@@ -150,7 +159,7 @@ export async function subscribeToNewsletter(
         10,
       );
 
-      const hasSubscribedBefore = contactsLists.includes(unsubscribedListId);
+      const hasSubscribedBefore = listIds.includes(unsubscribedListId);
       if (!hasSubscribedBefore && !emailBlacklisted) {
         // Send welcome email for first time subscribers only
         await sendWelcomeEmailToSubscriber(
@@ -169,22 +178,6 @@ export async function subscribeToNewsletter(
       return {
         message: "Welcome back! You've been re-subscribed to the newsletter.",
         success: true,
-      };
-    }
-  } catch (error) {
-    if (isBrevoError(error) && error.statusCode === 404) {
-      if (process.env.NODE_ENV === "development") {
-        console.log("Contact not found in Brevo, will create new contact.");
-      }
-      // Fall through to create new contact below
-    } else {
-      if (process.env.NODE_ENV === "development") {
-        console.error("Error checking existing contact in Brevo:", error);
-      }
-      return {
-        message:
-          "Failed to subscribe to the newsletter. Please try again later.",
-        success: false,
       };
     }
   }
