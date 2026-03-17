@@ -52,18 +52,9 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
   const handleClick = async () => {
     if (email) {
       setIsLoading(true);
-      try {
-        const result = await unsubscribeFromNewsletter(email);
-        setUnsubscribedState(result);
-      } catch (error) {
-        setUnsubscribedState({
-          success: false,
-          message:
-            "An error occurred while unsubscribing. Please try again later.",
-        });
-      } finally {
-        setIsLoading(false);
-      }
+      const result = await unsubscribeFromNewsletter(email);
+      setUnsubscribedState(result);
+      setIsLoading(false);
     } else {
       setUnsubscribedState({
         success: false,
@@ -83,7 +74,12 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
       {unsubscribedState.success ? (
         <Button field={slice.primary.page_link} color="cream-200" />
       ) : (
-        <NonPrismicButton color="cream-200" type="button" onClick={handleClick} disabled={isLoading}>
+        <NonPrismicButton
+          color="cream-200"
+          type="button"
+          onClick={handleClick}
+          disabled={isLoading}
+        >
           Unsubscribe
         </NonPrismicButton>
       )}
