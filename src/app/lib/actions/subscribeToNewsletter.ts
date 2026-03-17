@@ -106,16 +106,12 @@ export async function subscribeToNewsletter(
   );
 
   if (!getContactDataResult.success && getContactDataResult.code !== 404) {
-    console.error(
-      "Error checking existing contact in Brevo:",
-      getContactDataResult.error,
-    );
     return {
       message: "Failed to subscribe to the newsletter. Please try again later.",
       success: false,
     };
   }
-  
+
   const contactExists =
     getContactDataResult.success && getContactDataResult.data;
 
