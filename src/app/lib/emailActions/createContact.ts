@@ -1,5 +1,6 @@
 import { BrevoClient } from "@getbrevo/brevo";
 import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
+import { isBrevoError } from "@/app/lib/types/BrevoError";
 
 type CreateContactOptions = {
   listIds?: number[]; // Optional array of list IDs to add the contact to
@@ -39,6 +40,13 @@ const createContact = async (
 
     return { success: true, message: "Contact created successfully." };
   } catch (error) {
+    if (isBrevoError(error) && error.statusCode === 400) { 
+      // Contact likely already exists, we can handle this case gracefully without logging an error
+      return {
+        success: false,
+        message: "Contact already exists.",
+      };
+    }
     console.error("Error creating contact in Brevo:", error);
     return {
       success: false,
