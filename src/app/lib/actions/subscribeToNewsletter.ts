@@ -50,7 +50,7 @@ const sendWelcomeEmailToSubscriber = async (
  * }
  */
 export async function subscribeToNewsletter(
-  prevState: NewsletterSubscriptionState,
+  _prevState: NewsletterSubscriptionState,
   formData: FormData,
 ): Promise<NewsletterSubscriptionState> {
   const apiKey = process.env.BREVO_API_KEY;
