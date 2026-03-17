@@ -1,4 +1,5 @@
 import { BrevoClient } from "@getbrevo/brevo";
+import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 
 const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
 
@@ -27,7 +28,7 @@ const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
 const addContactToNewsletter = async (
   email: string,
   brevoClient: BrevoClient,
-) => {
+): Promise<BrevoActionResponse> => {
   const subscriptionListId = parseInt(
     process.env.BREVO_NEWSLETTER_LIST_ID || DEFAULT_NEWSLETTER_LIST_ID,
     10,
@@ -35,6 +36,7 @@ const addContactToNewsletter = async (
   if (isNaN(subscriptionListId)) {
     console.error("Invalid BREVO_NEWSLETTER_LIST_ID configuration.");
     return {
+      success: false,
       message:
         "Failed to subscribe to the newsletter due to invalid configuration of BREVO_NEWSLETTER_LIST_ID.",
     };

@@ -1,4 +1,5 @@
 import { BrevoClient } from "@getbrevo/brevo";
+import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 
 const FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID = Number(
   process.env.BREVO_FIRST_TIME_SUBSCRIBER_TEMPLATE_ID ?? "1"
@@ -34,7 +35,7 @@ const DEFAULT_SENDER = {
 export default async function sendFirstTimeSubscriberEmail(
   email: string,
   emailerClient: BrevoClient,
-): Promise<{ success: boolean; message?: string }> {
+): Promise<BrevoActionResponse> {
   try {
     await emailerClient.transactionalEmails.sendTransacEmail({
       subject: "Welcome to the Graced and Golden Newsletter!",
@@ -47,6 +48,7 @@ export default async function sendFirstTimeSubscriberEmail(
     });
     return {
       success: true,
+      message: "Welcome email sent successfully.",
     };
   } catch (error) {
     console.error("Failed to send first-time subscriber email:", error);

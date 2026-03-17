@@ -2,12 +2,8 @@
 
 import { BrevoClient } from "@getbrevo/brevo";
 import { EmailSchema } from "@/app/lib/schema/EmailSchema";
-import { isBrevoError } from "../types/BrevoError";
-
-export type UnsubscribeResult = {
-  success: boolean;
-  message: string;
-};
+import { isBrevoError } from "@/app/lib/types/BrevoError";
+import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 
 /**
  * Unsubscribes a user from all email communications by adding their contact to Brevo's email blacklist.
@@ -19,18 +15,20 @@ export type UnsubscribeResult = {
  * 4. Treats a "contact not found" (`404`) response as a successful unsubscribe outcome.
  *
  * @param email - The email address of the contact to unsubscribe.
- * @returns A promise resolving to an {@link UnsubscribeResult} indicating whether the unsubscribe operation succeeded and a user-facing message.
+ * @returns A promise that resolves to an object containing:
+ * - `success` (boolean): Indicates whether the operation was successful.
+ * - `message` (string): A descriptive message about the result of the operation.
  *
  * @remarks
  * - If `process.env.BREVO_API_KEY` is missing, the function returns a failure result without calling Brevo.
  * - Invalid email input returns a failure result and does not trigger external API calls.
  * - A missing contact in Brevo is considered effectively unsubscribed and therefore returns success.
  *
- * @throws This function does not rethrow errors from Brevo; unexpected failures are converted into a failure {@link UnsubscribeResult}.
+ * @throws This function does not rethrow errors from Brevo; unexpected failures are converted into a failure {@link BrevoActionResponse}.
  */
 export default async function unsubscribeFromNewsletter(
   email: string,
-): Promise<UnsubscribeResult> {
+): Promise<BrevoActionResponse> {
   const apiKey = process.env.BREVO_API_KEY;
   if (!apiKey) {
     console.error("Brevo API key is not properly configured.");
@@ -79,7 +77,8 @@ export default async function unsubscribeFromNewsletter(
     console.error("Unexpected error during unsubscribe:", error);
     return {
       success: false,
-      message: "Failed to unsubscribe. Please try again later or contact support.",
+      message:
+        "Failed to unsubscribe. Please try again later or contact support.",
     };
   }
 }

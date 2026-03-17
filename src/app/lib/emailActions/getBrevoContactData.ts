@@ -1,5 +1,6 @@
 import { BrevoClient } from "@getbrevo/brevo";
 import { isBrevoError } from "@/app/lib/types/BrevoError";
+import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 
 /**
  * Retrieves contact information from Brevo using the provided email address.
@@ -22,7 +23,10 @@ import { isBrevoError } from "@/app/lib/types/BrevoError";
  *   console.log('Error:', result.message);
  * }
  */
-const getBrevoContactData = async (email: string, client: BrevoClient) => {
+const getBrevoContactData = async (
+  email: string,
+  client: BrevoClient,
+): Promise<BrevoActionResponse> => {
   try {
     const data = await client.contacts.getContactInfo({
       identifier: email,
@@ -30,6 +34,7 @@ const getBrevoContactData = async (email: string, client: BrevoClient) => {
     const { emailBlacklisted, listIds, id } = data;
     return {
       success: true,
+      message: "Contact data retrieved successfully.",
       data: { emailBlacklisted, listIds, id },
       code: 200,
     };
@@ -41,7 +46,7 @@ const getBrevoContactData = async (email: string, client: BrevoClient) => {
       return {
         success: false,
         message: "Contact not found in Brevo.",
-        error,
+        data: null,
         code: 404,
       };
     } else {
@@ -51,7 +56,7 @@ const getBrevoContactData = async (email: string, client: BrevoClient) => {
       return {
         success: false,
         message: "Error checking existing contact in Brevo.",
-        error,
+        data: null,
         code: isBrevoError(error) && error.statusCode ? error.statusCode : 500,
       };
     }

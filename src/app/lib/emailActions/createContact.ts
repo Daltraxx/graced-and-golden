@@ -1,4 +1,5 @@
 import { BrevoClient } from "@getbrevo/brevo";
+import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 
 type CreateContactOptions = {
   listIds?: number[]; // Optional array of list IDs to add the contact to
@@ -28,7 +29,7 @@ const createContact = async (
   email: string,
   brevoClient: BrevoClient,
   options: CreateContactOptions = {},
-) => {
+): Promise<BrevoActionResponse> => {
   const { listIds = [] } = options;
   try {
     await brevoClient.contacts.createContact({
@@ -44,7 +45,6 @@ const createContact = async (
     return {
       success: false,
       message: "Error creating contact in Brevo.",
-      error,
     };
   }
 };
