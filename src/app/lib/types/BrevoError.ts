@@ -8,6 +8,8 @@ export const isBrevoError = (error: unknown): error is BrevoError => {
     typeof error === "object" &&
     error !== null &&
     "statusCode" in error &&
-    "message" in error
+    "message" in error &&
+    typeof error.statusCode === "number" &&
+    typeof error.message === "string"
   );
 };
