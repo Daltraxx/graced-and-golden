@@ -138,10 +138,6 @@ export async function subscribeToNewsletter(
   );
 
   if (!createContactResult.success) {
-    console.error(
-      "Error creating contact in Brevo:",
-      createContactResult.error,
-    );
     return {
       message: "Failed to subscribe to the newsletter. Please try again later.",
       success: false,
