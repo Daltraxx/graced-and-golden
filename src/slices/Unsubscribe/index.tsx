@@ -15,6 +15,7 @@ import styles from "@/slices/Unsubscribe/styles.module.css";
 import unsubscribeFromNewsletter, {
   UnsubscribeResult,
 } from "@/app/lib/emailActions/unsubscribeFromNewsletter";
+import { Suspense } from "react";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -29,18 +30,31 @@ const components: JSXMapSerializer = {
  * Props for `Unsubscribe`.
  */
 export type UnsubscribeProps = SliceComponentProps<Content.UnsubscribeSlice>;
+
+
 /**
- * Unsubscribe Slice component for handling newsletter unsubscription flow.
- *
- * @param slice - Prismic slice data containing heading, body, and page link.
- * @returns Renders a bounded container with rich text content, an unsubscribe button,
- *          and a message indicating the result of the unsubscription attempt.
- *
- * The component:
- * - Retrieves the user's email from URL search parameters.
- * - Handles the unsubscribe action via `unsubscribeFromNewsletter`.
- * - Displays a success button or an unsubscribe button based on the result.
- * - Shows a message if the unsubscription fails or succeeds.
+ * Unsubscribe component for managing newsletter unsubscription requests.
+ * 
+ * This component displays an unsubscribe form that extracts an email address from URL search parameters
+ * and handles the unsubscription process. It manages loading and result states, providing user feedback
+ * through status messages and conditional UI rendering.
+ * 
+ * @component
+ * @param {UnsubscribeProps} props - The component props
+ * @param {PrismicSlice} props.slice - The Prismic slice data containing heading, body, and page link content
+ * 
+ * @returns {React.ReactElement} A bounded container with unsubscribe form, messaging, and conditional navigation
+ * 
+ * @example
+ * // Usage with Prismic slice data
+ * <Unsubscribe slice={prismicSliceData} />
+ * 
+ * @remarks
+ * - Requires URL search parameter "email" to be present for unsubscription to proceed
+ * - Uses Suspense for lazy loading with a loading fallback due to useSearchParams hook
+ * - Displays different UI states: before unsubscribe, loading, and after result
+ * - Uses aria-live="polite" for accessible status message announcements
+ * - Disables the unsubscribe button during API request
  */
 const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
   const [unsubscribedState, setUnsubscribedState] = useState<UnsubscribeResult>(
@@ -64,32 +78,37 @@ const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
   };
 
   return (
-    <Bounded
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className={styles.boundedContainer}
-    >
-      <PrismicRichText field={slice.primary.heading} components={components} />
-      <PrismicRichText field={slice.primary.body} components={components} />
-      {unsubscribedState.success ? (
-        <Button field={slice.primary.page_link} color="cream-200" />
-      ) : (
-        <NonPrismicButton
-          color="cream-200"
-          type="button"
-          onClick={handleClick}
-          disabled={isLoading}
-        >
-          Unsubscribe
-        </NonPrismicButton>
-      )}
-      <div className={styles.messageContainer} aria-live="polite">
-        {isLoading && <p className={styles.paragraph}>Unsubscribing...</p>}
-        {unsubscribedState.message && !isLoading && (
-          <p className={styles.paragraph}>{unsubscribedState.message}</p>
+    <Suspense fallback={<p className={styles.paragraph}>Loading...</p>}>
+      <Bounded
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className={styles.boundedContainer}
+      >
+        <PrismicRichText
+          field={slice.primary.heading}
+          components={components}
+        />
+        <PrismicRichText field={slice.primary.body} components={components} />
+        {unsubscribedState.success ? (
+          <Button field={slice.primary.page_link} color="cream-200" />
+        ) : (
+          <NonPrismicButton
+            color="cream-200"
+            type="button"
+            onClick={handleClick}
+            disabled={isLoading}
+          >
+            Unsubscribe
+          </NonPrismicButton>
         )}
-      </div>
-    </Bounded>
+        <div className={styles.messageContainer} aria-live="polite">
+          {isLoading && <p className={styles.paragraph}>Unsubscribing...</p>}
+          {unsubscribedState.message && !isLoading && (
+            <p className={styles.paragraph}>{unsubscribedState.message}</p>
+          )}
+        </div>
+      </Bounded>
+    </Suspense>
   );
 };
 
