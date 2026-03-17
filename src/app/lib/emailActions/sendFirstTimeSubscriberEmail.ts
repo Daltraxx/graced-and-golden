@@ -49,9 +49,7 @@ export default async function sendFirstTimeSubscriberEmail(
       success: true,
     };
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Failed to send subscription confirmation email:", error);
-    }
+    console.error("Failed to send first-time subscriber email:", error);
     return {
       message: "Failed to send subscription confirmation email.",
       success: false,
