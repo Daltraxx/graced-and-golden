@@ -76,6 +76,7 @@ export default async function unsubscribeFromNewsletter(
         message: "No contact found with provided email.",
       };
     }
+    console.error("Unexpected error during unsubscribe:", error);
     return {
       success: false,
       message: "Failed to unsubscribe. Please try again later or contact support.",
