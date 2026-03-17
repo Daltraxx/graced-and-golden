@@ -66,7 +66,7 @@ export default async function unsubscribeFromNewsletter(
 
     return {
       success: true,
-      message: "Successfully unsubscribed to emails from Graced and Golden.",
+      message: "Successfully unsubscribed from emails from Graced and Golden.",
     };
   } catch (error) {
     if (isBrevoError(error) && error.statusCode === 404) {
