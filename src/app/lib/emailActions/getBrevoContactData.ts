@@ -3,7 +3,7 @@ import { isBrevoError } from "@/app/lib/types/BrevoError";
 import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 
 type getBrevoContactDataResponse = BrevoActionResponse & {
-  data?: {
+  data: {
     emailBlacklisted: boolean;
     listIds: number[];
     id: number;
