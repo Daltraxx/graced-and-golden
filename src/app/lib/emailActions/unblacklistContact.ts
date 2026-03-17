@@ -20,12 +20,13 @@ import { BrevoClient } from "@getbrevo/brevo";
  */
 const unblacklistContact = async (email: string, brevoClient: BrevoClient) => {
   try {
-    await brevoClient.contacts.updateContact({
+    const result = await brevoClient.contacts.updateContact({
       identifier: email,
       emailBlacklisted: false,
     });
     return {
       success: true,
+      data: result,
     };
   } catch (error) {
     if (process.env.NODE_ENV === "development") {
