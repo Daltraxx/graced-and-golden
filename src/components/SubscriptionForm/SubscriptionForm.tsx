@@ -10,6 +10,28 @@ const INITIAL_SUBSCRIPTION_STATE = {
   success: false,
 } satisfies NewsletterSubscriptionState;
 
+/**
+ * A subscription form component that allows users to subscribe to a newsletter.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <SubscriptionForm onSuccess={() => console.log('Subscribed!')} />
+ * ```
+ *
+ * @param {Object} props - Component props
+ * @param {() => void | (() => void)} props.onSuccess - Callback function executed when subscription is successful.
+ *                                                      Can return void or a function that returns void.
+ *
+ * @returns {React.ReactElement} A form element with email input, validation messages, and submit button.
+ *
+ * @remarks
+ * - Uses the `useActionState` hook to manage form submission state
+ * - Displays validation errors for the email field
+ * - Shows different button text based on submission state (pending, success, or initial)
+ * - Disables the submit button during submission and after successful subscription
+ * - Uses proper accessibility attributes (aria-describedby, aria-invalid, role)
+ */
 export default function SubscriptionForm({
   onSuccess,
 }: {
