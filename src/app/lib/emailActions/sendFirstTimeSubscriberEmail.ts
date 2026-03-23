@@ -6,8 +6,8 @@ const FIRST_TIME_SUBSCRIBER_EMAIL_TEMPLATE_ID = Number(
 );
 
 const DEFAULT_SENDER = {
-  name: process.env.BREVO_SENDER_NAME ?? "Graced and Golden",
-  email: process.env.BREVO_SENDER_EMAIL ?? "hello@gracedandgolden.com",
+  name: process.env.BREVO_SENDER_NAME || "Graced and Golden",
+  email: process.env.BREVO_SENDER_EMAIL || "hello@gracedandgolden.com",
 };
 
 /**
