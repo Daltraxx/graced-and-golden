@@ -2,6 +2,7 @@
   background-color: hsla(0, 0%, 0%, 0.3);
   position: fixed;
   inset: 0;
+  z-index: 1000;
 }
 
 .overlay[data-state="open"] {
@@ -31,6 +32,7 @@
   overflow-y: auto;
   max-height: 85vh;
   padding: 25px;
+  z-index: 1001;
 }
 
 .content[data-state="open"] {
