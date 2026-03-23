@@ -14,7 +14,7 @@ type GetBrevoContactDataResponse = BrevoActionResponse & {
 /**
  * Retrieves contact data from Brevo for a given email address.
  * 
- * @param {string} email - The email address of the contact to retrieve.
+ * @param {string} email - The email address of the contact to retrieve. Should be validated before calling this function.
  * @param {BrevoClient} client - The Brevo API client instance.
  * @returns {Promise<GetBrevoContactDataResponse>} A promise that resolves to a response object containing:
  *   - `success`: Boolean indicating if the operation was successful.
