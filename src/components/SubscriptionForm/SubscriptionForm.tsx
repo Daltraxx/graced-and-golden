@@ -70,6 +70,7 @@ export default function SubscriptionForm({
         type="text"
         name="surname"
         className={styles.nameInput}
+        autoComplete="off"
       />
 
       <input
