@@ -10,10 +10,9 @@ type GetBrevoContactDataResponse = BrevoActionResponse & {
   } | null;
 };
 
-
 /**
  * Retrieves contact data from Brevo for a given email address.
- * 
+ *
  * @param {string} email - The email address of the contact to retrieve. Should be validated before calling this function.
  * @param {BrevoClient} client - The Brevo API client instance.
  * @returns {Promise<GetBrevoContactDataResponse>} A promise that resolves to a response object containing:
@@ -21,9 +20,9 @@ type GetBrevoContactDataResponse = BrevoActionResponse & {
  *   - `message`: Descriptive message about the operation result.
  *   - `data`: Object containing `emailBlacklisted`, `listIds`, and `id` if successful, or `null` if failed.
  *   - `code`: HTTP status code (200 for success, 404 if contact not found, 500 or specific Brevo error code on failure).
- * 
+ *
  * @throws Does not throw; errors are caught and returned in the response object.
- * 
+ *
  * @example
  * const response = await getBrevoContactData('user@example.com', brevoClient);
  * if (response.success) {
@@ -56,17 +55,16 @@ const getBrevoContactData = async (
         data: null,
         code: 404,
       };
-    } else {
-      if (process.env.NODE_ENV === "development") {
-        console.error("Error checking existing contact in Brevo:", error);
-      }
-      return {
-        success: false,
-        message: "Error checking existing contact in Brevo.",
-        data: null,
-        code: isBrevoError(error) && error.statusCode ? error.statusCode : 500,
-      };
     }
+    if (process.env.NODE_ENV === "development") {
+      console.error("Error checking existing contact in Brevo:", error);
+    }
+    return {
+      success: false,
+      message: "Error checking existing contact in Brevo.",
+      data: null,
+      code: isBrevoError(error) && error.statusCode ? error.statusCode : 500,
+    };
   }
 };
 
