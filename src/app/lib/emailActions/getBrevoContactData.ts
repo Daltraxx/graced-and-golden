@@ -2,7 +2,7 @@ import { BrevoClient } from "@getbrevo/brevo";
 import { isBrevoError } from "@/app/lib/types/BrevoError";
 import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 
-type getBrevoContactDataResponse = BrevoActionResponse & {
+type GetBrevoContactDataResponse = BrevoActionResponse & {
   data: {
     emailBlacklisted: boolean;
     listIds: number[];
@@ -16,7 +16,7 @@ type getBrevoContactDataResponse = BrevoActionResponse & {
  * 
  * @param {string} email - The email address of the contact to retrieve.
  * @param {BrevoClient} client - The Brevo API client instance.
- * @returns {Promise<getBrevoContactDataResponse>} A promise that resolves to a response object containing:
+ * @returns {Promise<GetBrevoContactDataResponse>} A promise that resolves to a response object containing:
  *   - `success`: Boolean indicating if the operation was successful.
  *   - `message`: Descriptive message about the operation result.
  *   - `data`: Object containing `emailBlacklisted`, `listIds`, and `id` if successful, or `null` if failed.
@@ -33,7 +33,7 @@ type getBrevoContactDataResponse = BrevoActionResponse & {
 const getBrevoContactData = async (
   email: string,
   client: BrevoClient,
-): Promise<getBrevoContactDataResponse> => {
+): Promise<GetBrevoContactDataResponse> => {
   try {
     const data = await client.contacts.getContactInfo({
       identifier: email,
