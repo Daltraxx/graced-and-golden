@@ -91,7 +91,6 @@ export async function subscribeToNewsletter(
     };
   }
 
-
   // LOGIC FOR EXISTING CONTACTS:
   const getContactDataResult = await getBrevoContactData(
     validatedFields.data.email,

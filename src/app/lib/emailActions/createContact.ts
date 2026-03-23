@@ -40,8 +40,8 @@ const createContact = async (
 
     return { success: true, message: "Contact created successfully." };
   } catch (error) {
-    if (isBrevoError(error) && error.statusCode === 400) { 
-      // Contact likely already exists, we can handle this case gracefully without logging an error
+    if (isBrevoError(error) && error.statusCode === 400 && error.body.code === "duplicate_parameter") {
+      // Contact already exists, we can handle this case gracefully without logging an error
       return {
         success: false,
         message: "Contact already exists.",
