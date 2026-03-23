@@ -37,6 +37,7 @@ const INITIAL_SUBSCRIPTION_STATE = {
 export default function SubscriptionForm({
   onSuccess,
 }: {
+  // Note: onSuccess can return void or a cleanup function
   onSuccess: () => void | (() => void);
 }) {
   const [subscriptionState, formAction, isPending] = useActionState(
