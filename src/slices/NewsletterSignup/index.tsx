@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { Content } from "@prismicio/client";
 import {
   JSXMapSerializer,
@@ -10,6 +10,8 @@ import SubscriptionForm from "@/components/SubscriptionForm/SubscriptionForm";
 import Heading from "@/components/Heading";
 import styles from "./styles.module.css";
 import Bounded from "@/components/Bounded";
+import useAddAnimation from "@/utilities/addAnimation";
+import clsx from "clsx";
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
@@ -30,13 +32,16 @@ export type NewsletterSignupProps =
  * Component for "NewsletterSignup" Slices.
  */
 const NewsletterSignup: FC<NewsletterSignupProps> = ({ slice }) => {
+  const containerRef = useRef<HTMLElement>(null);
+  useAddAnimation(containerRef, 0.5);
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={styles.boundedContainer}
+      ref={containerRef}
     >
-      <div className={styles.container}>
+      <div className={clsx(styles.container, "animated-element")}>
         <PrismicRichText
           field={slice.primary.heading}
           components={components}
