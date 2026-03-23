@@ -3,6 +3,7 @@ import { useActionState, useEffect } from "react";
 import { subscribeToNewsletter } from "@/app/lib/actions/subscribeToNewsletter";
 import { NonPrismicButton } from "@/components/Button/Button";
 import styles from "./styles.module.css";
+import { KeyTextField } from "@prismicio/client";
 
 const INITIAL_SUBSCRIPTION_STATE = {
   message: "",
@@ -10,36 +11,46 @@ const INITIAL_SUBSCRIPTION_STATE = {
   success: false,
 } satisfies NewsletterSubscriptionState;
 
+type SubscriptionFormProps = {
+  // Note: onSuccess can return void or a cleanup function
+  onSuccess?: () => void | (() => void);
+  labelText?: KeyTextField | string;
+  submitText?: KeyTextField | string;
+};
+
+
 /**
  * A subscription form component that allows users to subscribe to a newsletter.
- *
+ * 
  * @component
  * @example
  * ```tsx
- * <SubscriptionForm onSuccess={() => console.log('Subscribed!')} />
+ * <SubscriptionForm
+ *   onSuccess={() => console.log('Subscribed!')}
+ *   labelText="Subscribe to our newsletter:"
+ *   submitText="Sign Up"
+ * />
  * ```
- *
- * @param {Object} props - Component props
- * @param {() => void | (() => void)} [props.onSuccess] - Callback function executed when subscription is successful.
- *                                                      Can return void or a function that returns void.
- *
- * @returns {React.ReactElement} A form element with email input, validation messages, and submit button.
- *
+ * 
+ * @param {SubscriptionFormProps} props - The component props
+ * @param {() => void} [props.onSuccess=() => {}] - Callback function invoked when subscription is successful
+ * @param {string | KeyTextField} [props.labelText="Enter your email:"] - The label text displayed above the email input field
+ * @param {string | KeyTextField} [props.submitText="Submit"] - The text displayed on the submit button in its default state
+ * 
+ * @returns {JSX.Element} A form element containing an email input field, validation messages, and a submit button
+ * 
  * @remarks
- * - Uses the `useActionState` hook to manage form submission state
- * - Displays validation errors for the email field
- * - Shows different button text based on submission state (pending, success, or initial)
- * - Disables the submit button during submission and after successful subscription
- * - Uses proper accessibility attributes (aria-describedby, aria-invalid, role)
- * - Includes a hidden honeypot field to prevent spam bot submissions
- * - onSuccess should be memoized by the parent component to prevent unnecessary re-renders of the form
+ * - Uses React's `useActionState` hook to handle form submission with server action `subscribeToNewsletter`
+ * - Includes a honeypot "surname" field to prevent spam bot submissions
+ * - Provides accessibility features including ARIA attributes for error states and alert roles
+ * - The submit button is disabled during submission and after successful subscription
+ * - Button text dynamically updates based on submission state: "Submitting...", "Subscribed!", or the provided `submitText`
  */
 export default function SubscriptionForm({
   onSuccess = () => {},
-}: {
-  // Note: onSuccess can return void or a cleanup function
-  onSuccess?: () => void | (() => void);
-}) {
+  labelText = "Enter your email:",
+  submitText = "Submit",
+}: SubscriptionFormProps) {
   const [subscriptionState, formAction, isPending] = useActionState(
     subscribeToNewsletter,
     INITIAL_SUBSCRIPTION_STATE,
@@ -56,13 +67,13 @@ export default function SubscriptionForm({
     } else if (subscriptionState.success) {
       return "Subscribed!";
     } else {
-      return "Submit";
+      return submitText;
     }
   };
   return (
     <form action={formAction} className={styles.form}>
       <label htmlFor="subscribe-email" className={styles.label}>
-        Enter your email:
+        {labelText}
       </label>
 
       {/* Honeypot field to prevent spam bots */}
@@ -80,6 +91,7 @@ export default function SubscriptionForm({
         required
         autoComplete="email"
         className={styles.input}
+        disabled={isPending || subscriptionState.success}
         aria-describedby={
           subscriptionState.errors?.email ? "email-error" : undefined
         }
