@@ -19,9 +19,13 @@
    border: 2px solid var(--brown-300);
 }
 
+.headerSideCol .bookingButton {
+   background: hsl(28, 29%, 98%);
+}
+
 .headerSideCol .bookingButton:focus,
 .headerSideCol .bookingButton:hover {
-   background: hsl(28, 29%, 98%);
+   background: hsl(28, 29%, 100%);
 }
 
 .headerSideCol .bookingButton:active {
