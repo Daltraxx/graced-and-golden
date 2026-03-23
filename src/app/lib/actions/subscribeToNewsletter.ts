@@ -82,6 +82,16 @@ export async function subscribeToNewsletter(
     };
   }
 
+  if (validatedFields.data.surname) {
+    // If the honeypot field is filled out, we can safely assume it's a bot and ignore the submission
+    console.warn("Honeypot field filled out. Ignoring submission.");
+    return {
+      message: "Failed to subscribe to the newsletter. Please try again later.",
+      success: false,
+    };
+  }
+
+
   // LOGIC FOR EXISTING CONTACTS:
   const getContactDataResult = await getBrevoContactData(
     validatedFields.data.email,

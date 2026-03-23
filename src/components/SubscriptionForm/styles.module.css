@@ -32,3 +32,8 @@
   margin: 1rem auto 0;
   min-width: 8rem; /* min-width used to reliably overwrite default button fit-content style */
 }
+
+/* Honeypot field to prevent spam bots */
+.nameInput {
+  display: none;
+}

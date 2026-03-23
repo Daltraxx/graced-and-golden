@@ -61,6 +61,14 @@ export default function SubscriptionForm({
       <label htmlFor="subscribe-email" className={styles.label}>
         Enter your email:
       </label>
+
+      {/* Honeypot field to prevent spam bots */}
+      <input
+        type="text"
+        name="surname"
+        className={styles.nameInput}
+      />
+
       <input
         type="email"
         id="subscribe-email"

@@ -3,6 +3,7 @@ import { EmailSchema } from "./EmailSchema";
 
 export const NewsletterSubscriptionSchema = z.object({
   email: EmailSchema,
+  surname: z.string().optional(), // Honeypot field to prevent spam bots
 });
 
 export type NewsletterSubscriptionState = {
