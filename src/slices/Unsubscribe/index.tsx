@@ -12,9 +12,8 @@ import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import Button, { NonPrismicButton } from "@/components/Button/Button";
 import styles from "@/slices/Unsubscribe/styles.module.css";
-import unsubscribeFromNewsletter, {
-  UnsubscribeResult,
-} from "@/app/lib/emailActions/unsubscribeFromNewsletter";
+import unsubscribeFromNewsletter from "@/app/lib/emailActions/unsubscribeFromNewsletter";
+import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 import { Suspense } from "react";
 
 const components: JSXMapSerializer = {
@@ -57,7 +56,7 @@ export type UnsubscribeProps = SliceComponentProps<Content.UnsubscribeSlice>;
  * - Disables the unsubscribe button during API request
  */
 const Unsubscribe: FC<UnsubscribeProps> = ({ slice }) => {
-  const [unsubscribedState, setUnsubscribedState] = useState<UnsubscribeResult>(
+  const [unsubscribedState, setUnsubscribedState] = useState<BrevoActionResponse>(
     { success: false, message: "" },
   );
   const [isLoading, setIsLoading] = useState(false);
