@@ -14,7 +14,7 @@ type CreateContactOptions = {
  * @param options - Optional configuration object.
  * @param options.listIds - Optional array of list IDs to add the contact to. Defaults to an empty array.
  * @returns A promise that resolves to an object with `success: true` and `message` containing a success message on success, or an object with `success: false`, `message`, and `error` properties on failure.
- * @throws Does not throw errors; catches and returns error responses instead. Errors are logged to the console only in development mode.
+ * @throws Does not throw errors; catches and returns error responses instead. Errors are logged to the console.
  *
  * @example
  * ```ts
