@@ -31,6 +31,8 @@ const INITIAL_SUBSCRIPTION_STATE = {
  * - Shows different button text based on submission state (pending, success, or initial)
  * - Disables the submit button during submission and after successful subscription
  * - Uses proper accessibility attributes (aria-describedby, aria-invalid, role)
+ * - Includes a hidden honeypot field to prevent spam bot submissions
+ * - onSuccess should be memoized by the parent component to prevent unnecessary re-renders of the form
  */
 export default function SubscriptionForm({
   onSuccess,
