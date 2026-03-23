@@ -32,7 +32,7 @@ export type UnsubscribeProps = SliceComponentProps<Content.UnsubscribeSlice>;
 
 /**
  * Renders the unsubscribe content component that allows users to unsubscribe from the newsletter.
- * 
+ *
  * @component
  * @param {UnsubscribeProps} props - The component props
  * @param {Object} props.slice - The Prismic slice data containing primary field configuration
@@ -41,9 +41,9 @@ export type UnsubscribeProps = SliceComponentProps<Content.UnsubscribeSlice>;
  * @param {LinkType} props.slice.primary.page_link - The link to navigate to after successful unsubscribe
  * @param {string} props.slice.slice_type - The Prismic slice type identifier
  * @param {string} props.slice.variation - The Prismic slice variation identifier
- * 
+ *
  * @returns {JSX.Element} The rendered unsubscribe component with heading, body text, and action button
- * 
+ *
  * @description
  * This component manages the unsubscribe workflow by:
  * - Extracting the email from URL search parameters
@@ -51,7 +51,7 @@ export type UnsubscribeProps = SliceComponentProps<Content.UnsubscribeSlice>;
  * - Displaying success/error messages
  * - Showing a loading state during the API request
  * - Rendering a navigation button on successful unsubscribe or a clickable button to trigger the action
- * 
+ *
  * @throws Does not throw errors directly, but handles failures through the BrevoActionResponse state
  */
 const UnsubscribeContent: FC<UnsubscribeProps> = ({ slice }) => {
@@ -63,6 +63,8 @@ const UnsubscribeContent: FC<UnsubscribeProps> = ({ slice }) => {
   const handleClick = async () => {
     if (email) {
       setIsLoading(true);
+      // Note: unsubscribeFromNewsletter will not throw an error, 
+      // but will return a response object with success and message properties
       const result = await unsubscribeFromNewsletter(email);
       setUnsubscribedState(result);
       setIsLoading(false);
@@ -106,12 +108,12 @@ const UnsubscribeContent: FC<UnsubscribeProps> = ({ slice }) => {
 
 /**
  * Unsubscribe component that wraps the UnsubscribeContent with a Suspense boundary.
- * 
+ *
  * This component provides a fallback loading state while the UnsubscribeContent
- * is being loaded asynchronously. 
- * This is because the UnsubscribeContent component includes a useSearchParams hook 
+ * is being loaded asynchronously.
+ * This is because the UnsubscribeContent component includes a useSearchParams hook
  * which requires Suspense wrapping.
- * 
+ *
  * @component
  * @param props - The props to pass to UnsubscribeContent
  * @param props - {@link UnsubscribeProps}
@@ -126,7 +128,7 @@ const Unsubscribe: FC<UnsubscribeProps> = (props) => {
     <Suspense fallback={<p className={styles.paragraph}>Loading...</p>}>
       <UnsubscribeContent {...props} />
     </Suspense>
-  )
+  );
 };
 
 export default Unsubscribe;
