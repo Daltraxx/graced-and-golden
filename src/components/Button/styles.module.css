@@ -17,10 +17,7 @@
   background: var(--beige-300);
 }
 
-.buttonBeige300:focus {
-  background: hsl(28, 29%, 87%);
-}
-
+.buttonBeige300:focus-visible,
 .buttonBeige300:hover {
   background: hsl(28, 29%, 87%);
 }
@@ -34,10 +31,7 @@
   background: var(--cream-200);
 }
 
-.buttonCream200:focus {
-  background: hsl(0, 0%, 92%);
-}
-
+.buttonCream200:focus-visible,
 .buttonCream200:hover {
   background: hsl(0, 0%, 92%);
 }
@@ -57,10 +51,7 @@
   background: var(--brown-200);
 }
 
-.buttonBrown200:focus {
-  background: hsl(27, 23%, 71%);
-}
-
+.buttonBrown200:focus-visible,
 .buttonBrown200:hover {
   background: hsl(27, 23%, 71%);
 }
@@ -74,10 +65,7 @@
   background: var(--brown-300);
 }
 
-.buttonBrown300:focus {
-  background: hsl(18, 21%, 61%);
-}
-
+.buttonBrown300:focus-visible,
 .buttonBrown300:hover {
   background: hsl(18, 21%, 61%);
 }
@@ -91,10 +79,7 @@
   background: var(--brown-500);
 }
 
-.buttonBrown500:focus {
-  background: hsl(21, 24%, 42%);
-}
-
+.buttonBrown500:focus-visible,
 .buttonBrown500:hover {
   background: hsl(21, 24%, 42%);
 }
@@ -108,10 +93,7 @@
   background: var(--brown-700);
 }
 
-.buttonBrown700:focus {
-  background: hsl(17, 39%, 32%);
-}
-
+.buttonBrown700:focus-visible,
 .buttonBrown700:hover {
   background: hsl(17, 39%, 32%);
 }
@@ -125,10 +107,7 @@
   background: var(--brown-800);
 }
 
-.buttonBrown800:focus {
-  background: hsl(17, 39%, 27%);
-}
-
+.buttonBrown800:focus-visible,
 .buttonBrown800:hover {
   background: hsl(17, 39%, 27%);
 }
@@ -142,7 +121,7 @@
   background: var(--olive-brown-700);
 }
 
-.buttonOliveBrown700:focus,
+.buttonOliveBrown700:focus-visible,
 .buttonOliveBrown700:hover {
   background: hsl(46, 24%, 28%);
 }
