@@ -53,7 +53,7 @@ export default async function sendFirstTimeSubscriberEmail(
   } catch (error) {
     console.error("Failed to send first-time subscriber email:", error);
     return {
-      message: "Failed to send subscription confirmation email.",
+      message: "Failed to send welcome email.",
       success: false,
     };
   }
