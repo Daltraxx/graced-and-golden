@@ -9,7 +9,6 @@ import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
  * @returns A promise that resolves to an object containing:
  *   - `success`: A boolean indicating whether the operation succeeded.
  *   - `message`: An optional error message if the operation failed.
- *   - `error`: The error object if the operation failed.
  *
  * @example
  * const result = await unblacklistContact('user@example.com', brevoClient);
