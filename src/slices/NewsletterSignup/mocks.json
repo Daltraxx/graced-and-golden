@@ -1,0 +1,45 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "First time here?\nSign up for $10 off",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"body_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Updates, exclusive deals, last minute openings & pro tips... straight to your inbox.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"submit_text": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Submit"
+			},
+			"email_form_label": {
+				"__TYPE__": "FieldContent",
+				"value": "wonderful",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

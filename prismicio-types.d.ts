@@ -212,6 +212,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | MainServicesSlice
@@ -291,6 +292,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type MainServicesPageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
@@ -415,6 +417,7 @@ export type NewsletterCtaDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | UnsubscribeSlice
   | SimpleColumnWLinkSlice
   | AboutSlice
@@ -497,6 +500,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicePageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
@@ -2440,6 +2444,81 @@ export type MainServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *NewsletterSignup → Default → Primary*
+ */
+export interface NewsletterSignupSliceDefaultPrimary {
+  /**
+   * Heading field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body Text field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Email Form Label field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.email_form_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_form_label: prismic.KeyTextField;
+
+  /**
+   * Submit Text field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.submit_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  submit_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for NewsletterSignup Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSignupSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewsletterSignupSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NewsletterSignup*
+ */
+type NewsletterSignupSliceVariation = NewsletterSignupSliceDefault;
+
+/**
+ * NewsletterSignup Shared Slice
+ *
+ * - **API ID**: `newsletter_signup`
+ * - **Description**: NewsletterSignup
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSignupSlice = prismic.SharedSlice<
+  "newsletter_signup",
+  NewsletterSignupSliceVariation
+>;
+
+/**
  * Primary content in *ParagraphImageOverlap → Default → Primary*
  */
 export interface ParagraphImageOverlapSliceDefaultPrimary {
@@ -3997,6 +4076,10 @@ declare module "@prismicio/client" {
       MainServicesSliceVariation,
       MainServicesSliceDefault,
       MainServicesSliceServicesAddons,
+      NewsletterSignupSlice,
+      NewsletterSignupSliceDefaultPrimary,
+      NewsletterSignupSliceVariation,
+      NewsletterSignupSliceDefault,
       ParagraphImageOverlapSlice,
       ParagraphImageOverlapSliceDefaultPrimary,
       ParagraphImageOverlapSliceVariation,
