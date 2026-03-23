@@ -44,10 +44,7 @@
 }
 
 .title,
-.description,
-.input,
-.error,
-.message {
+.description {
   max-width: 24rem;
 }
 
@@ -57,9 +54,7 @@
   color: var(--black-700);
 }
 
-.description,
-.error,
-.message {
+.description {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
