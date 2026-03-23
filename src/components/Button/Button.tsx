@@ -2,7 +2,7 @@ import { PrismicNextLink, PrismicNextLinkProps } from "@prismicio/next";
 import clsx from "clsx";
 import buttonStyles from "@/components/Button/styles.module.css";
 
- export type ButtonColor =
+export type ButtonColor =
   | "cream-200"
   | "brown-200"
   | "brown-300"
