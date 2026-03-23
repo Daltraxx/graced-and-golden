@@ -20,7 +20,7 @@ const INITIAL_SUBSCRIPTION_STATE = {
  * ```
  *
  * @param {Object} props - Component props
- * @param {() => void | (() => void)} props.onSuccess - Callback function executed when subscription is successful.
+ * @param {() => void | (() => void)} [props.onSuccess] - Callback function executed when subscription is successful.
  *                                                      Can return void or a function that returns void.
  *
  * @returns {React.ReactElement} A form element with email input, validation messages, and submit button.
@@ -35,10 +35,10 @@ const INITIAL_SUBSCRIPTION_STATE = {
  * - onSuccess should be memoized by the parent component to prevent unnecessary re-renders of the form
  */
 export default function SubscriptionForm({
-  onSuccess,
+  onSuccess = () => {},
 }: {
   // Note: onSuccess can return void or a cleanup function
-  onSuccess: () => void | (() => void);
+  onSuccess?: () => void | (() => void);
 }) {
   const [subscriptionState, formAction, isPending] = useActionState(
     subscribeToNewsletter,
