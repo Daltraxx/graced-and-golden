@@ -1,4 +1,12 @@
-.input, .label {
+.input,
+.label,
+.error,
+.message {
+  color: var(--black-700);
+}
+
+.input,
+.label {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
@@ -14,6 +22,11 @@
   border-radius: 4px;
   padding: 0.25rem 0.5rem;
   text-align: center;
+}
+
+.input[disabled] {
+  background-color: var(--gray-250);
+  cursor: not-allowed;
 }
 
 .input:focus {
