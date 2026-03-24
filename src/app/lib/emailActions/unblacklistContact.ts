@@ -4,7 +4,7 @@ import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
 /**
  * Removes a contact from the email blacklist in Brevo.
  *
- * @param email - The email address of the contact to unblacklist.
+ * @param email - The email address of the contact to unblacklist. Email is expected to already be validated in the calling function.
  * @param brevoClient - The Brevo client instance used to communicate with the Brevo API.
  * @returns A promise that resolves to an object containing:
  *   - `success`: A boolean indicating whether the operation succeeded.
