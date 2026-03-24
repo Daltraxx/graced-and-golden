@@ -9,7 +9,7 @@ type CreateContactOptions = {
 /**
  * Creates a new contact in Brevo.
  *
- * @param email - The email address of the contact to create.
+ * @param email - The email address of the contact to create. Email is expected to be validated before being passed to this function.
  * @param brevoClient - The Brevo client instance used to make the API request.
  * @param options - Optional configuration object.
  * @param options.listIds - Optional array of list IDs to add the contact to. Defaults to an empty array.
