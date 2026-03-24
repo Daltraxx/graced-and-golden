@@ -23,8 +23,7 @@ const noop = () => {};
 
 /**
  * A subscription form component that allows users to subscribe to a newsletter.
- * 
- * @component
+ *
  * @example
  * ```tsx
  * <SubscriptionForm
@@ -33,14 +32,12 @@ const noop = () => {};
  *   submitText="Sign Up"
  * />
  * ```
- * 
- * @param {SubscriptionFormProps} props - The component props
- * @param {() => void} [props.onSuccess=noop] - Callback function invoked when subscription is successful
- * @param {string | KeyTextField} [props.labelText="Enter your email:"] - The label text displayed above the email input field
- * @param {string | KeyTextField} [props.submitText="Submit"] - The text displayed on the submit button in its default state
- * 
- * @returns {JSX.Element} A form element containing an email input field, validation messages, and a submit button
- * 
+ *
+ * @param props - The component props
+ * @param props.onSuccess - Callback invoked when subscription is successful. Defaults to a no-op.
+ * @param props.labelText - Label text displayed above the email input. Defaults to `"Enter your email:"`.
+ * @param props.submitText - Submit button text in its default state. Defaults to `"Submit"`.
+ *
  * @remarks
  * - Uses React's `useActionState` hook to handle form submission with server action `subscribeToNewsletter`
  * - Includes a honeypot "surname" field to prevent spam bot submissions
