@@ -1,40 +1,40 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Constantly"
-						}
-					}
-				]
-			},
-			"body": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Est sint non est proident nostrud reprehenderit ullamco duis quis in adipisicing."
-						}
-					}
-				]
-			},
-			"page_link": {
-				"__TYPE__": "LinkContent",
-				"key": "7af4b64b-2522-461c-a268-ce039bad8c00",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "oil"
-				}
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Constantly"
+            }
+          }
+        ]
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Est sint non est proident nostrud reprehenderit ullamco duis quis in adipisicing."
+            }
+          }
+        ]
+      },
+      "page_link": {
+        "__TYPE__": "LinkContent",
+        "key": "7af4b64b-2522-461c-a268-ce039bad8c00",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://slicemachine.dev",
+          "text": "oil"
+        }
+      }
+    },
+    "items": []
+  }
 ]
