@@ -18,7 +18,10 @@ import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
  *   console.error('Failed to unblacklist contact:', result.message);
  * }
  */
-const unblacklistContact = async (email: string, brevoClient: BrevoClient): Promise<BrevoActionResponse> => {
+const unblacklistContact = async (
+  email: string,
+  brevoClient: BrevoClient,
+): Promise<BrevoActionResponse> => {
   try {
     await brevoClient.contacts.updateContact({
       identifier: email,
@@ -29,9 +32,7 @@ const unblacklistContact = async (email: string, brevoClient: BrevoClient): Prom
       message: "Contact removed from blacklist successfully.",
     };
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Error removing contact from blacklist in Brevo:", error);
-    }
+    console.error("Error removing contact from blacklist in Brevo:", error);
     return {
       success: false,
       message: "Error removing contact from blacklist.",
