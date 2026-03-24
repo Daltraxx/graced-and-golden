@@ -126,7 +126,7 @@ const UnsubscribeContent: FC<UnsubscribeProps> = ({ slice }) => {
  * @returns A React component with Suspense-wrapped UnsubscribeContent
  * @example
  * ```tsx
- * <Unsubscribe email="user@example.com" />
+ * <Unsubscribe {...props} />
  * ```
  */
 const Unsubscribe: FC<UnsubscribeProps> = (props) => {
