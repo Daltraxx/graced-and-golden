@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useState, Suspense } from "react";
 import { Content } from "@prismicio/client";
 import {
   JSXMapSerializer,
@@ -14,7 +14,6 @@ import Button, { NonPrismicButton } from "@/components/Button/Button";
 import styles from "@/slices/Unsubscribe/styles.module.css";
 import unsubscribeFromNewsletter from "@/app/lib/emailActions/unsubscribeFromNewsletter";
 import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
-import { Suspense } from "react";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
