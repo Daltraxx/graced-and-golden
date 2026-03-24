@@ -13,7 +13,7 @@ type CreateContactOptions = {
  * @param brevoClient - The Brevo client instance used to make the API request.
  * @param options - Optional configuration object.
  * @param options.listIds - Optional array of list IDs to add the contact to. Defaults to an empty array.
- * @returns A promise that resolves to an object with `success: true` and `message` containing a success message on success, or an object with `success: false`, `message`, and `error` properties on failure.
+ * @returns A promise that resolves to an object with a `success` boolean and a `message` string indicating the result of the operation.
  * @throws Does not throw errors; catches and returns error responses instead. Errors are logged to the console.
  *
  * @example
@@ -40,7 +40,11 @@ const createContact = async (
 
     return { success: true, message: "Contact created successfully." };
   } catch (error) {
-    if (isBrevoError(error) && error.statusCode === 400 && error.body.code === "duplicate_parameter") {
+    if (
+      isBrevoError(error) &&
+      error.statusCode === 400 &&
+      error.body.code === "duplicate_parameter"
+    ) {
       // Contact already exists, we can handle this case gracefully without logging an error
       return {
         success: false,
