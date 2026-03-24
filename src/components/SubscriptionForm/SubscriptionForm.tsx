@@ -18,6 +18,8 @@ type SubscriptionFormProps = {
   submitText?: KeyTextField | string;
 };
 
+// No-operation function used as a default for onSuccess prop
+const noop = () => {};
 
 /**
  * A subscription form component that allows users to subscribe to a newsletter.
@@ -33,7 +35,7 @@ type SubscriptionFormProps = {
  * ```
  * 
  * @param {SubscriptionFormProps} props - The component props
- * @param {() => void} [props.onSuccess=() => {}] - Callback function invoked when subscription is successful
+ * @param {() => void} [props.onSuccess=noop] - Callback function invoked when subscription is successful
  * @param {string | KeyTextField} [props.labelText="Enter your email:"] - The label text displayed above the email input field
  * @param {string | KeyTextField} [props.submitText="Submit"] - The text displayed on the submit button in its default state
  * 
@@ -47,7 +49,7 @@ type SubscriptionFormProps = {
  * - Button text dynamically updates based on submission state: "Submitting...", "Subscribed!", or the provided `submitText`
  */
 export default function SubscriptionForm({
-  onSuccess = () => {},
+  onSuccess = noop,
   labelText = "Enter your email:",
   submitText = "Submit",
 }: SubscriptionFormProps) {
