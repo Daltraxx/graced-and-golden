@@ -13,6 +13,7 @@ const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
  *   - `message` (string): A descriptive message about the result of the operation.
  *
  * @remarks
+ * - Contact must already exist in Brevo for this function to work, as it uses the updateContact method to add the contact to the newsletter list.
  * - If the BREVO_NEWSLETTER_LIST_ID environment variable is invalid or not configured,
  *   the function returns an error message without attempting to update the contact.
  * - Errors during the API call are caught and logged to the console.
