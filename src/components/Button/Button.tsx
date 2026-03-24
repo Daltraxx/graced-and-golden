@@ -73,7 +73,7 @@ type NonPrismicButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
  *   - "brown-800"
  *   - "beige-300"
  *   - "olive-brown-700"
- * @param {React.ButtonHTMLAttributes<HTMLButtonElement>} props - Remaining standard HTML button attributes are spread onto the element
+ * @remarks Remaining standard HTML button attributes are spread onto the element
  * @returns {React.ReactElement} A styled button element with the specified color variant and any additional classes applied
  *
  * @example
