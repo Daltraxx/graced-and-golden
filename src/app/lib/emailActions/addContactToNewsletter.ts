@@ -6,7 +6,7 @@ const DEFAULT_NEWSLETTER_LIST_ID = "3"; // Default Brevo newsletter list ID
 /**
  * Adds a contact to the newsletter subscription list in Brevo.
  *
- * @param email - The email address of the contact to add to the newsletter.
+ * @param email - The email address of the contact to add to the newsletter. Email is expected to already be validated in the calling function.
  * @param brevoClient - The Brevo API client instance used to update the contact.
  * @returns A promise that resolves to an object containing:
  *   - `success` (boolean): Indicates whether the operation was successful.
