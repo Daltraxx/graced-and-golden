@@ -7,7 +7,7 @@ export default function CTAModalProvider({
   children,
 }: {
   children: React.ReactNode;
-  }) {
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const handleClose = useCallback(() => {
     setIsOpen(false);
@@ -16,12 +16,19 @@ export default function CTAModalProvider({
 
   // Check localStorage to determine if the modal should be shown
   useEffect(() => {
-    const subscribed = localStorage.getItem("newsletterSubscribed");
+    let subscribed = null;
+    let ctaModalClosed = null;
+    try {
+      subscribed = localStorage.getItem("newsletterSubscribed");
+      ctaModalClosed = localStorage.getItem("ctaModalClosed");
+    } catch {
+      // localStorage unavailable (private browsing, sandboxed iframe, etc.)
+      // Fall through to show modal after delay
+    }
     if (subscribed) {
       return; // Don't show the modal if the user has already subscribed
     }
 
-    const ctaModalClosed = localStorage.getItem("ctaModalClosed");
     if (ctaModalClosed) {
       const timeSinceClosed = Date.now() - parseInt(ctaModalClosed, 10);
       const twoWeeks = 24 * 60 * 60 * 14 * 1000; // 14 days in milliseconds
@@ -36,7 +43,7 @@ export default function CTAModalProvider({
 
     return () => clearTimeout(timer); // Cleanup on unmount
   }, []);
-  
+
   return (
     <>
       {children}
