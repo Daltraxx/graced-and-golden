@@ -62,12 +62,18 @@ const UnsubscribeContent: FC<UnsubscribeProps> = ({ slice }) => {
   const email = searchParams.get("email");
   const handleClick = async () => {
     if (email) {
-      setIsLoading(true);
-      // Note: unsubscribeFromNewsletter will not throw an error, 
-      // but will return a response object with success and message properties
-      const result = await unsubscribeFromNewsletter(email);
-      setUnsubscribedState(result);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const result = await unsubscribeFromNewsletter(email);
+        setUnsubscribedState(result);
+      } catch {
+        setUnsubscribedState({
+          success: false,
+          message: "An unexpected error occurred. Please try again.",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     } else {
       setUnsubscribedState({
         success: false,
