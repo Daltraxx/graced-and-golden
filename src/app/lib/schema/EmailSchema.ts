@@ -6,7 +6,7 @@ export const EmailSchema = z
     invalid_type_error: "Email must be a string",
   })
   .trim()
-  .min(5, "Email must be at least 5 characters long")
+  .min(6, "Email must be at least 6 characters long")
   .max(254, "Email must be at most 254 characters long")
   .email({
     message: "Please enter a valid email address.",
