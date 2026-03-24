@@ -15,7 +15,7 @@ import { BrevoActionResponse } from "@/app/lib/types/BrevoActionResponse";
  * if (result.success) {
  *   console.log('Contact unblacklisted successfully');
  * } else {
- *   console.error(result.message, result.error);
+ *   console.error('Failed to unblacklist contact:', result.message);
  * }
  */
 const unblacklistContact = async (email: string, brevoClient: BrevoClient): Promise<BrevoActionResponse> => {
