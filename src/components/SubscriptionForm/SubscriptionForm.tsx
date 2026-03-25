@@ -75,7 +75,7 @@ export default function SubscriptionForm({
         {labelText}
       </label>
 
-      {/* Honeypot field to prevent spam bots */}
+      {/* Honeypot field to prevent spam bots. Hiding from assistive technologies not necessary due to display:none */}
       <input
         type="text"
         name="surname"
