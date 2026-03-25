@@ -11,7 +11,11 @@ export default function CTAModalProvider({
   const [isOpen, setIsOpen] = useState(false);
   const handleClose = useCallback(() => {
     setIsOpen(false);
-    localStorage.setItem("ctaModalClosed", Date.now().toString());
+    try {
+      localStorage.setItem("ctaModalClosed", Date.now().toString());
+    } catch {
+      // localStorage unavailable - modal will reappear on next visit
+    }
   }, []);
 
   // Check localStorage to determine if the modal should be shown
