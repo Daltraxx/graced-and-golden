@@ -18,11 +18,11 @@ export const isBrevoError = (error: unknown): error is BrevoError => {
     "body" in error &&
     typeof error.statusCode === "number" &&
     typeof error.message === "string" &&
-    typeof (error as BrevoError).body === "object" &&
-    (error as BrevoError).body !== null &&
-    "code" in (error as BrevoError).body &&
-    "message" in (error as BrevoError).body &&
-    typeof (error as BrevoError).body.code === "string" &&
-    typeof (error as BrevoError).body.message === "string"
+    typeof error.body === "object" &&
+    error.body !== null &&
+    "code" in error.body &&
+    "message" in error.body &&
+    typeof error.body.code === "string" &&
+    typeof error.body.message === "string"
   );
 };
