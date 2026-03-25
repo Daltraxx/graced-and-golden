@@ -38,7 +38,7 @@ const colorClassMap: Record<ButtonColor, string> = {
  * @param props.color - Visual theme token for the button style.
  * Supported values: `"cream-200"`, `"brown-200"`, `"brown-300"`, `"brown-500"`,
  * `"brown-700"`, `"brown-800"`, `"beige-300"`, `"olive-brown-700"`.
- * @remark Remaining props are spread onto the underlying `PrismicNextLink` component.
+ * @remarks Remaining props are spread onto the underlying `PrismicNextLink` component.
  * @returns A `PrismicNextLink` element styled as a button.
  */
 export default function Button({
