@@ -1,0 +1,22 @@
+.boundedContainer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--cream-200);
+  text-align: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.heading {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.paragraph {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.messageContainer {
+  min-height: 2rem;
+}

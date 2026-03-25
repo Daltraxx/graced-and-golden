@@ -17,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "newsletter_signup": {
+              "type": "SharedSlice"
+            },
+            "unsubscribe": {
+              "type": "SharedSlice"
+            },
             "simple_column_w_link": {
               "type": "SharedSlice"
             },

@@ -212,6 +212,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | MainServicesSlice
@@ -291,6 +292,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type MainServicesPageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
@@ -360,7 +362,63 @@ export type MainServicesPageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Newsletter CTA documents
+ */
+interface NewsletterCtaDocumentData {
+  /**
+   * Heading field in *Newsletter CTA*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_cta.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body Text field in *Newsletter CTA*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_cta.body_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Email Form Label field in *Newsletter CTA*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_cta.email_form_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  email_form_label: prismic.RichTextField;
+}
+
+/**
+ * Newsletter CTA document from Prismic
+ *
+ * - **API ID**: `newsletter_cta`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsletterCtaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NewsletterCtaDocumentData>,
+    "newsletter_cta",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
+  | UnsubscribeSlice
   | SimpleColumnWLinkSlice
   | AboutSlice
   | SimpleHeadingWithBackgroundImageSlice
@@ -442,6 +500,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type ServicePageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | SimpleColumnWLinkSlice
   | SimpleHeadingWithBackgroundImageSlice
   | BridalCtaSlice
@@ -572,6 +631,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomepageDocument
   | MainServicesPageDocument
+  | NewsletterCtaDocument
   | PageDocument
   | ServicePageDocument
   | SettingsDocument;
@@ -2384,6 +2444,81 @@ export type MainServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *NewsletterSignup → Default → Primary*
+ */
+export interface NewsletterSignupSliceDefaultPrimary {
+  /**
+   * Heading field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body Text field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.body_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body_text: prismic.RichTextField;
+
+  /**
+   * Email Form Label field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.email_form_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_form_label: prismic.KeyTextField;
+
+  /**
+   * Submit Text field in *NewsletterSignup → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_signup.default.primary.submit_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  submit_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for NewsletterSignup Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSignupSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewsletterSignupSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NewsletterSignup*
+ */
+type NewsletterSignupSliceVariation = NewsletterSignupSliceDefault;
+
+/**
+ * NewsletterSignup Shared Slice
+ *
+ * - **API ID**: `newsletter_signup`
+ * - **Description**: NewsletterSignup
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSignupSlice = prismic.SharedSlice<
+  "newsletter_signup",
+  NewsletterSignupSliceVariation
+>;
+
+/**
  * Primary content in *ParagraphImageOverlap → Default → Primary*
  */
 export interface ParagraphImageOverlapSliceDefaultPrimary {
@@ -3760,6 +3895,77 @@ export type TryptichSlice = prismic.SharedSlice<
   TryptichSliceVariation
 >;
 
+/**
+ * Primary content in *Unsubscribe → Default → Primary*
+ */
+export interface UnsubscribeSliceDefaultPrimary {
+  /**
+   * Heading field in *Unsubscribe → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unsubscribe.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *Unsubscribe → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unsubscribe.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * Page Link field in *Unsubscribe → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: unsubscribe.default.primary.page_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Unsubscribe Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UnsubscribeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UnsubscribeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Unsubscribe*
+ */
+type UnsubscribeSliceVariation = UnsubscribeSliceDefault;
+
+/**
+ * Unsubscribe Shared Slice
+ *
+ * - **API ID**: `unsubscribe`
+ * - **Description**: Unsubscribe
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UnsubscribeSlice = prismic.SharedSlice<
+  "unsubscribe",
+  UnsubscribeSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -3793,6 +3999,8 @@ declare module "@prismicio/client" {
       MainServicesPageDocument,
       MainServicesPageDocumentData,
       MainServicesPageDocumentDataSlicesSlice,
+      NewsletterCtaDocument,
+      NewsletterCtaDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -3868,6 +4076,10 @@ declare module "@prismicio/client" {
       MainServicesSliceVariation,
       MainServicesSliceDefault,
       MainServicesSliceServicesAddons,
+      NewsletterSignupSlice,
+      NewsletterSignupSliceDefaultPrimary,
+      NewsletterSignupSliceVariation,
+      NewsletterSignupSliceDefault,
       ParagraphImageOverlapSlice,
       ParagraphImageOverlapSliceDefaultPrimary,
       ParagraphImageOverlapSliceVariation,
@@ -3925,6 +4137,10 @@ declare module "@prismicio/client" {
       TryptichSliceDefaultPrimary,
       TryptichSliceVariation,
       TryptichSliceDefault,
+      UnsubscribeSlice,
+      UnsubscribeSliceDefaultPrimary,
+      UnsubscribeSliceVariation,
+      UnsubscribeSliceDefault,
     };
   }
 }

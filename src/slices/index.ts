@@ -14,6 +14,7 @@ export const components = {
   info_list_wide_image: dynamic(() => import("./InfoListWideImage")),
   information_panel: dynamic(() => import("./InformationPanel")),
   main_services: dynamic(() => import("./MainServices")),
+  newsletter_signup: dynamic(() => import("./NewsletterSignup")),
   paragraph_image_overlap: dynamic(() => import("./ParagraphImageOverlap")),
   service_body: dynamic(() => import("./ServiceBody")),
   services_hero: dynamic(() => import("./ServicesHero")),
@@ -28,4 +29,5 @@ export const components = {
   timeline_large: dynamic(() => import("./TimelineLarge")),
   training_body: dynamic(() => import("./TrainingBody")),
   tryptich: dynamic(() => import("./Tryptich")),
+  unsubscribe: dynamic(() => import("./Unsubscribe")),
 };

@@ -10,6 +10,7 @@ import Footer from "@/components/Footer/Footer";
 import businessJsonLd from "./lib/structuredData/businessJsonLd";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import CTAModalProvider from "@/components/CTAModal/Provider/CTAModalProvider";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -41,12 +42,14 @@ export default function RootLayout({
         barlow.variable,
         herr.variable,
         aboreto.variable,
-        "antialiased"
+        "antialiased",
       )}
     >
       <body>
         <Header />
-        <main>{children}</main>
+        <main>
+          <CTAModalProvider>{children}</CTAModalProvider>
+        </main>
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
         <Script
