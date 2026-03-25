@@ -65,7 +65,8 @@ const UnsubscribeContent: FC<UnsubscribeProps> = ({ slice }) => {
         setIsLoading(true);
         const result = await unsubscribeFromNewsletter(email);
         setUnsubscribedState(result);
-      } catch {
+      } catch (error) {
+        console.error("Error unsubscribing from newsletter:", error);
         setUnsubscribedState({
           success: false,
           message: "An unexpected error occurred. Please try again.",
